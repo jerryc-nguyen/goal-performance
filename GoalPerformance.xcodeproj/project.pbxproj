@@ -8,20 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210CA91D4D040F0029990F /* AppDelegate.swift */; };
-		42210CAC1D4D040F0029990F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210CAB1D4D040F0029990F /* ViewController.swift */; };
 		42210CAF1D4D040F0029990F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42210CAD1D4D040F0029990F /* Main.storyboard */; };
 		42210CB11D4D040F0029990F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42210CB01D4D040F0029990F /* Assets.xcassets */; };
 		42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42210CB21D4D040F0029990F /* LaunchScreen.storyboard */; };
+		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
+		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
+		42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010191D4FA856002CD514 /* NewGoal.storyboard */; };
+		42F0101E1D4FA856002CD514 /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F0101A1D4FA856002CD514 /* Timeline.storyboard */; };
+		42F0101F1D4FA856002CD514 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F0101B1D4FA856002CD514 /* User.storyboard */; };
+		42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F010221D4FA925002CD514 /* LoginViewController.swift */; };
+		42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F010231D4FA925002CD514 /* MainTabBarController.swift */; };
+		42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F010271D4FAB1F002CD514 /* TimelineViewController.swift */; };
+		42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102A1D4FABBE002CD514 /* UserViewController.swift */; };
+		42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */; };
+		42F010301D4FAF5F002CD514 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102F1D4FAF5F002CD514 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		42210CA61D4D040F0029990F /* GoalPerformance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalPerformance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42210CA91D4D040F0029990F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42210CAB1D4D040F0029990F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		42210CAE1D4D040F0029990F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42210CB01D4D040F0029990F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42210CB31D4D040F0029990F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42210CB51D4D04100029990F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
+		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		42F010191D4FA856002CD514 /* NewGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
+		42F0101A1D4FA856002CD514 /* Timeline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
+		42F0101B1D4FA856002CD514 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		42F010221D4FA925002CD514 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		42F010231D4FA925002CD514 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		42F010271D4FAB1F002CD514 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		42F0102A1D4FABBE002CD514 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
+		42F0102F1D4FAF5F002CD514 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +74,96 @@
 		42210CA81D4D040F0029990F /* GoalPerformance */ = {
 			isa = PBXGroup;
 			children = (
+				42F010171D4FA7EC002CD514 /* StoryBoards */,
+				42F0100C1D4FA43B002CD514 /* Singleton */,
+				42F010091D4F9FB4002CD514 /* Models */,
+				42F010081D4F9FAA002CD514 /* API */,
+				42F010071D4F9F9E002CD514 /* Views */,
+				42F010061D4F9F8D002CD514 /* ViewControllers */,
 				42210CA91D4D040F0029990F /* AppDelegate.swift */,
-				42210CAB1D4D040F0029990F /* ViewController.swift */,
 				42210CAD1D4D040F0029990F /* Main.storyboard */,
 				42210CB01D4D040F0029990F /* Assets.xcassets */,
 				42210CB21D4D040F0029990F /* LaunchScreen.storyboard */,
 				42210CB51D4D04100029990F /* Info.plist */,
 			);
 			path = GoalPerformance;
+			sourceTree = "<group>";
+		};
+		42F010061D4F9F8D002CD514 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				42F0102C1D4FAC3A002CD514 /* NewGoalViewControllers */,
+				42F010291D4FAB6E002CD514 /* UserViewControllers */,
+				42F010261D4FAA94002CD514 /* TimelineViewControllers */,
+				42F010221D4FA925002CD514 /* LoginViewController.swift */,
+				42F010231D4FA925002CD514 /* MainTabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		42F010071D4F9F9E002CD514 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		42F010081D4F9FAA002CD514 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		42F010091D4F9FB4002CD514 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		42F0100C1D4FA43B002CD514 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				42F0100D1D4FA473002CD514 /* StoryboardManager.swift */,
+				42F0102F1D4FAF5F002CD514 /* Constants.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		42F010171D4FA7EC002CD514 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				42F010181D4FA856002CD514 /* Login.storyboard */,
+				42F010191D4FA856002CD514 /* NewGoal.storyboard */,
+				42F0101A1D4FA856002CD514 /* Timeline.storyboard */,
+				42F0101B1D4FA856002CD514 /* User.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		42F010261D4FAA94002CD514 /* TimelineViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				42F010271D4FAB1F002CD514 /* TimelineViewController.swift */,
+			);
+			path = TimelineViewControllers;
+			sourceTree = "<group>";
+		};
+		42F010291D4FAB6E002CD514 /* UserViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				42F0102A1D4FABBE002CD514 /* UserViewController.swift */,
+			);
+			path = UserViewControllers;
+			sourceTree = "<group>";
+		};
+		42F0102C1D4FAC3A002CD514 /* NewGoalViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */,
+			);
+			path = NewGoalViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +224,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */,
+				42F0101E1D4FA856002CD514 /* Timeline.storyboard in Resources */,
 				42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */,
 				42210CB11D4D040F0029990F /* Assets.xcassets in Resources */,
 				42210CAF1D4D040F0029990F /* Main.storyboard in Resources */,
+				42F0101F1D4FA856002CD514 /* User.storyboard in Resources */,
+				42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +241,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42210CAC1D4D040F0029990F /* ViewController.swift in Sources */,
+				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,
+				42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */,
+				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */,
+				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,
+				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
+				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
+				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +398,7 @@
 				42210CBA1D4D04100029990F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
