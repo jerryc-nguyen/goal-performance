@@ -22,6 +22,7 @@
 		42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102A1D4FABBE002CD514 /* UserViewController.swift */; };
 		42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */; };
 		42F010301D4FAF5F002CD514 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102F1D4FAF5F002CD514 /* Constants.swift */; };
+		874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,9 @@
 		42F0102A1D4FABBE002CD514 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		42F0102F1D4FAF5F002CD514 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		51AB9B7915E8FB1C8939CDC2 /* Pods-GoalPerformance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalPerformance.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance.release.xcconfig"; sourceTree = "<group>"; };
+		BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoalPerformance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D507D87978FC701EDF431D34 /* Pods-GoalPerformance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalPerformance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +53,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B4811E4B0ECBE716F7D2F0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		42210C9D1D4D040F0029990F = {
 			isa = PBXGroup;
 			children = (
 				42210CA81D4D040F0029990F /* GoalPerformance */,
 				42210CA71D4D040F0029990F /* Products */,
+				F12935C63977DEE64BD5514D /* Pods */,
+				2B4811E4B0ECBE716F7D2F0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +181,15 @@
 			path = NewGoalViewControllers;
 			sourceTree = "<group>";
 		};
+		F12935C63977DEE64BD5514D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D507D87978FC701EDF431D34 /* Pods-GoalPerformance.debug.xcconfig */,
+				51AB9B7915E8FB1C8939CDC2 /* Pods-GoalPerformance.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42210CB81D4D04100029990F /* Build configuration list for PBXNativeTarget "GoalPerformance" */;
 			buildPhases = (
+				DF063DC0BDB8EBCA09371D8B /* [CP] Check Pods Manifest.lock */,
 				42210CA21D4D040F0029990F /* Sources */,
 				42210CA31D4D040F0029990F /* Frameworks */,
 				42210CA41D4D040F0029990F /* Resources */,
+				8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */,
+				F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +262,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF063DC0BDB8EBCA09371D8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		42210CA21D4D040F0029990F /* Sources */ = {
@@ -359,6 +434,7 @@
 		};
 		42210CB91D4D04100029990F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D507D87978FC701EDF431D34 /* Pods-GoalPerformance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoalPerformance/Info.plist;
@@ -370,6 +446,7 @@
 		};
 		42210CBA1D4D04100029990F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51AB9B7915E8FB1C8939CDC2 /* Pods-GoalPerformance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoalPerformance/Info.plist;
