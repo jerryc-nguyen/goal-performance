@@ -19,13 +19,14 @@ As a user, I want to use Goal Performance App to
 - [ ] update my profile (name, profile picture, etc.)
 - [ ] give stars and comment on my friends’ as well as my performance
 - [ ] chat with my friends
+
 **Optional** 
+
 - [ ] be rewarded after I accomplish my goal
 - [ ] define my goal
 - [ ] create my new account with my email
 - [ ] add more information into my profile
 - [ ] set sound for my reminder
 - [ ] be suggested people to connect with
-- 
 
 View [Mockup](https://projects.invisionapp.com/d/main#/console/8322483/178221336/preview)
