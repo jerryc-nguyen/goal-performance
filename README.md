@@ -28,5 +28,4 @@ As a user, I want to use Awesome Goal App to
 - [ ] be suggested people to connect with
 - 
 
-**Mockup**
-[Mockup](https://projects.invisionapp.com/d/main#/console/8322483/178221336/preview)
+View [Mockup](https://projects.invisionapp.com/d/main#/console/8322483/178221336/preview)
