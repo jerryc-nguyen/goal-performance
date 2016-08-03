@@ -1,7 +1,7 @@
 # goal-performance
 Final group project for swift cource at coderschool.vn 
 ## User stories:
-As a user, I want to use Awesome Goal App to
+As a user, I want to use Goal Performance App to
 
 - [ ] login/ logout the app with my Facebook account
 - [ ] choose a default category
