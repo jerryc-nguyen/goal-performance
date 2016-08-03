@@ -11,6 +11,11 @@
 		42210CAF1D4D040F0029990F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42210CAD1D4D040F0029990F /* Main.storyboard */; };
 		42210CB11D4D040F0029990F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42210CB01D4D040F0029990F /* Assets.xcassets */; };
 		42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42210CB21D4D040F0029990F /* LaunchScreen.storyboard */; };
+		426303361D525455007C1963 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426303351D525455007C1963 /* APIClient.swift */; };
+		426303381D525659007C1963 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426303371D525659007C1963 /* APIResponse.swift */; };
+		4263033A1D525794007C1963 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426303391D525794007C1963 /* Auth.swift */; };
+		4263033C1D525966007C1963 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033B1D525966007C1963 /* Friends.swift */; };
+		4263033E1D526687007C1963 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033D1D526687007C1963 /* User.swift */; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
 		42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010191D4FA856002CD514 /* NewGoal.storyboard */; };
@@ -32,6 +37,11 @@
 		42210CB01D4D040F0029990F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42210CB31D4D040F0029990F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42210CB51D4D04100029990F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		426303351D525455007C1963 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		426303371D525659007C1963 /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		426303391D525794007C1963 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		4263033B1D525966007C1963 /* Friends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		4263033D1D526687007C1963 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42F010191D4FA856002CD514 /* NewGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
@@ -126,6 +136,10 @@
 		42F010081D4F9FAA002CD514 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				426303351D525455007C1963 /* APIClient.swift */,
+				426303371D525659007C1963 /* APIResponse.swift */,
+				426303391D525794007C1963 /* Auth.swift */,
+				4263033B1D525966007C1963 /* Friends.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -133,6 +147,7 @@
 		42F010091D4F9FB4002CD514 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4263033D1D526687007C1963 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -316,14 +331,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4263033E1D526687007C1963 /* User.swift in Sources */,
 				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,
 				42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
+				426303381D525659007C1963 /* APIResponse.swift in Sources */,
 				42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */,
 				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,
+				4263033A1D525794007C1963 /* Auth.swift in Sources */,
+				4263033C1D525966007C1963 /* Friends.swift in Sources */,
 				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
+				426303361D525455007C1963 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

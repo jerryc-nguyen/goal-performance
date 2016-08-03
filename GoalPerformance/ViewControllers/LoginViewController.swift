@@ -11,7 +11,12 @@ import UIKit
 class LoginViewController: UIViewController {
     
     @IBAction func onLoginButton(sender: AnyObject) {
-        APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
+        //test API
+        APIClient.sharedInstance.friends { (friends) in
+            print("Friends", friends)
+        }
+        
+//        APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
     }
 
     override func viewDidLoad() {

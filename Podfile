@@ -7,8 +7,7 @@ target 'GoalPerformance' do
 	
   # Pods for GoalPerformance
   
-  pod 'BDBOAuth1Manager'
-  pod 'AFNetworking'
+  pod 'SDWebImage', '~>3.8'
   pod 'Charts/Realm'
   pod 'Alamofire', '~> 3.4'
  
