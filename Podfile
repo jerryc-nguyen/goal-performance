@@ -11,5 +11,8 @@ target 'GoalPerformance' do
   pod 'AFNetworking'
   pod 'Charts/Realm'
   pod 'Alamofire', '~> 3.4'
- 
+  pod 'Bolts'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
 end
