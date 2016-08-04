@@ -10,5 +10,10 @@ target 'GoalPerformance' do
   pod 'SDWebImage', '~>3.8'
   pod 'Charts/Realm'
   pod 'Alamofire', '~> 3.4'
+  
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
+
  
 end
