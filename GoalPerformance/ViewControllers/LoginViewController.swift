@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
         APIClient.sharedInstance.friends { (friends) in
             print("Friends", friends)
         }
+    }
 
         //APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
 

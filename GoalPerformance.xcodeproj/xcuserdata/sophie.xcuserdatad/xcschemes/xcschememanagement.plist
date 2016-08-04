@@ -4,15 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Emotional Clock.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>GoalPerformance.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>42210CA51D4D040F0029990F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>592FEC931CF72E9400149BAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
