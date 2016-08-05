@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Invite View Controller-->
+        <scene sceneID="cGw-if-Nwf">
+            <objects>
+                <viewController id="XbF-aQ-5Qt" customClass="InviteViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HfI-UM-8I7"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Ka-NT-xEb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xrw-jL-6Mc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want to make your goal a challenge and inview your friends to join you?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3K-Bk-rdf">
+                                <rect key="frame" x="31" y="40" width="258" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLq-cc-90o">
+                                <rect key="frame" x="46" y="121" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="LaB-aj-fim"/>
+                                    <constraint firstAttribute="width" constant="16" id="MYE-Az-MWU"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="check"/>
+                                <connections>
+                                    <action selector="onChallengeClick:" destination="XbF-aQ-5Qt" eventType="touchUpInside" id="rLu-I0-Ikk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make it a challenge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSR-sW-KfV">
+                                <rect key="frame" x="82" y="118.5" width="147" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZc-iP-RRj">
+                                <rect key="frame" x="110" y="438" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.59674125909805298" green="0.80233383178710938" blue="0.92348569631576538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="n9D-Fm-dnH"/>
+                                </constraints>
+                                <state key="normal" title="Invite Friend">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="t3K-Bk-rdf" firstAttribute="centerX" secondItem="Xrw-jL-6Mc" secondAttribute="centerX" id="43N-m8-fTP"/>
+                            <constraint firstItem="t3K-Bk-rdf" firstAttribute="leading" secondItem="Xrw-jL-6Mc" secondAttribute="leadingMargin" constant="119" id="52Q-CV-yQZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t3K-Bk-rdf" secondAttribute="trailing" constant="20" id="CTK-jz-gNS"/>
+                            <constraint firstItem="FLq-cc-90o" firstAttribute="leading" secondItem="Xrw-jL-6Mc" secondAttribute="leadingMargin" constant="30" id="DT2-Bz-5wJ"/>
+                            <constraint firstItem="t3K-Bk-rdf" firstAttribute="leading" secondItem="Xrw-jL-6Mc" secondAttribute="leadingMargin" constant="15" id="Gw1-nH-GBZ"/>
+                            <constraint firstItem="FLq-cc-90o" firstAttribute="top" secondItem="t3K-Bk-rdf" secondAttribute="bottom" constant="20" id="I0x-EH-dkY"/>
+                            <constraint firstItem="DSR-sW-KfV" firstAttribute="centerY" secondItem="FLq-cc-90o" secondAttribute="centerY" id="NRA-Ja-N8L"/>
+                            <constraint firstItem="DSR-sW-KfV" firstAttribute="leading" secondItem="FLq-cc-90o" secondAttribute="trailing" constant="20" id="QL9-sl-SQr"/>
+                            <constraint firstItem="t3K-Bk-rdf" firstAttribute="leading" secondItem="Xrw-jL-6Mc" secondAttribute="leadingMargin" constant="20" id="VyL-xl-UlC"/>
+                            <constraint firstItem="XZc-iP-RRj" firstAttribute="centerX" secondItem="Xrw-jL-6Mc" secondAttribute="centerX" id="cBh-0k-tia"/>
+                            <constraint firstItem="t3K-Bk-rdf" firstAttribute="top" secondItem="HfI-UM-8I7" secondAttribute="bottom" constant="46" id="i6c-EC-gwc"/>
+                            <constraint firstItem="9Ka-NT-xEb" firstAttribute="top" secondItem="XZc-iP-RRj" secondAttribute="bottom" constant="100" id="jZQ-Uv-iCz"/>
+                            <constraint firstItem="t3K-Bk-rdf" firstAttribute="top" secondItem="HfI-UM-8I7" secondAttribute="bottom" constant="20" id="yK7-cA-lOh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="52Q-CV-yQZ"/>
+                                <exclude reference="CTK-jz-gNS"/>
+                                <exclude reference="VyL-xl-UlC"/>
+                                <exclude reference="i6c-EC-gwc"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="challengeButton" destination="FLq-cc-90o" id="6e1-6P-LEl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VBN-6f-eN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="249"/>
+        </scene>
+        <!--Select Invite Friend View Controller-->
+        <scene sceneID="Oib-gu-VTY">
+            <objects>
+                <viewController id="dA2-Nc-lfq" customClass="SelectInviteFriendViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3DY-hU-dM8"/>
+                        <viewControllerLayoutGuide type="bottom" id="LLJ-Xv-Mpc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K1H-hj-O3C">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite with email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmj-rs-QXo">
+                                <rect key="frame" x="25" y="40" width="122.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your friend's email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grH-oC-lju">
+                                <rect key="frame" x="25" y="81" width="270" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggested friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krD-P4-O9k">
+                                <rect key="frame" x="25" y="129" width="140.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5i-mn-EoR">
+                                <rect key="frame" x="20" y="170" width="280" height="378"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="JZv-RV-etM">
+                                        <rect key="frame" x="0.0" y="28" width="280" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JZv-RV-etM" id="bbF-Mk-8MI">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="107.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAx-Be-LQg">
+                                                    <rect key="frame" x="8" y="14" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="Yti-Q4-kFB"/>
+                                                        <constraint firstAttribute="height" constant="60" id="ijq-hX-IR1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLh-DG-BeY">
+                                                    <rect key="frame" x="157" y="10" width="37" height="30"/>
+                                                    <state key="normal" title="Invite"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-F2-vGv">
+                                                    <rect key="frame" x="204" y="10" width="68" height="30"/>
+                                                    <state key="normal" title="Connect"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-oS-JQV">
+                                                    <rect key="frame" x="90" y="43" width="98.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFd-2k-JQF">
+                                                    <rect key="frame" x="90" y="14" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DcH-oS-JQV" firstAttribute="leading" secondItem="dFd-2k-JQF" secondAttribute="leading" id="6Sf-Mv-bBQ"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="nAx-Be-LQg" secondAttribute="leading" id="Hhe-rM-5XH"/>
+                                                <constraint firstItem="DLh-DG-BeY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dFd-2k-JQF" secondAttribute="trailing" constant="5" id="LRu-KC-5DH"/>
+                                                <constraint firstItem="dFd-2k-JQF" firstAttribute="top" secondItem="nAx-Be-LQg" secondAttribute="top" id="N7C-DG-6mR"/>
+                                                <constraint firstItem="DLh-DG-BeY" firstAttribute="centerY" secondItem="dFd-2k-JQF" secondAttribute="centerY" id="NbI-Js-D4V"/>
+                                                <constraint firstItem="dFd-2k-JQF" firstAttribute="leading" secondItem="nAx-Be-LQg" secondAttribute="trailing" constant="22" id="bWR-LK-9oA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JbI-F2-vGv" secondAttribute="trailing" id="c5U-dy-dQT"/>
+                                                <constraint firstItem="JbI-F2-vGv" firstAttribute="leading" secondItem="DLh-DG-BeY" secondAttribute="trailing" constant="15" id="cBq-gn-TPK"/>
+                                                <constraint firstItem="DcH-oS-JQV" firstAttribute="top" secondItem="dFd-2k-JQF" secondAttribute="bottom" constant="8" id="hHC-70-smv"/>
+                                                <constraint firstItem="JbI-F2-vGv" firstAttribute="centerY" secondItem="dFd-2k-JQF" secondAttribute="centerY" id="ijo-e9-y9a"/>
+                                                <constraint firstItem="nAx-Be-LQg" firstAttribute="top" secondItem="bbF-Mk-8MI" secondAttribute="topMargin" constant="6" id="s6V-la-yJi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="grH-oC-lju" firstAttribute="centerX" secondItem="K1H-hj-O3C" secondAttribute="centerX" id="9tn-HW-mke"/>
+                            <constraint firstItem="krD-P4-O9k" firstAttribute="leading" secondItem="Wmj-rs-QXo" secondAttribute="leading" id="AvH-sQ-qBA"/>
+                            <constraint firstItem="Wmj-rs-QXo" firstAttribute="top" secondItem="3DY-hU-dM8" secondAttribute="bottom" constant="20" id="Dce-It-bic"/>
+                            <constraint firstItem="krD-P4-O9k" firstAttribute="top" secondItem="grH-oC-lju" secondAttribute="bottom" constant="18" id="JDB-YP-g7W"/>
+                            <constraint firstItem="h5i-mn-EoR" firstAttribute="leading" secondItem="K1H-hj-O3C" secondAttribute="leading" constant="20" id="M9T-XQ-NCJ"/>
+                            <constraint firstItem="h5i-mn-EoR" firstAttribute="leading" secondItem="krD-P4-O9k" secondAttribute="trailing" constant="-125.5" id="NyG-B9-zPT"/>
+                            <constraint firstItem="h5i-mn-EoR" firstAttribute="top" secondItem="krD-P4-O9k" secondAttribute="bottom" constant="20" id="Pss-Hg-93J"/>
+                            <constraint firstItem="Wmj-rs-QXo" firstAttribute="leading" secondItem="K1H-hj-O3C" secondAttribute="leading" constant="25" id="QgL-oN-0At"/>
+                            <constraint firstItem="h5i-mn-EoR" firstAttribute="centerX" secondItem="K1H-hj-O3C" secondAttribute="centerX" id="U92-j3-UdA"/>
+                            <constraint firstItem="grH-oC-lju" firstAttribute="top" secondItem="Wmj-rs-QXo" secondAttribute="bottom" constant="20" id="ZG3-vw-r3K"/>
+                            <constraint firstItem="grH-oC-lju" firstAttribute="leading" secondItem="Wmj-rs-QXo" secondAttribute="leading" id="eCN-vw-HAF"/>
+                            <constraint firstItem="LLJ-Xv-Mpc" firstAttribute="top" secondItem="h5i-mn-EoR" secondAttribute="bottom" constant="20" id="gUm-6Z-0j8"/>
+                            <constraint firstItem="h5i-mn-EoR" firstAttribute="leading" secondItem="krD-P4-O9k" secondAttribute="trailing" constant="-125.5" id="oeb-JV-H91"/>
+                            <constraint firstAttribute="trailing" secondItem="h5i-mn-EoR" secondAttribute="trailing" constant="40" id="pc3-lq-xy6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="NyG-B9-zPT"/>
+                                <exclude reference="oeb-JV-H91"/>
+                                <exclude reference="pc3-lq-xy6"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="suggestFriendTableView" destination="h5i-mn-EoR" id="au7-op-547"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RSX-88-V0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="595" y="249"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="check" width="16" height="16"/>
+    </resources>
+</document>
