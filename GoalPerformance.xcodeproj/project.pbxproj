@@ -32,6 +32,9 @@
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
 		E07B398A1D54821E0000FA93 /* suggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39891D54821E0000FA93 /* suggestFriendTableViewCell.swift */; };
+		E414FE361D55BAE80095068B /* GoalIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414FE351D55BAE80095068B /* GoalIntervalTableViewController.swift */; };
+		E414FE381D55BB1E0095068B /* DefineGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414FE371D55BB1E0095068B /* DefineGoalViewController.swift */; };
+		E44C523C1D55C07600D93A98 /* DurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C523B1D55C07600D93A98 /* DurationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
 		E07B39891D54821E0000FA93 /* suggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suggestFriendTableViewCell.swift; sourceTree = "<group>"; };
+		E414FE351D55BAE80095068B /* GoalIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalIntervalTableViewController.swift; sourceTree = "<group>"; };
+		E414FE371D55BB1E0095068B /* DefineGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineGoalViewController.swift; sourceTree = "<group>"; };
+		E44C523B1D55C07600D93A98 /* DurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +208,10 @@
 		42F0102C1D4FAC3A002CD514 /* NewGoalViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E414FE371D55BB1E0095068B /* DefineGoalViewController.swift */,
 				42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */,
+				E414FE351D55BAE80095068B /* GoalIntervalTableViewController.swift */,
+				E44C523B1D55C07600D93A98 /* DurationViewController.swift */,
 			);
 			path = NewGoalViewControllers;
 			sourceTree = "<group>";
@@ -360,11 +369,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E414FE381D55BB1E0095068B /* DefineGoalViewController.swift in Sources */,
 				E07B398A1D54821E0000FA93 /* suggestFriendTableViewCell.swift in Sources */,
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
 				4263033E1D526687007C1963 /* User.swift in Sources */,
 				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,
 				42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */,
+				E44C523C1D55C07600D93A98 /* DurationViewController.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				426303381D525659007C1963 /* APIResponse.swift in Sources */,
 				E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */,
@@ -376,6 +387,7 @@
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
 				426303361D525455007C1963 /* APIClient.swift in Sources */,
+				E414FE361D55BAE80095068B /* GoalIntervalTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

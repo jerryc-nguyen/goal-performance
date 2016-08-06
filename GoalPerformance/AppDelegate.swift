@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
-        self.window?.rootViewController = loginVC
+//        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
+//        self.window?.rootViewController = loginVC
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
