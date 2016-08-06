@@ -12,6 +12,8 @@ class SelectInviteFriendViewController: UIViewController {
 
     @IBOutlet weak var suggestFriendTableView: UITableView!
     
+    @IBOutlet weak var emailTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

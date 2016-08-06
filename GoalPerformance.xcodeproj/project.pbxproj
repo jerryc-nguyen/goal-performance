@@ -31,7 +31,7 @@
 		E07B39831D5481A70000FA93 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B39821D5481A70000FA93 /* InviteFriend.storyboard */; };
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
-		E07B398A1D54821E0000FA93 /* suggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39891D54821E0000FA93 /* suggestFriendTableViewCell.swift */; };
+		E07B398D1D5483AC0000FA93 /* suggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +63,7 @@
 		E07B39821D5481A70000FA93 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
-		E07B39891D54821E0000FA93 /* suggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suggestFriendTableViewCell.swift; sourceTree = "<group>"; };
+		E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suggestFriendTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +219,7 @@
 		E07B398B1D5482310000FA93 /* InviteFriendViews */ = {
 			isa = PBXGroup;
 			children = (
-				E07B39891D54821E0000FA93 /* suggestFriendTableViewCell.swift */,
+				E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */,
 			);
 			name = InviteFriendViews;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E07B398A1D54821E0000FA93 /* suggestFriendTableViewCell.swift in Sources */,
+				E07B398D1D5483AC0000FA93 /* suggestFriendTableViewCell.swift in Sources */,
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
 				4263033E1D526687007C1963 /* User.swift in Sources */,
 				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,

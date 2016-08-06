@@ -10,6 +10,9 @@ import UIKit
 
 class suggestFriendTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageFriend: UIImageView!
+    @IBOutlet weak var nameFriend: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +23,14 @@ class suggestFriendTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func inviteFriendOnClick(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func connectFriendOnClick(sender: UIButton) {
+        
+    }
+    
 
 }
