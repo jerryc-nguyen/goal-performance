@@ -1,37 +1,32 @@
 //
-//  StartGoalNotifyViewController.swift
+//  EndGoalNotifyViewController.swift
 //  GoalPerformance
 //
-//  Created by Welcome on 8/6/16.
+//  Created by Welcome on 8/7/16.
 //  Copyright © 2016 Group 7. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
-class StartGoalNotifyViewController: UIViewController {
+class EndGoalNotifyViewController: UIViewController {
     
     var notificationData: AnyObject?
     var isViewOpenByUser: Bool = false
     var player: AVAudioPlayer?
     
-    @IBAction func onDoNowButton(sender: AnyObject) {
-    }
+    @IBOutlet weak var scoreTxt: UITextField!
     
-    @IBAction func onRemindLaterButton(sender: AnyObject) {
-    }
-    
-    @IBAction func onNotDoButton(sender: AnyObject) {
+    @IBAction func onDoneButton(sender: AnyObject) {
         let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
         if let window = self.view.window {
             window.rootViewController = loginVC
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if !isViewOpenByUser {
             let url = NSBundle.mainBundle().URLForResource(AlarmSoundName, withExtension: AlarmSoundExtension)!
             

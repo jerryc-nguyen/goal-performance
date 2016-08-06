@@ -21,8 +21,12 @@ class Goal: NSObject {
     var isDefault: Bool = false
     let token: String?
     
-    var notificationKey: String {
-        return "goal-\(self.id)"
+    var notificationStartKey: String {
+        return "goal-\(self.id)-start"
+    }
+    
+    var notificationEndKey: String {
+        return "goal-\(self.id)-end"
     }
     
     init(dictionary: NSDictionary) {

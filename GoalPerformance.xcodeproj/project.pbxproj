@@ -21,6 +21,7 @@
 		4263F9141D55CFD000C119DB /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */; };
 		4263F9161D55FD2600C119DB /* GoalStartEnd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */; };
 		4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */; };
+		429ACA1F1D5655D100C17A64 /* EndGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ACA1E1D5655D100C17A64 /* EndGoalNotifyViewController.swift */; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
 		42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010191D4FA856002CD514 /* NewGoal.storyboard */; };
@@ -59,6 +60,7 @@
 		4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoalStartEnd.storyboard; sourceTree = "<group>"; };
 		4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/StartGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
+		429ACA1E1D5655D100C17A64 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42F010191D4FA856002CD514 /* NewGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */,
+				429ACA1E1D5655D100C17A64 /* EndGoalNotifyViewController.swift */,
 			);
 			name = GoalStartEndViewControllers;
 			path = GoalStartEnd;
@@ -396,6 +399,7 @@
 			files = (
 				E414FE381D55BB1E0095068B /* DefineGoalViewController.swift in Sources */,
 				4263F9141D55CFD000C119DB /* LocalNotificationsManager.swift in Sources */,
+				429ACA1F1D5655D100C17A64 /* EndGoalNotifyViewController.swift in Sources */,
 				E07B398A1D54821E0000FA93 /* suggestFriendTableViewCell.swift in Sources */,
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
 				4263033E1D526687007C1963 /* User.swift in Sources */,
