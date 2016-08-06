@@ -22,9 +22,13 @@ struct API_URLS {
     //FRIENDSHIPS
     static let requestFriend = "\(APIBaseURL)/api/friendships/request_friend.json"
     static let acceptFriend = "\(APIBaseURL)/api/friendships/accept_friend.json"
+    
+    //GOALS
+    static let createGoal = "\(APIBaseURL)/api/goals.json"
 }
 
 class APIClient {
     static let sharedInstance = APIClient()
+    
     
 }
