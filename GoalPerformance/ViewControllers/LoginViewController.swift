@@ -20,8 +20,6 @@ class LoginViewController: UIViewController {
         }
     }
 
-        //APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,26 +27,12 @@ class LoginViewController: UIViewController {
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             
-            // User is already logged in, do work such as go to next view controller.
-            let pictureRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, email, friends"])
-            pictureRequest.startWithCompletionHandler({
-                (connection, result, error: NSError!) -> Void in
+            print("currentAccessToken", FBSDKAccessToken.currentAccessToken())
+            APIClient.sharedInstance.loginFacebook(FBSDKAccessToken.currentAccessToken().tokenString, completed: { (currentUser) in
+                print("currentUser token", currentUser.token)
                 
-                if error == nil && result != nil {
-                    APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
-                }
+                //APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
             })
-            
-            /*
-            // Or Show Logout Button
-            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-            self.view.addSubview(loginView)
-            loginView.center = self.view.center
-            loginView.readPermissions = ["public_profile", "email", "user_friends"]
-            loginView.delegate = self
-            self.returnUserData()
-             */
-            
             
         }
         else

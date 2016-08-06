@@ -14,12 +14,14 @@ class User: NSObject {
     let firstName: String?
     let lastName: String?
     let email: String?
+    let token: String?
     
     init(dictionary: NSDictionary) {
         displayName = dictionary["display_name"] as? String
         firstName = dictionary["first_name"] as? String
         lastName = dictionary["last_name"] as? String
         email = dictionary["email"] as? String
+        token = dictionary["token"] as? String
     }
     
 }
