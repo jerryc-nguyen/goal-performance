@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class StartGoalNotifyViewController: UIViewController {
     
     var notificationData: AnyObject?
+    var isViewOpenByUser: Bool = false
+    var player: AVAudioPlayer?
     
     @IBAction func onDoNowButton(sender: AnyObject) {
     }
@@ -30,6 +33,19 @@ class StartGoalNotifyViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if !isViewOpenByUser {
+            let url = NSBundle.mainBundle().URLForResource(AlarmSoundName, withExtension: AlarmSoundExtension)!
+            
+            do {
+                player = try AVAudioPlayer(contentsOfURL: url)
+                guard let player = player else { return }
+                
+                player.prepareToPlay()
+                player.play()
+            } catch let error as NSError {
+                print(error.description)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

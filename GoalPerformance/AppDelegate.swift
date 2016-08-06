@@ -13,18 +13,28 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    let localNotificationManager = LocalNotificationsManager.sharedInstance
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // Override point for customization after application launch.
-
-//        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
-        
-        LocalNotificationsManager.sharedInstance.setupStartGoalNotificationSettings()
+        localNotificationManager.window = window
+        localNotificationManager.setupStartGoalNotificationSettings()
         
         let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
         self.window?.rootViewController = loginVC
+        
+        
+        // Handle notification: 
+        // http://stackoverflow.com/questions/16393673/detect-if-the-app-was-launched-opened-from-a-push-notification
+        if (launchOptions != nil) {
+            
+            // For local Notification
+            if let localNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+                localNotificationManager.isViewOpenByUser = true
+                localNotificationManager.handleLocalPushNotification(localNotification)
+            }
+        }
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
@@ -61,24 +71,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         print("received notification", notification.userInfo)
-        if let notificationName = notification.userInfo!["notificationName"] as? String {
-            switch(notificationName) {
-            case "startGoal":
-                print("Start goal")
-                let startGoalNotifyVC = StoryboardManager.sharedInstance.getViewController("StartGoalNotifyViewController", storyboard: "GoalStartEnd") as! StartGoalNotifyViewController
-                startGoalNotifyVC.notificationData = notification.userInfo
-                self.window?.rootViewController = startGoalNotifyVC
-            case "endGoal":
-                print("End goal")
-//                let startGoalNotifyVC = StoryboardManager.sharedInstance.getViewController("StartGoalNotifyViewController", storyboard: "GoalStartEnd") as! StartGoalNotifyViewController
-//                self.window?.rootViewController = startGoalNotifyVC
-                
-            default:
-                return
-            }
-        }
-    
-        
+        localNotificationManager.window = window
+        localNotificationManager.isViewOpenByUser = false
+        localNotificationManager.handleLocalPushNotification(notification)
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
