@@ -16,7 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
+        
+//        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
+        
+        var types: UIUserNotificationType = UIUserNotificationType()
+        types.insert(UIUserNotificationType.Alert)
+        types.insert(UIUserNotificationType.Badge)
+        types.insert(UIUserNotificationType.Sound)
+        
+        let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
         let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
         self.window?.rootViewController = loginVC

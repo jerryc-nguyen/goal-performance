@@ -12,12 +12,33 @@ import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
     
-    @IBAction func onLoginButton(sender: AnyObject) {
+    @IBAction func onNotificationButton(sender: AnyObject) {
         
         //test API
-        APIClient.sharedInstance.friends { (friends) in
-            print("Friends", friends)
-        }
+//        APIClient.sharedInstance.friends { (friends) in
+//            print("Friends", friends)
+//        }
+        let goalData = [
+                "id": 1,
+                "name": "Swimming everyday! at 14:20",
+                "start_at": "2016-08-06T06:00:00.000+07:00",
+                "repeat_every": "",
+                "duration": 10,
+                "sound_name": "sound_name",
+                "is_challenge": true,
+                "is_default": true
+        ]
+        
+        let goalItem = Goal(dictionary: goalData)
+        let today = NSDate()
+        goalItem.startAt = today.dateByAddingTimeInterval(10)
+        LocalNotificationsManager.sharedInstance.registerGoalStartingNotification(goalItem)
+        
+        print("Notification at:", goalItem.startAt)
+        print("Registered notify!", goalItem.notificationKey)
+        
+        LocalNotificationsManager.sharedInstance.showAllRegisteredNotification()
+        
     }
 
     override func viewDidLoad() {

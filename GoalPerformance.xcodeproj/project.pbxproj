@@ -16,6 +16,9 @@
 		4263033A1D525794007C1963 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426303391D525794007C1963 /* Auth.swift */; };
 		4263033C1D525966007C1963 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033B1D525966007C1963 /* Friends.swift */; };
 		4263033E1D526687007C1963 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033D1D526687007C1963 /* User.swift */; };
+		4263F9101D558B9100C119DB /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F90F1D558B9100C119DB /* Goals.swift */; };
+		4263F9121D558C9B00C119DB /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F9111D558C9B00C119DB /* Goal.swift */; };
+		4263F9141D55CFD000C119DB /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
 		42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010191D4FA856002CD514 /* NewGoal.storyboard */; };
@@ -46,6 +49,9 @@
 		426303391D525794007C1963 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		4263033B1D525966007C1963 /* Friends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		4263033D1D526687007C1963 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4263F90F1D558B9100C119DB /* Goals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
+		4263F9111D558C9B00C119DB /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42F010191D4FA856002CD514 /* NewGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 				426303371D525659007C1963 /* APIResponse.swift */,
 				426303391D525794007C1963 /* Auth.swift */,
 				4263033B1D525966007C1963 /* Friends.swift */,
+				4263F90F1D558B9100C119DB /* Goals.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				4263033D1D526687007C1963 /* User.swift */,
+				4263F9111D558C9B00C119DB /* Goal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 			children = (
 				42F0100D1D4FA473002CD514 /* StoryboardManager.swift */,
 				42F0102F1D4FAF5F002CD514 /* Constants.swift */,
+				4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -360,11 +369,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4263F9141D55CFD000C119DB /* LocalNotificationsManager.swift in Sources */,
 				E07B398A1D54821E0000FA93 /* suggestFriendTableViewCell.swift in Sources */,
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
 				4263033E1D526687007C1963 /* User.swift in Sources */,
 				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,
 				42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */,
+				4263F9101D558B9100C119DB /* Goals.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				426303381D525659007C1963 /* APIResponse.swift in Sources */,
 				E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */,
@@ -375,6 +386,7 @@
 				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
+				4263F9121D558C9B00C119DB /* Goal.swift in Sources */,
 				426303361D525455007C1963 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoalPerformance/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift4.GoalPerformance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GoalPerformance/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swift4.GoalPerformance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
