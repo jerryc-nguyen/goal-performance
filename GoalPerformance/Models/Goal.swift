@@ -11,8 +11,8 @@ import UIKit
 
 class Goal: NSObject {
     
-    let id: Int?
-    let name: String?
+    let id: Int!
+    let name: String!
     var startAt: NSDate?
     let repeatEvery: String?
     var duration: Int = 0

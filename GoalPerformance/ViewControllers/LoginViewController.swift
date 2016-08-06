@@ -31,8 +31,8 @@ class LoginViewController: UIViewController {
         
         let goalItem = Goal(dictionary: goalData)
         let today = NSDate()
-        goalItem.startAt = today.dateByAddingTimeInterval(10)
-        LocalNotificationsManager.sharedInstance.registerGoalStartingNotification(goalItem)
+        goalItem.startAt = today.dateByAddingTimeInterval(5)
+        LocalNotificationsManager.sharedInstance.registerStartGoalNotification(goalItem)
         
         print("Notification at:", goalItem.startAt)
         print("Registered notify!", goalItem.notificationKey)
