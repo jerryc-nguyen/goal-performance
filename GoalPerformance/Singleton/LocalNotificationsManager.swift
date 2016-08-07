@@ -8,11 +8,21 @@
 
 import UIKit
 
+let AlarmSoundName = "clockalarm"
+let AlarmSoundExtension = "caf"
 let StartGoalNotificationActionCategory = "StartGoalNotificationActionCategory"
+
+struct LocalNotificationName {
+    static let StartGoal: String = "StartGoal"
+    static let EndGoal: String = "EndGoal"
+}
 
 class LocalNotificationsManager {
     
     static let sharedInstance = LocalNotificationsManager()
+    
+    var window: UIWindow?
+    var isViewOpenByUser: Bool = false
     
     func setupStartGoalNotificationSettings() {
 
@@ -62,15 +72,15 @@ class LocalNotificationsManager {
     func registerStartGoalNotification(goal: Goal) {
         // clear old notification data
         clearAllNotification()
-        removeNotificationItemFor(goal.notificationKey)
+        removeNotificationItemFor(goal.notificationStartKey)
         
         let notification = UILocalNotification()
         let message = "Goal \(goal.name) ending time!" // text that will be displayed in the notification
         notification.alertBody = message // text that will be displayed in the notification
         notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
         notification.fireDate = goal.startAt // todo item due date (when notification will be fired)
-        notification.soundName = "clockalarm.caf" // play default sound
-        notification.userInfo = ["message": message, "UUID": goal.notificationKey, "notificationName": "startGoal"] // assign a unique identifier to the notification so that we can retrieve it later
+        notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
+        notification.userInfo = ["message": message, "UUID": goal.notificationStartKey, "notificationName": LocalNotificationName.StartGoal] // assign a unique identifier to the notification so that we can retrieve it later
         notification.category = StartGoalNotificationActionCategory
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
@@ -79,15 +89,15 @@ class LocalNotificationsManager {
         
         // clear old notification data
         clearAllNotification()
-        removeNotificationItemFor(goal.notificationKey)
+        removeNotificationItemFor(goal.notificationEndKey)
         
         let notification = UILocalNotification()
         let message = "Goal \(goal.name) ending time!" // text that will be displayed in the notification
         notification.alertBody = message
         notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
         notification.fireDate = goal.startAt // todo item due date (when notification will be fired)
-        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-        notification.userInfo = ["message": message, "UUID": goal.notificationKey, "notificationName": "endGoal"] // assign a unique identifier to the notification so that we can retrieve it later
+        notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
+        notification.userInfo = ["message": message, "UUID": goal.notificationEndKey, "notificationName": LocalNotificationName.EndGoal] // assign a unique identifier to the notification so that we can retrieve it later
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
@@ -125,5 +135,36 @@ class LocalNotificationsManager {
     func handleEndGoalNotification(notification: UILocalNotification) {
         
     }
+    
+    func showStartGoalVCFor(notification: UILocalNotification) {
+        let startGoalNotifyVC = StoryboardManager.sharedInstance.getViewController("StartGoalNotifyViewController", storyboard: "GoalStartEnd") as! StartGoalNotifyViewController
+        startGoalNotifyVC.notificationData = notification.userInfo
+        startGoalNotifyVC.isViewOpenByUser = isViewOpenByUser
+        window?.rootViewController = startGoalNotifyVC
+    }
+    
+    func showEndGoalVCFor(notification: UILocalNotification) {
+        let endGoalNotifyVC = StoryboardManager.sharedInstance.getViewController("EndGoalNotifyViewController", storyboard: "GoalStartEnd") as! EndGoalNotifyViewController
+        endGoalNotifyVC.notificationData = notification.userInfo
+        endGoalNotifyVC.isViewOpenByUser = isViewOpenByUser
+        window?.rootViewController = endGoalNotifyVC
+    }
+    
+    func handleLocalPushNotification(notification: UILocalNotification) {
+        if let notificationName = notification.userInfo!["notificationName"] as? String {
+            switch(notificationName) {
+            case LocalNotificationName.StartGoal:
+                print("Start goal")
+                showStartGoalVCFor(notification)
+            case LocalNotificationName.EndGoal:
+                print("End goal")
+                showEndGoalVCFor(notification)
+                
+            default:
+                return
+            }
+        }
+    }
+    
     
 }
