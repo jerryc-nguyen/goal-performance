@@ -35,8 +35,9 @@
 		E07B39831D5481A70000FA93 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B39821D5481A70000FA93 /* InviteFriend.storyboard */; };
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
-		E07B398D1D5483AC0000FA93 /* suggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */; };
 		E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */; };
+		E0E6F29F1D5773AC00EE8448 /* EndGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */; };
+		E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,6 @@
 		4263F9111D558C9B00C119DB /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoalStartEnd.storyboard; sourceTree = "<group>"; };
 		4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/StartGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
-		429ACA1E1D5655D100C17A64 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42F010191D4FA856002CD514 /* NewGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
@@ -73,8 +73,9 @@
 		E07B39821D5481A70000FA93 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
-		E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suggestFriendTableViewCell.swift; sourceTree = "<group>"; };
 		E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
+		E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
+		E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestFriendTableViewCell.swift; path = InviteFriendViews/SuggestFriendTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +137,8 @@
 		4263F9191D55FF0800C119DB /* GoalStartEndViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */,
 				4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */,
-				429ACA1E1D5655D100C17A64 /* EndGoalNotifyViewController.swift */,
 			);
 			name = GoalStartEndViewControllers;
 			path = GoalStartEnd;
@@ -245,7 +246,7 @@
 		E07B398B1D5482310000FA93 /* InviteFriendViews */ = {
 			isa = PBXGroup;
 			children = (
-				E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */,
+				E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */,
 			);
 			name = InviteFriendViews;
 			sourceTree = "<group>";
@@ -387,11 +388,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E07B398D1D5483AC0000FA93 /* suggestFriendTableViewCell.swift in Sources */,
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
+				E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */,
 				4263033E1D526687007C1963 /* User.swift in Sources */,
 				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,
 				42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */,
+				E0E6F29F1D5773AC00EE8448 /* EndGoalNotifyViewController.swift in Sources */,
 				4263F9101D558B9100C119DB /* Goals.swift in Sources */,
 				E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */,
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,

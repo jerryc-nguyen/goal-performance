@@ -141,7 +141,7 @@
                                 <rect key="frame" x="20" y="214" width="280" height="292"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="JZv-RV-etM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="JZv-RV-etM" customClass="SuggestFriendTableViewCell" customModule="GoalPerformance" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="280" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JZv-RV-etM" id="bbF-Mk-8MI">
@@ -158,10 +158,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLh-DG-BeY">
                                                     <rect key="frame" x="157" y="10" width="37" height="30"/>
                                                     <state key="normal" title="Invite"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-F2-vGv">
-                                                    <rect key="frame" x="204" y="10" width="68" height="30"/>
-                                                    <state key="normal" title="Connect"/>
+                                                    <connections>
+                                                        <action selector="onInvite:" destination="JZv-RV-etM" eventType="touchUpInside" id="P9g-5u-dHO"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-oS-JQV">
                                                     <rect key="frame" x="90" y="43" width="98" height="21"/>
@@ -175,6 +174,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-F2-vGv">
+                                                    <rect key="frame" x="204" y="10" width="68" height="30"/>
+                                                    <state key="normal" title="Connect"/>
+                                                    <connections>
+                                                        <action selector="onConnect:" destination="JZv-RV-etM" eventType="touchUpInside" id="8nJ-EP-CeH"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DcH-oS-JQV" firstAttribute="leading" secondItem="dFd-2k-JQF" secondAttribute="leading" id="6Sf-Mv-bBQ"/>
@@ -190,6 +196,11 @@
                                                 <constraint firstItem="nAx-Be-LQg" firstAttribute="top" secondItem="bbF-Mk-8MI" secondAttribute="topMargin" constant="6" id="s6V-la-yJi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImage" destination="nAx-Be-LQg" id="QPJ-XK-NvY"/>
+                                            <outlet property="nameLabel" destination="dFd-2k-JQF" id="JCZ-fp-dyt"/>
+                                            <outlet property="screenNameLabel" destination="DcH-oS-JQV" id="G3b-eV-aAr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -282,6 +293,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e3F-Hl-ljA" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Il8-fE-0ND">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -293,7 +305,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TbZ-rG-o6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216" y="249"/>
+            <point key="canvasLocation" x="644" y="249"/>
         </scene>
     </scenes>
     <resources>

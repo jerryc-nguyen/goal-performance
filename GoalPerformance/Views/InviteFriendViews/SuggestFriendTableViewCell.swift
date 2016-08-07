@@ -1,17 +1,20 @@
 //
-//  suggestFriendTableViewCell.swift
+//  SuggestFriendTableViewCell.swift
 //  GoalPerformance
 //
-//  Created by Lam Tran on 8/5/16.
+//  Created by Lam Tran on 8/7/16.
 //  Copyright © 2016 Group 7. All rights reserved.
 //
 
 import UIKit
 
-class suggestFriendTableViewCell: UITableViewCell {
+class SuggestFriendTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var avatarImage: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
 
-    @IBOutlet weak var imageFriend: UIImageView!
-    @IBOutlet weak var nameFriend: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,13 +27,10 @@ class suggestFriendTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func inviteFriendOnClick(sender: AnyObject) {
-        
+    @IBAction func onInvite(sender: UIButton) {
     }
     
-    @IBAction func connectFriendOnClick(sender: UIButton) {
-        
+    @IBAction func onConnect(sender: UIButton) {
     }
-    
 
 }
