@@ -11,9 +11,10 @@ import UIKit
 class DurationViewController: UIViewController {
 
     @IBOutlet weak var durationTimer: UIDatePicker!
-    var timer = NSTimer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        durationTimer.datePickerMode = UIDatePickerMode.CountDownTimer
         durationTimer.addTarget(self, action: #selector(DurationViewController.onDurationChangedAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
 
         // Do any additional setup after loading the view.
@@ -27,7 +28,7 @@ class DurationViewController: UIViewController {
     
     @IBAction func onDurationChangedAction(sender: UIDatePicker) {
         let dateFormatter = NSDateFormatter()
-        durationTimer.datePickerMode = UIDatePickerMode.Time
+        durationTimer.datePickerMode = UIDatePickerMode.CountDownTimer
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
     }
 

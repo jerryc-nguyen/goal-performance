@@ -15,7 +15,7 @@ class DefineGoalViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        timePicker.datePickerMode = UIDatePickerMode.Time
         timePicker.addTarget(self, action: #selector(DefineGoalViewController.timePickerAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         // Do any additional setup after loading the view.
