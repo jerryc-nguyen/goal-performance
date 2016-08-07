@@ -13,6 +13,9 @@ class InviteViewController: UIViewController {
     //  MARK: Properties
     
     @IBOutlet weak var challengeButton: UIButton!
+    @IBOutlet weak var inviteFriendButton: UIButton!
+    
+    var isChallenge = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,15 @@ class InviteViewController: UIViewController {
     }
     
     @IBAction func onChallengeClick(sender: UIButton) {
+        if isChallenge {
+            challengeButton.setBackgroundImage(UIImage(named: "check"), forState: .Normal)
+            isChallenge = false
+            inviteFriendButton.enabled = false
+        } else {
+            challengeButton.setBackgroundImage(UIImage(named: "unCheck"), forState: .Normal)
+            isChallenge = false
+            inviteFriendButton.enabled = true
+        }
     }
     
     
