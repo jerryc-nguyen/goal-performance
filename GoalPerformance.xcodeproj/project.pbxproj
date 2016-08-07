@@ -18,10 +18,8 @@
 		4263033E1D526687007C1963 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033D1D526687007C1963 /* User.swift */; };
 		4263F9101D558B9100C119DB /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F90F1D558B9100C119DB /* Goals.swift */; };
 		4263F9121D558C9B00C119DB /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F9111D558C9B00C119DB /* Goal.swift */; };
-		4263F9141D55CFD000C119DB /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */; };
 		4263F9161D55FD2600C119DB /* GoalStartEnd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */; };
 		4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */; };
-		429ACA1F1D5655D100C17A64 /* EndGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429ACA1E1D5655D100C17A64 /* EndGoalNotifyViewController.swift */; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
 		42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010191D4FA856002CD514 /* NewGoal.storyboard */; };
@@ -38,6 +36,7 @@
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
 		E07B398D1D5483AC0000FA93 /* suggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */; };
+		E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +53,6 @@
 		4263033D1D526687007C1963 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4263F90F1D558B9100C119DB /* Goals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		4263F9111D558C9B00C119DB /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
-		4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoalStartEnd.storyboard; sourceTree = "<group>"; };
 		4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/StartGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		429ACA1E1D5655D100C17A64 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -76,6 +74,7 @@
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
 		E07B398C1D5483AC0000FA93 /* suggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = suggestFriendTableViewCell.swift; sourceTree = "<group>"; };
+		E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,9 +189,9 @@
 		42F0100C1D4FA43B002CD514 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
+				E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */,
 				42F0100D1D4FA473002CD514 /* StoryboardManager.swift */,
 				42F0102F1D4FAF5F002CD514 /* Constants.swift */,
-				4263F9131D55CFD000C119DB /* LocalNotificationsManager.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -229,10 +228,7 @@
 		42F0102C1D4FAC3A002CD514 /* NewGoalViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E414FE371D55BB1E0095068B /* DefineGoalViewController.swift */,
 				42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */,
-				E414FE351D55BAE80095068B /* GoalIntervalTableViewController.swift */,
-				E44C523B1D55C07600D93A98 /* DurationViewController.swift */,
 			);
 			path = NewGoalViewControllers;
 			sourceTree = "<group>";
@@ -396,8 +392,8 @@
 				4263033E1D526687007C1963 /* User.swift in Sources */,
 				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,
 				42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */,
-				E44C523C1D55C07600D93A98 /* DurationViewController.swift in Sources */,
 				4263F9101D558B9100C119DB /* Goals.swift in Sources */,
+				E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */,
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				426303381D525659007C1963 /* APIResponse.swift in Sources */,
@@ -411,7 +407,6 @@
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
 				4263F9121D558C9B00C119DB /* Goal.swift in Sources */,
 				426303361D525455007C1963 /* APIClient.swift in Sources */,
-				E414FE361D55BAE80095068B /* GoalIntervalTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
