@@ -13,7 +13,6 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var items = [TimelineItem]()
-    
     var apiClient = APIClient.sharedInstance
     
     override func viewDidLoad() {
@@ -34,7 +33,6 @@ class TimelineViewController: UIViewController {
     
     func loadHomeTimelineItems() {
         apiClient.homeTimeLine { (items) in
-            
             self.items = items
             self.tableView.reloadData()
         }

@@ -10,6 +10,7 @@ import UIKit
 
 import SDWebImage
 import DateTools
+import Charts
 
 class TimelineItemTableViewCell: UITableViewCell {
     
@@ -23,6 +24,9 @@ class TimelineItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var lineChartView: LineChartView!
+
+    
     var timeLineItem: TimelineItem? {
         didSet {
             userNameLabel.text = timeLineItem?.creator?.displayName
@@ -33,9 +37,31 @@ class TimelineItemTableViewCell: UITableViewCell {
         }
     }
     
+    var days: [String]!
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        lineChartView.noDataText = "You need to provide data for the chart."
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Score")
+        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+       
+        lineChartView.data = lineChartData
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        days = ["1st", "2nd", "3rd", "4th", "5th"]
+        let scored = [10.0, 20.0, 30.0, 40.0, 50.0]
+        setChart(days, values: scored)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

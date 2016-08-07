@@ -118,6 +118,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		420114E91D57BBAF00B2F199 /* TimelineViews */ = {
+			isa = PBXGroup;
+			children = (
+				420114E51D579FA100B2F199 /* TimelineItemTableViewCell.swift */,
+				420114E61D579FA100B2F199 /* TimelineItemTableViewCell.xib */,
+			);
+			name = TimelineViews;
+			sourceTree = "<group>";
+		};
 		42210C9D1D4D040F0029990F = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +190,8 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				420114E91D57BBAF00B2F199 /* TimelineViews */,
 				E07B398B1D5482310000FA93 /* InviteFriendViews */,
-				420114E51D579FA100B2F199 /* TimelineItemTableViewCell.swift */,
-				420114E61D579FA100B2F199 /* TimelineItemTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
