@@ -36,17 +36,17 @@ class Goal: NSObject {
         soundName = dictionary["sound_name"] as? String
         token = dictionary["token"] as? String
         
-        if let startAt = dictionary["start_at"] as? String {
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-            self.startAt = formatter.dateFromString(startAt)
+        if let startAtStr = dictionary["start_at"] as? String {
+            if let startAtDate = Utils.dateFromString(startAtStr) {
+                startAt = startAtDate
+            }
         }
 
         if let isChallenge = dictionary["is_challenge"] as? Bool {
             self.isChallenge = isChallenge
         }
         
-        if let isDefault = dictionary["is_challenge"] as? Bool {
+        if let isDefault = dictionary["is_default"] as? Bool {
             self.isDefault = isDefault
         }
         
@@ -54,10 +54,6 @@ class Goal: NSObject {
             self.duration = duration
         }
     }
-    
-    
-    
-    
     
     
 }
