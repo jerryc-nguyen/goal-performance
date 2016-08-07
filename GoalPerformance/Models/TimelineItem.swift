@@ -50,8 +50,9 @@ class TimelineItem: NSObject {
             creator = User(dictionary: creatorData)
         }
         
+        
         if let createdAtStr = dictionary["created_at"] as? String {
-            if let createdAtDate = Utils.dateFromString(createdAtStr) {
+            if let createdAtDate = Utils.dateFromRailsString(createdAtStr) {
                 createdAt = createdAtDate
             }
         }

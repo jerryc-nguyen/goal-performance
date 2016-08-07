@@ -37,7 +37,7 @@ class Goal: NSObject {
         token = dictionary["token"] as? String
         
         if let startAtStr = dictionary["start_at"] as? String {
-            if let startAtDate = Utils.dateFromString(startAtStr) {
+            if let startAtDate = Utils.dateFromRailsString(startAtStr) {
                 startAt = startAtDate
             }
         }

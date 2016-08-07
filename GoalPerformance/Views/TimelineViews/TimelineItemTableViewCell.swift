@@ -8,6 +8,9 @@
 
 import UIKit
 
+import SDWebImage
+import DateTools
+
 class TimelineItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userAvatarImgView: UIImageView!
@@ -25,6 +28,8 @@ class TimelineItemTableViewCell: UITableViewCell {
             userNameLabel.text = timeLineItem?.creator?.displayName
             fellingLabel.text = timeLineItem?.feelingSentence
             finishLabel.text = timeLineItem?.finishSentence
+            userAvatarImgView.sd_setImageWithURL(timeLineItem?.creator?.avatarUrl)
+            dateLabel.text = timeLineItem?.createdAt?.timeAgoSinceNow()
         }
     }
     

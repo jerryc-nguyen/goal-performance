@@ -18,7 +18,7 @@ class SessionHistory: NSObject {
         }
         
         if let completedAtStr = dictionary["start_at"] as? String {
-            if let completedAtDate = Utils.dateFromString(completedAtStr) {
+            if let completedAtDate = Utils.dateFromRailsString(completedAtStr) {
                 completedAt = completedAtDate
             }
         }

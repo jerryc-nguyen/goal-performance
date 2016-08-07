@@ -47,8 +47,8 @@
                             <constraint firstAttribute="width" constant="2" id="xHL-nm-q8y"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-hj-uHM">
-                        <rect key="frame" x="10" y="71" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-hj-uHM">
+                        <rect key="frame" x="10" y="70" width="424" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -60,6 +60,7 @@
                     <constraint firstItem="B2K-Le-W3e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="JGs-yy-7ml"/>
                     <constraint firstItem="14p-s7-1o5" firstAttribute="leading" secondItem="syC-Is-jVI" secondAttribute="leading" id="Kw8-4r-0J7"/>
                     <constraint firstItem="0qa-fY-nxL" firstAttribute="centerY" secondItem="syC-Is-jVI" secondAttribute="centerY" id="OhR-js-GP3"/>
+                    <constraint firstAttribute="trailing" secondItem="1DH-hj-uHM" secondAttribute="trailing" constant="5" id="TZe-l8-8cj"/>
                     <constraint firstItem="1DH-hj-uHM" firstAttribute="top" secondItem="B2K-Le-W3e" secondAttribute="bottom" constant="10" id="UgN-Yp-A9S"/>
                     <constraint firstAttribute="bottom" secondItem="1DH-hj-uHM" secondAttribute="bottom" constant="26" id="VjP-kb-39O"/>
                     <constraint firstItem="1DH-hj-uHM" firstAttribute="leading" secondItem="B2K-Le-W3e" secondAttribute="leading" id="Vku-cU-qoe"/>

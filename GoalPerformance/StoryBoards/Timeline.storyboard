@@ -8,7 +8,7 @@
         <!--Timeline View Controller-->
         <scene sceneID="Pl7-az-Td2">
             <objects>
-                <viewController id="mlH-bV-0r0" customClass="TimelineViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="mlH-bV-0r0" customClass="TimelineViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pqU-Z2-vaQ"/>
                         <viewControllerLayoutGuide type="bottom" id="uGD-py-ojG"/>

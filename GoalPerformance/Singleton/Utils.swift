@@ -11,9 +11,9 @@ import Foundation
 
 class Utils {
     
-    static func dateFromString(str: String) -> NSDate? {
+    static func dateFromRailsString(str: String) -> NSDate? {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         return formatter.dateFromString(str)
     }
     
