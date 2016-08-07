@@ -18,6 +18,7 @@ struct API_URLS {
     
     //FRIENDS
     static let friends = "\(APIBaseURL)/api/friends.json"
+    static let suggestFriends = "\(APIBaseURL)/api/suggested.json"
     
     //FRIENDSHIPS
     static let requestFriend = "\(APIBaseURL)/api/friendships/request_friend.json"
