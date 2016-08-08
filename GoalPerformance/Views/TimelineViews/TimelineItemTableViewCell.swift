@@ -51,16 +51,38 @@ class TimelineItemTableViewCell: UITableViewCell {
         
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Score")
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
-       
-        lineChartView.data = lineChartData
         
+        lineChartDataSet.setColor(ChartColorTemplates.colorFromString(UIColors.HomeTimelineChartLineColor))
+        lineChartDataSet.mode = .CubicBezier
+        lineChartDataSet.drawCircleHoleEnabled = false
+        lineChartDataSet.circleRadius = 3
+        lineChartDataSet.drawValuesEnabled = true
+        lineChartDataSet.setCircleColor(ChartColorTemplates.colorFromString(UIColors.HomeTimelineChartLineColor))
+        
+        lineChartView.extraTopOffset = 5
+        lineChartView.extraBottomOffset = 5
+        lineChartView.extraLeftOffset = 10
+        lineChartView.extraRightOffset = 10
+        lineChartView.legend.enabled = false
+        lineChartView.pinchZoomEnabled = false
+        lineChartView.userInteractionEnabled = false
+        
+        //hide value
+        lineChartDataSet.drawValuesEnabled = !lineChartDataSet.isDrawValuesEnabled
+        
+        lineChartView.rightAxis.enabled = false
+        lineChartView.leftAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.drawGridLinesEnabled = false
+        lineChartView.descriptionText = ""
+        
+        lineChartView.data = lineChartData
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         days = ["1st", "2nd", "3rd", "4th", "5th"]
-        let scored = [10.0, 20.0, 30.0, 40.0, 50.0]
+        let scored = [10.0, 50.0, 30.0, 40.0, 20.0]
         setChart(days, values: scored)
     }
 
