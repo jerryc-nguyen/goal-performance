@@ -57,7 +57,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="timePicker" destination="uUW-Wn-gi0" id="Vj4-5V-TDq"/>
+                        <outlet property="startTimePicker" destination="uUW-Wn-gi0" id="evV-Qp-zOW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeP-ck-DJl" userLabel="First Responder" sceneMemberID="firstResponder"/>
