@@ -46,7 +46,7 @@ class TimelineItem: NSObject {
             sessionsHistory = SessionHistory.objectsFromArrayData(arraySessionData)
         }
         
-        if let creatorData = dictionary["creator"] as? NSDictionary {
+        if let creatorData = dictionary["participant"] as? NSDictionary {
             creator = User(dictionary: creatorData)
         }
         
