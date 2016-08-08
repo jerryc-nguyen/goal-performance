@@ -18,10 +18,6 @@ class NewGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         APIClient.sharedInstance.categories { [unowned self] (result) in
             if result != nil {
                 self.categories = result as? Array<Category>
@@ -30,6 +26,19 @@ class NewGoalViewController: UIViewController {
                 }
             }
         }
+
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+//        APIClient.sharedInstance.categories { [unowned self] (result) in
+//            if result != nil {
+//                self.categories = result as? Array<Category>
+//                for category in self.categories! {
+//                    self._createButtonWithTitle(category.name!)
+//                }
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,22 +46,23 @@ class NewGoalViewController: UIViewController {
        
     }
     
+    
 
     // MARK: - Private methods
     private func _createButtonWithTitle(title: String) {
-        let btn = UIButton(type: .System)
-        btn.setTitle(title, forState: .Normal)
-        btn.backgroundColor = UIColor.whiteColor()
-        btn.sizeToFit()
-        btn.setTitleColor(UIColor.orangeColor(), forState: .Normal)
-        let width = btn.frame.size.width + 20
-        btn.frame = CGRectMake(_currentX, _currentY, width, width)
+        let button = UIButton(type: .System)
+        button.setTitle(title, forState: .Normal)
+        button.backgroundColor = UIColor.whiteColor()
+        button.sizeToFit()
+        button.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+        let width = button.frame.size.width + 20
+        button.frame = CGRectMake(_currentX, _currentY, width, width)
         
-        btn.layer.cornerRadius = width/2
-        btn.layer.masksToBounds = true
+        button.layer.cornerRadius = width/2
+        button.layer.masksToBounds = true
         
-        btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.orangeColor().CGColor
+        button.layer.borderWidth = 1
+      //  btn.layer.borderColor = UIColor.orangeColor().CGColor
         
         if _currentX > 10 {
             _currentX = 10
@@ -61,10 +71,20 @@ class NewGoalViewController: UIViewController {
         }
         _currentY += width/4*3
         
-        self.view.addSubview(btn)
+        self.view.addSubview(button)
         
-        self.buttons?.append(btn)
+        self.buttons?.append(button)
+        
+        button.addTarget(self, action: #selector(NewGoalViewController.categoryselectedAction), forControlEvents: UIControlEvents.TouchUpInside)
     }
+    
+    
+    func categoryselectedAction() {
+        let defineGoalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DefineGoalViewController") as? DefineGoalViewController
+        if let defineGoalViewController = defineGoalViewController {
+        self.navigationController?.pushViewController(defineGoalViewController, animated: true)
+        }
+        }
     /*
     // MARK: - Navigation
 
