@@ -22,26 +22,15 @@ class NewGoalViewController: UIViewController {
             if result != nil {
                 self.categories = result as? Array<Category>
                 for category in self.categories! {
-                    self._createButtonWithTitle(category.name!)
+                    self._createButtonWithTitle(category.name!, index: (self.categories?.indexOf(category))!)
                 }
             }
         }
-
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-//        APIClient.sharedInstance.categories { [unowned self] (result) in
-//            if result != nil {
-//                self.categories = result as? Array<Category>
-//                for category in self.categories! {
-//                    self._createButtonWithTitle(category.name!)
-//                }
-//            }
-//        }
-    }
+        
     
-    override func didReceiveMemoryWarning() {
+
+    }
+       override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
     }
@@ -49,7 +38,8 @@ class NewGoalViewController: UIViewController {
     
 
     // MARK: - Private methods
-    private func _createButtonWithTitle(title: String) {
+    private func _createButtonWithTitle(title: String, index: Int) {
+        
         let button = UIButton(type: .System)
         button.setTitle(title, forState: .Normal)
         button.backgroundColor = UIColor.whiteColor()
@@ -71,20 +61,27 @@ class NewGoalViewController: UIViewController {
         }
         _currentY += width/4*3
         
+        button.tag = index
+        
         self.view.addSubview(button)
         
         self.buttons?.append(button)
         
-        button.addTarget(self, action: #selector(NewGoalViewController.categoryselectedAction), forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(categoryselectedAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     
-    func categoryselectedAction() {
+    func categoryselectedAction(sender: UIButton) {
         let defineGoalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DefineGoalViewController") as? DefineGoalViewController
+        if let categories = self.categories {
+            let category = categories[sender.tag]
+            print(category.id)
+            print(category.name)
+        }
         if let defineGoalViewController = defineGoalViewController {
-        self.navigationController?.pushViewController(defineGoalViewController, animated: true)
+            self.navigationController?.pushViewController(defineGoalViewController, animated: true)
         }
-        }
+    }
     /*
     // MARK: - Navigation
 
