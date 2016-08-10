@@ -10,15 +10,12 @@ import UIKit
 
 class DefineGoalViewController: UIViewController  {
 
-    @IBOutlet weak var timePicker: UIDatePicker!
-  
+    @IBOutlet weak var startTimePicker: UIDatePicker!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timePicker.datePickerMode = UIDatePickerMode.Time
-        timePicker.addTarget(self, action: #selector(DefineGoalViewController.timePickerAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        
-        // Do any additional setup after loading the view.
+        startTimePicker.datePickerMode = UIDatePickerMode.Time
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,9 +26,10 @@ class DefineGoalViewController: UIViewController  {
     @IBAction func timePickerAction(sender: UIDatePicker) {
         
         let dateFormatter = NSDateFormatter()
-        timePicker.datePickerMode = UIDatePickerMode.Time
+        startTimePicker.datePickerMode = UIDatePickerMode.Time
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        
+        let timeChosen = dateFormatter.stringFromDate(startTimePicker.date)
+        print(timeChosen)
     }
 
     /*
