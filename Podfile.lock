@@ -17,6 +17,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.14.0):
     - FBSDKCoreKit
+  - FontAwesome.swift (0.8.0)
   - Realm (0.103.2):
     - Realm/Headers (= 0.103.2)
   - Realm/Headers (0.103.2)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - FontAwesome.swift
   - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
@@ -43,10 +45,11 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
   FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
   FBSDKShareKit: e8e5d4ccef69b41132fe33acda26db1e33143e33
+  FontAwesome.swift: f8c6cc5c42cbe93bdc04371363bc7b371fb3d3a1
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
   RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: aee510830fe2df82b54a6d043b30e14df600f865
+PODFILE CHECKSUM: 2c3c4d72b64d2edc577718d687ef4719df4fd78d
 
 COCOAPODS: 1.0.1
