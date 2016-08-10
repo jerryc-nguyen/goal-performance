@@ -48,20 +48,14 @@
                             <constraint firstAttribute="width" constant="2" id="xHL-nm-q8y"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-hj-uHM">
-                        <rect key="frame" x="10" y="70" width="424" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DH-hj-uHM">
+                        <rect key="frame" x="10" y="70" width="424" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQr-jr-pP2" customClass="LineChartView" customModule="Charts">
                         <rect key="frame" x="10" y="96" width="419" height="115"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYn-B2-WKl">
-                                <rect key="frame" x="-10" y="91" width="0.0" height="0.0"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="115" id="b6R-2T-8lS"/>
@@ -83,7 +77,6 @@
                     <constraint firstItem="1DH-hj-uHM" firstAttribute="leading" secondItem="B2K-Le-W3e" secondAttribute="leading" id="Vku-cU-qoe"/>
                     <constraint firstItem="CQr-jr-pP2" firstAttribute="top" secondItem="1DH-hj-uHM" secondAttribute="bottom" constant="5" id="YZR-zc-cFK"/>
                     <constraint firstItem="0qa-fY-nxL" firstAttribute="leading" secondItem="syC-Is-jVI" secondAttribute="trailing" constant="5" id="d8o-VV-zbd"/>
-                    <constraint firstItem="vYn-B2-WKl" firstAttribute="top" secondItem="1DH-hj-uHM" secondAttribute="bottom" id="go2-Ux-o20"/>
                     <constraint firstItem="syC-Is-jVI" firstAttribute="top" secondItem="B2K-Le-W3e" secondAttribute="top" id="j8L-cz-oZs"/>
                     <constraint firstAttribute="trailing" secondItem="CQr-jr-pP2" secondAttribute="trailing" constant="10" id="kXT-Ju-t2V"/>
                     <constraint firstItem="GLe-hv-DTk" firstAttribute="leading" secondItem="0qa-fY-nxL" secondAttribute="trailing" constant="5" id="nhP-s6-tdB"/>
