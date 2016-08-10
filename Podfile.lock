@@ -10,6 +10,7 @@ PODS:
   - Charts/Realm (2.2.5):
     - Charts/Core
     - RealmSwift (~> 0.97)
+  - DateTools (1.7.0)
   - FBSDKCoreKit (4.14.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.14.0):
@@ -28,6 +29,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - Charts/Realm
+  - DateTools
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -37,6 +39,7 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
   FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
   FBSDKShareKit: e8e5d4ccef69b41132fe33acda26db1e33143e33
@@ -44,6 +47,6 @@ SPEC CHECKSUMS:
   RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 8dba1b9729d1ee2bf288f9f9baf624d1a5e18a89
+PODFILE CHECKSUM: aee510830fe2df82b54a6d043b30e14df600f865
 
 COCOAPODS: 1.0.1

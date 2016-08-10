@@ -15,6 +15,7 @@ class User: NSObject {
     let lastName: String?
     let email: String?
     let token: String?
+    var avatarUrl: NSURL?
     
     init(dictionary: NSDictionary) {
         displayName = dictionary["display_name"] as? String
@@ -22,6 +23,11 @@ class User: NSObject {
         lastName = dictionary["last_name"] as? String
         email = dictionary["email"] as? String
         token = dictionary["token"] as? String
+        
+        let avatarUrl = dictionary["avatar_url"] as? String
+        if let avatarUrl = avatarUrl {
+            self.avatarUrl = NSURL(string: avatarUrl)
+        }
     }
     
 }

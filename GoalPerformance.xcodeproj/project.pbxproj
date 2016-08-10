@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420114E01D5791D900B2F199 /* TimelineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420114DF1D5791D900B2F199 /* TimelineItem.swift */; };
+		420114E21D579A5E00B2F199 /* SessionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420114E11D579A5E00B2F199 /* SessionHistory.swift */; };
+		420114E41D579B4800B2F199 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420114E31D579B4800B2F199 /* Utils.swift */; };
+		420114E71D579FA100B2F199 /* TimelineItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420114E51D579FA100B2F199 /* TimelineItemTableViewCell.swift */; };
+		420114E81D579FA100B2F199 /* TimelineItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420114E61D579FA100B2F199 /* TimelineItemTableViewCell.xib */; };
 		42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42210CA91D4D040F0029990F /* AppDelegate.swift */; };
 		42210CAF1D4D040F0029990F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42210CAD1D4D040F0029990F /* Main.storyboard */; };
 		42210CB11D4D040F0029990F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42210CB01D4D040F0029990F /* Assets.xcassets */; };
@@ -38,9 +43,19 @@
 		E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */; };
 		E0E6F29F1D5773AC00EE8448 /* EndGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */; };
 		E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */; };
+		E471C84A1D5787150075C5E9 /* DefineGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8471D5787150075C5E9 /* DefineGoalViewController.swift */; };
+		E471C84B1D5787150075C5E9 /* DurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8481D5787150075C5E9 /* DurationViewController.swift */; };
+		E471C84C1D5787150075C5E9 /* GoalIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */; };
+		E471C84E1D5788740075C5E9 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C84D1D5788740075C5E9 /* Categories.swift */; };
+		E471C8501D57895D0075C5E9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C84F1D57895D0075C5E9 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420114DF1D5791D900B2F199 /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
+		420114E11D579A5E00B2F199 /* SessionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionHistory.swift; sourceTree = "<group>"; };
+		420114E31D579B4800B2F199 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		420114E51D579FA100B2F199 /* TimelineItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimelineItemTableViewCell.swift; path = TimelineViews/TimelineItemTableViewCell.swift; sourceTree = "<group>"; };
+		420114E61D579FA100B2F199 /* TimelineItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimelineItemTableViewCell.xib; path = TimelineViews/TimelineItemTableViewCell.xib; sourceTree = "<group>"; };
 		42210CA61D4D040F0029990F /* GoalPerformance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalPerformance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42210CA91D4D040F0029990F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42210CAE1D4D040F0029990F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +91,11 @@
 		E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestFriendTableViewCell.swift; path = InviteFriendViews/SuggestFriendTableViewCell.swift; sourceTree = "<group>"; };
+		E471C8471D5787150075C5E9 /* DefineGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineGoalViewController.swift; sourceTree = "<group>"; };
+		E471C8481D5787150075C5E9 /* DurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationViewController.swift; sourceTree = "<group>"; };
+		E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalIntervalTableViewController.swift; sourceTree = "<group>"; };
+		E471C84D1D5788740075C5E9 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		E471C84F1D57895D0075C5E9 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +116,15 @@
 				BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		420114E91D57BBAF00B2F199 /* TimelineViews */ = {
+			isa = PBXGroup;
+			children = (
+				420114E51D579FA100B2F199 /* TimelineItemTableViewCell.swift */,
+				420114E61D579FA100B2F199 /* TimelineItemTableViewCell.xib */,
+			);
+			name = TimelineViews;
 			sourceTree = "<group>";
 		};
 		42210C9D1D4D040F0029990F = {
@@ -161,6 +190,7 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				420114E91D57BBAF00B2F199 /* TimelineViews */,
 				E07B398B1D5482310000FA93 /* InviteFriendViews */,
 			);
 			path = Views;
@@ -174,6 +204,7 @@
 				426303391D525794007C1963 /* Auth.swift */,
 				4263033B1D525966007C1963 /* Friends.swift */,
 				4263F90F1D558B9100C119DB /* Goals.swift */,
+				E471C84D1D5788740075C5E9 /* Categories.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -183,6 +214,9 @@
 			children = (
 				4263033D1D526687007C1963 /* User.swift */,
 				4263F9111D558C9B00C119DB /* Goal.swift */,
+				420114DF1D5791D900B2F199 /* TimelineItem.swift */,
+				420114E11D579A5E00B2F199 /* SessionHistory.swift */,
+				E471C84F1D57895D0075C5E9 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +227,7 @@
 				E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */,
 				42F0100D1D4FA473002CD514 /* StoryboardManager.swift */,
 				42F0102F1D4FAF5F002CD514 /* Constants.swift */,
+				420114E31D579B4800B2F199 /* Utils.swift */,
 			);
 			path = Singleton;
 			sourceTree = "<group>";
@@ -229,6 +264,9 @@
 		42F0102C1D4FAC3A002CD514 /* NewGoalViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E471C8471D5787150075C5E9 /* DefineGoalViewController.swift */,
+				E471C8481D5787150075C5E9 /* DurationViewController.swift */,
+				E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */,
 				42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */,
 			);
 			path = NewGoalViewControllers;
@@ -324,6 +362,7 @@
 				4263F9161D55FD2600C119DB /* GoalStartEnd.storyboard in Resources */,
 				42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */,
 				42F0101E1D4FA856002CD514 /* Timeline.storyboard in Resources */,
+				420114E81D579FA100B2F199 /* TimelineItemTableViewCell.xib in Resources */,
 				42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */,
 				42210CB11D4D040F0029990F /* Assets.xcassets in Resources */,
 				42210CAF1D4D040F0029990F /* Main.storyboard in Resources */,
@@ -390,25 +429,34 @@
 			files = (
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
 				E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */,
+				420114E71D579FA100B2F199 /* TimelineItemTableViewCell.swift in Sources */,
+				E471C84B1D5787150075C5E9 /* DurationViewController.swift in Sources */,
 				4263033E1D526687007C1963 /* User.swift in Sources */,
 				42F010241D4FA925002CD514 /* LoginViewController.swift in Sources */,
 				42F0102B1D4FABBE002CD514 /* UserViewController.swift in Sources */,
 				E0E6F29F1D5773AC00EE8448 /* EndGoalNotifyViewController.swift in Sources */,
 				4263F9101D558B9100C119DB /* Goals.swift in Sources */,
 				E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */,
+				E471C8501D57895D0075C5E9 /* Category.swift in Sources */,
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,
+				420114E01D5791D900B2F199 /* TimelineItem.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				426303381D525659007C1963 /* APIResponse.swift in Sources */,
 				E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */,
+				E471C84A1D5787150075C5E9 /* DefineGoalViewController.swift in Sources */,
 				42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */,
 				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,
+				420114E21D579A5E00B2F199 /* SessionHistory.swift in Sources */,
 				4263033A1D525794007C1963 /* Auth.swift in Sources */,
+				E471C84E1D5788740075C5E9 /* Categories.swift in Sources */,
 				4263033C1D525966007C1963 /* Friends.swift in Sources */,
 				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
 				4263F9121D558C9B00C119DB /* Goal.swift in Sources */,
 				426303361D525455007C1963 /* APIClient.swift in Sources */,
+				420114E41D579B4800B2F199 /* Utils.swift in Sources */,
+				E471C84C1D5787150075C5E9 /* GoalIntervalTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,3 +30,7 @@ struct DeviceType {
     static let IS_IPAD             = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.MaxLength == 1024.0
 }
 
+struct UIColors {
+    static let HomeTimelineChartLineColor = "#FF5722"
+}
+
