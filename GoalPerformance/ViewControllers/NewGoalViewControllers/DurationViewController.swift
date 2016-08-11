@@ -11,14 +11,15 @@ import UIKit
 class DurationViewController: UIViewController {
 
     @IBOutlet weak var durationTimer: UIDatePicker!
-    var timer = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         durationTimer?.datePickerMode = UIDatePickerMode.CountDownTimer
-        //        durationTimer.addTarget(self, action: #selector(DurationViewController.onDurationChangedAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        onDurationChangedAction(durationTimer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,12 +33,18 @@ class DurationViewController: UIViewController {
         let date = durationTimer.date
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute] , fromDate: date)
-        dateFormatter.unitsStyle = .Full
+        dateFormatter.unitsStyle = .Positional
         durationTimer.datePickerMode = UIDatePickerMode.CountDownTimer
-        dateFormatter.unitsStyle = .Short
+        dateFormatter.unitsStyle = .Positional
         let durationChosen = dateFormatter.stringFromDateComponents(components)
-        print(durationChosen)
-          }
+        var durationArray = durationChosen!.characters.split{$0 == ":"}.map(String.init)
+        let minute = Int(durationArray[1])
+        let hour = Int(durationArray[0])
+        if let hour = hour, minute = minute {
+            let durationMinutes = hour * 60 + minute
+            print(durationMinutes)
+        }
+    }
     
 
     /*
