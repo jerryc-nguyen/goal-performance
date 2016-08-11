@@ -16,5 +16,6 @@ target 'GoalPerformance' do
   pod 'FBSDKLoginKit'
   
   pod 'DateTools'
- 
+  pod 'FontAwesome.swift'
+  
 end

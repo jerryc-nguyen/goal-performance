@@ -27,13 +27,19 @@ class TimelineItemTableViewCell: UITableViewCell {
     @IBOutlet weak var lineChartView: LineChartView!
 
     
-    var timeLineItem: TimelineItem? {
+    var timeLineItem: TimelineItem! {
         didSet {
-            userNameLabel.text = timeLineItem?.creator?.displayName
-            fellingLabel.text = timeLineItem?.feelingSentence
-            finishLabel.text = timeLineItem?.finishSentence
-            userAvatarImgView.sd_setImageWithURL(timeLineItem?.creator?.avatarUrl)
-            dateLabel.text = timeLineItem?.createdAt?.timeAgoSinceNow()
+            userNameLabel.text = timeLineItem.creator?.displayName
+            fellingLabel.text = timeLineItem.feelingSentence
+            finishLabel.text = timeLineItem.finishSentence
+            userAvatarImgView.sd_setImageWithURL(timeLineItem.creator?.avatarUrl)
+            dateLabel.text = timeLineItem.createdAt?.timeAgoSinceNow()
+            
+            // show chart
+            days = timeLineItem.sessionsHistory?.dateLabels
+            
+            let scores = timeLineItem.sessionsHistory?.scores
+            setChart(days, values: scores!)
         }
     }
     
@@ -61,8 +67,8 @@ class TimelineItemTableViewCell: UITableViewCell {
         
         lineChartView.extraTopOffset = 5
         lineChartView.extraBottomOffset = 5
-        lineChartView.extraLeftOffset = 10
-        lineChartView.extraRightOffset = 10
+        lineChartView.extraLeftOffset = 5
+        lineChartView.extraRightOffset = 5
         lineChartView.legend.enabled = false
         lineChartView.pinchZoomEnabled = false
         lineChartView.userInteractionEnabled = false
@@ -73,6 +79,7 @@ class TimelineItemTableViewCell: UITableViewCell {
         lineChartView.rightAxis.enabled = false
         lineChartView.leftAxis.drawGridLinesEnabled = false
         lineChartView.xAxis.drawGridLinesEnabled = false
+        lineChartView.xAxis.setLabelsToSkip(0)
         lineChartView.descriptionText = ""
         
         lineChartView.data = lineChartData
@@ -81,9 +88,6 @@ class TimelineItemTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        days = ["1st", "2nd", "3rd", "4th", "5th"]
-        let scored = [10.0, 50.0, 30.0, 40.0, 20.0]
-        setChart(days, values: scored)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

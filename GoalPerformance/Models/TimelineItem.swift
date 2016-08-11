@@ -21,7 +21,7 @@ class TimelineItem: NSObject {
     let feelingSentence: String?
     var createdAt: NSDate?
     
-    var sessionsHistory: [SessionHistory]?
+    var sessionsHistory: SessionsHistory?
     
     var creator: User?
 
@@ -42,14 +42,13 @@ class TimelineItem: NSObject {
             creator = User(dictionary: userData)
         }
         
-        if let arraySessionData = dictionary["sessions_history"] as? [NSDictionary] {
-            sessionsHistory = SessionHistory.objectsFromArrayData(arraySessionData)
+        if let sessionsData = dictionary["sessions_history"] as? NSDictionary {
+            sessionsHistory = SessionsHistory(dictionary: sessionsData)
         }
         
         if let creatorData = dictionary["participant"] as? NSDictionary {
             creator = User(dictionary: creatorData)
         }
-        
         
         if let createdAtStr = dictionary["created_at"] as? String {
             if let createdAtDate = Utils.dateFromRailsString(createdAtStr) {

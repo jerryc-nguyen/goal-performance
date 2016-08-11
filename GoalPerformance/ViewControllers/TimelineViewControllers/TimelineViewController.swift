@@ -49,6 +49,7 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
         let timelineItem = items[indexPath.row]
+        
         cell.timeLineItem = timelineItem
         return cell
     }

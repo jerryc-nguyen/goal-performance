@@ -7,20 +7,35 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class MainTabBarController: UITabBarController {
     
     lazy var timeLineVC: UINavigationController  = {
         let vc = StoryboardManager.sharedInstance.getInitialViewController("Timeline") as! UINavigationController
-        vc.tabBarItem.image = UIImage(named: "excited")
+        vc.tabBarItem.image = UIImage.fontAwesomeIconWithName(.Globe, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         vc.tabBarItem.title = "Time Line"
         return vc
     }()
     
     lazy var userVC: UINavigationController  = {
         let vc = StoryboardManager.sharedInstance.getInitialViewController("User") as! UINavigationController
-        vc.tabBarItem.image = UIImage(named: "happy")
-        vc.tabBarItem.title = "User"
+        vc.tabBarItem.image = UIImage.fontAwesomeIconWithName(.User, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        vc.tabBarItem.title = "You"
+        return vc
+    }()
+    
+    lazy var friendsVC: UINavigationController  = {
+        let vc = StoryboardManager.sharedInstance.getInitialViewController("User") as! UINavigationController
+        vc.tabBarItem.image = UIImage.fontAwesomeIconWithName(.Users, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        vc.tabBarItem.title = "Friends"
+        return vc
+    }()
+    
+    lazy var searchVC: UINavigationController  = {
+        let vc = StoryboardManager.sharedInstance.getInitialViewController("User") as! UINavigationController
+        vc.tabBarItem.image = UIImage.fontAwesomeIconWithName(.Search, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        vc.tabBarItem.title = "Search"
         return vc
     }()
     
@@ -31,7 +46,7 @@ class MainTabBarController: UITabBarController {
     
     func configTabbar() {
         self.tabBar.translucent = false
-        self.viewControllers = [timeLineVC, userVC]
+        self.viewControllers = [timeLineVC, userVC, friendsVC, searchVC]
     }
 
 }
