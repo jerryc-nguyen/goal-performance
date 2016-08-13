@@ -49,6 +49,8 @@
 		E471C84B1D5787150075C5E9 /* DurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8481D5787150075C5E9 /* DurationViewController.swift */; };
 		E471C84C1D5787150075C5E9 /* GoalIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */; };
 		E471C8501D57895D0075C5E9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C84F1D57895D0075C5E9 /* Category.swift */; };
+		E4DF41111D5EFE7900479E87 /* WeekdaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF41101D5EFE7900479E87 /* WeekdaysViewController.swift */; };
+		E4DF41171D5EFFA700479E87 /* WeekdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DF41161D5EFFA700479E87 /* WeekdayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,8 @@
 		E471C8481D5787150075C5E9 /* DurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationViewController.swift; sourceTree = "<group>"; };
 		E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalIntervalTableViewController.swift; sourceTree = "<group>"; };
 		E471C84F1D57895D0075C5E9 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E4DF41101D5EFE7900479E87 /* WeekdaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdaysViewController.swift; sourceTree = "<group>"; };
+		E4DF41161D5EFFA700479E87 /* WeekdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,7 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4DF41151D5EFFA700479E87 /* NewGoalViews */,
 				420114E91D57BBAF00B2F199 /* TimelineViews */,
 				E07B398B1D5482310000FA93 /* InviteFriendViews */,
 			);
@@ -276,6 +281,7 @@
 		42F0102C1D4FAC3A002CD514 /* NewGoalViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4DF41101D5EFE7900479E87 /* WeekdaysViewController.swift */,
 				E471C8471D5787150075C5E9 /* DefineGoalViewController.swift */,
 				E471C8481D5787150075C5E9 /* DurationViewController.swift */,
 				E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */,
@@ -299,6 +305,14 @@
 				E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */,
 			);
 			name = InviteFriendViews;
+			sourceTree = "<group>";
+		};
+		E4DF41151D5EFFA700479E87 /* NewGoalViews */ = {
+			isa = PBXGroup;
+			children = (
+				E4DF41161D5EFFA700479E87 /* WeekdayCell.swift */,
+			);
+			path = NewGoalViews;
 			sourceTree = "<group>";
 		};
 		F12935C63977DEE64BD5514D /* Pods */ = {
@@ -455,9 +469,11 @@
 				4263DF591D5BC6460050E5A0 /* Auth.swift in Sources */,
 				4263DF5B1D5BC6460050E5A0 /* Friends.swift in Sources */,
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,
+				E4DF41171D5EFFA700479E87 /* WeekdayCell.swift in Sources */,
 				420114E01D5791D900B2F199 /* TimelineItem.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */,
+				E4DF41111D5EFE7900479E87 /* WeekdaysViewController.swift in Sources */,
 				E471C84A1D5787150075C5E9 /* DefineGoalViewController.swift in Sources */,
 				42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */,
 				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,

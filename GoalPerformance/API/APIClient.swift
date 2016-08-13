@@ -30,6 +30,9 @@ struct API_URLS {
 
     //CATEGORIES
     static let getCategories = "\(APIBaseURL)/api/categories.json"
+    
+    //SETUP GOAL
+    static let goalSetup = "\(APIBaseURL)api/goals.json"
 
 }
 
