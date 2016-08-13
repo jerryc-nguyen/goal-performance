@@ -27,7 +27,7 @@ extension APIClient {
         }
     }
     
-    func userTimeLine(params: [String: AnyObject], completed: (goals: [Goal], viewingUser: User?) -> ()) {
+    func userTimeLine(params: [String: AnyObject], completed: (goals: [Goal], viewingUser: User?, dateLabels: [String]?) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
@@ -36,24 +36,32 @@ extension APIClient {
         
         Alamofire.request(.GET, requestUrl, headers: headers)
             .responseJSON { response in
-                var items = [Goal]()
+                
                 
                 if let JSON = response.result.value {
     
                     if let data = JSON["data"] as? Dictionary<String, AnyObject> {
+                        
+                        var items = [Goal]()
+                        var user = User(dictionary: NSDictionary())
+                        
                         if let goalsData = data["goals"] as? [Dictionary<String, AnyObject>] {
                             items = Goal.initFromArrayData(goalsData)
                         }
                         
                         if let userData = data["viewing_user"] as? Dictionary<String, AnyObject> {
-                            let user = User(dictionary: userData)
-                            completed(goals: items, viewingUser: user)
+                            user = User(dictionary: userData)
                         }
+                        
+                        let dateLabels = data["date_labels"] as? [String]
+                        
+                        completed(goals: items, viewingUser: user, dateLabels: dateLabels)
+                        
                     } else {
-                        completed(goals: items, viewingUser: nil)
+                        completed(goals: [], viewingUser: nil, dateLabels: [])
                     }
                 } else {
-                    completed(goals: items, viewingUser: nil)
+                    completed(goals: [], viewingUser: nil, dateLabels: [])
                 }
         }
     }

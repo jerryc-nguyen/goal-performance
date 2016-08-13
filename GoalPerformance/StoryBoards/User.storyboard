@@ -30,7 +30,18 @@
                             <constraint firstItem="ZZd-gh-mT2" firstAttribute="leading" secondItem="yHs-ev-YkN" secondAttribute="leading" id="yGK-QT-diO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6n5-V4-Y1S"/>
+                    <navigationItem key="navigationItem" id="6n5-V4-Y1S">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="1oq-g1-uN3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hW1-Bg-drm">
+                                <rect key="frame" x="258" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onReloadData:" destination="aeP-wW-xh1" eventType="touchUpInside" id="zfl-QI-abh"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="ZZd-gh-mT2" id="Yem-dT-nmY"/>

@@ -12,11 +12,15 @@ class UserViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func onReloadData(sender: AnyObject) {
+        loadUserTimeline()
+    }
     let numberOfSections = 3
     
     var userGoals = [Goal]()
     var sessionsHistories = [SessionsHistory]()
     var viewingUser: User?
+    var dateLabels = [String]()
     
     var apiClient = APIClient.sharedInstance
     
@@ -43,9 +47,10 @@ class UserViewController: UIViewController {
     
     func loadUserTimeline() {
         let params = ["user_id": 5]
-        apiClient.userTimeLine(params) { (goals, viewingUser) in
+        apiClient.userTimeLine(params) { (goals, viewingUser, dateLabels) in
             self.userGoals = goals
             self.viewingUser = viewingUser
+            self.dateLabels = dateLabels!
             self.tableView.reloadData()
         }
     }
@@ -67,7 +72,6 @@ class UserViewController: UIViewController {
     */
 
 }
-
 
 extension UserViewController: UITableViewDataSource {
     
@@ -93,6 +97,7 @@ extension UserViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalsChartTableViewCell") as! UserGoalsChartTableViewCell
+            cell.dateLabels = dateLabels
             cell.goals = userGoals
             return cell
         default:
