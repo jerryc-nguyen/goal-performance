@@ -93,6 +93,7 @@ extension UserViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalsChartTableViewCell") as! UserGoalsChartTableViewCell
+            cell.goals = userGoals
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalTableViewCell") as! UserGoalTableViewCell
@@ -101,7 +102,6 @@ extension UserViewController: UITableViewDataSource {
             cell.goal = goal
             return cell
         }
-        
     }
 }
 

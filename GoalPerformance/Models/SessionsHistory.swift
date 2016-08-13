@@ -23,4 +23,12 @@ class SessionsHistory: NSObject {
             dateLabels = dateLabelArr
         }
     }
+    
+    class func initFromArrayData(arr: [NSDictionary]) -> [SessionsHistory] {
+        var results = [SessionsHistory]()
+        for data in arr {
+            results.append(SessionsHistory(dictionary: data))
+        }
+        return results
+    }
 }

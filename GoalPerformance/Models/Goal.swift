@@ -22,6 +22,8 @@ class Goal: NSObject {
     let token: String?
     let detailName: String?
     
+    var sessionsHistory: SessionsHistory?
+    
     var notificationStartKey: String {
         return "goal-\(self.id)-start"
     }
@@ -55,6 +57,12 @@ class Goal: NSObject {
         if let duration = dictionary["duration"] as? Int {
             self.duration = duration
         }
+        
+        if let sessionsHistoryData = dictionary["sessions_history"] as? NSDictionary {
+            sessionsHistory = SessionsHistory(dictionary: sessionsHistoryData)
+        }
+        
+        
     }
     
     static func initFromArrayData(goalsData: [NSDictionary]) -> [Goal] {
