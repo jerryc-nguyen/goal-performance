@@ -20,6 +20,7 @@ class Goal: NSObject {
     var isChallenge: Bool = false
     var isDefault: Bool = false
     let token: String?
+    let detailName: String?
     
     var notificationStartKey: String {
         return "goal-\(self.id)-start"
@@ -35,6 +36,7 @@ class Goal: NSObject {
         repeatEvery = dictionary["repeat_every"] as? String
         soundName = dictionary["sound_name"] as? String
         token = dictionary["token"] as? String
+        detailName = dictionary["detail_name"] as? String
         
         if let startAtStr = dictionary["start_at"] as? String {
             if let startAtDate = Utils.dateFromRailsString(startAtStr) {
@@ -55,5 +57,11 @@ class Goal: NSObject {
         }
     }
     
-    
+    static func initFromArrayData(goalsData: [NSDictionary]) -> [Goal] {
+        var results = [Goal]()
+        for goalData in goalsData {
+            results.append(Goal(dictionary: goalData))
+        }
+        return results
+    }
 }
