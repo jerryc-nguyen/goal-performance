@@ -31,6 +31,7 @@
                 <constraints>
                     <constraint firstItem="5B4-LP-lOU" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="1Mp-Hv-j49"/>
                     <constraint firstItem="5B4-LP-lOU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7SE-Oz-dym"/>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="9Yy-ma-1kV"/>
                     <constraint firstAttribute="trailing" secondItem="5B4-LP-lOU" secondAttribute="trailing" id="Ae1-iT-x1h"/>
                     <constraint firstItem="5B4-LP-lOU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="J9U-M7-Kma"/>
                     <constraint firstItem="5B4-LP-lOU" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="Jo6-Lo-UL4"/>
@@ -38,6 +39,7 @@
                     <constraint firstItem="5B4-LP-lOU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kd3-pN-BUu"/>
                     <constraint firstAttribute="bottom" secondItem="5B4-LP-lOU" secondAttribute="bottom" id="YOx-yL-zZu"/>
                     <constraint firstAttribute="trailing" secondItem="5B4-LP-lOU" secondAttribute="trailing" id="pYs-rH-dYQ"/>
+                    <constraint firstAttribute="bottom" secondItem="5B4-LP-lOU" secondAttribute="bottom" constant="13" id="tJ1-nR-t0W"/>
                     <constraint firstAttribute="bottom" secondItem="5B4-LP-lOU" secondAttribute="bottom" id="wnf-ws-kz8"/>
                 </constraints>
                 <variation key="default">

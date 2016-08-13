@@ -17,7 +17,6 @@ class UserProfileTableViewCell: UITableViewCell {
     var viewingUser: User? {
         didSet {
             if let user = viewingUser {
-                
                 self.userAvatarImgView.sd_setImageWithURL(user.avatarUrl)
                 self.viewingUserNameLabel.text = user.displayName
             }

@@ -49,10 +49,12 @@ extension APIClient {
                             let user = User(dictionary: userData)
                             completed(goals: items, viewingUser: user)
                         }
+                    } else {
+                        completed(goals: items, viewingUser: nil)
                     }
+                } else {
                     completed(goals: items, viewingUser: nil)
                 }
-                completed(goals: items, viewingUser: nil)
         }
     }
 }

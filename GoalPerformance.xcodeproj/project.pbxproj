@@ -24,6 +24,8 @@
 		424AF2181D5EDEE0001754B2 /* UserProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AF2161D5EDEE0001754B2 /* UserProfileTableViewCell.xib */; };
 		424AF21B1D5EDF00001754B2 /* UserGoalsChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AF2191D5EDF00001754B2 /* UserGoalsChartTableViewCell.swift */; };
 		424AF21C1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AF21A1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib */; };
+		424AF21E1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AF21D1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift */; };
+		424AF2201D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AF21F1D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib */; };
 		4263033E1D526687007C1963 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033D1D526687007C1963 /* User.swift */; };
 		4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263DF4F1D5BC5A40050E5A0 /* CoreExtend.swift */; };
 		4263DF571D5BC6460050E5A0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263DF511D5BC6460050E5A0 /* APIClient.swift */; };
@@ -79,6 +81,8 @@
 		424AF2161D5EDEE0001754B2 /* UserProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileTableViewCell.xib; sourceTree = "<group>"; };
 		424AF2191D5EDF00001754B2 /* UserGoalsChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGoalsChartTableViewCell.swift; sourceTree = "<group>"; };
 		424AF21A1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserGoalsChartTableViewCell.xib; sourceTree = "<group>"; };
+		424AF21D1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersGoalSectionHeaderView.swift; sourceTree = "<group>"; };
+		424AF21F1D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersGoalSectionHeaderView.xib; sourceTree = "<group>"; };
 		4263033D1D526687007C1963 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4263DF4F1D5BC5A40050E5A0 /* CoreExtend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreExtend.swift; sourceTree = "<group>"; };
 		4263DF511D5BC6460050E5A0 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 				424AF2161D5EDEE0001754B2 /* UserProfileTableViewCell.xib */,
 				424AF2191D5EDF00001754B2 /* UserGoalsChartTableViewCell.swift */,
 				424AF21A1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib */,
+				424AF21D1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift */,
+				424AF21F1D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib */,
 			);
 			path = UserTimelineViews;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */,
 				42F0101E1D4FA856002CD514 /* Timeline.storyboard in Resources */,
 				420114E81D579FA100B2F199 /* TimelineItemTableViewCell.xib in Resources */,
+				424AF2201D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib in Resources */,
 				42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */,
 				424AF21C1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib in Resources */,
 				42210CB11D4D040F0029990F /* Assets.xcassets in Resources */,
@@ -512,6 +519,7 @@
 				4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */,
 				424AF1FE1D5E8B95001754B2 /* Users.swift in Sources */,
 				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
+				424AF21E1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift in Sources */,
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
 				4263F9121D558C9B00C119DB /* Goal.swift in Sources */,

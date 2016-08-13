@@ -26,12 +26,13 @@ class UserViewController: UIViewController {
         self.navigationItem.title = "Your Goals"
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
         
         registerNibs()
         loadUserTimeline()
-        
     }
     
     func registerNibs() {
@@ -87,7 +88,8 @@ extension UserViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserProfileTableViewCell") as! UserProfileTableViewCell
-            cell.viewingUser = viewingUser
+            
+            cell.viewingUser = self.viewingUser
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalsChartTableViewCell") as! UserGoalsChartTableViewCell
@@ -104,10 +106,14 @@ extension UserViewController: UITableViewDataSource {
 }
 
 extension UserViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section != 2 {
-            return ""
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 2:
+            let view = UsersGoalSectionHeaderView.initFromNib()
+            view.sectionHeaderLabel.text = "Doing goals"
+            return view
+        default:
+            return nil
         }
-        return "Doing goals"
     }
 }
