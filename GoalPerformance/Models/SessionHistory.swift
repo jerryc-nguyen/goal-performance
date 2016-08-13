@@ -8,28 +8,19 @@
 
 import Foundation
 
-class SessionHistory: NSObject {
-    var score: Int = 0
-    var completedAt: NSDate?
+class SessionsHistory: NSObject {
+    var scores: [Double] = []
+    var dateLabels: [String]? = []
     
     init(dictionary: NSDictionary) {
-        if let goalScore = dictionary["score"] as? Int {
-            score = goalScore
-        }
-        
-        if let completedAtStr = dictionary["start_at"] as? String {
-            if let completedAtDate = Utils.dateFromRailsString(completedAtStr) {
-                completedAt = completedAtDate
+        if let goalScores = dictionary["scores"] as? [NSNumber] {
+            for score in goalScores {
+                scores.append(Double(score))
             }
         }
         
-    }
-    
-    static func objectsFromArrayData(arrayData: [NSDictionary]) -> [SessionHistory] {
-        var results = [SessionHistory]()
-        for sessionData in arrayData {
-            results.append(SessionHistory(dictionary: sessionData))
+        if let dateLabelArr = dictionary["date_labels"] as? [String] {
+            dateLabels = dateLabelArr
         }
-        return results
     }
 }

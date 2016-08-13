@@ -17,7 +17,7 @@ class GoalIntervalTableViewController: UITableViewController {
     @IBOutlet weak var soundLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -42,8 +42,6 @@ class GoalIntervalTableViewController: UITableViewController {
         return 3
     }
     
-    
-
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

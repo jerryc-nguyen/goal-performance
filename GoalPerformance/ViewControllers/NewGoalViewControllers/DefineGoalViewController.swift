@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefineGoalViewController: UIViewController  {
+class DefineGoalViewController: UIViewController {
 
     @IBOutlet weak var startTimePicker: UIDatePicker!
     
@@ -17,6 +17,10 @@ class DefineGoalViewController: UIViewController  {
         super.viewDidLoad()
         startTimePicker.datePickerMode = UIDatePickerMode.Time
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        timePickerAction(startTimePicker)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -24,7 +28,6 @@ class DefineGoalViewController: UIViewController  {
     }
     
     @IBAction func timePickerAction(sender: UIDatePicker) {
-        
         let dateFormatter = NSDateFormatter()
         startTimePicker.datePickerMode = UIDatePickerMode.Time
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
@@ -32,15 +35,16 @@ class DefineGoalViewController: UIViewController  {
         print(timeChosen)
     }
 
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }
 
