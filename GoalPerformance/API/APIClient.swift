@@ -26,16 +26,20 @@ struct API_URLS {
     
     //GOALS
     static let createGoal = "\(APIBaseURL)/api/goals.json"
-    static let homeTimeLine = "\(APIBaseURL)/api/goals/home_timeline.json"
+    
 
     //CATEGORIES
     static let getCategories = "\(APIBaseURL)/api/categories.json"
     
+
     //SETUP GOAL
     static let goalSetup = "\(APIBaseURL)api/goals.json"
 
-}
+    //USERS
+    static let homeTimeLine = "\(APIBaseURL)/api/users/home_timeline.json"
+    static let userTimeLine = "\(APIBaseURL)/api/users/%d/timeline.json"
 
+}
 
 
 typealias CompletedBlock = ((result: AnyObject?) -> Void)?
