@@ -10,6 +10,7 @@ import Foundation
 
 class User: NSObject {
     
+    let id:String?
     let displayName: String?
     let firstName: String?
     let lastName: String?
@@ -18,6 +19,7 @@ class User: NSObject {
     var avatarUrl: NSURL?
     
     init(dictionary: NSDictionary) {
+        id = dictionary["id"] as? String
         displayName = dictionary["display_name"] as? String
         firstName = dictionary["first_name"] as? String
         lastName = dictionary["last_name"] as? String
