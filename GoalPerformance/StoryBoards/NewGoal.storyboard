@@ -40,7 +40,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wC-zw-nAQ">
                                 <rect key="frame" x="0.0" y="228" width="320" height="293"/>
                                 <connections>
-                                    <segue destination="d2d-JT-TGe" kind="embed" id="XkI-EC-CPL"/>
+                                    <segue destination="d2d-JT-TGe" kind="embed" identifier="GoalIntervalTableViewSegue" id="XkI-EC-CPL"/>
                                 </connections>
                             </containerView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uUW-Wn-gi0">
@@ -97,7 +97,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="o3H-jZ-P9r" kind="show" id="cHe-e9-cQO"/>
+                                            <segue destination="o3H-jZ-P9r" kind="show" identifier="WeekdaySegue" id="cHe-e9-cQO"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="EAG-a9-bUD">
@@ -122,7 +122,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="eBm-sO-tuk" kind="show" id="hGc-NW-TAq"/>
+                                            <segue destination="eBm-sO-tuk" kind="show" identifier="DurationSegue" id="hGc-NW-TAq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="h0z-tE-O5t">
@@ -167,7 +167,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cX-vS-9eS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="402"/>
+            <point key="canvasLocation" x="1400" y="402"/>
         </scene>
         <!--Weekdays View Controller-->
         <scene sceneID="Hke-yB-goc">
@@ -282,7 +282,7 @@
         <!--Duration View Controller-->
         <scene sceneID="Zqm-oT-tiP">
             <objects>
-                <viewController id="eBm-sO-tuk" customClass="DurationViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DurationViewController" id="eBm-sO-tuk" customClass="DurationViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I1M-Jt-YWr"/>
                         <viewControllerLayoutGuide type="bottom" id="oo9-91-z9a"/>
@@ -291,7 +291,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ax1-Wx-0kb">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ax1-Wx-0kb">
                                 <rect key="frame" x="0.0" y="114" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="492158979.44861698">
                                     <!--2016-08-06 06:49:39 +0000-->
@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oL4-13-O1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="1116"/>
+            <point key="canvasLocation" x="1577" y="1116"/>
         </scene>
     </scenes>
 </document>

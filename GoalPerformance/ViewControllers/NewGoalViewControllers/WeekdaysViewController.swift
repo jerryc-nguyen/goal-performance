@@ -34,28 +34,26 @@ class WeekdaysViewController: UIViewController {
         })
         var weekdaysArray = Array<String>()
             if indexList.contains(0) {
-                weekdaysArray.append("Sunday")
+                weekdaysArray.append("sunday")
             }
             if indexList.contains(1) {
-                weekdaysArray.append("Monday")
+                weekdaysArray.append("monday")
             }
             if indexList.contains(2) {
-                weekdaysArray.append("Tuesday")
+                weekdaysArray.append("tuesday")
             }
             if indexList.contains(3) {
-                weekdaysArray.append("Wednesday")
+                weekdaysArray.append("wednesday")
             }
             if indexList.contains(4) {
-                weekdaysArray.append("Thursday")
+                weekdaysArray.append("thursday")
             }
             if indexList.contains(5) {
-                weekdaysArray.append("Friday")
+                weekdaysArray.append("friday")
             }
             if indexList.contains(6) {
-                weekdaysArray.append("Saturday")
+                weekdaysArray.append("saturday")
             }
-            print(weekdaysArray)
-            print(indexList)
         delegate?.weekdaysViewController(self, weekdays: weekdaysArray)
     }
     
@@ -95,9 +93,6 @@ extension WeekdaysViewController: UITableViewDataSource {
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! WeekdayCell
-//        let indexpath = tableView.indexPathForSelectedRow
-//        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
-//        print(currentCell.textLabel!.text)
         cell.isSelected = !cell.isSelected!
         if cell.isSelected! {
             indexList.append(indexPath.row)

@@ -10,8 +10,8 @@ import Foundation
 import Alamofire //https://github.com/Alamofire/Alamofire
 
 
-//let APIBaseURL = "https://goal-api.herokuapp.com/"
-let APIBaseURL = "http://localhost:3000"
+let APIBaseURL = "https://goal-api.herokuapp.com/"
+//let APIBaseURL = "http://localhost:3000"
 
 struct API_URLS {
     //AUTH
@@ -31,10 +31,14 @@ struct API_URLS {
     //CATEGORIES
     static let getCategories = "\(APIBaseURL)/api/categories.json"
     
+
+    //SETUP GOAL
+    static let goalSetup = "\(APIBaseURL)api/goals.json"
+
     //USERS
-    //NSString(format:"%d , %f, %ld, %@", INT_VALUE, FLOAT_VALUE, DOUBLE_VALUE, STRING_VALUE);
     static let homeTimeLine = "\(APIBaseURL)/api/users/home_timeline.json"
     static let userTimeLine = "\(APIBaseURL)/api/users/%d/timeline.json"
+
 }
 
 

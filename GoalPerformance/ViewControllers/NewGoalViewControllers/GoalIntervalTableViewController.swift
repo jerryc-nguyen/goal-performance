@@ -10,6 +10,8 @@ import UIKit
 
 class GoalIntervalTableViewController: UITableViewController {
     
+    weak var parentScreen: UIViewController?
+    
     @IBOutlet weak var repeatLabel: UILabel!
     
     @IBOutlet weak var durationLabel: UILabel!
@@ -87,14 +89,19 @@ class GoalIntervalTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "DurationSegue" {
+            let durationVC = segue.destinationViewController as! DurationViewController
+            durationVC.delegate = self.parentScreen as? DurationViewControllerDelegate
+        } else if segue.identifier == "WeekdaySegue" {
+            let weekdayVC = segue.destinationViewController as! WeekdaysViewController
+            weekdayVC.delegate = self.parentScreen as? WeekdaysViewControllerDelegate
+        }
     }
-    */
+    
 
 }
