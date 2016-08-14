@@ -24,6 +24,7 @@ struct API_URLS {
     //FRIENDSHIPS
     static let requestFriend = "\(APIBaseURL)/api/friendships/request_friend.json"
     static let acceptFriend = "\(APIBaseURL)/api/friendships/accept_friend.json"
+    static let pendingFriend = "\(APIBaseURL)/api/friendships/incomming.json"
     
     //GOALS
     static let createGoal = "\(APIBaseURL)/api/goals.json"
