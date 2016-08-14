@@ -29,7 +29,8 @@ class DoneViewController: UIViewController {
     
     
     @IBAction func doneAction(sender: UIButton) {
-        
+        let inviteFriendVc = StoryboardManager.sharedInstance.getViewController("InviteViewController", storyboard: "InviteFriend") as! InviteViewController
+        navigationController?.pushViewController(inviteFriendVc, animated: true)
     }
 
     /*
