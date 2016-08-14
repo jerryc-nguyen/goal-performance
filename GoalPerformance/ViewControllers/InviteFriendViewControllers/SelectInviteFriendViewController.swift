@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectInviteFriendViewController: UIViewController {
+class SelectInviteFriendViewController: UIViewController, SuggestFriendTableViewCellDelegate {
 
     @IBOutlet weak var suggestFriendTableView: UITableView!
     @IBOutlet weak var emailTextField: UITextField!
@@ -36,6 +36,15 @@ class SelectInviteFriendViewController: UIViewController {
             self.friends = friends
             self.suggestFriendTableView.reloadData()
         })
+    }
+    
+    func displayAlert(viewCell: SuggestFriendTableViewCell, title: String, message: String) {
+//        let alertController = UIAlertController(title: "iOScreator", message:
+//            "Hello, world!", preferredStyle: UIAlertControllerStyle.Alert)
+//        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+//        
+//        self.presentViewController(alertController, animated: true, completion: nil)
+        print("Invite or Connect is press")
     }
     
     /*
