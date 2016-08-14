@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        //self.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
+        
         localNotificationManager.window = window
         localNotificationManager.setupStartGoalNotificationSettings()
         

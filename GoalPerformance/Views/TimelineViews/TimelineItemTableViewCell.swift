@@ -55,6 +55,7 @@ class TimelineItemTableViewCell: UITableViewCell {
             dataEntries.append(dataEntry)
         }
         
+        
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Score")
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
         
@@ -83,6 +84,7 @@ class TimelineItemTableViewCell: UITableViewCell {
         lineChartView.descriptionText = ""
         
         lineChartView.data = lineChartData
+        
     }
     
     override func awakeFromNib() {

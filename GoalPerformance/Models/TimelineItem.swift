@@ -55,6 +55,13 @@ class TimelineItem: NSObject {
                 createdAt = createdAtDate
             }
         }
-        
+    }
+    
+    static func initFromArrayData(dataArr: [NSDictionary]) -> [TimelineItem] {
+        var results = [TimelineItem]()
+        for data in dataArr {
+            results.append(TimelineItem(dictionary: data))
+        }
+        return results
     }
 }

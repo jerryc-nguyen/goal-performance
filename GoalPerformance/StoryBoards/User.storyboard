@@ -8,7 +8,7 @@
         <!--User View Controller-->
         <scene sceneID="3dP-3l-XoK">
             <objects>
-                <viewController id="aeP-wW-xh1" customClass="UserViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="aeP-wW-xh1" customClass="UserViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pWV-Jj-k91"/>
                         <viewControllerLayoutGuide type="bottom" id="gYG-UM-mdR"/>
@@ -16,14 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="yHs-ev-YkN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZd-gh-mT2">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZZd-gh-mT2" secondAttribute="trailing" id="gMh-Zu-Mas"/>
+                            <constraint firstItem="ZZd-gh-mT2" firstAttribute="top" secondItem="pWV-Jj-k91" secondAttribute="bottom" id="idm-f5-zJS"/>
+                            <constraint firstItem="gYG-UM-mdR" firstAttribute="top" secondItem="ZZd-gh-mT2" secondAttribute="bottom" id="jGL-7g-owh"/>
+                            <constraint firstItem="ZZd-gh-mT2" firstAttribute="leading" secondItem="yHs-ev-YkN" secondAttribute="leading" id="yGK-QT-diO"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6n5-V4-Y1S"/>
+                    <navigationItem key="navigationItem" id="6n5-V4-Y1S">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="1oq-g1-uN3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hW1-Bg-drm">
+                                <rect key="frame" x="258" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onReloadData:" destination="aeP-wW-xh1" eventType="touchUpInside" id="zfl-QI-abh"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="ZZd-gh-mT2" id="Yem-dT-nmY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jP-Jn-YOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="195"/>
+            <point key="canvasLocation" x="556" y="195"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rkq-O2-Hvi">

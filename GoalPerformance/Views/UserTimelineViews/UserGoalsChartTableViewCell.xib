@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserGoalsChartTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="UserGoalsChartTableViewCell" customModule="GoalPerformance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="143"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5B4-LP-lOU" customClass="LineChartView" customModule="Charts">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="IL3-96-EfE"/>
+                            <constraint firstAttribute="height" constant="130" id="WUd-Oy-EPv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WUd-Oy-EPv"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="1Mp-Hv-j49"/>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7SE-Oz-dym"/>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="9Yy-ma-1kV"/>
+                    <constraint firstAttribute="trailing" secondItem="5B4-LP-lOU" secondAttribute="trailing" id="Ae1-iT-x1h"/>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="J9U-M7-Kma"/>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="Jo6-Lo-UL4"/>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Kbr-es-cRZ"/>
+                    <constraint firstItem="5B4-LP-lOU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Kd3-pN-BUu"/>
+                    <constraint firstAttribute="bottom" secondItem="5B4-LP-lOU" secondAttribute="bottom" id="YOx-yL-zZu"/>
+                    <constraint firstAttribute="trailing" secondItem="5B4-LP-lOU" secondAttribute="trailing" id="pYs-rH-dYQ"/>
+                    <constraint firstAttribute="bottom" secondItem="5B4-LP-lOU" secondAttribute="bottom" constant="13" id="tJ1-nR-t0W"/>
+                    <constraint firstAttribute="bottom" secondItem="5B4-LP-lOU" secondAttribute="bottom" id="wnf-ws-kz8"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="1Mp-Hv-j49"/>
+                        <exclude reference="7SE-Oz-dym"/>
+                        <exclude reference="J9U-M7-Kma"/>
+                        <exclude reference="Jo6-Lo-UL4"/>
+                        <exclude reference="YOx-yL-zZu"/>
+                        <exclude reference="pYs-rH-dYQ"/>
+                        <exclude reference="wnf-ws-kz8"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lineChartView" destination="5B4-LP-lOU" id="9xz-rx-gpu"/>
+            </connections>
+            <point key="canvasLocation" x="168" y="244"/>
+        </tableViewCell>
+    </objects>
+</document>

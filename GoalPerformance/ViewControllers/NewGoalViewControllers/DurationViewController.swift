@@ -8,14 +8,18 @@
 
 import UIKit
 
+protocol DurationViewControllerDelegate: class {
+    func durationViewController(durationVC: DurationViewController, durationUpdated duration: Int)
+}
+
 class DurationViewController: UIViewController {
 
     @IBOutlet weak var durationTimer: UIDatePicker!
-    
+    weak var delegate: DurationViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        durationTimer?.datePickerMode = UIDatePickerMode.CountDownTimer
-        // Do any additional setup after loading the view.
+        
+        durationTimer.countDownDuration = 60
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -29,20 +33,19 @@ class DurationViewController: UIViewController {
     
     
     @IBAction func onDurationChangedAction(sender: UIDatePicker) {
-        let dateFormatter = NSDateComponentsFormatter()
+        let dateFormatter = NSDateFormatter()
         let date = durationTimer.date
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute] , fromDate: date)
-        dateFormatter.unitsStyle = .Positional
-        durationTimer.datePickerMode = UIDatePickerMode.CountDownTimer
-        dateFormatter.unitsStyle = .Positional
-        let durationChosen = dateFormatter.stringFromDateComponents(components)
-        var durationArray = durationChosen!.characters.split{$0 == ":"}.map(String.init)
-        let minute = Int(durationArray[1])
-        let hour = Int(durationArray[0])
-        if let hour = hour, minute = minute {
-            let durationMinutes = hour * 60 + minute
-            print(durationMinutes)
+        dateFormatter.dateFormat = "H:m"
+        let durationChosen = dateFormatter.stringFromDate(date)
+        var durationArray = durationChosen.characters.split{$0 == ":"}.map(String.init)
+        print("durationArray \(durationArray)")
+        if durationArray.count > 1 {
+            let minute  = Int(durationArray[1])
+            let hour    = Int(durationArray[0])
+            if let hour = hour, minute = minute {
+                let durationMinutes = hour * 60 + minute
+                self.delegate?.durationViewController(self, durationUpdated: durationMinutes)
+            }
         }
     }
     
