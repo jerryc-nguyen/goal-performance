@@ -8,12 +8,20 @@
 
 import UIKit
 
-class NewGoalViewController: UIViewController {
+//protocol NewGoalViewControllerDelegate: class {
+//    func newGoalViewController(newGoalVC: NewGoalViewController, categoryId: Int?, categoryName: String?)
+//}
 
+
+class NewGoalViewController: UIViewController {
+    
+//    weak var delegate: NewGoalViewControllerDelegate?
     var categories: Array<Category>?
     var buttons: Array<UIButton>? = Array<UIButton>()
     var _currentX: CGFloat = 10
     var _currentY: CGFloat = 70
+    var categoryId:Int? = 0
+    var categoryName:String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +34,13 @@ class NewGoalViewController: UIViewController {
                 }
             }
         }
-        
-    
-
     }
-       override func didReceiveMemoryWarning() {
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
     }
@@ -52,8 +62,6 @@ class NewGoalViewController: UIViewController {
         button.layer.masksToBounds = true
         
         button.layer.borderWidth = 1
-      //  btn.layer.borderColor = UIColor.orangeColor().CGColor
-        
         if _currentX > 10 {
             _currentX = 10
         } else {
@@ -73,23 +81,34 @@ class NewGoalViewController: UIViewController {
     
     func categoryselectedAction(sender: UIButton) {
         let defineGoalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DefineGoalViewController") as? DefineGoalViewController
+        
         if let categories = self.categories {
             let category = categories[sender.tag]
             print(category.id)
             print(category.name)
+            self.categoryName = category.name
+            self.categoryId = category.id
         }
+//        performSegueWithIdentifier("DefineGoalSegue", sender: self)
+        
         if let defineGoalViewController = defineGoalViewController {
+            
+            defineGoalViewController.categoryID = self.categoryId
+            defineGoalViewController.categoryName = self.categoryName
             self.navigationController?.pushViewController(defineGoalViewController, animated: true)
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "DefineGoalSegue" {
+//            let defineGoalVC = segue.destinationViewController as! DefineGoalViewController
+//            defineGoalVC.categoryID = self.categoryId
+//            defineGoalVC.categoryName = self.categoryName
+//        }
+//
+//    }
+//  
 }

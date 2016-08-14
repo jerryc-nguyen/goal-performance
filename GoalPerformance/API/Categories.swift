@@ -12,7 +12,7 @@ extension APIClient {
     
     func categories(completed: CompletedBlock) {
         let headers = [
-            "X-Api-Token": "3dedef7c35a8d2549b3982c5276d1cd1"
+            "X-Api-Token": APIClient.currentUserToken
         ]
         Alamofire.request(.GET, API_URLS.getCategories, headers: headers)
             .responseJSON { response in
@@ -41,7 +41,7 @@ extension APIClient {
     
     func sendSetupGoalData(params: Dictionary<String, AnyObject>, completed: CompletedBlock) {
         let headers = [
-            "X-Api-Token": "3dedef7c35a8d2549b3982c5276d1cd1"
+            "X-Api-Token": APIClient.currentUserToken
         ]
         
         Alamofire.request(.POST, API_URLS.goalSetup, parameters: params, headers: headers)

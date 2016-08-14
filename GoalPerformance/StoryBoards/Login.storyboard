@@ -24,10 +24,6 @@
                                     <action selector="onNotificationButton:" destination="Vax-7l-FjR" eventType="touchUpInside" id="WjC-e2-XI9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tK-FP-uCz">
-                                <rect key="frame" x="90" y="408" width="141" height="30"/>
-                                <state key="normal" title="Login with Facebook"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
