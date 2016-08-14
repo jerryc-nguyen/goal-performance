@@ -63,7 +63,6 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print("User Logged In")
-        
         if ((error) != nil) {
             // Process error
         } else if result.isCancelled {
@@ -80,7 +79,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             print("currentUser token", currentUser.token)
             APIClient.currentUser = currentUser
             APIClient.currentUserToken = currentUser.token!
-            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
+            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
         })
         
     
