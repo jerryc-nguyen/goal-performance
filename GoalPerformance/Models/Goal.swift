@@ -62,6 +62,9 @@ class Goal: NSObject {
     var remainingTime: String {
         get {
             let remainingInterval = endIntervalFrom1970 -  NSDate().timeIntervalSince1970
+            if remainingInterval < 0 {
+                return "00:00"
+            }
             return Utils.stringCountDownFromTimeInterval(remainingInterval)
         }
     }
@@ -107,11 +110,7 @@ class Goal: NSObject {
         if let sessionsHistoryData = dictionary["sessions_history"] as? NSDictionary {
             sessionsHistory = SessionsHistory(dictionary: sessionsHistoryData)
         }
-        
-        
     }
-    
-    
     
     static func initFromArrayData(goalsData: [NSDictionary]) -> [Goal] {
         var results = [Goal]()
