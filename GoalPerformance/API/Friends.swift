@@ -10,7 +10,7 @@ import Alamofire
 
 extension APIClient {
     
-    func friends(completed: (friends: [User]) -> ()) {
+    func getAllFriends(completed: (friends: [User]) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
