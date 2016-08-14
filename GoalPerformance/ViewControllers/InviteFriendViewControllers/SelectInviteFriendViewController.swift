@@ -15,7 +15,7 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     
     var apiClient = APIClient.sharedInstance
     var friends = [User]()
-    var goalID = ""
+    var goalID = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +39,10 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     }
     
     func displayAlert(viewCell: SuggestFriendTableViewCell, title: String, message: String) {
-//        let alertController = UIAlertController(title: "iOScreator", message:
-//            "Hello, world!", preferredStyle: UIAlertControllerStyle.Alert)
-//        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-//        
-//        self.presentViewController(alertController, animated: true, completion: nil)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
         print("Invite or Connect is press")
     }
     
@@ -73,6 +72,8 @@ extension SelectInviteFriendViewController: UITableViewDelegate, UITableViewData
         
         cell.friend = friends[indexPath.row]
         cell.goalID = goalID
+        cell.delegate = self
+        cell.apiClient = apiClient
         
         return cell
     }

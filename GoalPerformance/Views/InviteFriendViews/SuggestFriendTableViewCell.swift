@@ -36,7 +36,7 @@ class SuggestFriendTableViewCell: UITableViewCell {
         }
     }
     
-    var goalID: String!
+    var goalID: Int!
     var apiClient: APIClient!
     weak var delegate: SuggestFriendTableViewCellDelegate!
     

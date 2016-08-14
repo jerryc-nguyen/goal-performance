@@ -14,15 +14,17 @@ extension APIClient {
     }
     
 
-    func inviteGoal(goalID: String, friendID: String, completed: (title: String, message: String) -> ()) {
-        let inviteGoalURL = "\(APIBaseURL)/api/goals/\(goalID)/invite.json"
+    func inviteGoal(goalID: Int, friendID: Int, completed: (title: String, message: String) -> ()) {
+        
         let header = [
              "X-Api-Token": APIClient.currentUserToken
         ]
         
         let parameters = ["friend_id" : friendID]
         
-        Alamofire.request(.POST, inviteGoalURL, headers: header, parameters: parameters)
+        let requestUrl = String(format: API_URLS.inviteGoal, goalID)
+        
+        Alamofire.request(.POST, requestUrl, headers: header, parameters: parameters)
             .responseJSON { response in
             if let JSON = response.result.value {
                 
