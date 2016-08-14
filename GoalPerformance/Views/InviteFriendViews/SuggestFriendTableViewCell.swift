@@ -47,7 +47,9 @@ class SuggestFriendTableViewCell: UITableViewCell {
     }
     
     @IBAction func onConnect(sender: UIButton) {
-        
+        apiClient.connectFriend(friend.id!) { (title, message) in
+            self.delegate.displayAlert(self, title: title, message: message)
+        }
     }
 
 }

@@ -65,4 +65,34 @@ extension APIClient {
                 }
         }
     }
+    
+    func connectFriend(friendID: Int, completed: (title: String, message: String) -> ()){
+        let header = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        let parameters = ["friend_id" : friendID]
+        
+        Alamofire.request(.POST, API_URLS.requestFriend, headers: header, parameters: parameters)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    
+                    var title = ""
+                    var message = ""
+                    let status = JSON["status"] as! Int
+                    
+                    if status == 200 {
+                        let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
+                        title = "Success!"
+                        message = dictionary["message"] as! String
+                    } else {
+                        title = "Fail"
+                        message = JSON["error_message"] as! String
+                    }
+                    
+                    completed(title: title, message: message)
+                }
+        }
+
+    }
 }
