@@ -15,6 +15,7 @@ class UserViewController: UIViewController {
     @IBAction func onReloadData(sender: AnyObject) {
         loadUserTimeline()
     }
+    
     let numberOfSections = 3
     
     var userGoals = [Goal]()
@@ -33,7 +34,7 @@ class UserViewController: UIViewController {
         self.tableView.delegate = self
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 120
+        self.tableView.estimatedRowHeight = 100
         
         registerNibs()
         loadUserTimeline()
@@ -41,7 +42,7 @@ class UserViewController: UIViewController {
     
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "UserProfileTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserProfileTableViewCell")
-        tableView.registerNib(UINib(nibName: "UserGoalsChartTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalsChartTableViewCell")
+//        tableView.registerNib(UINib(nibName: "UserGoalsChartTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalsChartTableViewCell")
         tableView.registerNib(UINib(nibName: "UserGoalTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalTableViewCell")
     }
     
@@ -81,7 +82,7 @@ extension UserViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0, 1:
+        case 0:
             return 1
         default:
             return userGoals.count
@@ -95,11 +96,11 @@ extension UserViewController: UITableViewDataSource {
             
             cell.viewingUser = self.viewingUser
             return cell
-        case 1:
-            let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalsChartTableViewCell") as! UserGoalsChartTableViewCell
-            cell.dateLabels = dateLabels
-            cell.goals = userGoals
-            return cell
+//        case 1:
+//            let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalsChartTableViewCell") as! UserGoalsChartTableViewCell
+//            cell.dateLabels = dateLabels
+//            cell.goals = userGoals
+//            return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalTableViewCell") as! UserGoalTableViewCell
             let goal = userGoals[indexPath.row]
@@ -113,7 +114,7 @@ extension UserViewController: UITableViewDataSource {
 extension UserViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-        case 2:
+        case 1:
             let view = UsersGoalSectionHeaderView.initFromNib()
             view.sectionHeaderLabel.text = "Doing goals"
             return view
@@ -124,7 +125,7 @@ extension UserViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 2:
+        case 1:
             return 50
         default:
             return 0
