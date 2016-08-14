@@ -43,7 +43,7 @@ extension NSDate {
             "Wednesday",
             "Thursday",
             "Friday",
-            "Satudrday,"
+            "Saturday"
         ]
         
         let calendar: NSCalendar = NSCalendar.currentCalendar()

@@ -14,31 +14,24 @@ class LoginViewController: UIViewController {
     
     @IBAction func onNotificationButton(sender: AnyObject) {
         
-        //test API
-//        APIClient.sharedInstance.friends { (friends) in
-//            print("Friends", friends)
-//        }
         let goalData = [
-                "id": 1,
-                "name": "Swimming everyday! at 14:20",
-                "start_at": "2016-08-06T06:00:00.000+07:00",
-                "repeat_every": "",
-                "duration": 10,
-                "sound_name": "sound_name",
-                "is_challenge": true,
-                "is_default": true
+            "id": 1,
+            "name": "Swimming everyday! at 14:20",
+            "start_at": "2016-08-15T12:00:00.000+07:00",
+            "repeat_every": ["sunday", "monday", "tuesday"],
+            "duration": 50,
+            "sound_name": "sound_name",
+            "is_challenge": true,
+            "is_default": true,
+            "start_at_hour": 0,
+            "start_at_minute": 54,
+            "start_at_second": 30
         ]
         
         let goalItem = Goal(dictionary: goalData)
-        let today = NSDate()
-        goalItem.startAt = today.dateByAddingTimeInterval(5)
-        LocalNotificationsManager.sharedInstance.registerEndGoalNotification(goalItem)
-        
-        print("Notification at:", goalItem.startAt)
-        print("Registered notify!", goalItem.notificationEndKey)
-        
+        goalItem.registerStartGoalNotifications()
+
         LocalNotificationsManager.sharedInstance.showAllRegisteredNotification()
-        
     }
 
     override func viewDidLoad() {

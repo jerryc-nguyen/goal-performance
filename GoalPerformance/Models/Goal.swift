@@ -24,8 +24,15 @@ class Goal: NSObject {
     let categoryColor: String?
     var startAtInterval: Int = 0
     var endAtInterval: Int = 0
+    var startAtHour: Int = 0
+    var startAtMinute: Int = 0
+    var startAtSecond: Int = 0
+    
+    let localNotificationManager = LocalNotificationsManager.sharedInstance
     
     var sessionsHistory: SessionsHistory?
+    
+    let DefaultWeekDayIndex = 1 //Sunday
     
     var notificationStartKey: String {
         return "goal-\(self.id)-start"
@@ -107,6 +114,18 @@ class Goal: NSObject {
             self.endAtInterval = endAtInterval
         }
         
+        if let startAtHour = dictionary["start_at_hour"] as? Int {
+            self.startAtHour = startAtHour
+        }
+        
+        if let startAtMinute = dictionary["start_at_minute"] as? Int {
+            self.startAtMinute = startAtMinute
+        }
+        
+        if let startAtSecond = dictionary["start_at_second"] as? Int {
+            self.startAtSecond = startAtSecond
+        }
+        
         if let sessionsHistoryData = dictionary["sessions_history"] as? NSDictionary {
             sessionsHistory = SessionsHistory(dictionary: sessionsHistoryData)
         }
@@ -119,4 +138,66 @@ class Goal: NSObject {
         }
         return results
     }
+    
+    
+    func registerStartGoalNotifications() {
+        localNotificationManager.removeNotificationHasKeyContains(notificationStartKey)
+        for repeatDay in repeatEvery! {
+            let weekdayIndex = Utils.WeekDaysMap[repeatDay] ?? DefaultWeekDayIndex
+            registerStartGoalNotification(weekdayIndex)
+        }
+    }
+    
+    func registerStartGoalNotification(weekdayIndex: Int) {
+        let key = notificationStartKey + "-day-" + String(weekdayIndex)
+        let notification = UILocalNotification()
+        let message = "Goal \(name) ending time!"
+        
+        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let dateComponents: NSDateComponents = NSDateComponents()
+        dateComponents.weekday = weekdayIndex // sunday = 1 ... saturday = 7
+        dateComponents.hour = startAtHour
+        dateComponents.minute = startAtMinute
+        dateComponents.second = startAtSecond
+        
+        notification.alertBody = message
+        notification.alertAction = "open"
+        notification.fireDate = calendar.dateFromComponents(dateComponents)
+        notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
+        notification.userInfo = ["message": message, "UUID": key, "notificationName": LocalNotificationName.StartGoal]
+        notification.repeatInterval = NSCalendarUnit.WeekOfYear
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
+    func registerEndGoalNotifications() {
+        localNotificationManager.removeNotificationHasKeyContains(notificationEndKey)
+        for repeatDay in repeatEvery! {
+            let weekdayIndex = Utils.WeekDaysMap[repeatDay] ?? DefaultWeekDayIndex
+            registerEndGoalNotification(weekdayIndex)
+        }
+    }
+    
+    func registerEndGoalNotification(weekdayIndex: Int) {
+        let key = notificationEndKey + "-day-" + String(weekdayIndex)
+        
+        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let dateComponents: NSDateComponents = NSDateComponents()
+        dateComponents.weekday = weekdayIndex // sunday = 1 ... saturday = 7
+        dateComponents.hour = startAtHour
+        dateComponents.minute = startAtMinute
+        dateComponents.second = startAtSecond
+        
+        let notification = UILocalNotification()
+        let message = "Goal \(name) ending time!"
+        notification.alertBody = message
+        notification.alertAction = "open"
+        notification.fireDate = calendar.dateFromComponents(dateComponents)
+        notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
+        notification.userInfo = ["message": message, "UUID": key, "notificationName": LocalNotificationName.EndGoal]
+        notification.repeatInterval = NSCalendarUnit.WeekOfYear
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
 }
