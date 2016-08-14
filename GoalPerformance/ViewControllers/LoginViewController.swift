@@ -44,21 +44,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        // Do any additional setup after loading the view, typically from a nib.
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
             
-            print("currentAccessToken", FBSDKAccessToken.currentAccessToken())
-            APIClient.sharedInstance.loginFacebook(FBSDKAccessToken.currentAccessToken().tokenString, completed: { (currentUser) in
-                print("currentUser token", currentUser.token)
-                
-                //APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
-            })
-            
-        }
-        else
-        {
+        } else {
             let loginView : FBSDKLoginButton = FBSDKLoginButton()
             self.view.addSubview(loginView)
             loginView.center = self.view.center
@@ -67,26 +56,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func returnUserData()
-    {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            
-            if ((error) != nil)
-            {
-                // Process error
-                print("Error: \(error)")
-            }
-            else
-            {
-                print("fetched user: \(result)")
-                let userName : NSString = result.valueForKey("name") as! NSString
-                print("User Name is: \(userName)")
-                //let userEmail : NSString = result.valueForKey("email") as! NSString
-                //print("User Email is: \(userEmail)")
-            }
-        })
-    }
 }
 
 extension LoginViewController : FBSDKLoginButtonDelegate{
@@ -95,21 +64,26 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print("User Logged In")
         
-        if ((error) != nil)
-        {
+        if ((error) != nil) {
             // Process error
-        }
-        else if result.isCancelled {
+        } else if result.isCancelled {
             // Handle cancellations
+        } else {
+            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         }
-        else {
-            // If you ask for multiple permissions at once, you
-            // should check if specific permissions missing
-            if result.grantedPermissions.contains("email")
-            {
-                // Do work
-            }
-        }
+    }
+    
+    func authWithAPIServer(fbAccessToken: String) {
+        
+        print("currentAccessToken", FBSDKAccessToken.currentAccessToken())
+        APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
+            print("currentUser token", currentUser.token)
+            APIClient.currentUser = currentUser
+            APIClient.currentUserToken = currentUser.token!
+            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
+        })
+        
+    
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {

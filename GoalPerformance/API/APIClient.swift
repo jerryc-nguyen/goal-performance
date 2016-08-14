@@ -46,7 +46,8 @@ struct API_URLS {
 typealias CompletedBlock = ((result: AnyObject?) -> Void)?
 
 class APIClient {
+    static var currentUser: User = User(dictionary: NSDictionary())
     static let sharedInstance = APIClient()
-    static let currentUserToken: String = "3dedef7c35a8d2549b3982c5276d1cd1"
+    static var currentUserToken: String = "3dedef7c35a8d2549b3982c5276d1cd1"
     
 }

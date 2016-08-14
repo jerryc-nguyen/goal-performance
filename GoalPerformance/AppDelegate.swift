@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         localNotificationManager.window = window
         localNotificationManager.setupStartGoalNotificationSettings()
         
-//    let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
-//    self.window?.rootViewController = loginVC
+    let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
+    self.window?.rootViewController = loginVC
         
         
         // Handle notification: 
