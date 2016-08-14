@@ -11,7 +11,6 @@ import UIKit
 class InviteViewController: UIViewController {
 
     //  MARK: Properties
-    
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var inviteFriendButton: UIButton!
     

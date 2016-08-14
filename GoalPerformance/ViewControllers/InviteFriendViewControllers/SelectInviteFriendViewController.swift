@@ -11,13 +11,19 @@ import UIKit
 class SelectInviteFriendViewController: UIViewController {
 
     @IBOutlet weak var suggestFriendTableView: UITableView!
-    
     @IBOutlet weak var emailTextField: UITextField!
+    
+    var apiClient = APIClient.sharedInstance
+    var friends = [User]()
+    var goalID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        suggestFriendTableView.delegate = self
+        suggestFriendTableView.dataSource = self
+        
+        loadSuggestFriend()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,7 +31,13 @@ class SelectInviteFriendViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func loadSuggestFriend(){
+        apiClient.getSuggestedFriends({ (friends) in
+            self.friends = friends
+            self.suggestFriendTableView.reloadData()
+        })
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -36,4 +48,24 @@ class SelectInviteFriendViewController: UIViewController {
     }
     */
 
+}
+
+extension SelectInviteFriendViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if friends.count > 0 {
+            return friends.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("SuggestFriendCell") as! SuggestFriendTableViewCell
+        
+        cell.friend = friends[indexPath.row]
+        cell.goalID = goalID
+        
+        return cell
+    }
+    
 }

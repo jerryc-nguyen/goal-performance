@@ -21,6 +21,7 @@ class Goal: NSObject {
     var isDefault: Bool = false
     let token: String?
     let detailName: String?
+    let categoryColor: String?
     
     var sessionsHistory: SessionsHistory?
     
@@ -39,6 +40,7 @@ class Goal: NSObject {
         soundName = dictionary["sound_name"] as? String
         token = dictionary["token"] as? String
         detailName = dictionary["detail_name"] as? String
+        categoryColor = dictionary["category_selected_color"] as? String
         
         if let startAtStr = dictionary["start_at"] as? String {
             if let startAtDate = Utils.dateFromRailsString(startAtStr) {

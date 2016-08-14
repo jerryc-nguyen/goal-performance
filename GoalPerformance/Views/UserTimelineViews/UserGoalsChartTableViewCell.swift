@@ -27,7 +27,8 @@ class UserGoalsChartTableViewCell: UITableViewCell {
         
         for z in 0..<goals.count {
             var values: [ChartDataEntry] = [ChartDataEntry]()
-            let sesstionsHistory = goals[z].sessionsHistory
+            let goal = goals[z]
+            let sesstionsHistory = goal.sessionsHistory
             
             for i in 0..<(sesstionsHistory?.scores.count)! {
                 let val: Double = Double((sesstionsHistory?.scores[i])!)
@@ -41,13 +42,13 @@ class UserGoalsChartTableViewCell: UITableViewCell {
             d.circleRadius = 3.0
             d.circleHoleRadius = 1.5
             
-            d.setColor(ChartColorTemplates.colorFromString(UIColors.HomeTimelineChartLineColor))
+            d.setColor(ChartColorTemplates.colorFromString(goal.categoryColor!))
             d.mode = .CubicBezier
             d.drawCircleHoleEnabled = false
             d.circleRadius = 3
             d.drawValuesEnabled = true
             
-            d.setCircleColor(ChartColorTemplates.colorFromString(UIColors.HomeTimelineChartLineColor))
+            d.setCircleColor(ChartColorTemplates.colorFromString(goal.categoryColor!))
             
             //hide value
             d.drawValuesEnabled = !d.isDrawValuesEnabled

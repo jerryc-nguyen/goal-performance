@@ -121,4 +121,13 @@ extension UserViewController: UITableViewDelegate {
             return nil
         }
     }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 2:
+            return 50
+        default:
+            return 0
+        }
+    }
 }
