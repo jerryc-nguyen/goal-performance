@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SelectInviteFriendViewController: UIViewController {
+class SelectInviteFriendViewController: UIViewController, SuggestFriendTableViewCellDelegate {
 
     @IBOutlet weak var suggestFriendTableView: UITableView!
     @IBOutlet weak var emailTextField: UITextField!
     
     var apiClient = APIClient.sharedInstance
     var friends = [User]()
-    var goalID = ""
+    var goalID = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,14 @@ class SelectInviteFriendViewController: UIViewController {
             self.friends = friends
             self.suggestFriendTableView.reloadData()
         })
+    }
+    
+    func displayAlert(viewCell: SuggestFriendTableViewCell, title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        print("Invite or Connect is press")
     }
     
     /*
@@ -64,6 +72,8 @@ extension SelectInviteFriendViewController: UITableViewDelegate, UITableViewData
         
         cell.friend = friends[indexPath.row]
         cell.goalID = goalID
+        cell.delegate = self
+        cell.apiClient = apiClient
         
         return cell
     }

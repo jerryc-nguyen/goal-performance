@@ -36,7 +36,7 @@ class SuggestFriendTableViewCell: UITableViewCell {
         }
     }
     
-    var goalID: String!
+    var goalID: Int!
     var apiClient: APIClient!
     weak var delegate: SuggestFriendTableViewCellDelegate!
     
@@ -47,7 +47,9 @@ class SuggestFriendTableViewCell: UITableViewCell {
     }
     
     @IBAction func onConnect(sender: UIButton) {
-        
+        apiClient.connectFriend(friend.id!) { (title, message) in
+            self.delegate.displayAlert(self, title: title, message: message)
+        }
     }
 
 }
