@@ -27,6 +27,7 @@ class UserGoalTableViewCell: UITableViewCell {
         didSet {
             goalNameLabel.text = goal!.detailName
             setChart()
+            showCountdownLabel()
         }
     }
     
@@ -74,6 +75,14 @@ class UserGoalTableViewCell: UITableViewCell {
         
         lineChartView.data = lineChartData
         
+    }
+    
+    func showCountdownLabel() {
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+    }
+    
+    func countDown() {
+        countDownTimerLabel.text = goal?.remainingTime
     }
     
     override func awakeFromNib() {

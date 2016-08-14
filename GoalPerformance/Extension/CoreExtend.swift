@@ -33,3 +33,35 @@ extension UIView {
         self.frame = frame
     }
 }
+
+extension NSDate {
+    func dayOfTheWeek() -> String? {
+        let weekdays = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Satudrday,"
+        ]
+        
+        let calendar: NSCalendar = NSCalendar.currentCalendar()
+        let components: NSDateComponents = calendar.components(.Weekday, fromDate: self)
+        return weekdays[components.weekday - 1]
+    }
+    
+    func beginningOfDay() -> NSDate {
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Year, .Month, .Day], fromDate: self)
+        return calendar.dateFromComponents(components)!
+    }
+    
+    func endOfDay() -> NSDate {
+        let components = NSDateComponents()
+        components.day = 1
+        var date = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: self.beginningOfDay(), options: [])!
+        date = date.dateByAddingTimeInterval(-1)
+        return date
+    }
+}
