@@ -16,7 +16,7 @@ class UserViewController: UIViewController {
         loadUserTimeline()
     }
     
-    let numberOfSections = 3
+    let numberOfSections = 2
     
     var userGoals = [Goal]()
     var sessionsHistories = [SessionsHistory]()

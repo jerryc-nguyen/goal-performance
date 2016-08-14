@@ -30,7 +30,10 @@ struct DeviceType {
     static let IS_IPAD             = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.MaxLength == 1024.0
 }
 
+//https://www.ralfebert.de/snippets/ios/swift-uicolor-picker/
 struct UIColors {
     static let HomeTimelineChartLineColor = "#FF5722"
+
+    static let goalDoingBackground = UIColor(hue: 0.4, saturation: 0.29, brightness: 0.91, alpha: 0.5)
 }
 
