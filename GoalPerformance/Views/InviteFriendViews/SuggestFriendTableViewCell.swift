@@ -8,12 +8,14 @@
 
 import UIKit
 
+protocol SuggestFriendTableViewCellDelegate: class {
+    func displayAlert(viewCell: SuggestFriendTableViewCell, title: String, message: String)
+}
+
 class SuggestFriendTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-
     @IBOutlet weak var screenNameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -27,10 +29,25 @@ class SuggestFriendTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var friend: User! {
+        didSet {
+            nameLabel.text = friend.displayName
+            avatarImage.sd_setImageWithURL(friend.avatarUrl)
+        }
+    }
+    
+    var goalID: String!
+    var apiClient: APIClient!
+    weak var delegate: SuggestFriendTableViewCellDelegate!
+    
     @IBAction func onInvite(sender: UIButton) {
+        apiClient.inviteGoal(goalID, friendID: friend.id!) { (title, message) in
+            self.delegate.displayAlert(self, title: title, message: message)
+        }
     }
     
     @IBAction func onConnect(sender: UIButton) {
+        
     }
 
 }

@@ -39,6 +39,9 @@
 		42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */; };
 		42F010301D4FAF5F002CD514 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102F1D4FAF5F002CD514 /* Constants.swift */; };
 		874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */; };
+		E00701381D5EEF7F0090972F /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E00701371D5EEF7F0090972F /* Friend.storyboard */; };
+		E007013C1D5EF2B60090972F /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E007013A1D5EF2B60090972F /* FriendTableViewCell.swift */; };
+		E007013D1D5EF2B60090972F /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E007013B1D5EF2B60090972F /* FriendTableViewCell.xib */; };
 		E07B39831D5481A70000FA93 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B39821D5481A70000FA93 /* InviteFriend.storyboard */; };
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
@@ -88,6 +91,9 @@
 		51AB9B7915E8FB1C8939CDC2 /* Pods-GoalPerformance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalPerformance.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance.release.xcconfig"; sourceTree = "<group>"; };
 		BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoalPerformance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D507D87978FC701EDF431D34 /* Pods-GoalPerformance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalPerformance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance.debug.xcconfig"; sourceTree = "<group>"; };
+		E00701371D5EEF7F0090972F /* Friend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
+		E007013A1D5EF2B60090972F /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendTableViewCell.swift; path = FriendViews/FriendTableViewCell.swift; sourceTree = "<group>"; };
+		E007013B1D5EF2B60090972F /* FriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendTableViewCell.xib; path = FriendViews/FriendTableViewCell.xib; sourceTree = "<group>"; };
 		E07B39821D5481A70000FA93 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +208,7 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E00701391D5EF2080090972F /* FriendViews */,
 				420114E91D57BBAF00B2F199 /* TimelineViews */,
 				E07B398B1D5482310000FA93 /* InviteFriendViews */,
 			);
@@ -253,6 +260,7 @@
 				42F0101A1D4FA856002CD514 /* Timeline.storyboard */,
 				42F0101B1D4FA856002CD514 /* User.storyboard */,
 				4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */,
+				E00701371D5EEF7F0090972F /* Friend.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -282,6 +290,15 @@
 				42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */,
 			);
 			path = NewGoalViewControllers;
+			sourceTree = "<group>";
+		};
+		E00701391D5EF2080090972F /* FriendViews */ = {
+			isa = PBXGroup;
+			children = (
+				E007013A1D5EF2B60090972F /* FriendTableViewCell.swift */,
+				E007013B1D5EF2B60090972F /* FriendTableViewCell.xib */,
+			);
+			name = FriendViews;
 			sourceTree = "<group>";
 		};
 		E07B39841D5481C60000FA93 /* InviteFriendViewControllers */ = {
@@ -377,6 +394,8 @@
 				420114E81D579FA100B2F199 /* TimelineItemTableViewCell.xib in Resources */,
 				42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */,
 				42210CB11D4D040F0029990F /* Assets.xcassets in Resources */,
+				E00701381D5EEF7F0090972F /* Friend.storyboard in Resources */,
+				E007013D1D5EF2B60090972F /* FriendTableViewCell.xib in Resources */,
 				42210CAF1D4D040F0029990F /* Main.storyboard in Resources */,
 				E07B39831D5481A70000FA93 /* InviteFriend.storyboard in Resources */,
 				42F0101F1D4FA856002CD514 /* User.storyboard in Resources */,
@@ -454,6 +473,7 @@
 				4263DF5A1D5BC6460050E5A0 /* Categories.swift in Sources */,
 				4263DF591D5BC6460050E5A0 /* Auth.swift in Sources */,
 				4263DF5B1D5BC6460050E5A0 /* Friends.swift in Sources */,
+				E007013C1D5EF2B60090972F /* FriendTableViewCell.swift in Sources */,
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,
 				420114E01D5791D900B2F199 /* TimelineItem.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,

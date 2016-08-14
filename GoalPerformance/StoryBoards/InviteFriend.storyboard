@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e3F-Hl-ljA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e3F-Hl-ljA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -137,17 +137,43 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5i-mn-EoR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5i-mn-EoR">
                                 <rect key="frame" x="20" y="214" width="280" height="292"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="JZv-RV-etM" customClass="SuggestFriendTableViewCell" customModule="GoalPerformance" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="280" height="108"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestFriendCell" rowHeight="86" id="JZv-RV-etM" customClass="SuggestFriendTableViewCell" customModule="GoalPerformance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="280" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JZv-RV-etM" id="bbF-Mk-8MI">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="107"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="85.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLh-DG-BeY">
+                                                    <rect key="frame" x="169" y="8" width="37" height="30"/>
+                                                    <state key="normal" title="Invite"/>
+                                                    <connections>
+                                                        <action selector="onInvite:" destination="JZv-RV-etM" eventType="touchUpInside" id="P9g-5u-dHO"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-oS-JQV">
+                                                    <rect key="frame" x="90" y="40" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="752" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFd-2k-JQF">
+                                                    <rect key="frame" x="90" y="14" width="41" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-F2-vGv">
+                                                    <rect key="frame" x="221" y="8" width="59" height="30"/>
+                                                    <state key="normal" title="Connect"/>
+                                                    <connections>
+                                                        <action selector="onConnect:" destination="JZv-RV-etM" eventType="touchUpInside" id="8nJ-EP-CeH"/>
+                                                    </connections>
+                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAx-Be-LQg">
                                                     <rect key="frame" x="8" y="14" width="60" height="60"/>
                                                     <constraints>
@@ -155,32 +181,6 @@
                                                         <constraint firstAttribute="height" constant="60" id="ijq-hX-IR1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLh-DG-BeY">
-                                                    <rect key="frame" x="157" y="10" width="37" height="30"/>
-                                                    <state key="normal" title="Invite"/>
-                                                    <connections>
-                                                        <action selector="onInvite:" destination="JZv-RV-etM" eventType="touchUpInside" id="P9g-5u-dHO"/>
-                                                    </connections>
-                                                </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-oS-JQV">
-                                                    <rect key="frame" x="90" y="43" width="98" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFd-2k-JQF">
-                                                    <rect key="frame" x="90" y="14" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbI-F2-vGv">
-                                                    <rect key="frame" x="204" y="10" width="68" height="30"/>
-                                                    <state key="normal" title="Connect"/>
-                                                    <connections>
-                                                        <action selector="onConnect:" destination="JZv-RV-etM" eventType="touchUpInside" id="8nJ-EP-CeH"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DcH-oS-JQV" firstAttribute="leading" secondItem="dFd-2k-JQF" secondAttribute="leading" id="6Sf-Mv-bBQ"/>
@@ -188,13 +188,22 @@
                                                 <constraint firstItem="DLh-DG-BeY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dFd-2k-JQF" secondAttribute="trailing" constant="5" id="LRu-KC-5DH"/>
                                                 <constraint firstItem="dFd-2k-JQF" firstAttribute="top" secondItem="nAx-Be-LQg" secondAttribute="top" id="N7C-DG-6mR"/>
                                                 <constraint firstItem="DLh-DG-BeY" firstAttribute="centerY" secondItem="dFd-2k-JQF" secondAttribute="centerY" id="NbI-Js-D4V"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="nAx-Be-LQg" secondAttribute="bottom" constant="25.5" id="Oe1-iE-e5u"/>
                                                 <constraint firstItem="dFd-2k-JQF" firstAttribute="leading" secondItem="nAx-Be-LQg" secondAttribute="trailing" constant="22" id="bWR-LK-9oA"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JbI-F2-vGv" secondAttribute="trailing" id="c5U-dy-dQT"/>
                                                 <constraint firstItem="JbI-F2-vGv" firstAttribute="leading" secondItem="DLh-DG-BeY" secondAttribute="trailing" constant="15" id="cBq-gn-TPK"/>
                                                 <constraint firstItem="DcH-oS-JQV" firstAttribute="top" secondItem="dFd-2k-JQF" secondAttribute="bottom" constant="8" id="hHC-70-smv"/>
                                                 <constraint firstItem="JbI-F2-vGv" firstAttribute="centerY" secondItem="dFd-2k-JQF" secondAttribute="centerY" id="ijo-e9-y9a"/>
+                                                <constraint firstAttribute="trailing" secondItem="JbI-F2-vGv" secondAttribute="trailing" id="kKx-TI-AfH"/>
+                                                <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="nAx-Be-LQg" secondAttribute="bottom" constant="5" id="lkY-i8-Crg"/>
                                                 <constraint firstItem="nAx-Be-LQg" firstAttribute="top" secondItem="bbF-Mk-8MI" secondAttribute="topMargin" constant="6" id="s6V-la-yJi"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Oe1-iE-e5u"/>
+                                                    <exclude reference="c5U-dy-dQT"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avatarImage" destination="nAx-Be-LQg" id="QPJ-XK-NvY"/>
@@ -262,6 +271,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="emailTextField" destination="grH-oC-lju" id="hOz-tS-IuS"/>
                         <outlet property="suggestFriendTableView" destination="h5i-mn-EoR" id="au7-op-547"/>
                     </connections>
                 </viewController>
