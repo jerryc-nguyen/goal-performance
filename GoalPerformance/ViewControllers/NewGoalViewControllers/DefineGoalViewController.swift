@@ -22,11 +22,11 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
         super.viewDidLoad()
         startTimePicker.datePickerMode = UIDatePickerMode.Time
         
-        let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(done))
+        let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
         self.navigationItem.rightBarButtonItem = nextBarItem
     }
     
-    func done() {
+    func next() {
        let params : [String : AnyObject] = [
             "goal[start_at]" : self.timeChosen,
             "goal[repeat_every]" : self.weekdays,
@@ -39,6 +39,7 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
         APIClient.sharedInstance.sendSetupGoalData(params) { (result) in
             print(result)
         }
+        performSegueWithIdentifier("DoneSegue", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +63,12 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
         if segue.identifier == "GoalIntervalTableViewSegue" {
             let goalIntervalTableVC = segue.destinationViewController as! GoalIntervalTableViewController
             goalIntervalTableVC.parentScreen = self
-        }
+        } else if segue.identifier == "DoneSegue" {
+            let doneVC = segue.destinationViewController as! DoneViewController
+            doneVC.categoryName = self.categoryName
+            doneVC.timeChosen = self.timeChosen
+            doneVC.weekdays = self.weekdays
+       }
     }
     
 

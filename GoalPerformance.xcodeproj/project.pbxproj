@@ -63,6 +63,7 @@
 		E471C84B1D5787150075C5E9 /* DurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8481D5787150075C5E9 /* DurationViewController.swift */; };
 		E471C84C1D5787150075C5E9 /* GoalIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */; };
 		E471C8501D57895D0075C5E9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C84F1D57895D0075C5E9 /* Category.swift */; };
+		E4986E501D604642005A6A34 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4986E4F1D604642005A6A34 /* DoneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		E471C8481D5787150075C5E9 /* DurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationViewController.swift; sourceTree = "<group>"; };
 		E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalIntervalTableViewController.swift; sourceTree = "<group>"; };
 		E471C84F1D57895D0075C5E9 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E4986E4F1D604642005A6A34 /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 				E471C8481D5787150075C5E9 /* DurationViewController.swift */,
 				E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */,
 				42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */,
+				E4986E4F1D604642005A6A34 /* DoneViewController.swift */,
 			);
 			path = NewGoalViewControllers;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				4263DF571D5BC6460050E5A0 /* APIClient.swift in Sources */,
 				E471C8501D57895D0075C5E9 /* Category.swift in Sources */,
 				4263DF5A1D5BC6460050E5A0 /* Categories.swift in Sources */,
+				E4986E501D604642005A6A34 /* DoneViewController.swift in Sources */,
 				4263DF591D5BC6460050E5A0 /* Auth.swift in Sources */,
 				4263DF5B1D5BC6460050E5A0 /* Friends.swift in Sources */,
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,
