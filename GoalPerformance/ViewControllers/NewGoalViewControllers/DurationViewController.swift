@@ -9,17 +9,20 @@
 import UIKit
 
 protocol DurationViewControllerDelegate: class {
-    func durationViewController(durationVC: DurationViewController, durationUpdated duration: Int)
+    func durationViewController(durationVC: DurationViewController, durationUpdated duration: Int, durationString: String)
 }
 
 class DurationViewController: UIViewController {
-
+    var durationSec: Int = 0
     @IBOutlet weak var durationTimer: UIDatePicker!
     weak var delegate: DurationViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        durationTimer.countDownDuration = 60
+        if durationSec == durationSec {
+            durationTimer.countDownDuration = Double(durationSec)
+        } else {
+        durationTimer.countDownDuration = 1800
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -38,13 +41,20 @@ class DurationViewController: UIViewController {
         dateFormatter.dateFormat = "H:m"
         let durationChosen = dateFormatter.stringFromDate(date)
         var durationArray = durationChosen.characters.split{$0 == ":"}.map(String.init)
-        print("durationArray \(durationArray)")
-        if durationArray.count > 1 {
+            if durationArray.count > 1 {
             let minute  = Int(durationArray[1])
             let hour    = Int(durationArray[0])
+            var durationString: String = ""
             if let hour = hour, minute = minute {
+                if hour == 1 {
+                    durationString = "\(hour) hour \(minute) min"
+                    print(durationString)
+                } else {
+                    durationString = "\(hour) hours \(minute) min"
+                    print(durationString)
+                }
                 let durationMinutes = hour * 60 + minute
-                self.delegate?.durationViewController(self, durationUpdated: durationMinutes)
+                self.delegate?.durationViewController(self, durationUpdated: durationMinutes, durationString: durationString)
             }
         }
     }

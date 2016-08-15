@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefineGoalViewController: UIViewController, DurationViewControllerDelegate, WeekdaysViewControllerDelegate {
+class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate, WeekdaysViewControllerDelegate {
 
     @IBOutlet weak var startTimePicker: UIDatePicker!
     
@@ -63,6 +63,7 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
         if segue.identifier == "GoalIntervalTableViewSegue" {
             let goalIntervalTableVC = segue.destinationViewController as! GoalIntervalTableViewController
             goalIntervalTableVC.parentScreen = self
+            goalIntervalTableVC.delegate = self
         } else if segue.identifier == "DoneSegue" {
             let doneVC = segue.destinationViewController as! DoneViewController
             doneVC.categoryName = self.categoryName
@@ -71,10 +72,9 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
        }
     }
     
-
-    func durationViewController(durationVC: DurationViewController, durationUpdated duration: Int) {
-        print("get duration: \(duration)")
+    func goalIntervalTableViewController(goalIntervalVC: GoalIntervalTableViewController, duration: Int) {
         self.duration = duration
+        print("get duration1: \(duration)")
     }
     
     func weekdaysViewController(weekdayVC: WeekdaysViewController, weekdays: [String]) {
