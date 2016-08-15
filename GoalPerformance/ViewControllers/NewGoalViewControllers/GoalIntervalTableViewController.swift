@@ -58,22 +58,6 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
         return 3
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "DurationSegue" {
-            let durationVC = segue.destinationViewController as! DurationViewController
-            durationVC.durationSec = self.durationSec
-//            durationVC.delegate = self.parentScreen as? DurationViewControllerDelegate
-            durationVC.delegate = self as DurationViewControllerDelegate
-            
-        } else if segue.identifier == "WeekdaySegue" {
-            let weekdayVC = segue.destinationViewController as! WeekdaysViewController
-            weekdayVC.delegate = self
-//            weekdayVC.delegate = self.parentScreen as? WeekdaysViewControllerDelegate
-        }
-    }
     
     func durationViewController(durationVC: DurationViewController, durationUpdated duration: Int, durationString: String) {
         self.durationString = durationString
@@ -86,4 +70,21 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
         self.weekdays = weekdays
         self.weekdaysForLabel = weekdaysForLabel
     }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DurationSegue" {
+            let durationVC = segue.destinationViewController as! DurationViewController
+            durationVC.durationSec = self.durationSec
+            durationVC.delegate = self as DurationViewControllerDelegate
+            
+        } else if segue.identifier == "WeekdaySegue" {
+            let weekdayVC = segue.destinationViewController as! WeekdaysViewController
+            weekdayVC.selectedWeekdays = self.weekdays
+            weekdayVC.delegate = self as WeekdaysViewControllerDelegate
+        }
+    }
+    
 }

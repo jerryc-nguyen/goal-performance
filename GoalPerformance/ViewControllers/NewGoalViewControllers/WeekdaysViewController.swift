@@ -13,7 +13,7 @@ protocol WeekdaysViewControllerDelegate:class {
 }
 
 class WeekdaysViewController: UIViewController {
-
+    var selectedWeekdays:[String] = [""]
     @IBOutlet weak var tableView: UITableView!
     var indexList = Array<Int>()
     var weekdaysForLabel = Array<String>()
@@ -24,6 +24,7 @@ class WeekdaysViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        print("selected weekdays to update: \(selectedWeekdays)")
         
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
