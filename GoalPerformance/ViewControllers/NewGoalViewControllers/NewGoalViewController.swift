@@ -21,7 +21,7 @@ class NewGoalViewController: UIViewController {
     var _currentX: CGFloat = 10
     var _currentY: CGFloat = 70
     var categoryId:Int? = 0
-    var categoryName:String? = ""
+    var categoryName:String! = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +86,9 @@ class NewGoalViewController: UIViewController {
             let category = categories[sender.tag]
             print(category.id)
             print(category.name)
+            if self.categoryName == self.categoryName {
             self.categoryName = category.name
+            }
             self.categoryId = category.id
         }
 //        performSegueWithIdentifier("DefineGoalSegue", sender: self)

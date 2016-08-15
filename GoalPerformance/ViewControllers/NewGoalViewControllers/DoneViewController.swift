@@ -11,13 +11,17 @@ import UIKit
 class DoneViewController: UIViewController {
 
     @IBOutlet weak var notiLabel: UILabel!
-    var categoryName:String? = ""
+    var categoryName:String = ""
     var weekdays:[String] = []
     var timeChosen: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if weekdays.count == 7 {
+            notiLabel.text = "Everything is set! We will remind you at \(timeChosen) everyday to \(categoryName)"
+        } else {
         notiLabel.text = "Everything is set! We will remind you at \(timeChosen) every \(weekdays) to \(categoryName)"
+        }
 
         // Do any additional setup after loading the view.
     }

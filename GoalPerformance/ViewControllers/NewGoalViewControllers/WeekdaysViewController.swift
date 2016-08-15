@@ -9,13 +9,14 @@
 import UIKit
 
 protocol WeekdaysViewControllerDelegate:class {
-    func weekdaysViewController(weekdayVC: WeekdaysViewController, weekdays: [String])
+    func weekdaysViewController(weekdayVC: WeekdaysViewController, weekdays: [String], weekdaysForLabel: [String])
 }
 
 class WeekdaysViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var indexList = Array<Int>()
+    var weekdaysForLabel = Array<String>()
     weak var delegate: WeekdaysViewControllerDelegate?
     let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
@@ -35,26 +36,33 @@ class WeekdaysViewController: UIViewController {
         var weekdaysArray = Array<String>()
             if indexList.contains(0) {
                 weekdaysArray.append("sunday")
+                weekdaysForLabel.append("Sun")
             }
             if indexList.contains(1) {
                 weekdaysArray.append("monday")
+                weekdaysForLabel.append("Mon")
             }
             if indexList.contains(2) {
                 weekdaysArray.append("tuesday")
+                weekdaysForLabel.append("Tue")
             }
             if indexList.contains(3) {
                 weekdaysArray.append("wednesday")
+                weekdaysForLabel.append("Wed")
             }
             if indexList.contains(4) {
                 weekdaysArray.append("thursday")
+                weekdaysForLabel.append("Thu")
             }
             if indexList.contains(5) {
                 weekdaysArray.append("friday")
+                weekdaysForLabel.append("Fri")
             }
             if indexList.contains(6) {
                 weekdaysArray.append("saturday")
+                weekdaysForLabel.append("Sat")
             }
-        delegate?.weekdaysViewController(self, weekdays: weekdaysArray)
+        delegate?.weekdaysViewController(self, weekdays: weekdaysArray, weekdaysForLabel: weekdaysForLabel)
     }
     
     override func didReceiveMemoryWarning() {

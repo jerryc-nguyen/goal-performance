@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate, WeekdaysViewControllerDelegate {
+class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
 
     @IBOutlet weak var startTimePicker: UIDatePicker!
     
@@ -16,7 +16,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     var weekdays:[String] = []
     var duration:Int = 0
     var categoryID:Int? = 0
-    var categoryName:String? = ""
+    var categoryName:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,13 +72,10 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
        }
     }
     
-    func goalIntervalTableViewController(goalIntervalVC: GoalIntervalTableViewController, duration: Int) {
+    func goalIntervalTableViewController(goalIntervalVC: GoalIntervalTableViewController, duration: Int, weekdays: [String]) {
         self.duration = duration
+        self.weekdays = weekdays
+        print("get weekdays1: \(weekdays)")
         print("get duration1: \(duration)")
     }
-    
-    func weekdaysViewController(weekdayVC: WeekdaysViewController, weekdays: [String]) {
-        print("get weekdays: \(weekdays)")
-        self.weekdays = weekdays
-   }
 }

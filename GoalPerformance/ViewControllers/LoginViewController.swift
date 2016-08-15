@@ -72,7 +72,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             print("currentUser token", currentUser.token)
             APIClient.currentUser = currentUser
             //APIClient.currentUserToken = currentUser.token!
-            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
+            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
         })
     }
     

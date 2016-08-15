@@ -9,14 +9,15 @@
 import UIKit
 
 protocol GoalIntervalTableViewControllerDelegate: class {
-    func goalIntervalTableViewController(goalIntervalVC: GoalIntervalTableViewController, duration: Int)
+    func goalIntervalTableViewController(goalIntervalVC: GoalIntervalTableViewController, duration: Int, weekdays: [String])
 }
 
 
-class GoalIntervalTableViewController: UITableViewController, DurationViewControllerDelegate {
+class GoalIntervalTableViewController: UITableViewController, DurationViewControllerDelegate, WeekdaysViewControllerDelegate {
     
     weak var parentScreen: UIViewController?
-    
+    var weekdays = Array<String>()
+    var weekdaysForLabel:[String] = ["Never"]
     @IBOutlet weak var repeatLabel: UILabel!
     weak var delegate: GoalIntervalTableViewControllerDelegate?
     @IBOutlet weak var durationLabel: UILabel!
@@ -30,9 +31,15 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
     }
 
     override func viewDidAppear(animated: Bool) {
+
+        if weekdays.count == 7 {
+            weekdaysForLabel = ["Everyday"]
+        }
+        
+        self.repeatLabel.text = "\(weekdaysForLabel)"
         self.durationLabel.text = "\(durationString)"
         durationSec = duration * 60
-        self.delegate?.goalIntervalTableViewController(self, duration: duration)
+        self.delegate?.goalIntervalTableViewController(self, duration: duration, weekdays: weekdays)
         
     }
     override func didReceiveMemoryWarning() {
@@ -63,7 +70,8 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
             
         } else if segue.identifier == "WeekdaySegue" {
             let weekdayVC = segue.destinationViewController as! WeekdaysViewController
-            weekdayVC.delegate = self.parentScreen as? WeekdaysViewControllerDelegate
+            weekdayVC.delegate = self
+//            weekdayVC.delegate = self.parentScreen as? WeekdaysViewControllerDelegate
         }
     }
     
@@ -71,5 +79,11 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
         self.durationString = durationString
         self.duration = duration
         print("get duration2: \(duration) and \(durationString)")
+    }
+    
+    func weekdaysViewController(weekdayVC: WeekdaysViewController, weekdays: [String], weekdaysForLabel: [String]) {
+        print("get weekdays2: \(weekdays)")
+        self.weekdays = weekdays
+        self.weekdaysForLabel = weekdaysForLabel
     }
 }

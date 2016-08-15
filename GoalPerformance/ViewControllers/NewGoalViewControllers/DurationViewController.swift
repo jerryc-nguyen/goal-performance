@@ -20,9 +20,8 @@ class DurationViewController: UIViewController {
         super.viewDidLoad()
         if durationSec == durationSec {
             durationTimer.countDownDuration = Double(durationSec)
-        } else {
-        durationTimer.countDownDuration = 1800
         }
+        durationTimer.countDownDuration = 1800
     }
     
     override func viewWillDisappear(animated: Bool) {
