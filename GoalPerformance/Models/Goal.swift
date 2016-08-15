@@ -139,33 +139,35 @@ class Goal: NSObject {
         return results
     }
     
-    
     func registerStartGoalNotifications() {
         localNotificationManager.removeNotificationHasKeyContains(notificationStartKey)
         for repeatDay in repeatEvery! {
             let weekdayIndex = Utils.WeekDaysMap[repeatDay] ?? DefaultWeekDayIndex
             registerStartGoalNotification(weekdayIndex)
         }
+        LocalNotificationsManager.sharedInstance.showAllRegisteredNotification()
     }
     
     func registerStartGoalNotification(weekdayIndex: Int) {
         let key = notificationStartKey + "-day-" + String(weekdayIndex)
         let notification = UILocalNotification()
-        let message = "Goal \(name) ending time!"
+        let message = "Goal \(name) starting time!"
         
         let calendar: NSCalendar = NSCalendar.currentCalendar()
-        let dateComponents: NSDateComponents = NSDateComponents()
+        let dateComponents: NSDateComponents = calendar.components(NSCalendarUnit.WeekOfYear, fromDate: NSDate())
         dateComponents.weekday = weekdayIndex // sunday = 1 ... saturday = 7
         dateComponents.hour = startAtHour
         dateComponents.minute = startAtMinute
         dateComponents.second = startAtSecond
+        
+        notification.repeatInterval = NSCalendarUnit.WeekOfYear
         
         notification.alertBody = message
         notification.alertAction = "open"
         notification.fireDate = calendar.dateFromComponents(dateComponents)
         notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
         notification.userInfo = ["message": message, "UUID": key, "notificationName": LocalNotificationName.StartGoal]
-        notification.repeatInterval = NSCalendarUnit.WeekOfYear
+        
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
@@ -178,11 +180,12 @@ class Goal: NSObject {
         }
     }
     
+    
     func registerEndGoalNotification(weekdayIndex: Int) {
         let key = notificationEndKey + "-day-" + String(weekdayIndex)
         
         let calendar: NSCalendar = NSCalendar.currentCalendar()
-        let dateComponents: NSDateComponents = NSDateComponents()
+        let dateComponents: NSDateComponents = calendar.components(NSCalendarUnit.WeekOfYear, fromDate: NSDate())
         dateComponents.weekday = weekdayIndex // sunday = 1 ... saturday = 7
         dateComponents.hour = startAtHour
         dateComponents.minute = startAtMinute
@@ -198,6 +201,13 @@ class Goal: NSObject {
         notification.repeatInterval = NSCalendarUnit.WeekOfYear
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
+    func debugInfo() {
+        print("repeatEvery", repeatEvery)
+        print("startAtHour", startAtHour)
+        print("startAtMin", startAtMinute)
+        print("startAtMSecond", startAtSecond)
     }
     
 }

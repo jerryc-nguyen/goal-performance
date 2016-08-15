@@ -14,24 +14,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func onNotificationButton(sender: AnyObject) {
         
-        let goalData = [
-            "id": 1,
-            "name": "Swimming everyday! at 14:20",
-            "start_at": "2016-08-15T12:00:00.000+07:00",
-            "repeat_every": ["sunday", "monday", "tuesday"],
-            "duration": 50,
-            "sound_name": "sound_name",
-            "is_challenge": true,
-            "is_default": true,
-            "start_at_hour": 0,
-            "start_at_minute": 54,
-            "start_at_second": 30
-        ]
+        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
+            goal.debugInfo()
+            goal.registerStartGoalNotifications()
+        }
         
-        let goalItem = Goal(dictionary: goalData)
-        goalItem.registerStartGoalNotifications()
-
-        LocalNotificationsManager.sharedInstance.showAllRegisteredNotification()
     }
 
     override func viewDidLoad() {

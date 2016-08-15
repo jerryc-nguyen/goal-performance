@@ -49,8 +49,10 @@ extension APIClient {
                 if let JSON = response.result.value {
                     if JSON["status"] as! Int == 200 {
                         if let completed = completed {
-                            completed(result: "OK")
-                            print("success")
+                            if let goalData = JSON["data"] as? NSDictionary {
+                                let goal = Goal(dictionary: goalData)
+                                completed(result: goal)
+                            }
                         }
                     } else {
                         if let completed = completed {
