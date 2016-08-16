@@ -9,10 +9,21 @@
 import Alamofire
 
 extension APIClient {
-    func createGoal() {
-        
-    }
     
+    func goalDetail(params: [String: AnyObject], completed: (goal: Goal) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        let requestUrl = String(format: API_URLS.goalDetail, params["goal_id"] as! Int)
+        Alamofire.request(.GET, requestUrl, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if let goalData = JSON["data"] as? NSDictionary {
+                        completed(goal: Goal(dictionary: goalData))
+                    }
+                }
+        }
+    }
 
     func inviteGoal(goalID: Int, friendID: Int, completed: (title: String, message: String) -> ()) {
         

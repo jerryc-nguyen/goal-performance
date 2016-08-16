@@ -37,9 +37,15 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             "goal[category_id]" : self.categoryID!
         ]
         APIClient.sharedInstance.sendSetupGoalData(params) { (result) in
-            print(result)
+            
+            if (result as? Goal) != nil {
+                let goal = result as! Goal
+                goal.registerStartGoalNotifications()
+                print("Create goal success")
+                self.performSegueWithIdentifier("DoneSegue", sender: self)
+            }
         }
-        performSegueWithIdentifier("DoneSegue", sender: self)
+       
     }
 
     override func didReceiveMemoryWarning() {
