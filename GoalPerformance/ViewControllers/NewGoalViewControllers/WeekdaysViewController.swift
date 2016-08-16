@@ -13,6 +13,7 @@ protocol WeekdaysViewControllerDelegate:class {
 }
 
 class WeekdaysViewController: UIViewController {
+    
     var selectedWeekdays:[String] = [""]
     @IBOutlet weak var tableView: UITableView!
     var indexList = Array<Int>()
@@ -94,22 +95,44 @@ extension WeekdaysViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("WeekdayCell", forIndexPath: indexPath) as! WeekdayCell
         cell.weekdayLabel.text = weekdays[indexPath.row]
+        
         cell.accessoryType = .None
+        
         if cell.isSelected == true {
             cell.accessoryType = .Checkmark
         }
+        let isContain = selectedWeekdays.contains(weekdays[indexPath.row].lowercaseString)
+        if isContain == true  {
+            cell.isSelected = true
+            let index = indexList.indexOf(indexPath.row)
+            if let _ = index {
+                indexList.removeAtIndex(index!)
+            }
+            indexList.append(indexPath.row)
+            
+            cell.accessoryType = .Checkmark
+        }
+        
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! WeekdayCell
         cell.isSelected = !cell.isSelected!
         if cell.isSelected! {
+            let index = indexList.indexOf(indexPath.row)
+            if let _ = index {
+                indexList.removeAtIndex(index!)
+            }
             indexList.append(indexPath.row)
         } else {
             if indexList.contains(indexPath.row) {
                 let index = indexList.indexOf(indexPath.row)
                 if let _ = index {
                     indexList.removeAtIndex(index!)
+                }
+                let index2 = selectedWeekdays.indexOf(cell.weekdayLabel.text!.lowercaseString)
+                if let _ = index2 {
+                    selectedWeekdays.removeAtIndex(index2!)
                 }
             }
         }

@@ -36,7 +36,8 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
             weekdaysForLabel = ["Everyday"]
         }
         
-        self.repeatLabel.text = "\(weekdaysForLabel)"
+        let weekdaysString = weekdaysForLabel.joinWithSeparator(", ")
+        self.repeatLabel.text = "\(weekdaysString)"
         self.durationLabel.text = "\(durationString)"
         durationSec = duration * 60
         self.delegate?.goalIntervalTableViewController(self, duration: duration, weekdays: weekdays)
