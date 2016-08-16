@@ -36,7 +36,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             "goal[is_default]" : true,
             "goal[category_id]" : self.categoryID!
         ]
-        APIClient.sharedInstance.sendSetupGoalData(params) { (result) in
+        APIClient.sharedInstance.createGoal(params) { (result) in
             
             if (result as? Goal) != nil {
                 let goal = result as! Goal

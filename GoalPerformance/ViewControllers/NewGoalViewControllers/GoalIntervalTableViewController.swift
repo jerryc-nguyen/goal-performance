@@ -79,6 +79,7 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
         if segue.identifier == "DurationSegue" {
             let durationVC = segue.destinationViewController as! DurationViewController
             durationVC.durationSec = self.durationSec
+            durationVC.durationSec2 = self.durationSec
             durationVC.delegate = self as DurationViewControllerDelegate
             
         } else if segue.identifier == "WeekdaySegue" {

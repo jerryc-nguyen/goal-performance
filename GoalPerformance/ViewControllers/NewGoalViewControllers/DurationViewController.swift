@@ -14,14 +14,20 @@ protocol DurationViewControllerDelegate: class {
 
 class DurationViewController: UIViewController {
     var durationSec: Int = 0
+    var durationSec2: Int = 0
+    
     @IBOutlet weak var durationTimer: UIDatePicker!
     weak var delegate: DurationViewControllerDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        if durationSec == durationSec {
+        print(durationSec2)
+        if durationSec2 == durationSec2 {
+            durationTimer.countDownDuration = Double(durationSec2)
+        } else if durationSec == durationSec {
             durationTimer.countDownDuration = Double(durationSec)
+        } else {
+            durationTimer.countDownDuration = 1800
         }
-        durationTimer.countDownDuration = 1800
     }
     
     override func viewWillDisappear(animated: Bool) {
