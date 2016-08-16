@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefineGoalViewController: UIViewController, DurationViewControllerDelegate, WeekdaysViewControllerDelegate {
+class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
 
     @IBOutlet weak var startTimePicker: UIDatePicker!
     
@@ -16,7 +16,7 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
     var weekdays:[String] = []
     var duration:Int = 0
     var categoryID:Int? = 0
-    var categoryName:String? = ""
+    var categoryName:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,16 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
             "goal[is_default]" : true,
             "goal[category_id]" : self.categoryID!
         ]
-        APIClient.sharedInstance.sendSetupGoalData(params) { (result) in
-            print(result)
+        APIClient.sharedInstance.createGoal(params) { (result) in
+            
+            if (result as? Goal) != nil {
+                let goal = result as! Goal
+                goal.registerStartGoalNotifications()
+                print("Create goal success")
+                self.performSegueWithIdentifier("DoneSegue", sender: self)
+            }
         }
-        performSegueWithIdentifier("DoneSegue", sender: self)
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +69,7 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
         if segue.identifier == "GoalIntervalTableViewSegue" {
             let goalIntervalTableVC = segue.destinationViewController as! GoalIntervalTableViewController
             goalIntervalTableVC.parentScreen = self
+            goalIntervalTableVC.delegate = self
         } else if segue.identifier == "DoneSegue" {
             let doneVC = segue.destinationViewController as! DoneViewController
             doneVC.categoryName = self.categoryName
@@ -71,14 +78,10 @@ class DefineGoalViewController: UIViewController, DurationViewControllerDelegate
        }
     }
     
-
-    func durationViewController(durationVC: DurationViewController, durationUpdated duration: Int) {
-        print("get duration: \(duration)")
+    func goalIntervalTableViewController(goalIntervalVC: GoalIntervalTableViewController, duration: Int, weekdays: [String]) {
         self.duration = duration
-    }
-    
-    func weekdaysViewController(weekdayVC: WeekdaysViewController, weekdays: [String]) {
-        print("get weekdays: \(weekdays)")
         self.weekdays = weekdays
-   }
+        print("get weekdays1: \(weekdays)")
+        print("get duration1: \(duration)")
+    }
 }

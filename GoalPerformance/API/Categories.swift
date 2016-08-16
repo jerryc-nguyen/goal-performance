@@ -39,28 +39,4 @@ extension APIClient {
         }
     }
     
-    func sendSetupGoalData(params: Dictionary<String, AnyObject>, completed: CompletedBlock) {
-        let headers = [
-            "X-Api-Token": APIClient.currentUserToken
-        ]
-        
-        Alamofire.request(.POST, API_URLS.goalSetup, parameters: params, headers: headers)
-            .responseJSON { response in
-                if let JSON = response.result.value {
-                    if JSON["status"] as! Int == 200 {
-                        if let completed = completed {
-                            completed(result: "OK")
-                            print("success")
-                        }
-                    } else {
-                        if let completed = completed {
-                            completed(result: nil)
-                            print(response.result.error?.localizedDescription)
-                        }
-
-                    }
-                }
-        }
-    }
-    
 }

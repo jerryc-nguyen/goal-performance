@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import FontAwesome_swift
 
 class UserGoalTableViewCell: UITableViewCell {
     
@@ -28,7 +29,17 @@ class UserGoalTableViewCell: UITableViewCell {
             goalNameLabel.text = goal!.detailName
             setChart()
             showCountdownLabel()
+            showChallengeIcon()
         }
+    }
+    
+    func showChallengeIcon() {
+        if goal?.isChallenge == true {
+            challengeImgView.image = UIImage.fontAwesomeIconWithName(.Users, textColor: UIColor.blackColor(), size: CGSize(width: 30, height: 30))
+        } else {
+            challengeImgView.hidden = true
+        }
+        
     }
     
     func setChart() {
@@ -78,10 +89,22 @@ class UserGoalTableViewCell: UITableViewCell {
     }
     
     func showCountdownLabel() {
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
+        if goal?.isDoingTime == true {
+            //set image
+            countDownTimerImgView.image = UIImage.fontAwesomeIconWithName(.Hourglass, textColor: UIColor.blackColor(), size: CGSize(width: 30, height: 30))
+            
+            //set background
+            backgroundColor = UIColors.goalDoingBackground
+            
+            //schedule timer
+            NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(countDownTimer), userInfo: nil, repeats: true)
+        } else {
+            countDownTimerWrapper.hidden = true
+        }
+        
     }
     
-    func countDown() {
+    func countDownTimer() {
         countDownTimerLabel.text = goal?.remainingTime
     }
     

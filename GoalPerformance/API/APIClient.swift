@@ -28,6 +28,7 @@ struct API_URLS {
     
     //GOALS
     static let createGoal = "\(APIBaseURL)/api/goals.json"
+    static let goalDetail = "\(APIBaseURL)/api/goals/%d.json"
     static let inviteGoal = "\(APIBaseURL)/api/goals/%d/invite.json"
     
     //CATEGORIES
@@ -35,7 +36,7 @@ struct API_URLS {
     
 
     //SETUP GOAL
-    static let goalSetup = "\(APIBaseURL)api/goals.json"
+    static let goalSetup = "\(APIBaseURL)/api/goals.json"
 
     //USERS
     static let homeTimeLine = "\(APIBaseURL)/api/users/home_timeline.json"

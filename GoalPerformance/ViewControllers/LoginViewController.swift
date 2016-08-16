@@ -14,30 +14,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func onNotificationButton(sender: AnyObject) {
         
-        //test API
-//        APIClient.sharedInstance.friends { (friends) in
-//            print("Friends", friends)
-//        }
-        let goalData = [
-                "id": 1,
-                "name": "Swimming everyday! at 14:20",
-                "start_at": "2016-08-06T06:00:00.000+07:00",
-                "repeat_every": "",
-                "duration": 10,
-                "sound_name": "sound_name",
-                "is_challenge": true,
-                "is_default": true
-        ]
-        
-        let goalItem = Goal(dictionary: goalData)
-        let today = NSDate()
-        goalItem.startAt = today.dateByAddingTimeInterval(5)
-        LocalNotificationsManager.sharedInstance.registerEndGoalNotification(goalItem)
-        
-        print("Notification at:", goalItem.startAt)
-        print("Registered notify!", goalItem.notificationEndKey)
-        
-        LocalNotificationsManager.sharedInstance.showAllRegisteredNotification()
+        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
+            goal.debugInfo()
+            goal.registerStartGoalNotifications()
+        }
         
     }
 
@@ -79,7 +59,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             print("currentUser token", currentUser.token)
             APIClient.currentUser = currentUser
             //APIClient.currentUserToken = currentUser.token!
-            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
+            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
         })
     }
     

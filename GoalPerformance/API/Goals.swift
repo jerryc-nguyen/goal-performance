@@ -9,10 +9,21 @@
 import Alamofire
 
 extension APIClient {
-    func createGoal() {
-        
-    }
     
+    func goalDetail(params: [String: AnyObject], completed: (goal: Goal) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        let requestUrl = String(format: API_URLS.goalDetail, params["goal_id"] as! Int)
+        Alamofire.request(.GET, requestUrl, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if let goalData = JSON["data"] as? NSDictionary {
+                        completed(goal: Goal(dictionary: goalData))
+                    }
+                }
+        }
+    }
 
     func inviteGoal(goalID: Int, friendID: Int, completed: (title: String, message: String) -> ()) {
         
@@ -46,5 +57,32 @@ extension APIClient {
         }
         
     }
+    
+    func createGoal(params: Dictionary<String, AnyObject>, completed: CompletedBlock) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        Alamofire.request(.POST, API_URLS.goalSetup, parameters: params, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if JSON["status"] as! Int == 200 {
+                        if let completed = completed {
+                            if let goalData = JSON["data"] as? NSDictionary {
+                                let goal = Goal(dictionary: goalData)
+                                completed(result: goal)
+                            }
+                        }
+                    } else {
+                        if let completed = completed {
+                            completed(result: nil)
+                            print(response.result.error?.localizedDescription)
+                        }
+                        
+                    }
+                }
+        }
+    }
+
     
 }
