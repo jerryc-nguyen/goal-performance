@@ -53,6 +53,7 @@
 		42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102D1D4FACC7002CD514 /* NewGoalViewController.swift */; };
 		42F010301D4FAF5F002CD514 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0102F1D4FAF5F002CD514 /* Constants.swift */; };
 		874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */; };
+		E00701481D608D180090972F /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00701471D608D180090972F /* FriendViewController.swift */; };
 		E07B39831D5481A70000FA93 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B39821D5481A70000FA93 /* InviteFriend.storyboard */; };
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
@@ -117,6 +118,7 @@
 		51AB9B7915E8FB1C8939CDC2 /* Pods-GoalPerformance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalPerformance.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance.release.xcconfig"; sourceTree = "<group>"; };
 		BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoalPerformance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D507D87978FC701EDF431D34 /* Pods-GoalPerformance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalPerformance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance.debug.xcconfig"; sourceTree = "<group>"; };
+		E00701471D608D180090972F /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendViewController.swift; path = FriendControllers/FriendViewController.swift; sourceTree = "<group>"; };
 		E07B39821D5481A70000FA93 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		42F010061D4F9F8D002CD514 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E00701461D608CBC0090972F /* FriendControllers */,
 				4263F9191D55FF0800C119DB /* GoalStartEndViewControllers */,
 				E07B39841D5481C60000FA93 /* InviteFriendViewControllers */,
 				42F0102C1D4FAC3A002CD514 /* NewGoalViewControllers */,
@@ -351,6 +354,14 @@
 				E4986E4F1D604642005A6A34 /* DoneViewController.swift */,
 			);
 			path = NewGoalViewControllers;
+			sourceTree = "<group>";
+		};
+		E00701461D608CBC0090972F /* FriendControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E00701471D608D180090972F /* FriendViewController.swift */,
+			);
+			name = FriendControllers;
 			sourceTree = "<group>";
 		};
 		E07B39841D5481C60000FA93 /* InviteFriendViewControllers */ = {
@@ -547,6 +558,7 @@
 				424AF1FE1D5E8B95001754B2 /* Users.swift in Sources */,
 				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
 				424AF21E1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift in Sources */,
+				E00701481D608D180090972F /* FriendViewController.swift in Sources */,
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
 				422378951D60374B00062B73 /* FriendTableViewCell.swift in Sources */,
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,

@@ -10,6 +10,12 @@ import UIKit
 
 class FriendTableViewCell: UITableViewCell {
 
+
+    @IBOutlet weak var friendImage: UIImageView!
+    @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var friendGoal: UILabel!
+    @IBOutlet weak var challengeButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +25,9 @@ class FriendTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    @IBAction func onChallengeClick(sender: UIButton) {
     }
     
 }

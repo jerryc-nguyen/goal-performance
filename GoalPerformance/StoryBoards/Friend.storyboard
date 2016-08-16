@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Friend View Controller-->
         <scene sceneID="6r7-RZ-uzw">
             <objects>
-                <viewController id="i2c-C2-XOu" sceneMemberID="viewController">
+                <viewController id="i2c-C2-XOu" customClass="FriendViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8mW-Kv-2ds"/>
                         <viewControllerLayoutGuide type="bottom" id="Lus-dP-bbh"/>
@@ -52,6 +52,10 @@
                         </segmentedControl>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="friendTableView" destination="xC8-r9-ddq" id="rO4-qk-nRy"/>
+                        <outlet property="viewSegment" destination="3jg-9W-BVJ" id="hFN-tn-6L7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwB-23-QpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
