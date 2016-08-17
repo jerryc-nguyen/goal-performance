@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="367" height="78"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="367" height="77"/>
+                <rect key="frame" x="0.0" y="0.0" width="367" height="77.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Jr-ee-jIX">
@@ -28,43 +28,48 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYo-yV-Vnh">
-                        <rect key="frame" x="70" y="39" width="57" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYo-yV-Vnh">
+                        <rect key="frame" x="70" y="39" width="174" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptr-wr-DKP">
-                        <rect key="frame" x="290" y="20" width="69" height="30"/>
-                        <state key="normal" title="Challenge"/>
-                        <connections>
-                            <action selector="onChallengeClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a7e-yZ-wcx"/>
-                        </connections>
-                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uED-jD-yOh">
+                        <rect key="frame" x="319" y="26" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Y8o-9B-Hak"/>
+                            <constraint firstAttribute="height" constant="25" id="oxP-4K-hxk"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="6Jr-ee-jIX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3bv-o3-xEw"/>
+                    <constraint firstItem="uED-jD-yOh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GLO-9d-AGe"/>
+                    <constraint firstItem="uED-jD-yOh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="K2g-xV-xNg"/>
                     <constraint firstItem="6Jr-ee-jIX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KQX-z9-Ivt"/>
                     <constraint firstItem="fYo-yV-Vnh" firstAttribute="leading" secondItem="bsi-PL-J7t" secondAttribute="leading" id="UMF-07-GSY"/>
-                    <constraint firstAttribute="trailing" secondItem="Ptr-wr-DKP" secondAttribute="trailing" constant="8" id="UeO-8K-rRd"/>
                     <constraint firstItem="bsi-PL-J7t" firstAttribute="top" secondItem="6Jr-ee-jIX" secondAttribute="top" id="Vz8-sV-Wec"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uED-jD-yOh" secondAttribute="trailing" constant="15" id="aab-XQ-hLy"/>
+                    <constraint firstItem="uED-jD-yOh" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fEW-H7-eOH"/>
+                    <constraint firstItem="uED-jD-yOh" firstAttribute="leading" secondItem="fYo-yV-Vnh" secondAttribute="trailing" constant="75" id="ldw-qn-bdG"/>
                     <constraint firstItem="fYo-yV-Vnh" firstAttribute="top" secondItem="bsi-PL-J7t" secondAttribute="bottom" constant="8" id="pDN-Dh-WfY"/>
-                    <constraint firstItem="Ptr-wr-DKP" firstAttribute="centerY" secondItem="6Jr-ee-jIX" secondAttribute="centerY" id="qaP-S1-yXL"/>
                     <constraint firstItem="bsi-PL-J7t" firstAttribute="leading" secondItem="6Jr-ee-jIX" secondAttribute="trailing" constant="10" id="u7x-uX-Fxt"/>
                     <constraint firstItem="6Jr-ee-jIX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="wN9-Ga-Tlq"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="wN9-Ga-Tlq"/>
+                        <exclude reference="K2g-xV-xNg"/>
+                        <exclude reference="fEW-H7-eOH"/>
+                        <exclude reference="ldw-qn-bdG"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="challengeButton" destination="Ptr-wr-DKP" id="GBQ-YU-gzZ"/>
+                <outlet property="challengeImage" destination="uED-jD-yOh" id="Ba5-lp-1sG"/>
                 <outlet property="friendGoal" destination="fYo-yV-Vnh" id="L2n-dN-uBn"/>
                 <outlet property="friendImage" destination="6Jr-ee-jIX" id="EKf-Df-sgx"/>
                 <outlet property="friendName" destination="bsi-PL-J7t" id="bbe-WK-JPS"/>
-                <outlet property="onChallengeClick" destination="Ptr-wr-DKP" id="WW8-XH-3xQ"/>
             </connections>
             <point key="canvasLocation" x="303.5" y="255"/>
         </tableViewCell>
