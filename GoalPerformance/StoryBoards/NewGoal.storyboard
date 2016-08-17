@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--New Goal View Controller-->
@@ -32,6 +33,84 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKS-W8-nRn">
+                                <rect key="frame" x="15" y="151.5" width="290" height="364.5"/>
+                                <subviews>
+                                    <button clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Okx-yM-wcb">
+                                        <rect key="frame" x="29" y="9.5" width="118" height="118"/>
+                                        <color key="backgroundColor" red="0.95258505874827115" green="0.9770929082284544" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Okx-yM-wcb" secondAttribute="height" multiplier="1:1" id="Xix-IM-nOi"/>
+                                            <constraint firstAttribute="width" constant="118" id="cUE-RG-JMz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Lwf-gF-YaP">
+                                        <rect key="frame" x="171" y="24.5" width="114" height="114"/>
+                                        <color key="backgroundColor" red="0.95258505869999999" green="0.97709290820000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="114" id="IaX-x9-Xgl"/>
+                                            <constraint firstAttribute="width" secondItem="Lwf-gF-YaP" secondAttribute="height" multiplier="1:1" id="c38-J0-5AV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="5yD-aF-H0p">
+                                        <rect key="frame" x="8" y="137.5" width="110" height="110"/>
+                                        <color key="backgroundColor" red="0.95258505869999999" green="0.97709290820000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="dUQ-Cd-ksM"/>
+                                            <constraint firstAttribute="width" secondItem="5yD-aF-H0p" secondAttribute="height" multiplier="1:1" id="eYW-8x-NS0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1sI-Bv-Wpx">
+                                        <rect key="frame" x="156" y="168.5" width="104" height="104"/>
+                                        <color key="backgroundColor" red="0.95258505869999999" green="0.97709290820000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1sI-Bv-Wpx" secondAttribute="height" multiplier="1:1" id="C0o-fy-u2X"/>
+                                            <constraint firstAttribute="width" constant="104" id="MYx-5i-b5O"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="tX2-Mp-0U3">
+                                        <rect key="frame" x="60" y="256.5" width="100" height="100"/>
+                                        <color key="backgroundColor" red="0.95258505869999999" green="0.97709290820000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="tX2-Mp-0U3" secondAttribute="height" multiplier="1:1" id="9FY-vJ-J0d"/>
+                                            <constraint firstAttribute="width" constant="100" id="Pew-YI-yuM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="1sI-Bv-Wpx" secondAttribute="trailing" constant="30" id="NfI-oj-yOC"/>
+                                    <constraint firstAttribute="bottom" secondItem="tX2-Mp-0U3" secondAttribute="bottom" constant="8" id="V0X-Oh-D4o"/>
+                                    <constraint firstItem="5yD-aF-H0p" firstAttribute="top" secondItem="Okx-yM-wcb" secondAttribute="bottom" constant="10" id="aaP-Ys-CyB"/>
+                                    <constraint firstItem="1sI-Bv-Wpx" firstAttribute="top" secondItem="Lwf-gF-YaP" secondAttribute="bottom" constant="30" id="aiP-lu-gMP"/>
+                                    <constraint firstItem="5yD-aF-H0p" firstAttribute="leading" secondItem="dKS-W8-nRn" secondAttribute="leading" constant="8" id="b8G-bv-OrO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Lwf-gF-YaP" secondAttribute="trailing" constant="5" id="eTM-oJ-ks6"/>
+                                    <constraint firstItem="tX2-Mp-0U3" firstAttribute="top" secondItem="5yD-aF-H0p" secondAttribute="bottom" constant="9" id="fWz-mg-ZHs"/>
+                                    <constraint firstAttribute="bottom" secondItem="1sI-Bv-Wpx" secondAttribute="bottom" constant="92" id="gZY-lo-uO2"/>
+                                    <constraint firstItem="Lwf-gF-YaP" firstAttribute="leading" secondItem="Okx-yM-wcb" secondAttribute="trailing" constant="24" id="oPB-3g-RO2"/>
+                                    <constraint firstItem="tX2-Mp-0U3" firstAttribute="leading" secondItem="dKS-W8-nRn" secondAttribute="leading" constant="60" id="wUq-yj-gjO"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df4-Fz-vxg">
                                 <rect key="frame" x="126" y="526" width="68" height="22"/>
                                 <state key="normal" image="downArrowButton"/>
@@ -40,8 +119,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="A6F-WR-VvW" firstAttribute="leading" secondItem="BLy-Nn-obI" secondAttribute="leading" id="3Ci-Cf-C8u"/>
+                            <constraint firstItem="df4-Fz-vxg" firstAttribute="top" secondItem="dKS-W8-nRn" secondAttribute="bottom" constant="10" id="3Dr-rg-NP6"/>
+                            <constraint firstItem="dKS-W8-nRn" firstAttribute="top" secondItem="g3u-9d-8ru" secondAttribute="bottom" constant="20" id="ASX-Cu-2Zc"/>
                             <constraint firstItem="W7d-d2-6zW" firstAttribute="top" secondItem="df4-Fz-vxg" secondAttribute="bottom" constant="20" id="Jl8-Qp-6PB"/>
+                            <constraint firstItem="dKS-W8-nRn" firstAttribute="leading" secondItem="BLy-Nn-obI" secondAttribute="leading" constant="15" id="NXJ-V2-3Zf"/>
                             <constraint firstItem="W7d-d2-6zW" firstAttribute="top" secondItem="A6F-WR-VvW" secondAttribute="bottom" id="RKE-aY-Ue1"/>
+                            <constraint firstAttribute="trailing" secondItem="dKS-W8-nRn" secondAttribute="trailing" constant="15" id="T2U-oC-hOh"/>
                             <constraint firstItem="df4-Fz-vxg" firstAttribute="centerX" secondItem="BLy-Nn-obI" secondAttribute="centerX" id="UCj-UC-BjQ"/>
                             <constraint firstItem="g3u-9d-8ru" firstAttribute="centerX" secondItem="BLy-Nn-obI" secondAttribute="centerX" id="Z88-qz-MRP"/>
                             <constraint firstAttribute="trailing" secondItem="A6F-WR-VvW" secondAttribute="trailing" id="ZwZ-YK-AXR"/>
@@ -54,6 +137,7 @@
                     <navigationItem key="navigationItem" id="uir-Zk-O0f"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="containView" destination="dKS-W8-nRn" id="hjd-Er-VAS"/>
                         <segue destination="mgO-YC-y2i" kind="show" identifier="DefineGoalSegue" id="6n0-55-aDo"/>
                     </connections>
                 </viewController>

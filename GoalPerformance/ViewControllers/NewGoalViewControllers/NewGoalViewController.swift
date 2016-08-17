@@ -11,28 +11,29 @@ import UIKit
 class NewGoalViewController: UIViewController {
     
     var categories: Array<Category>?
-    var buttons: Array<UIButton>? = Array<UIButton>()
-    var _currentX: CGFloat = 10
-    var _currentY: CGFloat = 70
     var categoryId:Int? = 0
     var categoryName:String! = ""
     
+    @IBOutlet var containView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBarHidden = true
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
         APIClient.sharedInstance.categories { [unowned self] (result) in
             if result != nil {
                 self.categories = result as? Array<Category>
-                for category in self.categories! {
-                    self._createButtonWithTitle(category.name!, index: (self.categories?.indexOf(category))!)
-                }
+                self._createButtons(self.categories)
             }
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = true
+    }
     override func viewWillDisappear(animated: Bool) {
-        
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,35 +44,18 @@ class NewGoalViewController: UIViewController {
     
 
     // MARK: - Private methods
-    private func _createButtonWithTitle(title: String, index: Int) {
-        
-        let button = UIButton(type: .System)
-        button.setTitle(title, forState: .Normal)
-        button.titleLabel?.font = UIFont(name: "helvetica neue", size: 25)
-        button.backgroundColor = UIColor.whiteColor()
-        button.sizeToFit()
-        button.setTitleColor(UIColor.orangeColor(), forState: .Normal)
-        let width = button.frame.size.width + 20
-        button.frame = CGRectMake(_currentX, _currentY, width, width)
-        
-        button.layer.cornerRadius = width/2
-        button.layer.masksToBounds = true
-        
-        button.layer.borderWidth = 1
-        if _currentX > 10 {
-            _currentX = 10
-        } else {
-            _currentX = UIScreen.mainScreen().bounds.size.width/2
+    private func _createButtons(categories: [Category]?) {
+        if let categories = categories {
+            if categories.count > 0 { //ToDO
+                for i in 0..<5 {
+                    let category = categories[i]
+                    let button = self.view.viewWithTag(i+1) as! UIButton
+                    button.makeCircle()
+                    button.setTitle(category.name, forState: .Normal)
+                    button.addTarget(self, action: #selector(categoryselectedAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+                }
+            }
         }
-        _currentY += width/4*3
-        
-        button.tag = index
-        
-        self.view.addSubview(button)
-        
-        self.buttons?.append(button)
-        
-        button.addTarget(self, action: #selector(categoryselectedAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     
