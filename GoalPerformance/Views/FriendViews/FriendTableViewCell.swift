@@ -10,11 +10,19 @@ import UIKit
 
 class FriendTableViewCell: UITableViewCell {
 
-
     @IBOutlet weak var friendImage: UIImageView!
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var friendGoal: UILabel!
-    @IBOutlet weak var challengeButton: UIButton!
+
+    @IBOutlet weak var challengeImage: UIImageView!
+    
+    var friend:User! {
+        didSet {
+            friendImage.sd_setImageWithURL(friend.avatarUrl)
+            friendName.text = friend.displayName
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
