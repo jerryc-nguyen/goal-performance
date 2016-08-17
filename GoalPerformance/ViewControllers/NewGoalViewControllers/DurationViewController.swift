@@ -54,6 +54,8 @@ class DurationViewController: UIViewController {
                 if hour == 1 {
                     durationString = "\(hour) hour \(minute) min"
                     print(durationString)
+                } else if hour == 0 {
+                    durationString = "\(minute) min"
                 } else {
                     durationString = "\(hour) hours \(minute) min"
                     print(durationString)

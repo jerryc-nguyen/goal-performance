@@ -100,10 +100,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="1sI-Bv-Wpx" secondAttribute="trailing" constant="30" id="NfI-oj-yOC"/>
-                                    <constraint firstAttribute="bottom" secondItem="tX2-Mp-0U3" secondAttribute="bottom" constant="8" id="V0X-Oh-D4o"/>
+                                    <constraint firstItem="1sI-Bv-Wpx" firstAttribute="leading" secondItem="5yD-aF-H0p" secondAttribute="trailing" constant="38" id="Oth-4s-iEp"/>
+                                    <constraint firstItem="Okx-yM-wcb" firstAttribute="top" secondItem="dKS-W8-nRn" secondAttribute="top" constant="19" id="WB7-Wo-9Ad"/>
                                     <constraint firstItem="5yD-aF-H0p" firstAttribute="top" secondItem="Okx-yM-wcb" secondAttribute="bottom" constant="10" id="aaP-Ys-CyB"/>
                                     <constraint firstItem="1sI-Bv-Wpx" firstAttribute="top" secondItem="Lwf-gF-YaP" secondAttribute="bottom" constant="30" id="aiP-lu-gMP"/>
                                     <constraint firstItem="5yD-aF-H0p" firstAttribute="leading" secondItem="dKS-W8-nRn" secondAttribute="leading" constant="8" id="b8G-bv-OrO"/>
+                                    <constraint firstItem="tX2-Mp-0U3" firstAttribute="top" secondItem="5yD-aF-H0p" secondAttribute="bottom" constant="9" id="bgT-pv-YLN"/>
                                     <constraint firstAttribute="trailing" secondItem="Lwf-gF-YaP" secondAttribute="trailing" constant="5" id="eTM-oJ-ks6"/>
                                     <constraint firstItem="tX2-Mp-0U3" firstAttribute="top" secondItem="5yD-aF-H0p" secondAttribute="bottom" constant="9" id="fWz-mg-ZHs"/>
                                     <constraint firstAttribute="bottom" secondItem="1sI-Bv-Wpx" secondAttribute="bottom" constant="92" id="gZY-lo-uO2"/>
@@ -119,7 +121,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="A6F-WR-VvW" firstAttribute="leading" secondItem="BLy-Nn-obI" secondAttribute="leading" id="3Ci-Cf-C8u"/>
-                            <constraint firstItem="df4-Fz-vxg" firstAttribute="top" secondItem="dKS-W8-nRn" secondAttribute="bottom" constant="10" id="3Dr-rg-NP6"/>
+                            <constraint firstItem="df4-Fz-vxg" firstAttribute="top" secondItem="dKS-W8-nRn" secondAttribute="bottom" priority="900" constant="10" id="3Dr-rg-NP6"/>
                             <constraint firstItem="dKS-W8-nRn" firstAttribute="top" secondItem="g3u-9d-8ru" secondAttribute="bottom" constant="10" id="ASX-Cu-2Zc"/>
                             <constraint firstItem="W7d-d2-6zW" firstAttribute="top" secondItem="df4-Fz-vxg" secondAttribute="bottom" constant="20" id="Jl8-Qp-6PB"/>
                             <constraint firstItem="dKS-W8-nRn" firstAttribute="leading" secondItem="BLy-Nn-obI" secondAttribute="leading" constant="15" id="NXJ-V2-3Zf"/>
