@@ -20,10 +20,16 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let navBar = self.navigationController
         startTimePicker.datePickerMode = UIDatePickerMode.Time
-        
+        navBar?.navigationBarHidden = false
+        navBar?.navigationBar.translucent = true
+        self.title = "Setup Your Goal"
+        navBar?.navigationBar.tintColor = UIColor.orangeColor()
+        navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
         let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
         self.navigationItem.rightBarButtonItem = nextBarItem
+
     }
     
     func next() {
