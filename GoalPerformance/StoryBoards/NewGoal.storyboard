@@ -16,7 +16,40 @@
                     <view key="view" contentMode="scaleToFill" id="BLy-Nn-obI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="A6F-WR-VvW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME, ALEX!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yak-Ki-XZF">
+                                <rect key="frame" x="78" y="79" width="163" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you want to accomplish?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3u-9d-8ru">
+                                <rect key="frame" x="18" y="111" width="284" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df4-Fz-vxg">
+                                <rect key="frame" x="126" y="526" width="68" height="22"/>
+                                <state key="normal" image="downArrowButton"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A6F-WR-VvW" firstAttribute="leading" secondItem="BLy-Nn-obI" secondAttribute="leading" id="3Ci-Cf-C8u"/>
+                            <constraint firstItem="W7d-d2-6zW" firstAttribute="top" secondItem="df4-Fz-vxg" secondAttribute="bottom" constant="20" id="Jl8-Qp-6PB"/>
+                            <constraint firstItem="W7d-d2-6zW" firstAttribute="top" secondItem="A6F-WR-VvW" secondAttribute="bottom" id="RKE-aY-Ue1"/>
+                            <constraint firstItem="df4-Fz-vxg" firstAttribute="centerX" secondItem="BLy-Nn-obI" secondAttribute="centerX" id="UCj-UC-BjQ"/>
+                            <constraint firstItem="g3u-9d-8ru" firstAttribute="centerX" secondItem="BLy-Nn-obI" secondAttribute="centerX" id="Z88-qz-MRP"/>
+                            <constraint firstAttribute="trailing" secondItem="A6F-WR-VvW" secondAttribute="trailing" id="ZwZ-YK-AXR"/>
+                            <constraint firstItem="Yak-Ki-XZF" firstAttribute="centerX" secondItem="BLy-Nn-obI" secondAttribute="centerX" id="eve-hp-Zea"/>
+                            <constraint firstItem="A6F-WR-VvW" firstAttribute="top" secondItem="BLy-Nn-obI" secondAttribute="top" id="jCr-T3-VXt"/>
+                            <constraint firstItem="Yak-Ki-XZF" firstAttribute="top" secondItem="hLj-pl-MAc" secondAttribute="bottom" constant="15" id="oHN-0E-3Pg"/>
+                            <constraint firstItem="g3u-9d-8ru" firstAttribute="top" secondItem="Yak-Ki-XZF" secondAttribute="bottom" constant="8" id="wyT-Ff-3ak"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uir-Zk-O0f"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -354,4 +387,8 @@
             <point key="canvasLocation" x="1669" y="1116"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="320" height="568"/>
+        <image name="downArrowButton" width="68" height="21"/>
+    </resources>
 </document>

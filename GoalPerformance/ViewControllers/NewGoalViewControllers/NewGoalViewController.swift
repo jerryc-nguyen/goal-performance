@@ -8,14 +8,8 @@
 
 import UIKit
 
-//protocol NewGoalViewControllerDelegate: class {
-//    func newGoalViewController(newGoalVC: NewGoalViewController, categoryId: Int?, categoryName: String?)
-//}
-
-
 class NewGoalViewController: UIViewController {
     
-//    weak var delegate: NewGoalViewControllerDelegate?
     var categories: Array<Category>?
     var buttons: Array<UIButton>? = Array<UIButton>()
     var _currentX: CGFloat = 10
@@ -25,6 +19,7 @@ class NewGoalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = true
         self.view.backgroundColor = UIColor.groupTableViewBackgroundColor()
         APIClient.sharedInstance.categories { [unowned self] (result) in
             if result != nil {
@@ -52,6 +47,7 @@ class NewGoalViewController: UIViewController {
         
         let button = UIButton(type: .System)
         button.setTitle(title, forState: .Normal)
+        button.titleLabel?.font = UIFont(name: "helvetica neue", size: 25)
         button.backgroundColor = UIColor.whiteColor()
         button.sizeToFit()
         button.setTitleColor(UIColor.orangeColor(), forState: .Normal)
