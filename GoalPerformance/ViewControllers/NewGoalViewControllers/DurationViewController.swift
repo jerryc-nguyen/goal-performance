@@ -26,7 +26,7 @@ class DurationViewController: UIViewController {
         } else if durationSec == durationSec {
             durationTimer.countDownDuration = Double(durationSec)
         } else {
-            durationTimer.countDownDuration = 1800
+            durationTimer.countDownDuration = 0
         }
     }
     
@@ -58,8 +58,8 @@ class DurationViewController: UIViewController {
                     durationString = "\(hour) hours \(minute) min"
                     print(durationString)
                 }
-                let durationMinutes = hour * 60 + minute
-                self.delegate?.durationViewController(self, durationUpdated: durationMinutes, durationString: durationString)
+            let durationMinutes = hour * 60 + minute
+            self.delegate?.durationViewController(self, durationUpdated: durationMinutes, durationString: durationString)
             }
         }
     }
