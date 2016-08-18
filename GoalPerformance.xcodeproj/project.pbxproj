@@ -60,6 +60,8 @@
 		E0E6F29F1D5773AC00EE8448 /* EndGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */; };
 		E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */; };
 		E44F1B001D6487D800437844 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44F1AFF1D6487D800437844 /* BaseView.swift */; };
+		E44F1B031D64BF7E00437844 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44F1B021D64BF7E00437844 /* GoalsView.swift */; };
+		E44F1B051D64BFA700437844 /* GoalsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44F1B041D64BFA700437844 /* GoalsView.xib */; };
 		E471C84A1D5787150075C5E9 /* DefineGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8471D5787150075C5E9 /* DefineGoalViewController.swift */; };
 		E471C84B1D5787150075C5E9 /* DurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8481D5787150075C5E9 /* DurationViewController.swift */; };
 		E471C84C1D5787150075C5E9 /* GoalIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */; };
@@ -125,6 +127,8 @@
 		E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestFriendTableViewCell.swift; path = InviteFriendViews/SuggestFriendTableViewCell.swift; sourceTree = "<group>"; };
 		E44F1AFF1D6487D800437844 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		E44F1B021D64BF7E00437844 /* GoalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		E44F1B041D64BFA700437844 /* GoalsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalsView.xib; sourceTree = "<group>"; };
 		E471C8471D5787150075C5E9 /* DefineGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineGoalViewController.swift; sourceTree = "<group>"; };
 		E471C8481D5787150075C5E9 /* DurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationViewController.swift; sourceTree = "<group>"; };
 		E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalIntervalTableViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E44F1B011D64BF5400437844 /* GoalsView */,
 				422378921D60373A00062B73 /* FriendViews */,
 				424AF20E1D5ED2C0001754B2 /* NewGoalViews */,
 				424AF20D1D5ED2AF001754B2 /* UserTimelineViews */,
@@ -381,6 +386,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		E44F1B011D64BF5400437844 /* GoalsView */ = {
+			isa = PBXGroup;
+			children = (
+				E44F1B021D64BF7E00437844 /* GoalsView.swift */,
+				E44F1B041D64BFA700437844 /* GoalsView.xib */,
+			);
+			path = GoalsView;
+			sourceTree = "<group>";
+		};
 		F12935C63977DEE64BD5514D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +473,7 @@
 				420114E81D579FA100B2F199 /* TimelineItemTableViewCell.xib in Resources */,
 				424AF2201D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib in Resources */,
 				42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */,
+				E44F1B051D64BFA700437844 /* GoalsView.xib in Resources */,
 				424AF21C1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib in Resources */,
 				42210CB11D4D040F0029990F /* Assets.xcassets in Resources */,
 				42210CAF1D4D040F0029990F /* Main.storyboard in Resources */,
@@ -564,6 +579,7 @@
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
 				4263F9121D558C9B00C119DB /* Goal.swift in Sources */,
 				420114E41D579B4800B2F199 /* Utils.swift in Sources */,
+				E44F1B031D64BF7E00437844 /* GoalsView.swift in Sources */,
 				E471C84C1D5787150075C5E9 /* GoalIntervalTableViewController.swift in Sources */,
 				4263DF581D5BC6460050E5A0 /* APIResponse.swift in Sources */,
 			);
