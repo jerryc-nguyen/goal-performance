@@ -17,14 +17,13 @@ class DoneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.alpha = 0.0
         let weekdaysString = weekdays.joinWithSeparator(", ")
         if weekdays.count == 7 {
             notiLabel.text = "Everything is set! We will remind you at \(timeChosen) everyday to \(categoryName)"
         } else {
         notiLabel.text = "Everything is set! We will remind you at \(timeChosen) every \(weekdaysString) to \(categoryName)"
         }
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,14 +37,12 @@ class DoneViewController: UIViewController {
         navigationController?.pushViewController(inviteFriendVc, animated: true)
     }
 
-    /*
+   
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+       
     }
-    */
-
+  
 }

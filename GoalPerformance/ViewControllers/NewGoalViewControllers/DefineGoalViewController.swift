@@ -9,8 +9,15 @@
 import UIKit
 
 class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
-
+    
+    @IBOutlet weak var containChartView: UIView!
+    @IBOutlet weak var heightContainChartViewConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var startTimePicker: UIDatePicker!
+    
+    @IBOutlet weak var saveButton: UIButton!
+    
+    var hasGoal = false
     
     var timeChosen: String = ""
     var weekdays:[String] = []
@@ -21,15 +28,24 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         let navBar = self.navigationController
+        
         startTimePicker.datePickerMode = UIDatePickerMode.Time
-        navBar?.navigationBarHidden = false
+       // navBar?.navigationBar.alpha = 0.5
         navBar?.navigationBar.translucent = true
+        navBar?.navigationBar.backgroundColor = UIColor.clearColor()
         self.title = "Setup Your Goal"
         navBar?.navigationBar.tintColor = UIColor.orangeColor()
         navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
         let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
         self.navigationItem.rightBarButtonItem = nextBarItem
 
+        if hasGoal {
+            heightContainChartViewConstraint.constant = 110
+            saveButton.setImage(UIImage(named: "Save Change"), forState: .Normal)
+        } else {
+            heightContainChartViewConstraint.constant = 0
+            saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
+        }
     }
     
     func next() {
@@ -42,6 +58,18 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             "goal[is_default]" : true,
             "goal[category_id]" : self.categoryID!
         ]
+        
+        if self.timeChosen == "" {
+            showAlert("Oops! Something is missing", message: "Please pick the starting time.")
+        }
+        if self.weekdays == [] {
+            showAlert("Oops! Something is missing", message: "Please pick the days to do your goal.")
+        }
+        
+        if self.duration == 0 {
+            showAlert("Uh oh, still missing something", message: "Please pick the duration for your goal.")
+        }
+        
         APIClient.sharedInstance.createGoal(params) { (result) in
             
             if (result as? Goal) != nil {
@@ -65,6 +93,16 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         let timeChosen = dateFormatter.stringFromDate(startTimePicker.date)
         print(timeChosen)
         self.timeChosen = timeChosen
+    }
+    
+    @IBAction func saveAction(sender: AnyObject) {
+        next()
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 
    

@@ -12,32 +12,55 @@ import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
     
-    @IBAction func onNotificationButton(sender: AnyObject) {
-        
-        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
-            goal.debugInfo()
-            goal.registerStartGoalNotifications()
-        }
-        
-    }
+    
+    
+//    @IBAction func onNotificationButton(sender: AnyObject) {
+//        
+//        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
+//            goal.debugInfo()
+//            goal.registerStartGoalNotifications()
+//        }
+//        
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        if (FBSDKAccessToken.currentAccessToken() != nil) {
+//            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
+//            
+//        } else {
+//            let loginView : FBSDKLoginButton = FBSDKLoginButton()
+//            self.view.addSubview(loginView)
+//            loginView.center = self.view.center
+//            loginView.readPermissions = ["public_profile", "email", "user_friends"]
+//            loginView.delegate = self
+//        }
+    }
+    
+    @IBAction func loginWithFacebook(sender: UIButton) {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
             
         } else {
-            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-            self.view.addSubview(loginView)
-            loginView.center = self.view.center
-            loginView.readPermissions = ["public_profile", "email", "user_friends"]
-            loginView.delegate = self
-        }
-    }
-    
-}
+            let loginManager = FBSDKLoginManager()
+            let permisions = ["public_profile", "email", "user_friends"]
+            loginManager.logInWithReadPermissions(permisions, fromViewController: self, handler: { [weak self] (result, error) in
+                guard let strongSelf = self else { return }
+                
+                if ((error) != nil) {
+                    // Process error
+                } else if result.isCancelled {
+                    // Handle cancellations
+                } else {
+                    strongSelf.authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
+                }
+            })
 
+        }
+
+    }
+}
 extension LoginViewController : FBSDKLoginButtonDelegate{
     // Facebook Delegate Methods
     
