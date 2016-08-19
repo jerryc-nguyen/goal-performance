@@ -9,8 +9,15 @@
 import UIKit
 
 class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
-
+    
+    @IBOutlet weak var containChartView: UIView!
+    @IBOutlet weak var heightContainChartViewConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var startTimePicker: UIDatePicker!
+    
+    @IBOutlet weak var saveButton: UIButton!
+    
+    var hasGoal = false
     
     var timeChosen: String = ""
     var weekdays:[String] = []
@@ -21,6 +28,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         let navBar = self.navigationController
+        
         startTimePicker.datePickerMode = UIDatePickerMode.Time
         //navBar?.navigationBarHidden = false
         navBar?.navigationBar.translucent = true
@@ -30,6 +38,13 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
         self.navigationItem.rightBarButtonItem = nextBarItem
 
+        if hasGoal {
+            heightContainChartViewConstraint.constant = 110
+            saveButton.setImage(UIImage(named: "Save Change"), forState: .Normal)
+        } else {
+            heightContainChartViewConstraint.constant = 0
+            saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
+        }
     }
     
     func next() {
@@ -77,6 +92,10 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         let timeChosen = dateFormatter.stringFromDate(startTimePicker.date)
         print(timeChosen)
         self.timeChosen = timeChosen
+    }
+    
+    @IBAction func saveAction(sender: AnyObject) {
+        next()
     }
     
     func showAlert(title: String, message: String) {

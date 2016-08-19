@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="A6F-WR-VvW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login background" translatesAutoresizingMaskIntoConstraints="NO" id="A6F-WR-VvW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME, ALEX!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yak-Ki-XZF">
@@ -135,14 +135,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4wC-zw-nAQ">
-                                <rect key="frame" x="0.0" y="228" width="320" height="293"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ue9-3J-bf3">
+                                <rect key="frame" x="0.0" y="69" width="320" height="110"/>
+                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="bre-cf-Ldv"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wC-zw-nAQ">
+                                <rect key="frame" x="0.0" y="430" width="320" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="wT2-q2-TLs"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="d2d-JT-TGe" kind="embed" identifier="GoalIntervalTableViewSegue" id="XkI-EC-CPL"/>
                                 </connections>
                             </containerView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uUW-Wn-gi0">
-                                <rect key="frame" x="0.0" y="56" width="320" height="165"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="uUW-Wn-gi0">
+                                <rect key="frame" x="0.0" y="230" width="320" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="tx6-GN-7Jf"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="492148222.22980797">
                                     <!--2016-08-06 03:50:22 +0000-->
                                 </date>
@@ -150,11 +163,46 @@
                                     <action selector="timePickerAction:" destination="mgO-YC-y2i" eventType="valueChanged" id="1Ce-WG-hcv"/>
                                 </connections>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhT-MX-Dss">
+                                <rect key="frame" x="85" y="508" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Hey-lO-LO1"/>
+                                    <constraint firstAttribute="height" constant="40" id="jb5-Rz-l0h"/>
+                                </constraints>
+                                <state key="normal" image="Orange Arrow"/>
+                                <connections>
+                                    <action selector="saveAction:" destination="mgO-YC-y2i" eventType="touchUpInside" id="g9a-AC-Aoc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What time do you want to start?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPu-hV-CkN">
+                                <rect key="frame" x="22" y="194" width="275" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OFL-8J-WIj" firstAttribute="top" secondItem="nhT-MX-Dss" secondAttribute="bottom" constant="20" id="1CE-Do-pFb"/>
+                            <constraint firstItem="nhT-MX-Dss" firstAttribute="centerX" secondItem="ZBp-dn-dOA" secondAttribute="centerX" id="22B-0V-tdd"/>
+                            <constraint firstItem="4wC-zw-nAQ" firstAttribute="leading" secondItem="ZBp-dn-dOA" secondAttribute="leading" id="94U-Zh-PHK"/>
+                            <constraint firstItem="Ue9-3J-bf3" firstAttribute="top" secondItem="DJo-Oc-Zbd" secondAttribute="bottom" constant="5" id="FD2-nM-OdV"/>
+                            <constraint firstItem="4wC-zw-nAQ" firstAttribute="top" secondItem="uUW-Wn-gi0" secondAttribute="bottom" constant="35" id="FK9-2p-aL7"/>
+                            <constraint firstAttribute="trailing" secondItem="uUW-Wn-gi0" secondAttribute="trailing" id="KAa-a0-Pee"/>
+                            <constraint firstItem="Ue9-3J-bf3" firstAttribute="leading" secondItem="ZBp-dn-dOA" secondAttribute="leading" id="Lkk-Tp-qz3"/>
+                            <constraint firstItem="cPu-hV-CkN" firstAttribute="centerX" secondItem="ZBp-dn-dOA" secondAttribute="centerX" id="SV8-MQ-EcM"/>
+                            <constraint firstItem="cPu-hV-CkN" firstAttribute="top" secondItem="Ue9-3J-bf3" secondAttribute="bottom" constant="15" id="aHg-JD-fcq"/>
+                            <constraint firstAttribute="trailing" secondItem="Ue9-3J-bf3" secondAttribute="trailing" id="bTn-WA-nQk"/>
+                            <constraint firstItem="uUW-Wn-gi0" firstAttribute="top" secondItem="cPu-hV-CkN" secondAttribute="bottom" constant="14" id="g60-SS-07f"/>
+                            <constraint firstAttribute="trailing" secondItem="4wC-zw-nAQ" secondAttribute="trailing" id="g92-3T-Y3x"/>
+                            <constraint firstItem="uUW-Wn-gi0" firstAttribute="leading" secondItem="ZBp-dn-dOA" secondAttribute="leading" id="hI5-bh-6Rs"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="containChartView" destination="Ue9-3J-bf3" id="Rl5-yL-Ues"/>
+                        <outlet property="heightContainChartViewConstraint" destination="bre-cf-Ldv" id="lkA-oB-7ra"/>
+                        <outlet property="saveButton" destination="nhT-MX-Dss" id="sO4-nE-I05"/>
                         <outlet property="startTimePicker" destination="uUW-Wn-gi0" id="evV-Qp-zOW"/>
                         <segue destination="NYh-pz-NFI" kind="show" identifier="DoneSegue" id="5c3-k9-9Yo"/>
                     </connections>
@@ -435,6 +483,8 @@
     <resources>
         <image name="Background" width="320" height="568"/>
         <image name="DoneButton" width="159" height="48"/>
+        <image name="Orange Arrow" width="47" height="38"/>
         <image name="downArrowButton" width="68" height="21"/>
+        <image name="login background" width="320" height="568"/>
     </resources>
 </document>

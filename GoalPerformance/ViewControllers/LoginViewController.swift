@@ -12,14 +12,17 @@ import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
     
-    @IBAction func onNotificationButton(sender: AnyObject) {
-        
-        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
-            goal.debugInfo()
-            goal.registerStartGoalNotifications()
-        }
-        
-    }
+    
+    @IBOutlet weak var loginView: UIButton!
+    
+//    @IBAction func onNotificationButton(sender: AnyObject) {
+//        
+//        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
+//            goal.debugInfo()
+//            goal.registerStartGoalNotifications()
+//        }
+//        
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +39,10 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func loginWithFacebook(sender: UIButton) {
+        
+    }
 }
-
 extension LoginViewController : FBSDKLoginButtonDelegate{
     // Facebook Delegate Methods
     

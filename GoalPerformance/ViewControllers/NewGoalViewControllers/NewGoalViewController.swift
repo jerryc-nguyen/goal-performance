@@ -105,13 +105,9 @@ class NewGoalViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "DefineGoalSegue" {
-//            let defineGoalVC = segue.destinationViewController as! DefineGoalViewController
-//            defineGoalVC.categoryID = self.categoryId
-//            defineGoalVC.categoryName = self.categoryName
+//            
 //        }
-//
 //    }
-//  
 }
 
 extension NewGoalViewController: GoaldViewDelegate {
@@ -130,9 +126,13 @@ extension NewGoalViewController: GoaldViewDelegate {
         //        performSegueWithIdentifier("DefineGoalSegue", sender: self)
         
         if let defineGoalViewController = defineGoalViewController {
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            navigationItem.backBarButtonItem = backItem
             
             defineGoalViewController.categoryID = self.categoryId
             defineGoalViewController.categoryName = self.categoryName
+            defineGoalViewController.hasGoal = false
             self.navigationController?.pushViewController(defineGoalViewController, animated: true)
         }
     }
