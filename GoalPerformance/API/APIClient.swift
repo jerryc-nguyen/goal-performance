@@ -20,6 +20,7 @@ struct API_URLS {
     //FRIENDS
     static let friends = "\(APIBaseURL)/api/friends.json"
     static let suggestFriends = "\(APIBaseURL)/api/friends/suggested.json"
+    static let buddiesFriends = "\(APIBaseURL)/api/friends/buddies.json"
     
     //FRIENDSHIPS
     static let requestFriend = "\(APIBaseURL)/api/friendships/request_friend.json"
@@ -27,10 +28,15 @@ struct API_URLS {
     static let rejectFriend = "\(APIBaseURL)/api/friendships/request_friend.json"
     static let pendingFriend = "\(APIBaseURL)/api/friendships/incomming.json"
     
+    //GOALS SESSION
+    static let inviteGoal = "\(APIBaseURL)/api/goal_sessions/%d/invite.json"
+    static let acceptGoal = "\(APIBaseURL)/api/goal_sessions/%d/accept.json"
+    static let deleteGoal = "\(APIBaseURL)/api/goal_sessions/%d.json"
+    static let pendingBuddies = "\(APIBaseURL)/api/goal_sessions/pending_accept.json"
+    
     //GOALS
     static let createGoal = "\(APIBaseURL)/api/goals.json"
     static let goalDetail = "\(APIBaseURL)/api/goals/%d.json"
-    static let inviteGoal = "\(APIBaseURL)/api/goals/%d/invite.json"
     
     //CATEGORIES
     static let getCategories = "\(APIBaseURL)/api/categories.json"
