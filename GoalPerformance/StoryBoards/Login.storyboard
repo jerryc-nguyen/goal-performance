@@ -54,9 +54,6 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="loginView" destination="p3T-mf-N2i" id="amu-Vv-u95"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8q-fd-NK1" sceneMemberID="firstResponder"/>
             </objects>

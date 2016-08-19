@@ -13,7 +13,6 @@ import FBSDKCoreKit
 class LoginViewController: UIViewController {
     
     
-    @IBOutlet weak var loginView: UIButton!
     
 //    @IBAction func onNotificationButton(sender: AnyObject) {
 //        
@@ -27,20 +26,39 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        if (FBSDKAccessToken.currentAccessToken() != nil) {
+//            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
+//            
+//        } else {
+//            let loginView : FBSDKLoginButton = FBSDKLoginButton()
+//            self.view.addSubview(loginView)
+//            loginView.center = self.view.center
+//            loginView.readPermissions = ["public_profile", "email", "user_friends"]
+//            loginView.delegate = self
+//        }
+    }
+    
+    @IBAction func loginWithFacebook(sender: UIButton) {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
             
         } else {
-            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-            self.view.addSubview(loginView)
-            loginView.center = self.view.center
-            loginView.readPermissions = ["public_profile", "email", "user_friends"]
-            loginView.delegate = self
+            let loginManager = FBSDKLoginManager()
+            let permisions = ["public_profile", "email", "user_friends"]
+            loginManager.logInWithReadPermissions(permisions, fromViewController: self, handler: { [weak self] (result, error) in
+                guard let strongSelf = self else { return }
+                
+                if ((error) != nil) {
+                    // Process error
+                } else if result.isCancelled {
+                    // Handle cancellations
+                } else {
+                    strongSelf.authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
+                }
+            })
+
         }
-    }
-    
-    @IBAction func loginWithFacebook(sender: UIButton) {
-        
+
     }
 }
 extension LoginViewController : FBSDKLoginButtonDelegate{

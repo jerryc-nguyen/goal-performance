@@ -15,7 +15,6 @@ class NewGoalViewController: UIViewController {
     var categoryName:String! = ""
     
     var goalsViewList: Array<GoalsView>? = []
-    var currentGoalsView: Int = 0
     
     
     @IBOutlet var containView: UIScrollView!
@@ -46,8 +45,7 @@ class NewGoalViewController: UIViewController {
     }
     
     @IBAction func showCategoriesAction(sender: UIButton) {
-        currentGoalsView += 1
-        _moveToGoalsViewAtIndex(currentGoalsView)
+        _moveGoalsView()
     }
     
 
@@ -89,13 +87,14 @@ class NewGoalViewController: UIViewController {
         }
     }
     
-    private func _moveToGoalsViewAtIndex(index: Int) {
+    private func _moveGoalsView() {
         guard let goalsViewList = goalsViewList else {
-            currentGoalsView = 0
             return
         }
-        if currentGoalsView < goalsViewList.count {
-            let goalsView = goalsViewList[index]
+        let contentOffset = containView.contentOffset
+        let nextIndex = Int(contentOffset.y/containView.height()) + 1
+        if nextIndex < goalsViewList.count {
+            let goalsView = goalsViewList[nextIndex]
             containView.scrollRectToVisible(goalsView.frame, animated: true)
         }
     }
@@ -109,6 +108,7 @@ class NewGoalViewController: UIViewController {
 //        }
 //    }
 }
+
 
 extension NewGoalViewController: GoaldViewDelegate {
     func selectedCategoryAtIndex(index: Int) {
