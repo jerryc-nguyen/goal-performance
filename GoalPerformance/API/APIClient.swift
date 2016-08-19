@@ -10,8 +10,8 @@ import Foundation
 import Alamofire //https://github.com/Alamofire/Alamofire
 
 
-let APIBaseURL = "https://goal-api.herokuapp.com/"
-//let APIBaseURL = "http://localhost:3000"
+//let APIBaseURL = "https://goal-api.herokuapp.com/"
+let APIBaseURL = "http://localhost:3000"
 
 struct API_URLS {
     //AUTH

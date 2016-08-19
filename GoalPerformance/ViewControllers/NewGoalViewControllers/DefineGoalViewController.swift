@@ -75,6 +75,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             if (result as? Goal) != nil {
                 let goal = result as! Goal
                 goal.registerStartGoalNotifications()
+                goal.registerEndGoalNotifications()
                 print("Create goal success")
                 self.performSegueWithIdentifier("DoneSegue", sender: self)
             }
