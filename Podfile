@@ -17,5 +17,6 @@ target 'GoalPerformance' do
   
   pod 'DateTools'
   pod 'FontAwesome.swift'
+  pod 'PKHUD'
   
 end
