@@ -14,10 +14,13 @@ class FriendViewController: UIViewController {
     
     @IBOutlet weak var friendTableView: UITableView!
     
+    @IBOutlet weak var goalBuddiesTable: UITableView!
+    
     var apiClient = APIClient.sharedInstance
     var pendingFriends = [User]()
     var friends = [User]()
-    
+    var pendingBuddies = [User]()
+    var buddies = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,25 +29,46 @@ class FriendViewController: UIViewController {
         friendTableView.delegate = self
         friendTableView.dataSource = self
         
+        friendTableView.rowHeight = UITableViewAutomaticDimension
+        friendTableView.estimatedRowHeight = 120
+        
         friendTableView.registerNib(UINib(nibName: "FriendTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "FriendTableViewCell")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        
+        loadFriend()
     }
 
     func loadFriend() {
-        apiClient.getAllFriends { (friends) in
-            self.friends = friends
-        }
         
-        apiClient.getPendingFriend { (friends) in
-            self.pendingFriends = friends
+        if viewSegment.selectedSegmentIndex == 0 {
+            apiClient.getPendingFriend { (friends) in
+                self.pendingFriends = friends
+                self.friendTableView.reloadData()
+            }
+            
+            apiClient.getAllFriends { (friends) in
+                self.friends = friends
+                self.friendTableView.reloadData()
+            }
+        } else {
+            apiClient.getPendingFriend { (friends) in
+                self.pendingFriends = friends
+                self.friendTableView.reloadData()
+            }
+            
+            apiClient.getAllFriends { (friends) in
+                self.friends = friends
+                self.friendTableView.reloadData()
+            }
+            
         }
-        
-        friendTableView.reloadData()
     }
+    
+    @IBAction func onSegmentChange(sender: UISegmentedControl) {
+        loadFriend()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -67,9 +91,24 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Connect requests"
+            
+            if pendingFriends.count > 0 {
+                if viewSegment.selectedSegmentIndex == 0 {
+                    return "Pending friends"
+                } else {
+                    return "Pending buddies"
+                }
+            } else {
+                return ""
+            }
+                
+            
         default:
-            return "List Friend"
+            if viewSegment.selectedSegmentIndex == 0 {
+                return "List friends"
+            } else {
+                return "List buddies"
+            }
         }
     }
     
@@ -90,14 +129,19 @@ extension FriendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendTableViewCell") as! FriendTableViewCell
         
+        cell.apiClient = apiClient
+        
         var friend: User?
         
         switch indexPath.section {
         case 0:
             friend = pendingFriends[indexPath.row]
+            cell.challengeImage.hidden = true
             
         default:
             friend = friends[indexPath.row]
+            cell.acceptButton.hidden = true
+            cell.rejectButton.hidden = true
         }
         
         cell.friend = friend

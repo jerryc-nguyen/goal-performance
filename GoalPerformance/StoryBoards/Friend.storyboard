@@ -1,59 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z4q-KT-xJm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Friend View Controller-->
+        <!--Friends-->
         <scene sceneID="6r7-RZ-uzw">
             <objects>
-                <viewController id="i2c-C2-XOu" customClass="FriendViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="i2c-C2-XOu" customClass="FriendViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8mW-Kv-2ds"/>
                         <viewControllerLayoutGuide type="bottom" id="Lus-dP-bbh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fw4-LB-lFg">
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="fw4-LB-lFg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xC8-r9-ddq">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="33" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xC8-r9-ddq">
+                                <rect key="frame" x="0.0" y="97" width="320" height="471"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LE9-oZ-4yD">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LE9-oZ-4yD" id="dbd-7C-EJO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jR3-Bh-ZeA">
+                                <rect key="frame" x="0.0" y="97" width="320" height="471"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3jg-9W-BVJ">
+                                <rect key="frame" x="65" y="64" width="191" height="29"/>
+                                <segments>
+                                    <segment title="Your friends"/>
+                                    <segment title="Goal Buddies"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onSegmentChange:" destination="i2c-C2-XOu" eventType="valueChanged" id="KLA-hJ-nmM"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xC8-r9-ddq" secondAttribute="trailing" id="4fY-K7-FEA"/>
-                            <constraint firstItem="Lus-dP-bbh" firstAttribute="top" secondItem="xC8-r9-ddq" secondAttribute="bottom" id="KYO-qL-3iS"/>
-                            <constraint firstItem="xC8-r9-ddq" firstAttribute="top" secondItem="8mW-Kv-2ds" secondAttribute="bottom" id="RFJ-ZA-Vgh"/>
-                            <constraint firstItem="xC8-r9-ddq" firstAttribute="leading" secondItem="fw4-LB-lFg" secondAttribute="leading" id="mfR-BR-gKh"/>
+                            <constraint firstItem="xC8-r9-ddq" firstAttribute="centerX" secondItem="fw4-LB-lFg" secondAttribute="centerX" id="4Sn-Ob-oyC"/>
+                            <constraint firstItem="jR3-Bh-ZeA" firstAttribute="top" secondItem="8mW-Kv-2ds" secondAttribute="bottom" id="4mk-CM-Wnr"/>
+                            <constraint firstAttribute="trailing" secondItem="jR3-Bh-ZeA" secondAttribute="trailing" id="By3-a6-oZI"/>
+                            <constraint firstItem="jR3-Bh-ZeA" firstAttribute="leading" secondItem="fw4-LB-lFg" secondAttribute="leading" id="HU5-cD-ZWT"/>
+                            <constraint firstItem="3jg-9W-BVJ" firstAttribute="centerX" secondItem="fw4-LB-lFg" secondAttribute="centerX" id="IXT-L7-ryK"/>
+                            <constraint firstAttribute="trailing" secondItem="xC8-r9-ddq" secondAttribute="trailing" id="Qqm-Iy-mZn"/>
+                            <constraint firstItem="3jg-9W-BVJ" firstAttribute="top" secondItem="8mW-Kv-2ds" secondAttribute="bottom" id="RmD-Cc-ohi"/>
+                            <constraint firstItem="Lus-dP-bbh" firstAttribute="top" secondItem="xC8-r9-ddq" secondAttribute="bottom" id="VVX-z3-VKV"/>
+                            <constraint firstItem="Lus-dP-bbh" firstAttribute="top" secondItem="jR3-Bh-ZeA" secondAttribute="bottom" id="Wbl-Wh-qqc"/>
+                            <constraint firstItem="jR3-Bh-ZeA" firstAttribute="top" secondItem="3jg-9W-BVJ" secondAttribute="bottom" constant="5" id="YkK-sR-QBO"/>
+                            <constraint firstItem="xC8-r9-ddq" firstAttribute="top" secondItem="3jg-9W-BVJ" secondAttribute="bottom" constant="5" id="ZNd-a6-bPU"/>
+                            <constraint firstItem="xC8-r9-ddq" firstAttribute="leading" secondItem="fw4-LB-lFg" secondAttribute="leading" id="Zg5-rW-17n"/>
+                            <constraint firstItem="xC8-r9-ddq" firstAttribute="top" secondItem="3jg-9W-BVJ" secondAttribute="bottom" constant="2" id="kWz-KQ-8gs"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4Sn-Ob-oyC"/>
+                                <exclude reference="kWz-KQ-8gs"/>
+                                <exclude reference="4mk-CM-Wnr"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="2Tm-lR-15g">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="3jg-9W-BVJ">
-                            <rect key="frame" x="37.5" y="7.5" width="245" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="First"/>
-                                <segment title="Second"/>
-                            </segments>
-                        </segmentedControl>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Friends" id="2Tm-lR-15g"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="friendTableView" destination="xC8-r9-ddq" id="rO4-qk-nRy"/>
+                        <outlet property="goalBuddiesTable" destination="jR3-Bh-ZeA" id="lNd-jf-vHm"/>
                         <outlet property="viewSegment" destination="3jg-9W-BVJ" id="hFN-tn-6L7"/>
                     </connections>
                 </viewController>

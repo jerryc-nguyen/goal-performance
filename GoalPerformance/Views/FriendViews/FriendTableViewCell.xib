@@ -28,12 +28,6 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYo-yV-Vnh">
-                        <rect key="frame" x="70" y="39" width="174" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uED-jD-yOh">
                         <rect key="frame" x="319" y="26" width="25" height="25"/>
                         <constraints>
@@ -41,18 +35,42 @@
                             <constraint firstAttribute="height" constant="25" id="oxP-4K-hxk"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gX-sy-ESr">
+                        <rect key="frame" x="301" y="39" width="43" height="30"/>
+                        <state key="normal" title="Reject"/>
+                        <connections>
+                            <action selector="onReject:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TLV-gY-ohi"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ce0-Ap-T5T">
+                        <rect key="frame" x="216" y="39" width="49" height="30"/>
+                        <state key="normal" title="Accept"/>
+                        <connections>
+                            <action selector="onAccept:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WgE-PG-pWM"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxq-C2-FgQ">
+                        <rect key="frame" x="70" y="30" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="6Jr-ee-jIX" secondAttribute="bottom" constant="5" id="2vA-1A-1zT"/>
                     <constraint firstItem="6Jr-ee-jIX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3bv-o3-xEw"/>
+                    <constraint firstItem="2gX-sy-ESr" firstAttribute="leading" secondItem="ce0-Ap-T5T" secondAttribute="trailing" constant="36" id="4r4-pq-4j8"/>
+                    <constraint firstItem="ce0-Ap-T5T" firstAttribute="top" secondItem="2gX-sy-ESr" secondAttribute="top" id="Fpe-6a-UUy"/>
                     <constraint firstItem="uED-jD-yOh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GLO-9d-AGe"/>
+                    <constraint firstItem="Xxq-C2-FgQ" firstAttribute="top" secondItem="bsi-PL-J7t" secondAttribute="bottom" constant="-1" id="GQ0-Zl-WOh"/>
                     <constraint firstItem="uED-jD-yOh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="K2g-xV-xNg"/>
                     <constraint firstItem="6Jr-ee-jIX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KQX-z9-Ivt"/>
-                    <constraint firstItem="fYo-yV-Vnh" firstAttribute="leading" secondItem="bsi-PL-J7t" secondAttribute="leading" id="UMF-07-GSY"/>
                     <constraint firstItem="bsi-PL-J7t" firstAttribute="top" secondItem="6Jr-ee-jIX" secondAttribute="top" id="Vz8-sV-Wec"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2gX-sy-ESr" secondAttribute="bottom" constant="0.5" id="WY6-87-Sig"/>
                     <constraint firstAttribute="trailingMargin" secondItem="uED-jD-yOh" secondAttribute="trailing" constant="15" id="aab-XQ-hLy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2gX-sy-ESr" secondAttribute="trailing" constant="15" id="cih-cW-Qaj"/>
                     <constraint firstItem="uED-jD-yOh" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fEW-H7-eOH"/>
-                    <constraint firstItem="uED-jD-yOh" firstAttribute="leading" secondItem="fYo-yV-Vnh" secondAttribute="trailing" constant="75" id="ldw-qn-bdG"/>
-                    <constraint firstItem="fYo-yV-Vnh" firstAttribute="top" secondItem="bsi-PL-J7t" secondAttribute="bottom" constant="8" id="pDN-Dh-WfY"/>
+                    <constraint firstItem="Xxq-C2-FgQ" firstAttribute="leading" secondItem="bsi-PL-J7t" secondAttribute="leading" id="fUP-Jk-ixg"/>
                     <constraint firstItem="bsi-PL-J7t" firstAttribute="leading" secondItem="6Jr-ee-jIX" secondAttribute="trailing" constant="10" id="u7x-uX-Fxt"/>
                     <constraint firstItem="6Jr-ee-jIX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="wN9-Ga-Tlq"/>
                 </constraints>
@@ -61,15 +79,16 @@
                         <exclude reference="wN9-Ga-Tlq"/>
                         <exclude reference="K2g-xV-xNg"/>
                         <exclude reference="fEW-H7-eOH"/>
-                        <exclude reference="ldw-qn-bdG"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="acceptButton" destination="ce0-Ap-T5T" id="lhO-cy-DSf"/>
                 <outlet property="challengeImage" destination="uED-jD-yOh" id="Ba5-lp-1sG"/>
-                <outlet property="friendGoal" destination="fYo-yV-Vnh" id="L2n-dN-uBn"/>
+                <outlet property="currentGoalsLabel" destination="Xxq-C2-FgQ" id="vXO-7N-AMB"/>
                 <outlet property="friendImage" destination="6Jr-ee-jIX" id="EKf-Df-sgx"/>
                 <outlet property="friendName" destination="bsi-PL-J7t" id="bbe-WK-JPS"/>
+                <outlet property="rejectButton" destination="2gX-sy-ESr" id="cF7-Yo-aCc"/>
             </connections>
             <point key="canvasLocation" x="303.5" y="255"/>
         </tableViewCell>

@@ -12,17 +12,23 @@ class FriendTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendImage: UIImageView!
     @IBOutlet weak var friendName: UILabel!
-    @IBOutlet weak var friendGoal: UILabel!
-
     @IBOutlet weak var challengeImage: UIImageView!
+    
+    @IBOutlet weak var acceptButton: UIButton!
+    
+    @IBOutlet weak var rejectButton: UIButton!
+    
+    @IBOutlet weak var currentGoalsLabel: UILabel!
     
     var friend:User! {
         didSet {
+            friendImage.makeCircle()
             friendImage.sd_setImageWithURL(friend.avatarUrl)
             friendName.text = friend.displayName
         }
     }
     
+    var apiClient:APIClient!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,7 +41,16 @@ class FriendTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func onChallengeClick(sender: UIButton) {
+    @IBAction func onAccept(sender: UIButton) {
+        apiClient.acceptFriend(friend.id!) { (title, message) in
+            print("\(title): \(message)")
+        }
+    }
+
+    @IBAction func onReject(sender: UIButton) {
+        apiClient.rejectFriend(friend.id!) { (title, message) in
+            print("\(title): \(message)")
+        }
     }
     
 }

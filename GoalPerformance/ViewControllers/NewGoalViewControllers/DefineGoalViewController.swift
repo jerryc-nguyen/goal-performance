@@ -80,6 +80,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             let doneVC = segue.destinationViewController as! DoneViewController
             doneVC.categoryName = self.categoryName
             doneVC.timeChosen = self.timeChosen
+            
             doneVC.weekdays = self.weekdays
        }
     }
