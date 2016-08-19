@@ -30,8 +30,9 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         let navBar = self.navigationController
         
         startTimePicker.datePickerMode = UIDatePickerMode.Time
-        //navBar?.navigationBarHidden = false
+       // navBar?.navigationBar.alpha = 0.5
         navBar?.navigationBar.translucent = true
+        navBar?.navigationBar.backgroundColor = UIColor.clearColor()
         self.title = "Setup Your Goal"
         navBar?.navigationBar.tintColor = UIColor.orangeColor()
         navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
