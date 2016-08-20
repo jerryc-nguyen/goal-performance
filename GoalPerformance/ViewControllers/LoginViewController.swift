@@ -41,7 +41,6 @@ class LoginViewController: UIViewController {
     @IBAction func loginWithFacebook(sender: UIButton) {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
-            
         } else {
             let loginManager = FBSDKLoginManager()
             let permisions = ["public_profile", "email", "user_friends"]
@@ -71,13 +70,14 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
         } else if result.isCancelled {
             // Handle cancellations
         } else {
+            
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         }
     }
     
     func authWithAPIServer(fbAccessToken: String) {
         
-        print("currentAccessToken", FBSDKAccessToken.currentAccessToken())
+        print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
             print("currentUser token", currentUser.token)
             APIClient.currentUser = currentUser

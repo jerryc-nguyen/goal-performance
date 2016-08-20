@@ -46,7 +46,7 @@ class Goal: NSObject {
         get {
             let currentDateTime = NSDate()
             let currentWeekDay = currentDateTime.dayOfTheWeek()?.lowercaseString
-            if currentWeekDay != nil && (repeatEvery?.indexOf(currentWeekDay!))! != -1 {
+            if currentWeekDay != nil && (repeatEvery?.indexOf(currentWeekDay!)) != -1 {
                 let currentInterval = NSDate().timeIntervalSince1970
     
                 if currentInterval >= startIntervalFrom1970 && currentInterval <= endIntervalFrom1970 {
