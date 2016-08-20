@@ -24,6 +24,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     var duration:Int = 0
     var categoryID:Int? = 0
     var categoryName:String = ""
+    var currentGoal:Goal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             if (result as? Goal) != nil {
                 let goal = result as! Goal
                 goal.registerStartGoalNotifications()
+                self.currentGoal = goal
                 print("Create goal success")
                 self.performSegueWithIdentifier("DoneSegue", sender: self)
             }
@@ -118,8 +120,8 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             let doneVC = segue.destinationViewController as! DoneViewController
             doneVC.categoryName = self.categoryName
             doneVC.timeChosen = self.timeChosen
-            
             doneVC.weekdays = self.weekdays
+            doneVC.currentGoal = self.currentGoal
        }
     }
     
