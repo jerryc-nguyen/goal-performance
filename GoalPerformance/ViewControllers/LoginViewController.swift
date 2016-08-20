@@ -10,31 +10,22 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import AirshipKit
+import PKHUD
 
 class LoginViewController: UIViewController {
-    
     let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     
+    @IBOutlet weak var loginButton: UIButton!
     
-//    @IBAction func onNotificationButton(sender: AnyObject) {
-//        
-//        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
-//            goal.debugInfo()
-//            goal.registerStartGoalNotifications()
-//        }
-//        
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
-            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
-            
-        }
+        self.login()
     }
     
     @IBAction func loginWithFacebook(sender: UIButton) {
+        self.login()
+    }
+    func login() {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         } else {
@@ -50,11 +41,9 @@ class LoginViewController: UIViewController {
                 } else {
                     strongSelf.authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
                 }
-            })
-
+                })
         }
-
-    }
+     }
 }
 extension LoginViewController : FBSDKLoginButtonDelegate{
     // Facebook Delegate Methods
@@ -66,13 +55,13 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
         } else if result.isCancelled {
             // Handle cancellations
         } else {
-            
-            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
+             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         }
     }
     
     func authWithAPIServer(fbAccessToken: String) {
-        
+        HUD.show(.Progress)
+        self.loginButton.hidden = true
         print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
             print("currentUser token", currentUser.token)
@@ -83,9 +72,11 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             }
             
             APIClient.currentUser = currentUser
-            //APIClient.currentUserToken = currentUser.token!
+            APIClient.currentUserToken = currentUser.token!
+            HUD.hide()
             APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
         })
+        
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
