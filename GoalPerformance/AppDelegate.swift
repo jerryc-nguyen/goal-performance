@@ -12,24 +12,13 @@ import AirshipKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    /* Create a custom push notification handler property */
-    var customPushDelegate = CustomNotificationHandler()
-    
+        
     var window: UIWindow?
     
     let localNotificationManager = LocalNotificationsManager.sharedInstance
+    let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        
-//        localNotificationManager.window = window
-//        localNotificationManager.setupStartGoalNotificationSettings()
-//        
-//        self.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
-//
-        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
-        self.window?.rootViewController = loginVC
-        
         
         // Handle notification:
         // http://stackoverflow.com/questions/16393673/detect-if-the-app-was-launched-opened-from-a-push-notification
@@ -42,27 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        //airship configuration
-        let config = UAConfig.defaultConfig()
-        config.automaticSetupEnabled = false
-        config.inProduction = false
-        UAirship.takeOff(config)
+        remoteNotificationManager.setupRemoteNotificationSettings()
         
-        var notificationTypes: UIUserNotificationType = UIUserNotificationType()
-        notificationTypes.insert(.Alert)
-        notificationTypes.insert(.Badge)
-        notificationTypes.insert(.Sound)
-        UAirship.push().userNotificationTypes = notificationTypes
-        UAirship.push().userPushNotificationsEnabled = true
-        UAirship.push().pushNotificationDelegate = customPushDelegate
+        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
+        self.window?.rootViewController = loginVC
         
-
-       
-        
-        let channelID = UAirship.push().channelID
-        print("My Application Channel ID: \(channelID)")
-        
-  
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
@@ -126,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("didReceiveRemoteNotification")
         UAirship.push().appReceivedRemoteNotification(userInfo, applicationState: application.applicationState)
     }
     
@@ -164,53 +138,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-class CustomNotificationHandler: NSObject, UAPushNotificationDelegate  {
-    
-    func receivedForegroundNotification(notification: [NSObject : AnyObject], fetchCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)) {
-        NSLog("UALib: %@", "Received a notification while the app was already in the foreground: \(notification)")
-        
-        /*
-         Called when a push is received when the app is in the foreground
-         You can work with the notification object here
-         
-         Be sure to call the completion handler with a UIBackgroundFetchResult
-         */
-        completionHandler(UIBackgroundFetchResult.NoData)
-    }
-    
-    func launchedFromNotification(notification: [NSObject : AnyObject], fetchCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)) {
-        NSLog("UALib: %@", "The application was launched or resumed from a notification: \(notification)");
-        
-        /*
-         Called when the app is launched/resumed by interacting with the notification
-         You can work with the notification object here
-         
-         Be sure to call the completion handler with a UIBackgroundFetchResult
-         */
-        completionHandler(UIBackgroundFetchResult.NoData)
-    }
-    
-    
-    func receivedBackgroundNotification(notification: [NSObject : AnyObject], actionIdentifier identifier: String, completionHandler: () -> Void) {
-        NSLog("UALib: %@", "The application was started in the background from a user notification button");
-        
-        /*
-         Called when the app is launched/resumed by interacting with a notification button
-         You can work with the notification object here
-         */
-        
-        completionHandler()
-    }
-    
-    func receivedBackgroundNotification(notification: [NSObject : AnyObject], fetchCompletionHandler completionHandler: ((UIBackgroundFetchResult) -> Void)) {
-        NSLog("UALib: %@", "A CONTENT_AVAILABLE notification was received with the app in the background: \(notification)");
-        /*
-         Called when the app is in the background and a CONTENT_AVAILABLE notification is received
-         Do something with the notification in the background
-         
-         Be sure to call the completion handler with a UIBackgroundFetchResult
-         */
-        completionHandler(UIBackgroundFetchResult.NoData)
-    }
-}
+
 

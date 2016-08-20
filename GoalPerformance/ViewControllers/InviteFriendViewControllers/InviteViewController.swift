@@ -13,26 +13,38 @@ class InviteViewController: UIViewController {
     //  MARK: Properties
     @IBOutlet weak var inviteFriendButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var isChallenge = true
-    var currentGoals: Goal?
+    var currentGoalSession: GoalSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         initView()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     func initView(){
+        titleLabel.textColor = UIColors.ThemeOrange
         //  Custom next button
         inviteFriendButton.makeCircle()
-        inviteFriendButton.layer.borderColor = UIColor(netHex: 0xff4800).CGColor
-        inviteFriendButton.layer.borderWidth = 2
+        inviteFriendButton.layer.borderColor = UIColors.ThemeOrange.CGColor
+        inviteFriendButton.layer.borderWidth = 1
         
-        dismissButton.layer.borderColor = UIColor(netHex: 0xff4800).CGColor
-        dismissButton.layer.borderWidth = 2
-        dismissButton.layer.cornerRadius = 5
+        dismissButton.layer.borderColor = UIColors.ThemeOrange.CGColor
+        dismissButton.layer.borderWidth = 1
+        dismissButton.layer.cornerRadius = 10
     }
     
     
@@ -45,7 +57,7 @@ class InviteViewController: UIViewController {
         
         if segue.identifier == "InviteFriend" {
             let selectFriendVC = segue.destinationViewController as! SelectInviteFriendViewController
-            selectFriendVC.goalID = (currentGoals?.id)!
+            selectFriendVC.goalSessionId = currentGoalSession.id
         }
         
     }

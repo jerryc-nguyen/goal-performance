@@ -36,12 +36,12 @@ class SuggestFriendTableViewCell: UITableViewCell {
         }
     }
     
-    var goalID: Int!
+    var goalSessionId: Int!
     var apiClient: APIClient!
     weak var delegate: SuggestFriendTableViewCellDelegate!
     
     @IBAction func onInvite(sender: UIButton) {
-        apiClient.inviteGoal(goalID, friendID: friend.id!) { (title, message) in
+        apiClient.inviteGoal(goalSessionId, friendID: friend.id!) { (title, message) in
             self.delegate.displayAlert(self, title: title, message: message)
         }
     }

@@ -31,12 +31,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eF-dH-5T2">
-                                <rect key="frame" x="100" y="458" width="120" height="50"/>
+                                <rect key="frame" x="85" y="503" width="150" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="06f-j6-Qm2"/>
                                     <constraint firstAttribute="height" constant="30" id="Kjv-Ei-uMF"/>
-                                    <constraint firstAttribute="width" constant="120" id="W1s-JX-41L"/>
+                                    <constraint firstAttribute="width" constant="150" id="W1s-JX-41L"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Dismiss">
@@ -72,7 +72,7 @@
                             <constraint firstItem="t3K-Bk-rdf" firstAttribute="leading" secondItem="Xrw-jL-6Mc" secondAttribute="leadingMargin" constant="10" id="Gw1-nH-GBZ"/>
                             <constraint firstItem="XZc-iP-RRj" firstAttribute="top" secondItem="DSR-sW-KfV" secondAttribute="bottom" constant="20" id="SAO-ZQ-2jk"/>
                             <constraint firstItem="t3K-Bk-rdf" firstAttribute="leading" secondItem="Xrw-jL-6Mc" secondAttribute="leadingMargin" constant="20" id="VyL-xl-UlC"/>
-                            <constraint firstItem="9Ka-NT-xEb" firstAttribute="top" secondItem="1eF-dH-5T2" secondAttribute="bottom" constant="60" id="aw7-2f-SkI"/>
+                            <constraint firstItem="9Ka-NT-xEb" firstAttribute="top" secondItem="1eF-dH-5T2" secondAttribute="bottom" constant="15" id="aw7-2f-SkI"/>
                             <constraint firstItem="XZc-iP-RRj" firstAttribute="centerX" secondItem="Xrw-jL-6Mc" secondAttribute="centerX" id="cBh-0k-tia"/>
                             <constraint firstItem="t3K-Bk-rdf" firstAttribute="top" secondItem="HfI-UM-8I7" secondAttribute="bottom" constant="46" id="i6c-EC-gwc"/>
                             <constraint firstItem="9Ka-NT-xEb" firstAttribute="top" secondItem="XZc-iP-RRj" secondAttribute="bottom" constant="100" id="jZQ-Uv-iCz"/>
@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="dismissButton" destination="1eF-dH-5T2" id="vMb-Bg-p3b"/>
                         <outlet property="inviteFriendButton" destination="XZc-iP-RRj" id="Hos-Ei-G6m"/>
+                        <outlet property="titleLabel" destination="t3K-Bk-rdf" id="agz-LD-lL5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBN-6f-eN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,7 +129,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5i-mn-EoR">
-                                <rect key="frame" x="20" y="214" width="280" height="292"/>
+                                <rect key="frame" x="20" y="214" width="280" height="271"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestFriendCell" rowHeight="86" id="JZv-RV-etM" customClass="SuggestFriendTableViewCell" customModule="GoalPerformance" customModuleProvider="target">
@@ -204,11 +205,13 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-LU-lJv">
-                                <rect key="frame" x="125" y="524" width="70" height="30"/>
-                                <color key="backgroundColor" red="0.59674125909805298" green="0.80233383178710938" blue="0.92348569631576538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="85" y="503" width="150" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="pMN-YG-G2C"/>
+                                    <constraint firstAttribute="height" constant="50" id="dhU-Vc-U2B"/>
+                                    <constraint firstAttribute="width" constant="150" id="pMN-YG-G2C"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -218,7 +221,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dca-Td-LNH">
                                 <rect key="frame" x="267" y="125" width="37" height="30"/>
-                                <state key="normal" title="Invite"/>
+                                <state key="normal" title="Invite">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your friend's email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grH-oC-lju">
                                 <rect key="frame" x="25" y="125" width="227" height="30"/>
@@ -228,7 +233,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LLJ-Xv-Mpc" firstAttribute="top" secondItem="ewh-LU-lJv" secondAttribute="bottom" constant="14" id="6qz-ik-g1X"/>
+                            <constraint firstItem="LLJ-Xv-Mpc" firstAttribute="top" secondItem="ewh-LU-lJv" secondAttribute="bottom" constant="15" id="6qz-ik-g1X"/>
                             <constraint firstItem="dca-Td-LNH" firstAttribute="centerY" secondItem="grH-oC-lju" secondAttribute="centerY" id="7hN-zt-AmW"/>
                             <constraint firstItem="grH-oC-lju" firstAttribute="centerX" secondItem="K1H-hj-O3C" secondAttribute="centerX" id="9tn-HW-mke"/>
                             <constraint firstItem="krD-P4-O9k" firstAttribute="leading" secondItem="Wmj-rs-QXo" secondAttribute="leading" id="AvH-sQ-qBA"/>
@@ -261,8 +266,12 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="doneButton" destination="ewh-LU-lJv" id="ezX-2U-LNa"/>
                         <outlet property="emailTextField" destination="grH-oC-lju" id="hOz-tS-IuS"/>
+                        <outlet property="inviteButton" destination="dca-Td-LNH" id="haT-Kp-Rlq"/>
+                        <outlet property="inviteLabel" destination="Wmj-rs-QXo" id="O8C-4e-sCT"/>
                         <outlet property="suggestFriendTableView" destination="h5i-mn-EoR" id="au7-op-547"/>
+                        <outlet property="suggestedFriendLabel" destination="krD-P4-O9k" id="roY-a6-hXl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSX-88-V0N" userLabel="First Responder" sceneMemberID="firstResponder"/>

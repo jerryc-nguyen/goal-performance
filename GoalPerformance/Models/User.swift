@@ -17,6 +17,7 @@ class User: NSObject {
     let email: String?
     let token: String?
     var avatarUrl: NSURL?
+    var airshipTag: String?
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
@@ -25,6 +26,7 @@ class User: NSObject {
         lastName = dictionary["last_name"] as? String
         email = dictionary["email"] as? String
         token = dictionary["token"] as? String
+        airshipTag = dictionary["airship_tag"] as? String
         
         let avatarUrl = dictionary["avatar_url"] as? String
         if let avatarUrl = avatarUrl {

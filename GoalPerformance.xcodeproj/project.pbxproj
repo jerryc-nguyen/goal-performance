@@ -43,6 +43,7 @@
 		4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */; };
 		429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */; };
 		429CCED51D64F229000B17B8 /* RemoteNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */; };
+		42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE05A21D684ED6003C9B7C /* GoalSession.swift */; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
 		42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010191D4FA856002CD514 /* NewGoal.storyboard */; };
@@ -73,6 +74,19 @@
 		E471C8501D57895D0075C5E9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C84F1D57895D0075C5E9 /* Category.swift */; };
 		E4986E501D604642005A6A34 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4986E4F1D604642005A6A34 /* DoneViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		42BE05A81D68583B003C9B7C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		420114DF1D5791D900B2F199 /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
@@ -113,6 +127,7 @@
 		4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/StartGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsManager.swift; sourceTree = "<group>"; };
+		42BE05A21D684ED6003C9B7C /* GoalSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSession.swift; sourceTree = "<group>"; };
 		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42F010191D4FA856002CD514 /* NewGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
@@ -317,6 +332,7 @@
 				4263F9111D558C9B00C119DB /* Goal.swift */,
 				420114DF1D5791D900B2F199 /* TimelineItem.swift */,
 				E471C84F1D57895D0075C5E9 /* Category.swift */,
+				42BE05A21D684ED6003C9B7C /* GoalSession.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +456,7 @@
 				42210CA41D4D040F0029990F /* Resources */,
 				8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */,
 				F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */,
+				42BE05A81D68583B003C9B7C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -599,6 +616,7 @@
 				42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */,
 				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,
 				4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */,
+				42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */,
 				424AF1FE1D5E8B95001754B2 /* Users.swift in Sources */,
 				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
 				424AF21E1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift in Sources */,
