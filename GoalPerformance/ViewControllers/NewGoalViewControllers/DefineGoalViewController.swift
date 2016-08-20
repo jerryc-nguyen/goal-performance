@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
     
@@ -70,7 +71,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         if self.duration == 0 {
             showAlert("Uh oh, still missing something", message: "Please pick the duration for your goal.")
         }
-        
+        HUD.show(.Progress)
         APIClient.sharedInstance.createGoal(params) { (result) in
             
             if (result as? Goal) != nil {
@@ -82,6 +83,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
                 self.performSegueWithIdentifier("DoneSegue", sender: self)
             }
         }
+        HUD.hide()
        
     }
 
