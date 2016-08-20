@@ -9,12 +9,11 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import PKHUD
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
-    
-    
 //    @IBAction func onNotificationButton(sender: AnyObject) {
 //        
 //        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
@@ -67,14 +66,17 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
     }
     
     func authWithAPIServer(fbAccessToken: String) {
+        HUD.show(.Progress)
         self.loginButton.hidden = true
         print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
             print("currentUser token", currentUser.token)
             APIClient.currentUser = currentUser
-            //APIClient.currentUserToken = currentUser.token!
+            APIClient.currentUserToken = currentUser.token!
+            HUD.hide()
             APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
         })
+        
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {

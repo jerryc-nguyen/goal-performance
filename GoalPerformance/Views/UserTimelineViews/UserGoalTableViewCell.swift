@@ -60,12 +60,12 @@ class UserGoalTableViewCell: UITableViewCell {
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Score")
         let lineChartData = LineChartData(xVals: dateLabels, dataSet: lineChartDataSet)
         
-        lineChartDataSet.setColor(ChartColorTemplates.colorFromString(UIColors.HomeTimelineChartLineColor))
+        lineChartDataSet.setColor(UIColors.HomeTimelineChartLineColor)
         lineChartDataSet.mode = .CubicBezier
         lineChartDataSet.drawCircleHoleEnabled = false
         lineChartDataSet.circleRadius = 3
         lineChartDataSet.drawValuesEnabled = true
-        lineChartDataSet.setCircleColor(ChartColorTemplates.colorFromString(UIColors.HomeTimelineChartLineColor))
+        lineChartDataSet.setCircleColor(UIColors.HomeTimelineChartLineColor)
         
         lineChartView.extraTopOffset = 5
         lineChartView.extraBottomOffset = 5
@@ -94,7 +94,7 @@ class UserGoalTableViewCell: UITableViewCell {
             countDownTimerImgView.image = UIImage.fontAwesomeIconWithName(.Hourglass, textColor: UIColor.blackColor(), size: CGSize(width: 30, height: 30))
             
             //set background
-            backgroundColor = UIColors.goalDoingBackground
+            backgroundColor = UIColors.GoalDoingBackground
             
             //schedule timer
             NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(countDownTimer), userInfo: nil, repeats: true)
