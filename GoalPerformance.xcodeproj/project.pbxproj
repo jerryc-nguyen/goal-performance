@@ -44,8 +44,6 @@
 		429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */; };
 		429CCED51D64F229000B17B8 /* RemoteNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */; };
 		42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE05A21D684ED6003C9B7C /* GoalSession.swift */; };
-		42BE05AA1D685A0F003C9B7C /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BE05A91D685A0F003C9B7C /* AirshipKit.framework */; };
-		42BE05AB1D685A0F003C9B7C /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42BE05A91D685A0F003C9B7C /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
 		42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010191D4FA856002CD514 /* NewGoal.storyboard */; };
@@ -83,7 +81,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				42BE05AB1D685A0F003C9B7C /* AirshipKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +127,6 @@
 		429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsManager.swift; sourceTree = "<group>"; };
 		42BE05A21D684ED6003C9B7C /* GoalSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSession.swift; sourceTree = "<group>"; };
-		42BE05A91D685A0F003C9B7C /* AirshipKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AirshipKit.framework; path = "/Users/welcome/Library/Developer/Xcode/DerivedData/GoalPerformance-cxobyvqyctnweoffjlcvurvuvwjb/Build/Products/Debug-iphonesimulator/UrbanAirship-iOS-SDK/AirshipKit.framework"; sourceTree = "<absolute>"; };
 		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		42F010191D4FA856002CD514 /* NewGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewGoal.storyboard; sourceTree = "<group>"; };
@@ -168,7 +164,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42BE05AA1D685A0F003C9B7C /* AirshipKit.framework in Frameworks */,
 				874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,7 +174,6 @@
 		2B4811E4B0ECBE716F7D2F0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42BE05A91D685A0F003C9B7C /* AirshipKit.framework */,
 				BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */,
 			);
 			name = Frameworks;
