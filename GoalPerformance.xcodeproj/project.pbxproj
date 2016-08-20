@@ -41,6 +41,7 @@
 		4263F9121D558C9B00C119DB /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F9111D558C9B00C119DB /* Goal.swift */; };
 		4263F9161D55FD2600C119DB /* GoalStartEnd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */; };
 		4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */; };
+		42871E431D68665C0092DD1D /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 42871E411D68665C0092DD1D /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */; };
 		429CCED51D64F229000B17B8 /* RemoteNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */; };
 		42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE05A21D684ED6003C9B7C /* GoalSession.swift */; };
@@ -82,6 +83,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				42871E431D68665C0092DD1D /* AirshipKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +127,7 @@
 		4263F9111D558C9B00C119DB /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoalStartEnd.storyboard; sourceTree = "<group>"; };
 		4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/StartGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
+		42871E411D68665C0092DD1D /* AirshipKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AirshipKit.framework; path = "/Users/welcome/Library/Developer/Xcode/DerivedData/GoalPerformance-cxobyvqyctnweoffjlcvurvuvwjb/Build/Products/Debug-iphonesimulator/UrbanAirship-iOS-SDK/AirshipKit.framework"; sourceTree = "<absolute>"; };
 		429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsManager.swift; sourceTree = "<group>"; };
 		42BE05A21D684ED6003C9B7C /* GoalSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSession.swift; sourceTree = "<group>"; };
