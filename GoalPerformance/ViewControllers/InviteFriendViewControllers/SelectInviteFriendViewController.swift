@@ -36,6 +36,7 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     func initView() {
         inviteLabel.textColor = UIColor.blackColor()
         suggestedFriendLabel.textColor = UIColor.blackColor()
+        
         inviteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         inviteButton.layer.cornerRadius = 10
         

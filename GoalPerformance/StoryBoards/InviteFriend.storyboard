@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="dismissButton" destination="1eF-dH-5T2" id="vMb-Bg-p3b"/>
                         <outlet property="inviteFriendButton" destination="XZc-iP-RRj" id="Hos-Ei-G6m"/>
+                        <outlet property="titleLabel" destination="t3K-Bk-rdf" id="agz-LD-lL5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBN-6f-eN8" userLabel="First Responder" sceneMemberID="firstResponder"/>

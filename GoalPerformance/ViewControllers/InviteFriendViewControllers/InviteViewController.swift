@@ -13,6 +13,7 @@ class InviteViewController: UIViewController {
     //  MARK: Properties
     @IBOutlet weak var inviteFriendButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var isChallenge = true
     var currentGoals: Goal?
@@ -35,12 +36,13 @@ class InviteViewController: UIViewController {
     }
     
     func initView(){
+        titleLabel.textColor = UIColors.ThemeOrange
         //  Custom next button
         inviteFriendButton.makeCircle()
-        inviteFriendButton.layer.borderColor = UIColor(netHex: 0xff4800).CGColor
+        inviteFriendButton.layer.borderColor = UIColors.ThemeOrange.CGColor
         inviteFriendButton.layer.borderWidth = 1
         
-        dismissButton.layer.borderColor = UIColor(netHex: 0xff4800).CGColor
+        dismissButton.layer.borderColor = UIColors.ThemeOrange.CGColor
         dismissButton.layer.borderWidth = 1
         dismissButton.layer.cornerRadius = 10
     }
