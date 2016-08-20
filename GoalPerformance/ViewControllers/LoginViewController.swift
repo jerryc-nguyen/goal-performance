@@ -12,6 +12,7 @@ import FBSDKCoreKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var loginButton: UIButton!
     
     
 //    @IBAction func onNotificationButton(sender: AnyObject) {
@@ -25,20 +26,13 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if (FBSDKAccessToken.currentAccessToken() != nil) {
-//            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
-//            
-//        } else {
-//            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-//            self.view.addSubview(loginView)
-//            loginView.center = self.view.center
-//            loginView.readPermissions = ["public_profile", "email", "user_friends"]
-//            loginView.delegate = self
-//        }
+        self.login()
     }
     
     @IBAction func loginWithFacebook(sender: UIButton) {
+        self.login()
+    }
+    func login() {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         } else {
@@ -54,11 +48,9 @@ class LoginViewController: UIViewController {
                 } else {
                     strongSelf.authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
                 }
-            })
-
+                })
         }
-
-    }
+     }
 }
 extension LoginViewController : FBSDKLoginButtonDelegate{
     // Facebook Delegate Methods
@@ -70,13 +62,12 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
         } else if result.isCancelled {
             // Handle cancellations
         } else {
-            
-            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
+             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         }
     }
     
     func authWithAPIServer(fbAccessToken: String) {
-        
+        self.loginButton.hidden = true
         print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
             print("currentUser token", currentUser.token)

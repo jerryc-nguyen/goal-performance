@@ -32,8 +32,13 @@ struct DeviceType {
 
 //https://www.ralfebert.de/snippets/ios/swift-uicolor-picker/
 struct UIColors {
-    static let HomeTimelineChartLineColor = "#FF5722"
+    static let HomeTimelineChartLineColor = UIColor(hue: 14.0, saturation: 87.0, brightness: 100.0, alpha: 1.0)
 
-    static let goalDoingBackground = UIColor(hue: 0.4, saturation: 0.29, brightness: 0.91, alpha: 0.5)
+    static let GoalDoingBackground = UIColor(hue: 14.0, saturation: 11.0, brightness: 100.0, alpha: 1.0)
+    
+    static let ThemeOrange = UIColor(hue: 14.0, saturation: 87.0, brightness: 100.0, alpha: 1.0)
+    
+    static let BackgroundOrange = UIColor(hue: 13.0, saturation: 4.0, brightness: 100.0, alpha: 1.0)
+    
 }
 

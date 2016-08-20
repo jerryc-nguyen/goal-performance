@@ -32,7 +32,8 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-nm-WH5">
                                 <rect key="frame" x="30" y="139" width="260" height="101.5"/>
-                                <string key="text">In the first 30 years of your life, you make your habits. For the last 30 years of your life, your habits make you.” – Hindu saying</string>
+                                <string key="text">In the first 30 years of your life, you make your habits. For the last 30 years of your life, your habits make you.” 
+– Hindu saying</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -54,6 +55,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="loginButton" destination="p3T-mf-N2i" id="Oud-me-3gQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8q-fd-NK1" sceneMemberID="firstResponder"/>
             </objects>
