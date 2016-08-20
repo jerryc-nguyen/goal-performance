@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.login()
         
 //        if (FBSDKAccessToken.currentAccessToken() != nil) {
 //            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
@@ -39,6 +40,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginWithFacebook(sender: UIButton) {
+        self.login()
+    }
+    
+    
+    func login() {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         } else {
@@ -54,9 +60,10 @@ class LoginViewController: UIViewController {
                 } else {
                     strongSelf.authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
                 }
-            })
-
+                })
+            
         }
+        
 
     }
 }
