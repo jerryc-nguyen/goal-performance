@@ -10,8 +10,13 @@ import UIKit
 
 class SelectInviteFriendViewController: UIViewController, SuggestFriendTableViewCellDelegate {
 
+    
+    @IBOutlet weak var inviteLabel: UILabel!
+    @IBOutlet weak var inviteButton: UIButton!
     @IBOutlet weak var suggestFriendTableView: UITableView!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var suggestedFriendLabel: UILabel!
     
     var apiClient = APIClient.sharedInstance
     var friends = [User]()
@@ -20,15 +25,23 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initView()
+        
         suggestFriendTableView.delegate = self
         suggestFriendTableView.dataSource = self
         
         loadSuggestFriend()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func initView() {
+        inviteLabel.textColor = UIColor.blackColor()
+        suggestedFriendLabel.textColor = UIColor.blackColor()
+        inviteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        inviteButton.layer.cornerRadius = 10
+        
+        doneButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        doneButton.layer.cornerRadius = 10
+        doneButton.layer.borderWidth = 1
     }
     
     func loadSuggestFriend(){
