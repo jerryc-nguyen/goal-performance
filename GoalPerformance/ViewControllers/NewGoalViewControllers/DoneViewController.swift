@@ -14,6 +14,7 @@ class DoneViewController: UIViewController {
     var categoryName:String = ""
     var weekdays:[String] = []
     var timeChosen: String = ""
+    var currentGoal: Goal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
