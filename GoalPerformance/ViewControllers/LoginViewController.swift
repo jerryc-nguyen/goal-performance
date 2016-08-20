@@ -9,9 +9,11 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import AirshipKit
 
 class LoginViewController: UIViewController {
     
+    let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     
     
 //    @IBAction func onNotificationButton(sender: AnyObject) {
@@ -26,16 +28,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if (FBSDKAccessToken.currentAccessToken() != nil) {
-//            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
-//            
-//        } else {
-//            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-//            self.view.addSubview(loginView)
-//            loginView.center = self.view.center
-//            loginView.readPermissions = ["public_profile", "email", "user_friends"]
-//            loginView.delegate = self
-//        }
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
+            
+        }
     }
     
     @IBAction func loginWithFacebook(sender: UIButton) {
@@ -80,6 +76,12 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
         print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
             print("currentUser token", currentUser.token)
+            
+            if let airshipTag = currentUser.airshipTag{
+                print("Register airship tag: ", airshipTag)
+                self.remoteNotificationManager.airshipPusher.addTag(airshipTag)
+            }
+            
             APIClient.currentUser = currentUser
             //APIClient.currentUserToken = currentUser.token!
             APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
