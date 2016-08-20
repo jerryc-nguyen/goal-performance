@@ -15,7 +15,7 @@ class InviteViewController: UIViewController {
     @IBOutlet weak var dismissButton: UIButton!
     
     var isChallenge = true
-    var currentGoals: Goal?
+    var currentGoalSession: GoalSession!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class InviteViewController: UIViewController {
         
         if segue.identifier == "InviteFriend" {
             let selectFriendVC = segue.destinationViewController as! SelectInviteFriendViewController
-            selectFriendVC.goalID = (currentGoals?.id)!
+            selectFriendVC.goalSessionId = currentGoalSession.id
         }
         
     }

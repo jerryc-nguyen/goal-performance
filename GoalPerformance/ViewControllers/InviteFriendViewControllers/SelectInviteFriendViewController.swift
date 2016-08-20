@@ -15,7 +15,7 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     
     var apiClient = APIClient.sharedInstance
     var friends = [User]()
-    var goalID = 3
+    var goalSessionId = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +71,7 @@ extension SelectInviteFriendViewController: UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCellWithIdentifier("SuggestFriendCell") as! SuggestFriendTableViewCell
         
         cell.friend = friends[indexPath.row]
-        cell.goalID = goalID
+        cell.goalSessionId = goalSessionId
         cell.delegate = self
         cell.apiClient = apiClient
         

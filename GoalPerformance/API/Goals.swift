@@ -68,9 +68,9 @@ extension APIClient {
                 if let JSON = response.result.value {
                     if JSON["status"] as! Int == 200 {
                         if let completed = completed {
-                            if let goalData = JSON["data"] as? NSDictionary {
-                                let goal = Goal(dictionary: goalData)
-                                completed(result: goal)
+                            if let goalSessionData = JSON["data"] as? NSDictionary {
+                                let goalSession = GoalSession(dictionary: goalSessionData)
+                                completed(result: goalSession)
                             }
                         }
                     } else {

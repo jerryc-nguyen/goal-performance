@@ -25,7 +25,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     var duration:Int = 0
     var categoryID:Int? = 0
     var categoryName:String = ""
-    var currentGoal:Goal?
+    var currentGoalSession:GoalSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,11 +74,11 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         HUD.show(.Progress)
         APIClient.sharedInstance.createGoal(params) { (result) in
             
-            if (result as? Goal) != nil {
-                let goal = result as! Goal
-                goal.registerStartGoalNotifications()
-                goal.registerEndGoalNotifications()
-                self.currentGoal = goal
+            if (result as? GoalSession) != nil {
+                let goalSession = result as! GoalSession
+                goalSession.goal.registerStartGoalNotifications()
+                goalSession.goal.registerEndGoalNotifications()
+                self.currentGoalSession = goalSession
                 print("Create goal success")
                 self.performSegueWithIdentifier("DoneSegue", sender: self)
             }
@@ -124,7 +124,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             doneVC.categoryName = self.categoryName
             doneVC.timeChosen = self.timeChosen
             doneVC.weekdays = self.weekdays
-            doneVC.currentGoal = self.currentGoal
+            doneVC.currentGoalSession = self.currentGoalSession
        }
     }
     
