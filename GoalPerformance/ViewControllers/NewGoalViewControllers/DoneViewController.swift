@@ -14,7 +14,7 @@ class DoneViewController: UIViewController {
     var categoryName:String = ""
     var weekdays:[String] = []
     var timeChosen: String = ""
-    var currentGoal: Goal?
+    var currentGoalSession: GoalSession?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +34,9 @@ class DoneViewController: UIViewController {
     
     
     @IBAction func doneAction(sender: UIButton) {
-        let inviteFriendVc = StoryboardManager.sharedInstance.getViewController("InviteViewController", storyboard: "InviteFriend") as! InviteViewController
-        inviteFriendVc.currentGoals = self.currentGoal
-        navigationController?.pushViewController(inviteFriendVc, animated: true)
+        let inviteFriendVC = StoryboardManager.sharedInstance.getViewController("InviteViewController", storyboard: "InviteFriend") as! InviteViewController
+        inviteFriendVC.currentGoalSession = self.currentGoalSession
+        navigationController?.pushViewController(inviteFriendVC, animated: true)
     }
 
    

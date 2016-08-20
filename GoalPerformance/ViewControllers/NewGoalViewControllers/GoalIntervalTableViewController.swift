@@ -21,7 +21,7 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
     @IBOutlet weak var repeatLabel: UILabel!
     weak var delegate: GoalIntervalTableViewControllerDelegate?
     @IBOutlet weak var durationLabel: UILabel!
-    var durationString:String = "0 min"
+    var durationString:String = "1 min"
     var durationSec: Int = 0
     var duration: Int = 0
     @IBOutlet weak var soundLabel: UILabel!

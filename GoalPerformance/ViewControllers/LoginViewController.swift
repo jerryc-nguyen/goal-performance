@@ -9,21 +9,14 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
+import AirshipKit
+import PKHUD
 
 class LoginViewController: UIViewController {
+    let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     
     @IBOutlet weak var loginButton: UIButton!
     
-    
-//    @IBAction func onNotificationButton(sender: AnyObject) {
-//        
-//        APIClient.sharedInstance.goalDetail(["goal_id": 37]) { (goal) in
-//            goal.debugInfo()
-//            goal.registerStartGoalNotifications()
-//        }
-//        
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.login()
@@ -67,14 +60,23 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
     }
     
     func authWithAPIServer(fbAccessToken: String) {
+        HUD.show(.Progress)
         self.loginButton.hidden = true
         print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
             print("currentUser token", currentUser.token)
+            
+            if let airshipTag = currentUser.airshipTag{
+                print("Register airship tag: ", airshipTag)
+                self.remoteNotificationManager.airshipPusher.addTag(airshipTag)
+            }
+            
             APIClient.currentUser = currentUser
-            //APIClient.currentUserToken = currentUser.token!
+            APIClient.currentUserToken = currentUser.token!
+            HUD.hide()
             APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
         })
+        
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {

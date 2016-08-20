@@ -127,7 +127,7 @@
         <!--Define Goal View Controller-->
         <scene sceneID="jVd-0v-qu3">
             <objects>
-                <viewController storyboardIdentifier="DefineGoalViewController" id="mgO-YC-y2i" customClass="DefineGoalViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DefineGoalViewController" automaticallyAdjustsScrollViewInsets="NO" id="mgO-YC-y2i" customClass="DefineGoalViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DJo-Oc-Zbd"/>
                         <viewControllerLayoutGuide type="bottom" id="OFL-8J-WIj"/>
@@ -215,7 +215,7 @@
         <!--Goal Interval Table View Controller-->
         <scene sceneID="2EI-JD-8ww">
             <objects>
-                <tableViewController id="d2d-JT-TGe" customClass="GoalIntervalTableViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="d2d-JT-TGe" customClass="GoalIntervalTableViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YMb-GH-pXP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,7 +268,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0 mins" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW6-E5-JVM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0 min" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW6-E5-JVM">
                                                     <rect key="frame" x="84" y="14" width="203" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -340,7 +340,7 @@
         <!--Weekdays View Controller-->
         <scene sceneID="Hke-yB-goc">
             <objects>
-                <viewController id="o3H-jZ-P9r" customClass="WeekdaysViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="o3H-jZ-P9r" customClass="WeekdaysViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eQ0-Bo-axq"/>
                         <viewControllerLayoutGuide type="bottom" id="UGX-OV-z8w"/>
@@ -470,7 +470,7 @@
         <!--Duration View Controller-->
         <scene sceneID="Zqm-oT-tiP">
             <objects>
-                <viewController storyboardIdentifier="DurationViewController" id="eBm-sO-tuk" customClass="DurationViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DurationViewController" automaticallyAdjustsScrollViewInsets="NO" id="eBm-sO-tuk" customClass="DurationViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I1M-Jt-YWr"/>
                         <viewControllerLayoutGuide type="bottom" id="oo9-91-z9a"/>
