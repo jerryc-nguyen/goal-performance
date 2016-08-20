@@ -20,19 +20,29 @@ class InviteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         initView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBarHidden = false
     }
     
     func initView(){
         //  Custom next button
         inviteFriendButton.makeCircle()
         inviteFriendButton.layer.borderColor = UIColor(netHex: 0xff4800).CGColor
-        inviteFriendButton.layer.borderWidth = 2
+        inviteFriendButton.layer.borderWidth = 1
         
         dismissButton.layer.borderColor = UIColor(netHex: 0xff4800).CGColor
-        dismissButton.layer.borderWidth = 2
-        dismissButton.layer.cornerRadius = 5
+        dismissButton.layer.borderWidth = 1
+        dismissButton.layer.cornerRadius = 10
     }
     
     
