@@ -48,6 +48,9 @@ struct API_URLS {
     //USERS
     static let homeTimeLine = "\(APIBaseURL)/api/users/home_timeline.json"
     static let userTimeLine = "\(APIBaseURL)/api/users/%d/timeline.json"
+    
+    //GOAL START-END
+    static let goalStartEnd = "\(APIBaseURL)/api/goal_sessions/32.json"
 
 }
 

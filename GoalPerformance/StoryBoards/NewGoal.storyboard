@@ -480,7 +480,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ax1-Wx-0kb">
-                                <rect key="frame" x="0.0" y="114" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="492158979.44861698">
                                     <!--2016-08-06 06:49:39 +0000-->
                                 </date>
@@ -493,7 +493,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ax1-Wx-0kb" secondAttribute="trailing" id="biU-Zd-ecP"/>
                             <constraint firstItem="Ax1-Wx-0kb" firstAttribute="leading" secondItem="pqG-NE-rWt" secondAttribute="leading" id="jS7-93-wMa"/>
-                            <constraint firstItem="Ax1-Wx-0kb" firstAttribute="top" secondItem="I1M-Jt-YWr" secondAttribute="bottom" constant="114" id="naq-Cu-CJo"/>
+                            <constraint firstItem="Ax1-Wx-0kb" firstAttribute="top" secondItem="I1M-Jt-YWr" secondAttribute="bottom" constant="60" id="naq-Cu-CJo"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
