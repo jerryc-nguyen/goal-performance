@@ -27,6 +27,9 @@ class Goal: NSObject {
     var startAtHour: Int = 0
     var startAtMinute: Int = 0
     var startAtSecond: Int = 0
+    var endAtHour: Int = 0
+    var endAtMinute: Int = 0
+    var endAtSecond: Int = 0
     
     let localNotificationManager = LocalNotificationsManager.sharedInstance
     
@@ -126,6 +129,18 @@ class Goal: NSObject {
             self.startAtSecond = startAtSecond
         }
         
+        if let endAtHour = dictionary["end_at_hour"] as? Int {
+            self.endAtHour = endAtHour
+        }
+        
+        if let endAtMinute = dictionary["end_at_minute"] as? Int {
+            self.endAtMinute = endAtMinute
+        }
+        
+        if let endAtSecond = dictionary["end_at_second"] as? Int {
+            self.endAtSecond = endAtSecond
+        }
+        
         if let sessionsHistoryData = dictionary["sessions_history"] as? NSDictionary {
             sessionsHistory = SessionsHistory(dictionary: sessionsHistoryData)
         }
@@ -166,8 +181,9 @@ class Goal: NSObject {
         notification.alertAction = "open"
         notification.fireDate = calendar.dateFromComponents(dateComponents)
         notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
-        notification.userInfo = ["message": message, "UUID": key, "notificationName": LocalNotificationName.StartGoal]
-        
+        notification.userInfo = [ "message": message,
+                                  "UUID": key,
+                                  "notificationName": LocalNotificationName.StartGoal ]
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
@@ -187,9 +203,9 @@ class Goal: NSObject {
         let calendar: NSCalendar = NSCalendar.currentCalendar()
         let dateComponents: NSDateComponents = calendar.components(NSCalendarUnit.WeekOfYear, fromDate: NSDate())
         dateComponents.weekday = weekdayIndex // sunday = 1 ... saturday = 7
-        dateComponents.hour = startAtHour
-        dateComponents.minute = startAtMinute
-        dateComponents.second = startAtSecond
+        dateComponents.hour = endAtHour
+        dateComponents.minute = endAtMinute
+        dateComponents.second = endAtSecond
         
         let notification = UILocalNotification()
         let message = "Goal \(name) ending time!"
