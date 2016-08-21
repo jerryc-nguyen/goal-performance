@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController {
     }()
     
     lazy var friendsVC: UINavigationController  = {
-        let vc = StoryboardManager.sharedInstance.getInitialViewController("User") as! UINavigationController
+        let vc = StoryboardManager.sharedInstance.getInitialViewController("Friend") as! UINavigationController
         vc.tabBarItem.image = UIImage.fontAwesomeIconWithName(.Users, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         vc.tabBarItem.title = "Friends"
         return vc

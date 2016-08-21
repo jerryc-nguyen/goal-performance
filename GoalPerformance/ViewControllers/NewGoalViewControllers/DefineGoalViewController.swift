@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PKHUD
+import MBProgressHUD
 
 class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
     
@@ -15,7 +15,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     @IBOutlet weak var heightContainChartViewConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var startTimePicker: UIDatePicker!
-    
+
     @IBOutlet weak var saveButton: UIButton!
     
     var hasGoal = false
@@ -71,7 +71,8 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         if self.duration == 0 {
             showAlert("Uh oh, still missing something", message: "Please pick the duration for your goal.")
         }
-        HUD.show(.Progress)
+        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         APIClient.sharedInstance.createGoal(params) { (result) in
             
             if (result as? GoalSession) != nil {
@@ -83,7 +84,9 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
                 self.performSegueWithIdentifier("DoneSegue", sender: self)
             }
         }
-        HUD.hide()
+        
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+    
        
     }
 

@@ -36,7 +36,6 @@ struct UIColors {
 
     static let GoalDoingBackground = UIColor(hue: 14.0, saturation: 11.0, brightness: 100.0, alpha: 1.0)
     
-//    static let ThemeOrange = UIColor(hue: 14.0, saturation: 87.0, brightness: 100.0, alpha: 1.0)
     static let ThemeOrange = UIColor(netHex: 0xff5722)
     
     static let BackgroundOrange = UIColor(hue: 13.0, saturation: 4.0, brightness: 100.0, alpha: 1.0)

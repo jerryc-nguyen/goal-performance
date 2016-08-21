@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import AirshipKit
-import PKHUD
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
     let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
@@ -60,7 +60,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
     }
     
     func authWithAPIServer(fbAccessToken: String) {
-        HUD.show(.Progress)
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.loginButton.hidden = true
         print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
@@ -73,7 +73,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             
             APIClient.currentUser = currentUser
             APIClient.currentUserToken = currentUser.token!
-            HUD.hide()
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
         })
         

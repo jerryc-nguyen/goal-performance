@@ -17,7 +17,8 @@ target 'GoalPerformance' do
   
   pod 'DateTools'
   pod 'FontAwesome.swift'
-  pod 'PKHUD'
+  pod 'MBProgressHUD'
   pod 'UrbanAirship-iOS-SDK', '~> 7.2.2'
+  pod 'PageMenu'
   
 end

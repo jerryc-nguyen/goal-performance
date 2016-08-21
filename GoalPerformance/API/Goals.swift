@@ -25,10 +25,11 @@ extension APIClient {
         }
     }
 
-    func inviteGoal(goalID: Int, friendID: Int, completed: (title: String, message: String) -> ()) {
+    
+    func inviteGoal(goalID: Int, friendID: Int, completed: (status: Int, title: String, message: String) -> ()) {
         
         let header = [
-             "X-Api-Token": APIClient.currentUserToken
+            "X-Api-Token": APIClient.currentUserToken
         ]
         
         let parameters = ["friend_id" : friendID]
@@ -37,26 +38,60 @@ extension APIClient {
         
         Alamofire.request(.POST, requestUrl, headers: header, parameters: parameters)
             .responseJSON { response in
-            if let JSON = response.result.value {
-                
-                var title = ""
-                var message = ""
-                let status = JSON["status"] as! Int
-                
-                if status == 200 {
-                    let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
-                    title = "Success!"
-                    message = dictionary["message"] as! String
-                } else {
-                    title = "Fail"
-                    message = JSON["error_message"] as! String
+                if let JSON = response.result.value {
+                    
+                    var title = ""
+                    var message = ""
+                    let status = JSON["status"] as! Int
+                    
+                    if status == 200 {
+                        let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
+                        title = "Success!"
+                        message = dictionary["message"] as! String
+                    } else {
+                        title = "Fail"
+                        message = JSON["error_message"] as! String
+                    }
+                    
+                    completed(status: status, title: title, message: message)
                 }
-                
-                completed(title: title, message: message)
-            }
         }
         
     }
+    
+    func inviteGoalByEmail(goalID: Int, email: String, completed: (title: String, message: String) -> ()) {
+        
+        let header = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        let parameters = ["email" : email]
+        
+        let requestUrl = String(format: API_URLS.inviteGoalByEmail, goalID)
+        
+        Alamofire.request(.POST, requestUrl, headers: header, parameters: parameters)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    
+                    var title = ""
+                    var message = ""
+                    let status = JSON["status"] as! Int
+                    
+                    if status == 200 {
+                        let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
+                        title = "Success!"
+                        message = dictionary["message"] as! String
+                    } else {
+                        title = "Fail"
+                        message = JSON["error_message"] as! String
+                    }
+                    
+                    completed(title: title, message: message)
+                }
+        }
+        
+    }
+
     
     func createGoal(params: Dictionary<String, AnyObject>, completed: CompletedBlock) {
         let headers = [
@@ -83,6 +118,35 @@ extension APIClient {
                 }
         }
     }
-
     
+    func updateGoal(goalID: Int, isChallenge: Bool,  completed: (result: Bool) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        
+        let requestUrl = String(format: API_URLS.goalDetail, goalID)
+        let params: [String: AnyObject] = ["goal[is_challenge]" : isChallenge]
+        
+        Alamofire.request(.PUT, requestUrl, parameters: params, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if JSON["status"] as! Int == 200 {
+                        
+                        completed(result: true)
+                        
+                    } else {
+                        completed(result: false)
+                    }
+                } else {
+                    completed(result: false)
+                    print(response.result.error?.localizedDescription)
+                    
+                }
+                
+        }
+        
+    }
 }
+
+
