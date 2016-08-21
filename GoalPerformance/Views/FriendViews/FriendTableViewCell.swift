@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class FriendTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendImage: UIImageView!
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var challengeImage: UIImageView!
-    
     @IBOutlet weak var acceptButton: UIButton!
-    
     @IBOutlet weak var rejectButton: UIButton!
-    
     @IBOutlet weak var currentGoalsLabel: UILabel!
+    var currentView: UIView!
     
     var friend:User! {
         didSet {
@@ -42,14 +41,18 @@ class FriendTableViewCell: UITableViewCell {
     }
     
     @IBAction func onAccept(sender: UIButton) {
+        MBProgressHUD.showHUDAddedTo(self.currentView, animated: true)
         apiClient.acceptFriend(friend.id!) { (title, message) in
             print("\(title): \(message)")
+        MBProgressHUD.hideHUDForView(self.currentView, animated: true)
         }
     }
 
     @IBAction func onReject(sender: UIButton) {
+        MBProgressHUD.showHUDAddedTo(self.currentView, animated: true)
         apiClient.rejectFriend(friend.id!) { (title, message) in
             print("\(title): \(message)")
+        MBProgressHUD.hideHUDForView(self.currentView, animated: true)
         }
     }
     

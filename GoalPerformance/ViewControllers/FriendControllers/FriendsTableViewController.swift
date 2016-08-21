@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class FriendsTableViewController: UITableViewController {
     var apiClient = APIClient.sharedInstance
@@ -76,7 +77,7 @@ class FriendsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendTableViewCell") as! FriendTableViewCell
         
         cell.apiClient = apiClient
-        
+        cell.currentView = self.view
         var friend: User?
         
         switch indexPath.section {
@@ -142,6 +143,7 @@ class FriendsTableViewController: UITableViewController {
     */
     
     func loadFriend() {
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.apiClient.getPendingFriend { (friends) in
         self.pendingFriends = friends
         self.tableView.reloadData()
@@ -151,6 +153,7 @@ class FriendsTableViewController: UITableViewController {
             self.friends = friends
             self.tableView.reloadData()
             }
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
 
