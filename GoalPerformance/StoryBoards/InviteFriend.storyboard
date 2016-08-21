@@ -256,6 +256,7 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="onDone:" destination="dA2-Nc-lfq" eventType="touchUpInside" id="9lf-EF-WsA"/>
                                     <segue destination="B3g-dA-cTW" kind="show" id="R6K-f3-eBe"/>
                                 </connections>
                             </button>

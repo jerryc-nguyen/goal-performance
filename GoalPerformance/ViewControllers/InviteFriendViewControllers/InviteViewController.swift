@@ -19,6 +19,7 @@ class InviteViewController: UIViewController {
     var isChallenge = true
     var currentGoalSession: GoalSession!
     var apiClient = APIClient.sharedInstance
+    var storyboardManager = StoryboardManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,6 @@ class InviteViewController: UIViewController {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         apiClient.updateGoal(currentGoalSession.goal.id, isChallenge:true) { (result) in
         
-//        apiClient.updateGoal(132, isChallenge:true) { (result) in
             if result {
                 let selectInviteVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectInvite") as! SelectInviteFriendViewController
                 selectInviteVC.goalSessionId = self.currentGoalSession.id
@@ -76,6 +76,9 @@ class InviteViewController: UIViewController {
     }
 
     @IBAction func onDismiss(sender: UIButton) {
+        let mainVC = storyboardManager.getViewController("MainTabBarController", storyboard: "Main") as! MainTabBarController
+        mainVC.selectedIndex = 2
+        self.presentViewController(mainVC, animated: true, completion: nil)
     }
     
     

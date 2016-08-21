@@ -18,7 +18,7 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var suggestedFriendLabel: UILabel!
-    
+    var storyboardManager = StoryboardManager.sharedInstance
     var apiClient = APIClient.sharedInstance
     var friends = [User]()
     var goalSessionId = 138
@@ -101,6 +101,15 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    @IBAction func onDone(sender: UIButton) {
+        
+        let mainVC = storyboardManager.getViewController("MainTabBarController", storyboard: "Main") as! MainTabBarController
+        mainVC.selectedIndex = 2
+        self.presentViewController(mainVC, animated: true, completion: nil)
+
+    }
+    
     
     /*
     // MARK: - Navigation
