@@ -9,6 +9,10 @@
 import UIKit
 import MBProgressHUD
 
+protocol FriendTableViewCellDelegate: class {
+    func reloadData(viewCell: FriendTableViewCell)
+}
+
 class FriendTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendImage: UIImageView!
@@ -18,6 +22,7 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var currentGoalsLabel: UILabel!
     var currentView: UIView!
+    weak var delegate : FriendTableViewCellDelegate!
     
     var friend:User! {
         didSet {
@@ -44,6 +49,7 @@ class FriendTableViewCell: UITableViewCell {
         MBProgressHUD.showHUDAddedTo(self.currentView, animated: true)
         apiClient.acceptFriend(friend.id!) { (title, message) in
             print("\(title): \(message)")
+        self.delegate.reloadData(self)
         MBProgressHUD.hideHUDForView(self.currentView, animated: true)
         }
     }
@@ -52,6 +58,8 @@ class FriendTableViewCell: UITableViewCell {
         MBProgressHUD.showHUDAddedTo(self.currentView, animated: true)
         apiClient.rejectFriend(friend.id!) { (title, message) in
             print("\(title): \(message)")
+        self.delegate.reloadData(self)
+        self.hidden = true
         MBProgressHUD.hideHUDForView(self.currentView, animated: true)
         }
     }

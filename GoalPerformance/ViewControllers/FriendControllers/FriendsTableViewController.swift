@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class FriendsTableViewController: UITableViewController {
+class FriendsTableViewController: UITableViewController, FriendTableViewCellDelegate {
     var apiClient = APIClient.sharedInstance
     var pendingFriends = [User]()
     var friends = [User]()
@@ -21,7 +21,7 @@ class FriendsTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         tableView.registerNib(UINib(nibName: "FriendTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "FriendTableViewCell")
-
+        
         loadFriend()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -75,7 +75,7 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendTableViewCell") as! FriendTableViewCell
-        
+        cell.delegate = self
         cell.apiClient = apiClient
         cell.currentView = self.view
         var friend: User?
@@ -146,7 +146,8 @@ class FriendsTableViewController: UITableViewController {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.apiClient.getPendingFriend { (friends) in
         self.pendingFriends = friends
-        self.tableView.reloadData()
+      //  self.tableView.reloadData()
+        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
         
         
         self.apiClient.getAllFriends { (friends) in
@@ -156,6 +157,11 @@ class FriendsTableViewController: UITableViewController {
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
+    
+    func reloadData(viewCell: FriendTableViewCell) {
+        loadFriend()
+    }
 
 
 }
+
