@@ -19,5 +19,6 @@ target 'GoalPerformance' do
   pod 'FontAwesome.swift'
   pod 'PKHUD'
   pod 'UrbanAirship-iOS-SDK', '~> 7.2.2'
+  pod 'PageMenu'
   
 end

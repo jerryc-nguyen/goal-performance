@@ -9,10 +9,19 @@
 import UIKit
 
 class FriendsTableViewController: UITableViewController {
-
+    var apiClient = APIClient.sharedInstance
+    var pendingFriends = [User]()
+    var friends = [User]()
+    var pendingBuddies = [User]()
+    var parentNavigationController : UINavigationController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        tableView.registerNib(UINib(nibName: "FriendTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "FriendTableViewCell")
 
+        loadFriend()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,23 +38,63 @@ class FriendsTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
-
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            if pendingFriends.count > 0 {
+                    return "Friends Request"
+                } else {
+                return ""
+            }
+        default:
+            return "Friends"
+        }
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        switch section {
+        case 0:
+            return pendingFriends.count
+            
+        case 1:
+            return friends.count
+            
+        default:
+            return 0
+        }
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return friends.count
+//    }
 
-        // Configure the cell...
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FriendTableViewCell") as! FriendTableViewCell
+        
+        cell.apiClient = apiClient
+        
+        var friend: User?
+        
+        switch indexPath.section {
+        case 0:
+            friend = pendingFriends[indexPath.row]
+            cell.challengeImage.hidden = true
+            
+        default:
+            friend = friends[indexPath.row]
+            cell.acceptButton.hidden = true
+            cell.rejectButton.hidden = true
+        }
+        
+        cell.friend = friend
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,5 +140,19 @@ class FriendsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func loadFriend() {
+        self.apiClient.getPendingFriend { (friends) in
+        self.pendingFriends = friends
+        self.tableView.reloadData()
+        
+        
+        self.apiClient.getAllFriends { (friends) in
+            self.friends = friends
+            self.tableView.reloadData()
+            }
+        }
+    }
+
 
 }
