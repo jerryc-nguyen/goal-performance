@@ -14,15 +14,22 @@ class UserProfileTableViewCell: UITableViewCell {
     
     @IBOutlet weak var viewingUserNameLabel: UILabel!
     
+    
     var viewingUser: User? {
         didSet {
             if let user = viewingUser {
                 self.userAvatarImgView.sd_setImageWithURL(user.avatarUrl)
                 self.viewingUserNameLabel.text = user.displayName
             }
-            
+        
+                roundImage()
         }
     }
+    
+    func roundImage() {
+        userAvatarImgView.layer.cornerRadius = userAvatarImgView.frame.size.width/2
+        userAvatarImgView.layer.masksToBounds = true
+            }
     
     
     override func awakeFromNib() {

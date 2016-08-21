@@ -12,35 +12,14 @@ import FontAwesome_swift
 
 class UserGoalTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var goalNameLabel: UILabel!
-    
-    @IBOutlet weak var countDownTimerWrapper: UIView!
-    
-    @IBOutlet weak var countDownTimerLabel: UILabel!
-    
-    @IBOutlet weak var countDownTimerImgView: UIImageView!
-    
-    @IBOutlet weak var challengeImgView: UIImageView!
-    
     @IBOutlet weak var lineChartView: LineChartView!
     
     var goal: Goal? {
         didSet {
-            goalNameLabel.text = goal!.detailName
             setChart()
-            showCountdownLabel()
-            showChallengeIcon()
         }
     }
-    
-    func showChallengeIcon() {
-        if goal?.isChallenge == true {
-            challengeImgView.image = UIImage.fontAwesomeIconWithName(.Users, textColor: UIColor.blackColor(), size: CGSize(width: 30, height: 30))
-        } else {
-            challengeImgView.hidden = true
-        }
-        
-    }
+   
     
     func setChart() {
         lineChartView.noDataText = "You need to provide data for the chart."
@@ -86,25 +65,6 @@ class UserGoalTableViewCell: UITableViewCell {
         
         lineChartView.data = lineChartData
         
-    }
-    
-    func showCountdownLabel() {
-        if goal?.isDoingTime == true {
-            //set image
-            countDownTimerImgView.image = UIImage.fontAwesomeIconWithName(.Hourglass, textColor: UIColor.blackColor(), size: CGSize(width: 30, height: 30))
-            
-            //set background
-            backgroundColor = UIColors.GoalDoingBackground
-            
-            //schedule timer
-            NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(countDownTimer), userInfo: nil, repeats: true)
-        } else {
-            countDownTimerWrapper.hidden = true
-        }
-    }
-    
-    func countDownTimer() {
-        countDownTimerLabel.text = goal?.remainingTime
     }
     
     override func awakeFromNib() {

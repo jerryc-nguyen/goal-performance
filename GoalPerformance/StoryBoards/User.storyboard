@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Oqz-hX-MvA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Oqz-hX-MvA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,13 +17,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="pFe-JT-KVZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZd-gh-mT2">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pFe-JT-KVZ" firstAttribute="leading" secondItem="yHs-ev-YkN" secondAttribute="leading" id="2T8-jt-cBm"/>
+                            <constraint firstItem="pFe-JT-KVZ" firstAttribute="top" secondItem="yHs-ev-YkN" secondAttribute="top" id="4jw-3t-EZA"/>
+                            <constraint firstItem="gYG-UM-mdR" firstAttribute="top" secondItem="pFe-JT-KVZ" secondAttribute="bottom" id="PAk-hv-VvO"/>
+                            <constraint firstAttribute="trailing" secondItem="pFe-JT-KVZ" secondAttribute="trailing" id="UCW-L8-NIo"/>
                             <constraint firstAttribute="trailing" secondItem="ZZd-gh-mT2" secondAttribute="trailing" id="gMh-Zu-Mas"/>
                             <constraint firstItem="ZZd-gh-mT2" firstAttribute="top" secondItem="pWV-Jj-k91" secondAttribute="bottom" id="idm-f5-zJS"/>
                             <constraint firstItem="gYG-UM-mdR" firstAttribute="top" secondItem="ZZd-gh-mT2" secondAttribute="bottom" id="jGL-7g-owh"/>
@@ -33,9 +41,11 @@
                     <navigationItem key="navigationItem" id="6n5-V4-Y1S">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="1oq-g1-uN3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hW1-Bg-drm">
-                                <rect key="frame" x="258" y="7" width="46" height="30"/>
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Add Goals">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onReloadData:" destination="aeP-wW-xh1" eventType="touchUpInside" id="zfl-QI-abh"/>
                                 </connections>
@@ -60,6 +70,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O4B-sY-ZVW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -71,4 +85,7 @@
             <point key="canvasLocation" x="127" y="195"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="320" height="568"/>
+    </resources>
 </document>
