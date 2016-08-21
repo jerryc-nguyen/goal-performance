@@ -18,6 +18,8 @@ class User: NSObject {
     let token: String?
     var avatarUrl: NSURL?
     var airshipTag: String?
+    var isFriend: Bool?
+    var isPendingFriend: Bool?
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
@@ -27,6 +29,8 @@ class User: NSObject {
         email = dictionary["email"] as? String
         token = dictionary["token"] as? String
         airshipTag = dictionary["airship_tag"] as? String
+        isFriend = dictionary["is_friend"] as? Bool
+        isPendingFriend = dictionary["is_pending_friend"] as? Bool
         
         let avatarUrl = dictionary["avatar_url"] as? String
         if let avatarUrl = avatarUrl {

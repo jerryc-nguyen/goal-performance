@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class InviteViewController: UIViewController {
 
@@ -51,33 +52,40 @@ class InviteViewController: UIViewController {
     
     
     @IBAction func onInvite(sender: UIButton) {
-//        apiClient.updateGoal(true) { (result) in
-//            if result != nil {
-//                let selectInviteVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectInvite") as! SelectInviteFriendViewController
-//                selectInviteVC.goalSessionId = self.currentGoalSession.id
-//                self.navigationController?.pushViewController(selectInviteVC, animated: true)
-//            }
-//        }
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        apiClient.updateGoal(currentGoalSession.goal.id, isChallenge:true) { (result) in
         
-        let selectInviteVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectInvite") as! SelectInviteFriendViewController
-//        selectInviteVC.goalSessionId = self.currentGoalSession.id
-        self.navigationController?.pushViewController(selectInviteVC, animated: true)
-    }
-    
-    // MARK: - Navigation
-    
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "InviteFriend" {
-            let selectFriendVC = segue.destinationViewController as! SelectInviteFriendViewController
-//            selectFriendVC.goalSessionId = currentGoalSession.id
+//        apiClient.updateGoal(132, isChallenge:true) { (result) in
+            if result {
+                let selectInviteVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectInvite") as! SelectInviteFriendViewController
+                selectInviteVC.goalSessionId = self.currentGoalSession.id
+                self.navigationController?.pushViewController(selectInviteVC, animated: true)
+            } else {
+                self.makeAlert("Oops!", message: "Cannot make your goal to be a challenge, try again please")
+            }
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
         
     }
+    
+    func makeAlert(tittle: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    @IBAction func onDismiss(sender: UIButton) {
+    }
+    
+    
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }*/
+ 
     
 
 }
