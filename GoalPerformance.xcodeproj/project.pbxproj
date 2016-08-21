@@ -30,7 +30,6 @@
 		424AF21C1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AF21A1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib */; };
 		424AF21E1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AF21D1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift */; };
 		424AF2201D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AF21F1D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib */; };
-		425E791B1D69C88C00991FE9 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 425E79191D69C88C00991FE9 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4263033E1D526687007C1963 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033D1D526687007C1963 /* User.swift */; };
 		4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263DF4F1D5BC5A40050E5A0 /* CoreExtend.swift */; };
 		4263DF571D5BC6460050E5A0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263DF511D5BC6460050E5A0 /* APIClient.swift */; };
@@ -78,20 +77,6 @@
 		E471C8501D57895D0075C5E9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C84F1D57895D0075C5E9 /* Category.swift */; };
 		E4986E501D604642005A6A34 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4986E4F1D604642005A6A34 /* DoneViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		425E791C1D69C88D00991FE9 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				425E791B1D69C88C00991FE9 /* AirshipKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		420114DF1D5791D900B2F199 /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
@@ -469,7 +454,6 @@
 				42210CA41D4D040F0029990F /* Resources */,
 				8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */,
 				F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */,
-				425E791C1D69C88D00991FE9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

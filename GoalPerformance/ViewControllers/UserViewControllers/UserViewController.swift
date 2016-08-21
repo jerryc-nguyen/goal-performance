@@ -16,9 +16,9 @@ class UserViewController: UIViewController {
         loadUserTimeline()
     }
     
-    let numberOfSections = 2
+    var numberOfSections = 2
     
-    var userGoals = [Goal]()
+    var userGoals: [Goal] = []
     var sessionsHistories = [SessionsHistory]()
     var viewingUser: User!
     var dateLabels = [String]()
@@ -52,6 +52,7 @@ class UserViewController: UIViewController {
             self.userGoals = goals
             self.viewingUser = viewingUser
             self.dateLabels = dateLabels!
+            self.numberOfSections = self.userGoals.count + 1
             self.tableView.reloadData()
         }
     }
@@ -81,12 +82,7 @@ extension UserViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
             return 1
-        default:
-            return userGoals.count
-        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -96,16 +92,13 @@ extension UserViewController: UITableViewDataSource {
             
             cell.viewingUser = self.viewingUser
             return cell
-//        case 1:
-//            let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalsChartTableViewCell") as! UserGoalsChartTableViewCell
-//            cell.dateLabels = dateLabels
-//            cell.goals = userGoals
-//            return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalTableViewCell") as! UserGoalTableViewCell
-            let goal = userGoals[indexPath.row]
+            if userGoals.count > 0 {
+                let goal = userGoals[indexPath.section - 1]
             
-            cell.goal = goal
+                cell.goal = goal
+            }
             return cell
         }
     }
@@ -114,21 +107,23 @@ extension UserViewController: UITableViewDataSource {
 extension UserViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-        case 1:
-            let view = UsersGoalSectionHeaderView.initFromNib()
-            view.sectionHeaderLabel.text = "Doing goals"
-            return view
-        default:
+        case 0:
             return nil
+        default:
+            let view = UsersGoalSectionHeaderView.initFromNib()
+            if userGoals.count > 0 {
+                view.goalNameLabel.text = userGoals[section - 1].detailName
+            }
+            return view
         }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 1:
-            return 50
-        default:
+        case 0:
             return 0
+        default:
+            return 50
         }
     }
 }

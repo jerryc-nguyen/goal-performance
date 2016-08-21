@@ -11,36 +11,81 @@
             <rect key="frame" x="0.0" y="0.0" width="348" height="52"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal section title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVL-xi-buN">
-                    <rect key="frame" x="5" y="0.0" width="338" height="52"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhx-IK-uZ2">
+                    <rect key="frame" x="107" y="10.5" width="100" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXR-aj-Iw3">
+                            <rect key="frame" x="30" y="9" width="43" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.3411764705882353" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hourglass" translatesAutoresizingMaskIntoConstraints="NO" id="jx7-Xb-X4N">
+                            <rect key="frame" x="8" y="3" width="20" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23" id="Czv-wU-BKa"/>
+                                <constraint firstAttribute="width" constant="20" id="Pe9-ef-ICn"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="52" id="vXV-Nq-LJW"/>
+                        <constraint firstAttribute="height" constant="30" id="PKk-RG-wDX"/>
+                        <constraint firstItem="MXR-aj-Iw3" firstAttribute="leading" secondItem="jx7-Xb-X4N" secondAttribute="trailing" constant="2" id="pzR-Yg-4Tl"/>
+                        <constraint firstItem="jx7-Xb-X4N" firstAttribute="leading" secondItem="zhx-IK-uZ2" secondAttribute="leading" constant="8" id="qOp-k9-7VJ"/>
+                        <constraint firstAttribute="width" constant="100" id="sFf-EF-3qu"/>
+                        <constraint firstItem="jx7-Xb-X4N" firstAttribute="centerY" secondItem="zhx-IK-uZ2" secondAttribute="centerY" id="uKe-7G-ynP"/>
                     </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goal buddy" translatesAutoresizingMaskIntoConstraints="NO" id="Oo4-r8-izO">
+                    <rect key="frame" x="308" y="16.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="3IT-qF-Jhm"/>
+                        <constraint firstAttribute="height" constant="20" id="t1b-kI-VYH"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOF-YG-jeL">
+                    <rect key="frame" x="20" y="20" width="82" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="challenge-gray" translatesAutoresizingMaskIntoConstraints="NO" id="Riy-21-9hS">
+                    <rect key="frame" x="280" y="16.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="6cz-FP-1iM"/>
+                        <constraint firstAttribute="width" constant="20" id="WiJ-6r-SpF"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="IVL-xi-buN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9Ft-uL-0nV"/>
-                <constraint firstItem="IVL-xi-buN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="U0Y-S9-cLI"/>
-                <constraint firstAttribute="trailing" secondItem="IVL-xi-buN" secondAttribute="trailing" constant="5" id="VAp-QU-iR2"/>
-                <constraint firstItem="IVL-xi-buN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="gox-GO-ruc"/>
-                <constraint firstItem="IVL-xi-buN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="w1t-Ga-azf"/>
+                <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="Oo4-r8-izO" secondAttribute="baseline" id="7kJ-Wx-Zj4"/>
+                <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="BTI-iU-nAu"/>
+                <constraint firstItem="zhx-IK-uZ2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BgQ-gM-Lo1"/>
+                <constraint firstItem="sOF-YG-jeL" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="L9b-Tj-iJC"/>
+                <constraint firstItem="sOF-YG-jeL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Pcz-R7-3sL"/>
+                <constraint firstItem="zhx-IK-uZ2" firstAttribute="leading" secondItem="sOF-YG-jeL" secondAttribute="trailing" constant="5" id="bI8-xG-gme"/>
+                <constraint firstItem="MXR-aj-Iw3" firstAttribute="baseline" secondItem="sOF-YG-jeL" secondAttribute="baseline" id="kPv-k6-AAZ"/>
+                <constraint firstItem="Oo4-r8-izO" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="kTa-Av-FVh"/>
+                <constraint firstAttribute="trailing" secondItem="Oo4-r8-izO" secondAttribute="trailing" constant="20" id="kb5-0f-6xi"/>
+                <constraint firstItem="Oo4-r8-izO" firstAttribute="leading" secondItem="Riy-21-9hS" secondAttribute="trailing" constant="8" id="yni-vE-uXY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="9Ft-uL-0nV"/>
-                </mask>
-            </variation>
             <connections>
-                <outlet property="sectionHeaderLabel" destination="IVL-xi-buN" id="W1I-HI-v3P"/>
+                <outlet property="challengeImgView" destination="Oo4-r8-izO" id="Dgg-89-qlS"/>
+                <outlet property="countDownTimerImgView" destination="jx7-Xb-X4N" id="ow9-rF-Ghm"/>
+                <outlet property="countDownTimerLabel" destination="MXR-aj-Iw3" id="omZ-rF-s0l"/>
+                <outlet property="countDownTimerWrapper" destination="zhx-IK-uZ2" id="L1Y-OW-fe2"/>
+                <outlet property="goalNameLabel" destination="sOF-YG-jeL" id="urK-um-2xf"/>
             </connections>
-            <point key="canvasLocation" x="122" y="-80"/>
+            <point key="canvasLocation" x="310" y="-24"/>
         </view>
     </objects>
+    <resources>
+        <image name="challenge-gray" width="15" height="18"/>
+        <image name="goal buddy" width="17" height="18"/>
+        <image name="hourglass" width="56" height="64"/>
+    </resources>
 </document>
