@@ -14,30 +14,91 @@ class TimelineViewController: UIViewController {
     
     var items = [TimelineItem]()
     var apiClient = APIClient.sharedInstance
+    let refreshControl = UIRefreshControl()
+    var isMoreDataLoading = false
+    var loadingMoreView: InfiniteScrollActivityView?
+    var currentPage = 1
+    var hasMoreData = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        tableView.insertSubview(refreshControl, atIndex: 0)
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 120
+        // Set up Infinite Scroll loading indicator
+        let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.hidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset;
+        insets.bottom += InfiniteScrollActivityView.defaultHeight;
+        tableView.contentInset = insets
         
         registerNibs()
         loadHomeTimelineItems()
-        self.navigationItem.title = "Home Timeline"
+        navigationItem.title = "Home Timeline"
     }
     
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "TimelineItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineItemTableViewCell")
     }
     
-    func loadHomeTimelineItems() {
-        apiClient.homeTimeLine { (items) in
-            self.items = items
-            self.tableView.reloadData()
-        }
+    func pullToRefresh() {
+        currentPage = 1
+        loadHomeTimelineItems()
     }
     
+    func loadHomeTimelineItems() {
+        apiClient.homeTimeLine(currentPage) { (items) in
+            if self.isMoreDataLoading {
+                self.items += items
+                self.hasMoreData = items.count != 0
+            } else {
+                self.items = items
+            }
+            
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+            
+            // Update flag
+            self.isMoreDataLoading = false
+            
+            // Stop the loading indicator
+            self.loadingMoreView!.stopAnimating()
+        }
+    }
+}
+
+extension TimelineViewController : UITableViewDelegate {
+    
+}
+
+extension TimelineViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading && hasMoreData) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
+                
+                currentPage += 1
+                isMoreDataLoading = true
+                
+                // Update position of loadingMoreView, and start loading indicator
+                let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                loadHomeTimelineItems()
+            }
+        }
+    }
 }
 
 extension TimelineViewController: UITableViewDataSource {
@@ -52,5 +113,41 @@ extension TimelineViewController: UITableViewDataSource {
         
         cell.timeLineItem = timelineItem
         return cell
+    }
+}
+
+class InfiniteScrollActivityView: UIView {
+    var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView()
+    static let defaultHeight:CGFloat = 60.0
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupActivityIndicator()
+    }
+    
+    override init(frame aRect: CGRect) {
+        super.init(frame: aRect)
+        setupActivityIndicator()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        activityIndicatorView.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2)
+    }
+    
+    func setupActivityIndicator() {
+        activityIndicatorView.activityIndicatorViewStyle = .Gray
+        activityIndicatorView.hidesWhenStopped = true
+        self.addSubview(activityIndicatorView)
+    }
+    
+    func stopAnimating() {
+        self.activityIndicatorView.stopAnimating()
+        self.hidden = true
+    }
+    
+    func startAnimating() {
+        self.hidden = false
+        self.activityIndicatorView.startAnimating()
     }
 }

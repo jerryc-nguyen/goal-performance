@@ -10,11 +10,14 @@ import Alamofire
 
 extension APIClient {
     
-    func homeTimeLine(completed: (items: [TimelineItem]) -> ()) {
+    func homeTimeLine(page: Int, completed: (items: [TimelineItem]) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
-        Alamofire.request(.GET, API_URLS.homeTimeLine, headers: headers)
+        
+        let requestUrl = String(format: API_URLS.homeTimeLine, page)
+        
+        Alamofire.request(.GET, requestUrl, headers: headers)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     var items = [TimelineItem]()
