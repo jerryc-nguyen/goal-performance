@@ -29,16 +29,17 @@ class TimelineItemTableViewCell: UITableViewCell {
     
     var timeLineItem: TimelineItem! {
         didSet {
-            userNameLabel.text = timeLineItem.creator?.displayName
-            fellingLabel.text = timeLineItem.feelingSentence
-            finishLabel.text = timeLineItem.finishSentence
-            userAvatarImgView.sd_setImageWithURL(timeLineItem.creator?.avatarUrl)
-            dateLabel.text = timeLineItem.createdAt?.timeAgoSinceNow()
+            let currentSession = timeLineItem.currentGoalSession!
+            userNameLabel.text = currentSession.participant?.displayName
+            fellingLabel.text = currentSession.feelingSentence
+            finishLabel.text = currentSession.finishSentence
+            userAvatarImgView.sd_setImageWithURL(currentSession.participant?.avatarUrl)
+            dateLabel.text = currentSession.createdAt?.timeAgoSinceNow()
             
             // show chart
-            days = timeLineItem.sessionsHistory?.dateLabels
+            days = currentSession.sessionsHistory?.dateLabels
             
-            let scores = timeLineItem.sessionsHistory?.scores
+            let scores = currentSession.sessionsHistory?.scores
             setChart(days, values: scores!)
         }
     }

@@ -27,7 +27,7 @@
                                     <color key="titleColor" red="0.22352941176470587" green="0.70980392156862748" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onDoNowButton:" destination="SJI-I1-HIN" eventType="touchUpInside" id="vAr-vt-26f"/>
+                                    <action selector="onNotDoButton:" destination="SJI-I1-HIN" eventType="touchUpInside" id="WE1-rJ-dcn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HgS-Wv-9Uw">
@@ -37,7 +37,7 @@
                                     <color key="titleColor" red="1" green="0.82352941176470584" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onDoNowButton:" destination="SJI-I1-HIN" eventType="touchUpInside" id="9Au-je-2Tx"/>
+                                    <action selector="onRemindLaterButton:" destination="SJI-I1-HIN" eventType="touchUpInside" id="YhO-R7-DUx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alex, it’s time to run! Are you ready?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-AM-u3J">

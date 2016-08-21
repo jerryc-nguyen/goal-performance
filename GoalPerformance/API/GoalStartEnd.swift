@@ -9,31 +9,27 @@
 import Alamofire
 
 extension APIClient {
-    func goalStartEnd(params: Dictionary<String, AnyObject>, completed: CompletedBlock) {
+    func updateGoalStatus(params: Dictionary<String, AnyObject>, completed: (GoalSession?) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
         
-        Alamofire.request(.PUT, API_URLS.goalStartEnd, parameters: params, headers: headers)
-        
-        .responseJSON { response in
-            if let JSON = response.result.value {
-                if JSON["status"] as! Int == 200 {
-                    if let completed = completed {
+        Alamofire.request(.POST, API_URLS.goalStartEnd, parameters: params, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if JSON["status"] as! Int == 200 {
                         if let goalData = JSON["data"] as? NSDictionary {
-                            let goal = Goal(dictionary: goalData)
-                            completed(result: goal)
+                            let goalSession = GoalSession(dictionary: goalData)
+                            completed(goalSession)
+                        } else  {
+                            completed(nil)
                         }
-                    }
-                } else {
-                    if let completed = completed {
-                        completed(result: nil)
+                    } else {
                         print(response.result.error?.localizedDescription)
+                        completed(nil)
                     }
-                    
                 }
             }
-        }
 
     }
 }

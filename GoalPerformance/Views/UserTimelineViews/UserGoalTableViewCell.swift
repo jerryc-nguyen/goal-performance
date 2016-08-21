@@ -101,7 +101,6 @@ class UserGoalTableViewCell: UITableViewCell {
         } else {
             countDownTimerWrapper.hidden = true
         }
-        
     }
     
     func countDownTimer() {

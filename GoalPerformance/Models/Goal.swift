@@ -183,7 +183,8 @@ class Goal: NSObject {
         notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
         notification.userInfo = [ "message": message,
                                   "UUID": key,
-                                  "notificationName": LocalNotificationName.StartGoal ]
+                                  "notificationName": LocalNotificationName.StartGoal,
+                                  "goalId": self.id ]
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
@@ -213,7 +214,10 @@ class Goal: NSObject {
         notification.alertAction = "open"
         notification.fireDate = calendar.dateFromComponents(dateComponents)
         notification.soundName = "\(AlarmSoundName).\(AlarmSoundExtension)"
-        notification.userInfo = ["message": message, "UUID": key, "notificationName": LocalNotificationName.EndGoal]
+        notification.userInfo = [ "message": message,
+                                  "UUID": key,
+                                  "notificationName": LocalNotificationName.EndGoal,
+                                  "goalId": self.id ]
         notification.repeatInterval = NSCalendarUnit.WeekOfYear
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)

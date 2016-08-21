@@ -9,9 +9,9 @@
 import Foundation
 import Alamofire //https://github.com/Alamofire/Alamofire
 
-
-let APIBaseURL = "https://goal-api.herokuapp.com/"
-//let APIBaseURL = "http://localhost:3000"
+//let APIBaseURL = "https://goal-api.herokuapp.com/"
+//let APIBaseURL = "http://192.168.1.93:3000"
+let APIBaseURL = "http://localhost:3000"
 
 struct API_URLS {
     //AUTH
@@ -50,7 +50,7 @@ struct API_URLS {
     static let userTimeLine = "\(APIBaseURL)/api/users/%d/timeline.json"
     
     //GOAL START-END
-    static let goalStartEnd = "\(APIBaseURL)/api/goal_sessions/32.json"
+    static let goalStartEnd = "\(APIBaseURL)/api/goal_sessions/handle_start_end.json"
 
 }
 

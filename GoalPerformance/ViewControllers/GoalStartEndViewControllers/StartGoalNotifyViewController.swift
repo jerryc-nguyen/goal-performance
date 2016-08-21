@@ -14,6 +14,7 @@ class StartGoalNotifyViewController: UIViewController {
     var notificationData: AnyObject?
     var isViewOpenByUser: Bool = false
     var player: AVAudioPlayer?
+    let goalId = 65
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +40,23 @@ class StartGoalNotifyViewController: UIViewController {
     }
     
     @IBAction func onDoNowButton(sender: AnyObject) {
-    let params : [String : AnyObject] = ["goal_session[status]" : "doing"]
+        let params : [String : AnyObject] = [
+            "status" : "doing",
+            "goal_id": goalId
+        ]
         updateGoalStatus(params)
     }
     
     @IBAction func onRemindLaterButton(sender: AnyObject) {
-        let params : [String : AnyObject] = ["goal_session[status]" : "remind_later", "goal_session[remind_user_at]" : "15:00 PM"]
+        let params : [String : AnyObject] = [
+            "status" : "remind_later",
+            "remind_user_at" : "15:00 PM"
+        ]
         updateGoalStatus(params)
     }
     
     @IBAction func onNotDoButton(sender: AnyObject) {
-        let params : [String : AnyObject] = ["goal_session[status]" : "cannot_make_today"]
+        let params : [String : AnyObject] = ["status" : "cannot_make_today"]
         updateGoalStatus(params)
         let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
         if let window = self.view.window {
@@ -57,12 +64,10 @@ class StartGoalNotifyViewController: UIViewController {
         }
     }
     
-    
     func updateGoalStatus(params : [String : AnyObject]) {
-        APIClient.sharedInstance.goalStartEnd(params) { (result) in
-            print("sent goalStartEnd status")
-        }
-
+        APIClient.sharedInstance.updateGoalStatus(params, completed: { (goalSession: GoalSession?) in
+            print("sent goalStartEnd status", goalSession)
+        })
     }
     
 
