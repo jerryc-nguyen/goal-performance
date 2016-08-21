@@ -9,51 +9,12 @@
 import Foundation
 
 class TimelineItem: NSObject {
-    let id: Int!
-    let creatorId: Int!
-    let goalId: Int!
-    let participantId: Int!
-    var score: Int = 0
-    let likesCount: Int = 0
-    let commentsCount: Int = 0
-    let viewsCount: Int = 0
-    let finishSentence: String?
-    let feelingSentence: String?
-    var createdAt: NSDate?
-    
-    var sessionsHistory: SessionsHistory?
-    
-    var creator: User?
 
+    var currentGoalSession: GoalSession?
+    
     init(dictionary: NSDictionary) {
-        id = dictionary["id"] as? Int
-        creatorId = dictionary["creator_id"] as? Int
-        goalId = dictionary["goal_id"] as? Int
-        participantId = dictionary["participant_id"] as? Int
-        
-        if let goalScore = dictionary["score"] as? Int {
-            score = goalScore
-        }
-        
-        finishSentence = dictionary["finish_sentence"] as? String
-        feelingSentence = dictionary["feeling_sentence"] as? String
-        
-        if let userData = dictionary["creator"] as? NSDictionary {
-            creator = User(dictionary: userData)
-        }
-        
-        if let sessionsData = dictionary["sessions_history"] as? NSDictionary {
-            sessionsHistory = SessionsHistory(dictionary: sessionsData)
-        }
-        
-        if let creatorData = dictionary["participant"] as? NSDictionary {
-            creator = User(dictionary: creatorData)
-        }
-        
-        if let createdAtStr = dictionary["created_at"] as? String {
-            if let createdAtDate = Utils.dateFromRailsString(createdAtStr) {
-                createdAt = createdAtDate
-            }
+        if let goalSessionData = dictionary["goal_session"] as? NSDictionary {
+            currentGoalSession = GoalSession(dictionary: goalSessionData)
         }
     }
     
