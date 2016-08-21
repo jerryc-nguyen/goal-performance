@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class SelectInviteFriendViewController: UIViewController, SuggestFriendTableViewCellDelegate {
 
@@ -20,7 +21,7 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     
     var apiClient = APIClient.sharedInstance
     var friends = [User]()
-    var goalSessionId = 3
+    var goalSessionId = 138
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,10 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     
     func initView() {
         // change navigation color
-        self.navigationController?.navigationBar.backgroundColor = UIColors.ThemeOrange
+        self.navigationController?.navigationBar.barTintColor = UIColors.ThemeOrange
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.title = "Invite Friends"
         
         inviteLabel.textColor = UIColors.ThemeOrange
         suggestedFriendLabel.textColor = UIColors.ThemeOrange
@@ -52,22 +55,32 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     }
     
     func loadSuggestFriend(){
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         apiClient.getSuggestedFriends(goalSessionId, completed: { (friends) in
             self.friends = friends
-            self.suggestFriendTableView.reloadData()
+//            self.suggestFriendTableView.reloadData()
+            self.suggestFriendTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
         })
     }
     
-    func displayAlert(viewCell: SuggestFriendTableViewCell, title: String, message: String) {
-        makeAlert(title, message: message)
+    func displayAlert(viewCell: SuggestFriendTableViewCell, button: String, status: Int, title: String, message: String) {
+        if button != "InviteButton" && status != 200 {
+            makeAlert(title, message: message)
+        }
+        
+        loadSuggestFriend()
         print("Invite or Connect is press")
     }
     
     @IBAction func onInviteByEmail(sender: UIButton) {
         if emailTextField.text?.characters.count > 0 {
             if validateEmail(emailTextField.text!) {
+                MBProgressHUD.showHUDAddedTo(self.view, animated: true)
                 apiClient.inviteGoalByEmail(goalSessionId, email: emailTextField.text!, completed: { (title, message) in
                     self.makeAlert(title, message: message)
+                    self.emailTextField.text = ""
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
                 })
             } else {
                 makeAlert("Opp!", message: "Your email is invalid, fill again please!")
@@ -84,7 +97,7 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     
     func makeAlert(tittle: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -113,6 +126,7 @@ extension SelectInviteFriendViewController: UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SuggestFriendCell") as! SuggestFriendTableViewCell
         
+        cell.currentView = self.view
         cell.friend = friends[indexPath.row]
         cell.goalSessionId = goalSessionId
         cell.delegate = self
