@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         remoteNotificationManager.setupRemoteNotificationSettings()
         
-        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
-        self.window?.rootViewController = loginVC
+//        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
+//        self.window?.rootViewController = loginVC
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
