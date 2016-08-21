@@ -20,6 +20,7 @@ class User: NSObject {
     var airshipTag: String?
     var isFriend: Bool?
     var isPendingFriend: Bool?
+    var goalsCount: Int = 0
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
@@ -31,6 +32,10 @@ class User: NSObject {
         airshipTag = dictionary["airship_tag"] as? String
         isFriend = dictionary["is_friend"] as? Bool
         isPendingFriend = dictionary["is_pending_friend"] as? Bool
+        
+        if let gCount = dictionary["goal_count"] as? Int {
+            goalsCount = gCount
+        }
         
         let avatarUrl = dictionary["avatar_url"] as? String
         if let avatarUrl = avatarUrl {

@@ -20,14 +20,14 @@ class UserViewController: UIViewController {
     
     var userGoals = [Goal]()
     var sessionsHistories = [SessionsHistory]()
-    var viewingUser: User?
+    var viewingUser: User!
     var dateLabels = [String]()
     
     var apiClient = APIClient.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewingUser = viewingUser ?? APIClient.currentUser
         self.navigationItem.title = "Your Goals"
         
         self.tableView.dataSource = self
@@ -47,7 +47,7 @@ class UserViewController: UIViewController {
     }
     
     func loadUserTimeline() {
-        let params = ["user_id": 5]
+        let params: [String: AnyObject] = ["user_id": viewingUser.id!]
         apiClient.userTimeLine(params) { (goals, viewingUser, dateLabels) in
             self.userGoals = goals
             self.viewingUser = viewingUser

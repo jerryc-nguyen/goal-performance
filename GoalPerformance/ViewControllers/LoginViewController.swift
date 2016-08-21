@@ -74,7 +74,11 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             APIClient.currentUser = currentUser
             APIClient.currentUserToken = currentUser.token!
             MBProgressHUD.hideHUDForView(self.view, animated: true)
-            APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
+            if currentUser.goalsCount == 0 {
+                APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
+            } else {
+                APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("Main")
+            }
         })
         
     }
