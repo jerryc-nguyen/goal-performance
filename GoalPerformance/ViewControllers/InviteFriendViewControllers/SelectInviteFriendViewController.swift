@@ -34,30 +34,59 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     }
     
     func initView() {
-        inviteLabel.textColor = UIColor.blackColor()
-        suggestedFriendLabel.textColor = UIColor.blackColor()
+        // change navigation color
+        self.navigationController?.navigationBar.backgroundColor = UIColors.ThemeOrange
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        inviteLabel.textColor = UIColors.ThemeOrange
+        suggestedFriendLabel.textColor = UIColors.ThemeOrange
         
         inviteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        inviteButton.backgroundColor = UIColors.ThemeOrange
         inviteButton.layer.cornerRadius = 10
         
-        doneButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        doneButton.setTitleColor(UIColors.ThemeOrange, forState: .Normal)
+        doneButton.layer.borderColor = UIColors.ThemeOrange.CGColor
         doneButton.layer.cornerRadius = 10
         doneButton.layer.borderWidth = 1
     }
     
     func loadSuggestFriend(){
-        apiClient.getSuggestedFriends({ (friends) in
+        apiClient.getSuggestedFriends(goalSessionId, completed: { (friends) in
             self.friends = friends
             self.suggestFriendTableView.reloadData()
         })
     }
     
     func displayAlert(viewCell: SuggestFriendTableViewCell, title: String, message: String) {
+        makeAlert(title, message: message)
+        print("Invite or Connect is press")
+    }
+    
+    @IBAction func onInviteByEmail(sender: UIButton) {
+        if emailTextField.text?.characters.count > 0 {
+            if validateEmail(emailTextField.text!) {
+                apiClient.inviteGoalByEmail(goalSessionId, email: emailTextField.text!, completed: { (title, message) in
+                    self.makeAlert(title, message: message)
+                })
+            } else {
+                makeAlert("Opp!", message: "Your email is invalid, fill again please!")
+            }
+        } else {
+            makeAlert("Opp!", message: "Please fill your email first!")
+        }
+    }
+    
+    func validateEmail(candidate: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluateWithObject(candidate)
+    }
+    
+    func makeAlert(tittle: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
-        print("Invite or Connect is press")
     }
     
     /*

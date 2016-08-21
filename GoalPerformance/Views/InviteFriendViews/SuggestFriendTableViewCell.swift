@@ -31,8 +31,9 @@ class SuggestFriendTableViewCell: UITableViewCell {
     
     var friend: User! {
         didSet {
-            nameLabel.text = friend.displayName
+            avatarImage.makeCircle()
             avatarImage.sd_setImageWithURL(friend.avatarUrl)
+            nameLabel.text = friend.displayName
         }
     }
     

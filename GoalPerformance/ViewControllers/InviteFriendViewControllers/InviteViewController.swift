@@ -17,6 +17,7 @@ class InviteViewController: UIViewController {
     
     var isChallenge = true
     var currentGoalSession: GoalSession!
+    var apiClient = APIClient.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +44,28 @@ class InviteViewController: UIViewController {
         inviteFriendButton.layer.borderWidth = 1
         
         dismissButton.layer.borderColor = UIColors.ThemeOrange.CGColor
+        dismissButton.setTitleColor(UIColors.ThemeOrange, forState: .Normal)
         dismissButton.layer.borderWidth = 1
         dismissButton.layer.cornerRadius = 10
     }
     
     
+    @IBAction func onInvite(sender: UIButton) {
+//        apiClient.updateGoal(true) { (result) in
+//            if result != nil {
+//                let selectInviteVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectInvite") as! SelectInviteFriendViewController
+//                selectInviteVC.goalSessionId = self.currentGoalSession.id
+//                self.navigationController?.pushViewController(selectInviteVC, animated: true)
+//            }
+//        }
+        
+        let selectInviteVC = self.storyboard?.instantiateViewControllerWithIdentifier("SelectInvite") as! SelectInviteFriendViewController
+//        selectInviteVC.goalSessionId = self.currentGoalSession.id
+        self.navigationController?.pushViewController(selectInviteVC, animated: true)
+    }
+    
     // MARK: - Navigation
+    
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -57,7 +74,7 @@ class InviteViewController: UIViewController {
         
         if segue.identifier == "InviteFriend" {
             let selectFriendVC = segue.destinationViewController as! SelectInviteFriendViewController
-            selectFriendVC.goalSessionId = currentGoalSession.id
+//            selectFriendVC.goalSessionId = currentGoalSession.id
         }
         
     }
