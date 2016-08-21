@@ -35,6 +35,9 @@ class GoalIntervalTableViewController: UITableViewController, DurationViewContro
         if weekdays.count == 7 {
             weekdaysForLabel = ["Everyday"]
         }
+        if weekdays.count == 0 {
+            weekdaysForLabel = ["Never"]
+        }
         
         let weekdaysString = weekdaysForLabel.joinWithSeparator(", ")
         self.repeatLabel.text = "\(weekdaysString)"
