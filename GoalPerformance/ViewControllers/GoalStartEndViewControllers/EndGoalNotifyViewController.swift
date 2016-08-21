@@ -11,21 +11,31 @@ import AVFoundation
 
 class EndGoalNotifyViewController: UIViewController {
     
-    var notificationData: AnyObject?
+    var notificationData: AnyObject!
     var isViewOpenByUser: Bool = false
     var player: AVAudioPlayer?
     
     @IBOutlet weak var scoreTxt: UITextField!
-    
-    @IBAction func onDoneButton(sender: AnyObject) {
-        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
-        if let window = self.view.window {
-            window.rootViewController = loginVC
+
+    @IBAction func onCompleteButton(sender: UIButton) {
+        let score = sender.accessibilityLabel
+        if let goalId = notificationData["goalId"] as? Int {
+            let params : [String : AnyObject] = [
+                "status" : "completed",
+                "goal_id": goalId,
+                "score": score!
+            ]
+            updateGoalStatus(params)
+        } else {
+            if let window = self.view.window {
+                Utils.displayTabbarVCFor(window, selectedTabbarIndex: HomeTimelineTabbarIndex)
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationData = notificationData as? NSDictionary ?? [String: AnyObject]()
         
         if !isViewOpenByUser {
             let url = NSBundle.mainBundle().URLForResource(AlarmSoundName, withExtension: AlarmSoundExtension)!
@@ -47,6 +57,15 @@ class EndGoalNotifyViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func updateGoalStatus(params : [String : AnyObject]) {
+        APIClient.sharedInstance.updateGoalStatus(params, completed: { (goalSession: GoalSession?) in
+            print("sent goalStartEnd status", goalSession)
+     
+            if let window = self.view.window {
+                Utils.displayTabbarVCFor(window, selectedTabbarIndex: UserTimelineTabbarIndex)
+            }
+        })
+    }
 
     /*
     // MARK: - Navigation

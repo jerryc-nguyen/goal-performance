@@ -6,10 +6,17 @@
 //  Copyright © 2016 Group 7. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
-
 class Utils {
+    
+    static func displayTabbarVCFor(window: UIWindow!, selectedTabbarIndex: Int) {
+        let tabbarVC = StoryboardManager.sharedInstance.getInitialViewController("Main") as! MainTabBarController
+        tabbarVC.configTabbar()
+        tabbarVC.selectedIndex = selectedTabbarIndex
+        window.rootViewController = tabbarVC
+    }
     
     static let WeekDaysMap: [String: Int] = [
         "sunday": 1,

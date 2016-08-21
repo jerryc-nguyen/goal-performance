@@ -9,6 +9,10 @@
 import UIKit
 import FontAwesome_swift
 
+let HomeTimelineTabbarIndex = 0
+let UserTimelineTabbarIndex = 1
+let FriendsTabbarIndex = 2
+
 class MainTabBarController: UITabBarController {
     
     lazy var timeLineVC: UINavigationController  = {

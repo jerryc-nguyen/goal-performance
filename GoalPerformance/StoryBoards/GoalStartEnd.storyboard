@@ -104,19 +104,35 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-yW-h69">
                                 <rect key="frame" x="45" y="139" width="94" height="116"/>
+                                <accessibility key="accessibilityConfiguration" label="100"/>
                                 <state key="normal" image="100"/>
+                                <connections>
+                                    <action selector="onCompleteButton:" destination="KLj-op-FhA" eventType="touchUpInside" id="zf4-6O-JYA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJi-cV-5Ue">
                                 <rect key="frame" x="181" y="139" width="94" height="116"/>
+                                <accessibility key="accessibilityConfiguration" label="75"/>
                                 <state key="normal" image="75"/>
+                                <connections>
+                                    <action selector="onCompleteButton:" destination="KLj-op-FhA" eventType="touchUpInside" id="oMx-II-Ixg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgG-TC-ltE">
                                 <rect key="frame" x="45" y="286" width="94" height="120"/>
+                                <accessibility key="accessibilityConfiguration" label="50"/>
                                 <state key="normal" image="50"/>
+                                <connections>
+                                    <action selector="onCompleteButton:" destination="KLj-op-FhA" eventType="touchUpInside" id="qpw-gd-Hxa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2P-y3-glv">
                                 <rect key="frame" x="181" y="286" width="101" height="117"/>
+                                <accessibility key="accessibilityConfiguration" label="25"/>
                                 <state key="normal" image="25"/>
+                                <connections>
+                                    <action selector="onCompleteButton:" destination="KLj-op-FhA" eventType="touchUpInside" id="ijv-0f-qdc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
