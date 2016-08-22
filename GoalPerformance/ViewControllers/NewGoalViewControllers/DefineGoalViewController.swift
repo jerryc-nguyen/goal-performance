@@ -18,8 +18,8 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
 
     @IBOutlet weak var saveButton: UIButton!
     
-    var hasGoal = false
-    
+    //var hasGoal = false
+    var hasGoal: Bool?
     var timeChosen: String = ""
     var weekdays:[String] = []
     var duration:Int = 0
@@ -32,21 +32,37 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         let navBar = self.navigationController
         
         startTimePicker.datePickerMode = UIDatePickerMode.Time
-       // navBar?.navigationBar.alpha = 0.5
-        navBar?.navigationBar.translucent = true
-        navBar?.navigationBar.backgroundColor = UIColor.clearColor()
-        self.title = "Setup Your Goal"
-        navBar?.navigationBar.tintColor = UIColor.orangeColor()
-        navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
-        let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
-        self.navigationItem.rightBarButtonItem = nextBarItem
-
-        if hasGoal {
-            heightContainChartViewConstraint.constant = 110
-            saveButton.setImage(UIImage(named: "Save Change"), forState: .Normal)
-        } else {
-            heightContainChartViewConstraint.constant = 0
-            saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
+//        navBar?.navigationBar.translucent = true
+//        navBar?.navigationBar.backgroundColor = UIColor.clearColor()
+//        self.title = "Setup Your Goal"
+//        navBar?.navigationBar.tintColor = UIColor.orangeColor()
+//        navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+//        let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
+//        self.navigationItem.rightBarButtonItem = nextBarItem
+        if let hasGoal = hasGoal {
+            if hasGoal == true {
+                heightContainChartViewConstraint.constant = 110
+                saveButton.setImage(UIImage(named: "Save Change"), forState: .Normal)
+                
+                navBar?.navigationBar.translucent = true
+                navBar?.navigationBar.backgroundColor = UIColors.ThemeOrange
+                self.title = "Goal Details"
+                navBar?.navigationBar.tintColor = UIColor.whiteColor()
+                navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//                let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
+//                self.navigationItem.rightBarButtonItem = nextBarItem
+                
+            } else {
+                heightContainChartViewConstraint.constant = 0
+                saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
+                navBar?.navigationBar.translucent = true
+                navBar?.navigationBar.backgroundColor = UIColor.clearColor()
+                self.title = "Setup Your Goal"
+                navBar?.navigationBar.tintColor = UIColor.orangeColor()
+                navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+                let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
+                self.navigationItem.rightBarButtonItem = nextBarItem
+            }
         }
     }
     
