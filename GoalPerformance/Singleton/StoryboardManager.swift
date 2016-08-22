@@ -22,4 +22,13 @@ class StoryboardManager {
         let mainView = UIStoryboard(name:storyboard, bundle: nil)
         return mainView.instantiateInitialViewController()!
     }
+    
+    func initViewFromNib(nibName: String) -> UIView! {
+        return UINib(nibName: nibName, bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+    }
+    
+    func initViewControllerFromNib(nibName: String) -> UIViewController! {
+        return UINib(nibName: nibName, bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIViewController
+    }
+    
 }
