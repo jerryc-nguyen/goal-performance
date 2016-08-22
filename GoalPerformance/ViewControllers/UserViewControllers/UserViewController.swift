@@ -12,10 +12,6 @@ class UserViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func onReloadData(sender: AnyObject) {
-        loadUserTimeline()
-    }
-    
     var numberOfSections = 2
     var userGoals: [Goal] = []
     var sessionsHistories = [SessionsHistory]()
@@ -38,6 +34,14 @@ class UserViewController: UIViewController {
         registerNibs()
         loadUserTimeline()
     }
+    
+    @IBAction func onAddGoalButton(sender: AnyObject) {
+        let newGoalVC = StoryboardManager.sharedInstance.getViewController(
+            "NewGoalViewController", storyboard: "NewGoal") as! NewGoalViewController
+        
+        navigationController?.pushViewController(newGoalVC, animated: true)
+    }
+    
     
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "UserProfileTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserProfileTableViewCell")

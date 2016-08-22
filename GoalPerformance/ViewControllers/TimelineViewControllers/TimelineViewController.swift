@@ -50,6 +50,7 @@ class TimelineViewController: UIViewController {
     
     func pullToRefresh() {
         currentPage = 1
+        hasMoreData = true
         loadHomeTimelineItems()
     }
     
