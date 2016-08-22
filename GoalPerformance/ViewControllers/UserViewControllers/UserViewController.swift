@@ -17,7 +17,6 @@ class UserViewController: UIViewController {
     }
     
     var numberOfSections = 2
-    
     var userGoals: [Goal] = []
     var sessionsHistories = [SessionsHistory]()
     var viewingUser: User!
@@ -100,6 +99,16 @@ extension UserViewController: UITableViewDataSource {
                 cell.goal = goal
             }
             return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboardManager  = StoryboardManager.sharedInstance
+        let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
+
+        if let defineGoalViewController = defineGoalViewController {
+            defineGoalViewController.hasGoal = true
+            self.navigationController?.pushViewController(defineGoalViewController, animated: true)
         }
     }
 }
