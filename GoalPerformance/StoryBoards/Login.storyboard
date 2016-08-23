@@ -17,8 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login background" translatesAutoresizingMaskIntoConstraints="NO" id="o5c-jW-phV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login BG full size" translatesAutoresizingMaskIntoConstraints="NO" id="o5c-jW-phV">
+                                <rect key="frame" x="0.0" y="0.0" width="960" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="aXD-RQ-T82"/>
+                                    <constraint firstAttribute="width" constant="960" id="bwt-b0-Pr7"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3T-mf-N2i">
                                 <rect key="frame" x="42" y="454" width="237" height="44"/>
@@ -41,13 +45,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="crv-Dw-nnC" firstAttribute="top" secondItem="o5c-jW-phV" secondAttribute="bottom" id="0Rp-qB-VrG"/>
                             <constraint firstItem="AKT-nm-WH5" firstAttribute="centerX" secondItem="fLz-SU-zSY" secondAttribute="centerX" id="9WJ-Fe-tKZ"/>
                             <constraint firstItem="AKT-nm-WH5" firstAttribute="top" secondItem="wvb-Cc-r5U" secondAttribute="bottom" constant="20" id="Cq0-o9-1f5"/>
-                            <constraint firstItem="o5c-jW-phV" firstAttribute="leading" secondItem="fLz-SU-zSY" secondAttribute="leading" id="Fhb-eg-iHi"/>
-                            <constraint firstItem="o5c-jW-phV" firstAttribute="top" secondItem="fLz-SU-zSY" secondAttribute="top" id="GQn-xJ-Oor"/>
+                            <constraint firstItem="o5c-jW-phV" firstAttribute="top" secondItem="fLz-SU-zSY" secondAttribute="top" id="ED0-nf-pFr"/>
+                            <constraint firstItem="o5c-jW-phV" firstAttribute="leading" secondItem="fLz-SU-zSY" secondAttribute="leading" id="K81-Ef-dTi"/>
                             <constraint firstItem="crv-Dw-nnC" firstAttribute="top" secondItem="p3T-mf-N2i" secondAttribute="bottom" constant="70" id="QhB-Uy-3bI"/>
-                            <constraint firstAttribute="trailing" secondItem="o5c-jW-phV" secondAttribute="trailing" id="avp-Qe-8QK"/>
                             <constraint firstItem="p3T-mf-N2i" firstAttribute="centerX" secondItem="fLz-SU-zSY" secondAttribute="centerX" id="j1O-dS-mly"/>
                             <constraint firstItem="wvb-Cc-r5U" firstAttribute="top" secondItem="VPR-jt-9gJ" secondAttribute="bottom" constant="35" id="kje-7d-uDo"/>
                             <constraint firstItem="wvb-Cc-r5U" firstAttribute="leading" secondItem="AKT-nm-WH5" secondAttribute="leading" id="kt5-Oe-LoF"/>
@@ -56,6 +58,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="background" destination="o5c-jW-phV" id="d35-cn-eY3"/>
+                        <outlet property="bgLeadingConstraint" destination="K81-Ef-dTi" id="FJe-FM-Qbq"/>
+                        <outlet property="bgTopConstraint" destination="ED0-nf-pFr" id="ZJE-nO-xkg"/>
                         <outlet property="loginButton" destination="p3T-mf-N2i" id="Oud-me-3gQ"/>
                     </connections>
                 </viewController>
@@ -66,7 +71,7 @@
     </scenes>
     <resources>
         <image name="log in button" width="237" height="44"/>
-        <image name="login background" width="320" height="568"/>
+        <image name="login BG full size" width="960" height="600"/>
         <image name="quote mark" width="74" height="64"/>
     </resources>
 </document>

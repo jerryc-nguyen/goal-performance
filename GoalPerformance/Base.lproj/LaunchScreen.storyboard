@@ -14,14 +14,27 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="laucnhIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Fxq-dQ-8Lf">
+                                <rect key="frame" x="115" y="220" width="90" height="90"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fxq-dQ-8Lf" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="200" id="2wf-rg-b3M"/>
+                            <constraint firstItem="Fxq-dQ-8Lf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KmO-gj-iec"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="laucnhIcon" width="90" height="90"/>
+    </resources>
 </document>
