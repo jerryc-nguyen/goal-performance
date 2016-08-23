@@ -17,7 +17,6 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     @IBOutlet weak var startTimePicker: UIDatePicker!
 
     @IBOutlet weak var saveButton: UIButton!
-    
     //var hasGoal = false
     var hasGoal: Bool?
     var timeChosen: String = ""
@@ -31,9 +30,13 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         super.viewDidLoad()
         
         let view = DefineGoalViewController.instanceFromNib()
-        self.view.addSubview(view)
         
+        if hasGoal == true {
+            containChartView.addSubview(view)
+            view.frame = containChartView.bounds
+        }
         let navBar = self.navigationController
+        
         startTimePicker.datePickerMode = UIDatePickerMode.Time
         if let hasGoal = hasGoal {
             if hasGoal == true {
@@ -48,8 +51,8 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             } else {
                 heightContainChartViewConstraint.constant = 0
                 saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
-                navBar?.navigationBar.translucent = true
-                navBar?.navigationBar.backgroundColor = UIColor.clearColor()
+               // navBar?.navigationBar.translucent = true
+                navBar?.navigationBar.backgroundColor = UIColor.whiteColor()
                 self.title = "Setup Your Goal"
                 navBar?.navigationBar.tintColor = UIColor.orangeColor()
                 navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]

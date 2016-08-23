@@ -13,7 +13,6 @@ class NewGoalViewController: UIViewController {
     var categories: Array<Category>?
     var categoryId:Int? = 0
     var categoryName:String! = ""
-    
     var goalsViewList: Array<GoalsView>? = []
     
     

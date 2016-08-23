@@ -17,6 +17,7 @@ class UserViewController: UIViewController {
     var sessionsHistories = [SessionsHistory]()
     var viewingUser: User!
     var dateLabels = [String]()
+    var hideNavBar = true
     
     var apiClient = APIClient.sharedInstance
     
@@ -24,7 +25,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         viewingUser = viewingUser ?? APIClient.currentUser
         self.navigationItem.title = "Your Goals"
-        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -38,7 +39,6 @@ class UserViewController: UIViewController {
     @IBAction func onAddGoalButton(sender: AnyObject) {
         let newGoalVC = StoryboardManager.sharedInstance.getViewController(
             "NewGoalViewController", storyboard: "NewGoal") as! NewGoalViewController
-        
         navigationController?.pushViewController(newGoalVC, animated: true)
     }
     

@@ -73,7 +73,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
       //  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.loginButton.hidden = true
         
-        UIView.animateWithDuration(30, delay: 0, options: .AllowUserInteraction, animations: {
+        UIView.animateWithDuration(25, delay: 0, options: .AllowUserInteraction, animations: {
             self.bgTopConstraint.constant = -30
             self.bgLeadingConstraint.constant = -600
             self.view.layoutIfNeeded()
