@@ -51,11 +51,11 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             } else {
                 heightContainChartViewConstraint.constant = 0
                 saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
-               // navBar?.navigationBar.translucent = true
-                navBar?.navigationBar.backgroundColor = UIColor.whiteColor()
+                navBar?.navigationBar.translucent = true
+                navBar?.navigationBar.backgroundColor = UIColors.ThemeOrange
                 self.title = "Setup Your Goal"
-                navBar?.navigationBar.tintColor = UIColor.orangeColor()
-                navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+                navBar?.navigationBar.tintColor = UIColor.whiteColor()
+                navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
                 let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
                 self.navigationItem.rightBarButtonItem = nextBarItem
             }

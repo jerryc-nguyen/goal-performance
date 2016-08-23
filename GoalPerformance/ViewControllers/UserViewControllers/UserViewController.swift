@@ -45,7 +45,6 @@ class UserViewController: UIViewController {
     
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "UserProfileTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserProfileTableViewCell")
-//        tableView.registerNib(UINib(nibName: "UserGoalsChartTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalsChartTableViewCell")
         tableView.registerNib(UINib(nibName: "UserGoalTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalTableViewCell")
     }
     
