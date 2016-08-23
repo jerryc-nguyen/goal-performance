@@ -13,19 +13,29 @@ import AirshipKit
 import MBProgressHUD
 
 class LoginViewController: UIViewController {
-    let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     
+    @IBOutlet weak var bgTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bgLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var background: UIImageView!
+    let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.login()
+        
+        UIView.animateWithDuration(20, delay: 0, options: .AllowUserInteraction, animations: { 
+            self.bgTopConstraint.constant = -30
+            self.bgLeadingConstraint.constant = -600
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
     @IBAction func loginWithFacebook(sender: UIButton) {
         self.login()
     }
     func login() {
+        
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             authWithAPIServer(FBSDKAccessToken.currentAccessToken().tokenString)
         } else {
@@ -43,7 +53,7 @@ class LoginViewController: UIViewController {
                 }
                 })
         }
-     }
+    }
 }
 extension LoginViewController : FBSDKLoginButtonDelegate{
     // Facebook Delegate Methods
@@ -60,8 +70,14 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
     }
     
     func authWithAPIServer(fbAccessToken: String) {
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+      //  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.loginButton.hidden = true
+        
+        UIView.animateWithDuration(25, delay: 0, options: .AllowUserInteraction, animations: {
+            self.bgTopConstraint.constant = -30
+            self.bgLeadingConstraint.constant = -600
+            self.view.layoutIfNeeded()
+            }, completion: nil)
         print("currentAccessToken", FBSDKAccessToken.currentAccessToken().tokenString)
         APIClient.sharedInstance.loginFacebook(fbAccessToken, completed: { (currentUser) in
             print("currentUser token", currentUser.token)
@@ -73,7 +89,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             
             APIClient.currentUser = currentUser
             APIClient.currentUserToken = currentUser.token!
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+         //   MBProgressHUD.hideHUDForView(self.view, animated: true)
             if currentUser.goalsCount == 0 {
                 APP_DELEGATE.window?.rootViewController = StoryboardManager.sharedInstance.getInitialViewController("NewGoal")
             } else {

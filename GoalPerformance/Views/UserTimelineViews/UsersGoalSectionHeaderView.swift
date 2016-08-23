@@ -20,6 +20,7 @@ class UsersGoalSectionHeaderView: UIView {
     @IBOutlet weak var countDownTimerImgView: UIImageView!
     
     @IBOutlet weak var challengeImgView: UIImageView!
+    
    // @IBOutlet weak var sectionHeaderLabel: UILabel!
     
     var goal: Goal? {
@@ -27,8 +28,6 @@ class UsersGoalSectionHeaderView: UIView {
             goalNameLabel.text = goal!.detailName
             showCountdownLabel()
             showChallengeIcon()
-//            countDownTimerImgView.image = UIImage.fontAwesomeIconWithName(.Hourglass, textColor: UIColor.blackColor(), size: CGSize(width: 30, height: 30))
-//            challengeImgView.image = UIImage.fontAwesomeIconWithName(.Users, textColor: UIColor.blackColor(), size: CGSize(width: 30, height: 30))
         }
     }
     
@@ -44,9 +43,6 @@ class UsersGoalSectionHeaderView: UIView {
     
     func showCountdownLabel() {
         if goal?.isDoingTime == true {
-            //set image
-            
-            
             //set background
             backgroundColor = UIColors.GoalDoingBackground
             

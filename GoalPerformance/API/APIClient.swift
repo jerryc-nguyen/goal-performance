@@ -46,7 +46,7 @@ struct API_URLS {
     static let goalSetup = "\(APIBaseURL)/api/goals.json"
 
     //USERS
-    static let homeTimeLine = "\(APIBaseURL)/api/users/home_timeline.json"
+    static let homeTimeLine = "\(APIBaseURL)/api/users/home_timeline.json?page=%d"
     static let userTimeLine = "\(APIBaseURL)/api/users/%d/timeline.json"
     
     //GOAL START-END

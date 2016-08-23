@@ -12,16 +12,12 @@ class UserViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBAction func onReloadData(sender: AnyObject) {
-        loadUserTimeline()
-    }
-    
     var numberOfSections = 2
-    
     var userGoals: [Goal] = []
     var sessionsHistories = [SessionsHistory]()
     var viewingUser: User!
     var dateLabels = [String]()
+    var hideNavBar = true
     
     var apiClient = APIClient.sharedInstance
     
@@ -29,7 +25,7 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         viewingUser = viewingUser ?? APIClient.currentUser
         self.navigationItem.title = "Your Goals"
-        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -40,9 +36,15 @@ class UserViewController: UIViewController {
         loadUserTimeline()
     }
     
+    @IBAction func onAddGoalButton(sender: AnyObject) {
+        let newGoalVC = StoryboardManager.sharedInstance.getViewController(
+            "NewGoalViewController", storyboard: "NewGoal") as! NewGoalViewController
+        navigationController?.pushViewController(newGoalVC, animated: true)
+    }
+    
+    
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "UserProfileTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserProfileTableViewCell")
-//        tableView.registerNib(UINib(nibName: "UserGoalsChartTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalsChartTableViewCell")
         tableView.registerNib(UINib(nibName: "UserGoalTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalTableViewCell")
     }
     
@@ -100,6 +102,16 @@ extension UserViewController: UITableViewDataSource {
                 cell.goal = goal
             }
             return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboardManager  = StoryboardManager.sharedInstance
+        let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
+
+        if let defineGoalViewController = defineGoalViewController {
+            defineGoalViewController.hasGoal = true
+            self.navigationController?.pushViewController(defineGoalViewController, animated: true)
         }
     }
 }
