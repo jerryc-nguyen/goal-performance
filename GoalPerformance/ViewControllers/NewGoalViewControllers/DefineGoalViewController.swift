@@ -73,7 +73,6 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             "goal[repeat_every]" : self.weekdays,
             "goal[duration]" : self.duration,
             "goal[sound_name]" : "alarm1",
-            "goal[is_challenge]" : true,
             "goal[is_default]" : true,
             "goal[category_id]" : self.categoryID!
         ]

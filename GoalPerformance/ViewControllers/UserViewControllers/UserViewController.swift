@@ -124,7 +124,7 @@ extension UserViewController: UITableViewDelegate {
         default:
             let view = UsersGoalSectionHeaderView.initFromNib()
             if userGoals.count > 0 {
-                view.goalNameLabel.text = userGoals[section - 1].detailName
+                view.goal = userGoals[section - 1]
             }
             return view
         }

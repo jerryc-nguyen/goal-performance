@@ -38,13 +38,17 @@ class UsersGoalSectionHeaderView: UIView {
         } else {
             challengeImgView.hidden = true
         }
-        
     }
     
     func showCountdownLabel() {
         if goal?.isDoingTime == true {
             //set background
             backgroundColor = UIColors.GoalDoingBackground
+            
+            //set text color
+            goalNameLabel.textColor = UIColor.whiteColor()
+            
+            countDownTimerLabel.textColor = UIColor.whiteColor()
             
             //schedule timer
             NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(countDownTimer), userInfo: nil, repeats: true)
