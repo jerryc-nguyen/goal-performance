@@ -37,7 +37,7 @@ class MainTabBarController: UITabBarController {
     }()
     
     lazy var searchVC: UINavigationController  = {
-        let vc = StoryboardManager.sharedInstance.getInitialViewController("User") as! UINavigationController
+        let vc = StoryboardManager.sharedInstance.getInitialViewController("Map") as! UINavigationController
         vc.tabBarItem.image = UIImage.fontAwesomeIconWithName(.Search, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         vc.tabBarItem.title = "Search"
         return vc

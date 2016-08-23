@@ -76,7 +76,25 @@
 		E471C84C1D5787150075C5E9 /* GoalIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */; };
 		E471C8501D57895D0075C5E9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E471C84F1D57895D0075C5E9 /* Category.swift */; };
 		E4986E501D604642005A6A34 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4986E4F1D604642005A6A34 /* DoneViewController.swift */; };
+		E49AFB6E1D6CC65200BDD40C /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49AFB6D1D6CC65200BDD40C /* Map.storyboard */; };
+		E49AFB711D6CC6B200BDD40C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AFB701D6CC6B200BDD40C /* MapViewController.swift */; };
+		E49AFB731D6CC7A300BDD40C /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */; };
+		E49AFB741D6CC7A300BDD40C /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E49AFB751D6CC7A400BDD40C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E49AFB741D6CC7A300BDD40C /* AirshipKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		420114DF1D5791D900B2F199 /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
@@ -153,6 +171,9 @@
 		E471C8491D5787150075C5E9 /* GoalIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalIntervalTableViewController.swift; sourceTree = "<group>"; };
 		E471C84F1D57895D0075C5E9 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E4986E4F1D604642005A6A34 /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
+		E49AFB6D1D6CC65200BDD40C /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		E49AFB701D6CC6B200BDD40C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AirshipKit.framework; path = "/Users/sophie/Library/Developer/Xcode/DerivedData/GoalPerformance-hbonuqunhjtoqwckgmepbjynjhrl/Build/Products/Debug-iphonesimulator/UrbanAirship-iOS-SDK/AirshipKit.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E49AFB731D6CC7A300BDD40C /* AirshipKit.framework in Frameworks */,
 				874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +210,7 @@
 		42210C9D1D4D040F0029990F = {
 			isa = PBXGroup;
 			children = (
+				E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */,
 				42210CA81D4D040F0029990F /* GoalPerformance */,
 				42210CA71D4D040F0029990F /* Products */,
 				F12935C63977DEE64BD5514D /* Pods */,
@@ -280,6 +303,7 @@
 		42F010061D4F9F8D002CD514 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E49AFB6F1D6CC69800BDD40C /* MapViewController */,
 				E00701461D608CBC0090972F /* FriendControllers */,
 				4263F9191D55FF0800C119DB /* GoalStartEndViewControllers */,
 				E07B39841D5481C60000FA93 /* InviteFriendViewControllers */,
@@ -355,6 +379,7 @@
 				42F0101A1D4FA856002CD514 /* Timeline.storyboard */,
 				42F0101B1D4FA856002CD514 /* User.storyboard */,
 				4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */,
+				E49AFB6D1D6CC65200BDD40C /* Map.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -432,6 +457,14 @@
 			path = GoalsView;
 			sourceTree = "<group>";
 		};
+		E49AFB6F1D6CC69800BDD40C /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E49AFB701D6CC6B200BDD40C /* MapViewController.swift */,
+			);
+			name = MapViewController;
+			sourceTree = "<group>";
+		};
 		F12935C63977DEE64BD5514D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +487,7 @@
 				42210CA41D4D040F0029990F /* Resources */,
 				8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */,
 				F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */,
+				E49AFB751D6CC7A400BDD40C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -508,6 +542,7 @@
 				4263F9161D55FD2600C119DB /* GoalStartEnd.storyboard in Resources */,
 				42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */,
 				42F0101E1D4FA856002CD514 /* Timeline.storyboard in Resources */,
+				E49AFB6E1D6CC65200BDD40C /* Map.storyboard in Resources */,
 				420114E81D579FA100B2F199 /* TimelineItemTableViewCell.xib in Resources */,
 				424AF2201D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib in Resources */,
 				42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */,
@@ -595,6 +630,7 @@
 				E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */,
 				4263DF571D5BC6460050E5A0 /* APIClient.swift in Sources */,
 				E471C8501D57895D0075C5E9 /* Category.swift in Sources */,
+				E49AFB711D6CC6B200BDD40C /* MapViewController.swift in Sources */,
 				4263DF5A1D5BC6460050E5A0 /* Categories.swift in Sources */,
 				E4986E501D604642005A6A34 /* DoneViewController.swift in Sources */,
 				4263DF591D5BC6460050E5A0 /* Auth.swift in Sources */,
