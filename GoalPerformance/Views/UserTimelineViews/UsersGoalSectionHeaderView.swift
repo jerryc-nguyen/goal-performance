@@ -21,6 +21,11 @@ class UsersGoalSectionHeaderView: UIView {
     
     @IBOutlet weak var challengeImgView: UIImageView!
     
+    @IBOutlet weak var goalBuddiesImgView: UIImageView!
+    
+    @IBOutlet weak var challengeRightSpaceToParent: NSLayoutConstraint!
+    
+
    // @IBOutlet weak var sectionHeaderLabel: UILabel!
     
     var goal: Goal? {
@@ -28,15 +33,25 @@ class UsersGoalSectionHeaderView: UIView {
             goalNameLabel.text = goal!.detailName
             showCountdownLabel()
             showChallengeIcon()
+            showBuddiesIcon()
         }
     }
     
     
     func showChallengeIcon() {
         if goal?.isChallenge == true {
-            
+            challengeImgView.hidden = false
         } else {
             challengeImgView.hidden = true
+        }
+    }
+    
+    func showBuddiesIcon() {
+        if goal?.buddiesCount > 1 {
+            goalBuddiesImgView.hidden = false
+        } else {
+            goalBuddiesImgView.hidden = true
+            challengeRightSpaceToParent.constant = 10
         }
     }
     
@@ -48,7 +63,7 @@ class UsersGoalSectionHeaderView: UIView {
             //set text color
             goalNameLabel.textColor = UIColor.whiteColor()
             
-            countDownTimerLabel.textColor = UIColor.whiteColor()
+            countDownTimerLabel.textColor = UIColors.HomeTimelineChartLineColor
             
             //schedule timer
             NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(countDownTimer), userInfo: nil, repeats: true)
