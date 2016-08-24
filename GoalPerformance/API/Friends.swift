@@ -27,12 +27,12 @@ extension APIClient {
         }
     }
     
-    func getSuggestedFriends(goaldSessionID:Int, completed: (friends: [User]) -> ()) {
+    func getSuggestedBuddies(goaldSessionID:Int, completed: (friends: [User]) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
         
-        let requestUrl = String(format: API_URLS.suggestFriends, goaldSessionID)
+        let requestUrl = String(format: API_URLS.suggestBuddies, goaldSessionID)
         
         Alamofire.request(.GET, requestUrl, headers: headers)
             .responseJSON { response in
@@ -124,6 +124,27 @@ extension APIClient {
         }
         
     }
+    
+    func getSuggestedFriends(goaldSessionID:Int, completed: (friends: [User]) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        let requestUrl = String(format: API_URLS.suggestedFriends, goaldSessionID)
+        
+        Alamofire.request(.GET, requestUrl, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    var friends = [User]()
+                    for friendDictionary in JSON["data"] as! [Dictionary<String, AnyObject>] {
+                        let friend = User(dictionary: friendDictionary)
+                        friends.append(friend)
+                    }
+                    completed(friends: friends)
+                }
+        }
+    }
+
 
 
 }

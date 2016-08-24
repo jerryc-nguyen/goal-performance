@@ -156,5 +156,98 @@
             </objects>
             <point key="canvasLocation" x="1610" y="259"/>
         </scene>
+        <!--Suggested Friends Table View Controller-->
+        <scene sceneID="1pb-VW-zJ9">
+            <objects>
+                <tableViewController storyboardIdentifier="SuggestedFriendsTableViewController" id="7lV-1r-2fr" customClass="SuggestedFriendsTableViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" id="b4J-rx-nmd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestedFriendsTableViewCell" id="0kH-H2-fZy" customClass="SuggestedFriendsTableViewCell" customModule="GoalPerformance" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="116"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0kH-H2-fZy" id="j6N-9g-Kqv">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="115.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vGE-En-pou">
+                                            <rect key="frame" x="20" y="30" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="JFe-sS-QJq"/>
+                                                <constraint firstAttribute="height" constant="50" id="ef8-W2-C4R"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUW-ZL-adv">
+                                            <rect key="frame" x="78" y="30" width="53" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Goals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgy-mn-cau">
+                                            <rect key="frame" x="78" y="65" width="39" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZy-zV-Abk">
+                                            <rect key="frame" x="270" y="40" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="6dZ-sF-yn5"/>
+                                                <constraint firstAttribute="height" constant="30" id="f2z-Wu-OQj"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="onAddFriendAction:" destination="0kH-H2-fZy" eventType="touchUpInside" id="CIU-2f-FR1"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yl-zW-5N5">
+                                            <rect key="frame" x="230" y="40" width="30" height="30"/>
+                                            <state key="normal" image="challenge"/>
+                                            <connections>
+                                                <action selector="onChallengeAction:" destination="0kH-H2-fZy" eventType="touchUpInside" id="cUm-6A-GwU"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bZy-zV-Abk" firstAttribute="centerY" secondItem="j6N-9g-Kqv" secondAttribute="centerY" id="2eT-sB-BN7"/>
+                                        <constraint firstItem="2yl-zW-5N5" firstAttribute="width" secondItem="bZy-zV-Abk" secondAttribute="width" id="5EY-D9-zGL"/>
+                                        <constraint firstItem="HUW-ZL-adv" firstAttribute="top" secondItem="vGE-En-pou" secondAttribute="top" id="7G8-5b-fc4"/>
+                                        <constraint firstItem="vGE-En-pou" firstAttribute="leading" secondItem="j6N-9g-Kqv" secondAttribute="leading" constant="20" id="7Xq-dL-NuY"/>
+                                        <constraint firstItem="bZy-zV-Abk" firstAttribute="leading" secondItem="2yl-zW-5N5" secondAttribute="trailing" constant="10" id="AHh-G9-ej6"/>
+                                        <constraint firstItem="2yl-zW-5N5" firstAttribute="centerY" secondItem="bZy-zV-Abk" secondAttribute="centerY" id="Jv4-QA-5Ia"/>
+                                        <constraint firstItem="Sgy-mn-cau" firstAttribute="baseline" secondItem="vGE-En-pou" secondAttribute="baseline" id="Nqf-vF-MdG"/>
+                                        <constraint firstAttribute="trailing" secondItem="bZy-zV-Abk" secondAttribute="trailing" constant="20" id="Ved-8A-ufb"/>
+                                        <constraint firstItem="HUW-ZL-adv" firstAttribute="leading" secondItem="vGE-En-pou" secondAttribute="trailing" constant="8" id="fWB-Ph-D0C"/>
+                                        <constraint firstItem="vGE-En-pou" firstAttribute="centerY" secondItem="j6N-9g-Kqv" secondAttribute="centerY" id="lvL-D2-alF"/>
+                                        <constraint firstItem="Sgy-mn-cau" firstAttribute="leading" secondItem="HUW-ZL-adv" secondAttribute="leading" id="rHG-AL-l0W"/>
+                                        <constraint firstItem="2yl-zW-5N5" firstAttribute="height" secondItem="bZy-zV-Abk" secondAttribute="height" id="tHj-27-feC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addFriendButton" destination="bZy-zV-Abk" id="Y0B-I4-OzI"/>
+                                    <outlet property="challengeButton" destination="2yl-zW-5N5" id="N20-Oa-8b3"/>
+                                    <outlet property="goalNameLabel" destination="Sgy-mn-cau" id="Mxa-Uz-gbt"/>
+                                    <outlet property="nameLabel" destination="HUW-ZL-adv" id="3HX-a1-OiW"/>
+                                    <outlet property="profileImgView" destination="vGE-En-pou" id="InC-0P-dad"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7lV-1r-2fr" id="omj-4S-bGe"/>
+                            <outlet property="delegate" destination="7lV-1r-2fr" id="hrl-Kh-aIj"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="N2N-2V-pMX"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6T-MR-Ttx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1970" y="259"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="challenge" width="31" height="36"/>
+    </resources>
 </document>

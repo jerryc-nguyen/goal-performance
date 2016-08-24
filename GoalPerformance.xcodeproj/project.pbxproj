@@ -80,6 +80,8 @@
 		E49AFB711D6CC6B200BDD40C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AFB701D6CC6B200BDD40C /* MapViewController.swift */; };
 		E49AFB731D6CC7A300BDD40C /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */; };
 		E49AFB741D6CC7A300BDD40C /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E4A4940E1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A4940D1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift */; };
+		E4A494131D6DD86B008210AA /* SuggestedFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A494121D6DD86B008210AA /* SuggestedFriendsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -174,6 +176,8 @@
 		E49AFB6D1D6CC65200BDD40C /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		E49AFB701D6CC6B200BDD40C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AirshipKit.framework; path = "/Users/sophie/Library/Developer/Xcode/DerivedData/GoalPerformance-hbonuqunhjtoqwckgmepbjynjhrl/Build/Products/Debug-iphonesimulator/UrbanAirship-iOS-SDK/AirshipKit.framework"; sourceTree = "<absolute>"; };
+		E4A4940D1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedFriendsTableViewCell.swift; sourceTree = "<group>"; };
+		E4A494121D6DD86B008210AA /* SuggestedFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestedFriendsTableViewController.swift; path = FriendControllers/SuggestedFriendsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +323,7 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4A4940C1D6DC9BE008210AA /* SuggestedFriendViews */,
 				E44F1B011D64BF5400437844 /* GoalsView */,
 				422378921D60373A00062B73 /* FriendViews */,
 				424AF20E1D5ED2C0001754B2 /* NewGoalViews */,
@@ -419,6 +424,7 @@
 				E00701471D608D180090972F /* FriendViewController.swift */,
 				E42ACD721D697B3B008FD15B /* FriendsTableViewController.swift */,
 				E42ACD741D698329008FD15B /* GoalBuddiesTableViewController.swift */,
+				E4A494121D6DD86B008210AA /* SuggestedFriendsTableViewController.swift */,
 			);
 			name = FriendControllers;
 			sourceTree = "<group>";
@@ -463,6 +469,14 @@
 				E49AFB701D6CC6B200BDD40C /* MapViewController.swift */,
 			);
 			name = MapViewController;
+			sourceTree = "<group>";
+		};
+		E4A4940C1D6DC9BE008210AA /* SuggestedFriendViews */ = {
+			isa = PBXGroup;
+			children = (
+				E4A4940D1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift */,
+			);
+			name = SuggestedFriendViews;
 			sourceTree = "<group>";
 		};
 		F12935C63977DEE64BD5514D /* Pods */ = {
@@ -645,10 +659,12 @@
 				E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */,
 				424AF21B1D5EDF00001754B2 /* UserGoalsChartTableViewCell.swift in Sources */,
 				424AF2021D5E94A9001754B2 /* SessionsHistory.swift in Sources */,
+				E4A4940E1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift in Sources */,
 				E458465F1D68503500D38015 /* GoalStartEnd.swift in Sources */,
 				E42ACD751D698329008FD15B /* GoalBuddiesTableViewController.swift in Sources */,
 				E471C84A1D5787150075C5E9 /* DefineGoalViewController.swift in Sources */,
 				42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */,
+				E4A494131D6DD86B008210AA /* SuggestedFriendsTableViewController.swift in Sources */,
 				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,
 				4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */,
 				42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */,
