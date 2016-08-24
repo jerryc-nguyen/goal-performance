@@ -15,12 +15,18 @@ class FriendsTableViewController: UITableViewController, FriendTableViewCellDele
     var friends = [User]()
     var pendingBuddies = [User]()
     var parentNavigationController : UINavigationController?
+    var refresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(loadFriend), forControlEvents: UIControlEvents.ValueChanged)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         tableView.registerNib(UINib(nibName: "FriendTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "FriendTableViewCell")
+        
+        tableView.insertSubview(refresh, atIndex: 0)
         
         loadFriend()
         // Uncomment the following line to preserve selection between presentations
@@ -29,12 +35,7 @@ class FriendsTableViewController: UITableViewController, FriendTableViewCellDele
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -145,17 +146,19 @@ class FriendsTableViewController: UITableViewController, FriendTableViewCellDele
     func loadFriend() {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.apiClient.getPendingFriend { (friends) in
-        self.pendingFriends = friends
-      //  self.tableView.reloadData()
-        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
-        
-        
-        self.apiClient.getAllFriends { (friends) in
-            self.friends = friends
-            self.tableView.reloadData()
+            self.pendingFriends = friends
+            //  self.tableView.reloadData()
+            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+            
+            
+            self.apiClient.getAllFriends { (friends) in
+                self.friends = friends
+                self.tableView.reloadData()
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                self.refresh.endRefreshing()
             }
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
+        
     }
     
     func reloadData(viewCell: FriendTableViewCell) {

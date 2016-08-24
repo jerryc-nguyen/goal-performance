@@ -17,6 +17,9 @@ class GoalBuddiesTableViewController: UITableViewController, FriendTableViewCell
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(loadFriend), forControlEvents: UIControlEvents.ValueChanged)
+        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         tableView.registerNib(UINib(nibName: "FriendTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "FriendTableViewCell")
@@ -157,6 +160,7 @@ class GoalBuddiesTableViewController: UITableViewController, FriendTableViewCell
                 self.buddies = friends
                 self.tableView.reloadData()
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
+                self.refreshControl!.endRefreshing()
             }
         
         }

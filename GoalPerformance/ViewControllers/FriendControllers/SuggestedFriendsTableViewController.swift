@@ -18,6 +18,9 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
     
     
     override func viewDidLoad() {
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(loadSuggestFriend), forControlEvents: UIControlEvents.ValueChanged)
+        
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 120
@@ -58,6 +61,7 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
             //            self.suggestFriendTableView.reloadData()
             self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
             MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.refreshControl?.endRefreshing()
         })
     }
     func makeAlert(tittle: String, message: String) {
