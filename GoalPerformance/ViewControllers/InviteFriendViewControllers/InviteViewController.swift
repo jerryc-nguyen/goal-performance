@@ -61,7 +61,7 @@ class InviteViewController: UIViewController {
                 selectInviteVC.goalSessionId = self.currentGoalSession.id
                 self.navigationController?.pushViewController(selectInviteVC, animated: true)
             } else {
-                self.makeAlert("Oops!", message: "Cannot make your goal to be a challenge, try again please")
+                self.makeAlert("Oops!", message: "Cannot make your goal a challenge, try again please")
             }
             MBProgressHUD.hideHUDForView(self.view, animated: true)
         }

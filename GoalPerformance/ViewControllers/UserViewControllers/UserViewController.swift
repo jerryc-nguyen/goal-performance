@@ -21,6 +21,8 @@ class UserViewController: UIViewController {
     
     var apiClient = APIClient.sharedInstance
     
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewingUser = viewingUser ?? APIClient.currentUser
@@ -31,6 +33,9 @@ class UserViewController: UIViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
+        
+        refreshControl.addTarget(self, action: #selector(loadUserTimeline), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
         
         registerNibs()
         loadUserTimeline()
@@ -56,6 +61,7 @@ class UserViewController: UIViewController {
             self.dateLabels = dateLabels!
             self.numberOfSections = self.userGoals.count + 1
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -124,7 +130,7 @@ extension UserViewController: UITableViewDelegate {
         default:
             let view = UsersGoalSectionHeaderView.initFromNib()
             if userGoals.count > 0 {
-                view.goalNameLabel.text = userGoals[section - 1].detailName
+                view.goal = userGoals[section - 1]
             }
             return view
         }

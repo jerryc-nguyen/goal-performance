@@ -34,7 +34,7 @@ struct DeviceType {
 struct UIColors {
     static let HomeTimelineChartLineColor = UIColor(hue: 14.0, saturation: 87.0, brightness: 100.0, alpha: 1.0)
 
-    static let GoalDoingBackground = UIColor(hue: 14.0, saturation: 11.0, brightness: 100.0, alpha: 1.0)
+    static let GoalDoingBackground = UIColor(red: 0, green: 0.8196, blue: 0.4902, alpha: 1.0) /* #00d17d */
     
     static let ThemeOrange = UIColor(netHex: 0xff5722)
     

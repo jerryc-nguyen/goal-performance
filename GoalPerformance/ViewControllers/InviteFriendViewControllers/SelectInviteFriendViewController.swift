@@ -56,7 +56,7 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     
     func loadSuggestFriend(){
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        apiClient.getSuggestedFriends(goalSessionId, completed: { (friends) in
+        apiClient.getSuggestedBuddies(goalSessionId, completed: { (friends) in
             self.friends = friends
 //            self.suggestFriendTableView.reloadData()
             self.suggestFriendTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)

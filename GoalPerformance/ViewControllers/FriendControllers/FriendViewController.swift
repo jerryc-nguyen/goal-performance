@@ -29,15 +29,20 @@ class FriendViewController: UIViewController, CAPSPageMenuDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let controller1 = storyboardManager.getViewController("FriendsTableViewController", storyboard: "Friend") as! FriendsTableViewController
+        let controller1 = storyboardManager.getViewController("SuggestedFriendsTableViewController", storyboard: "Friend") as! SuggestedFriendsTableViewController
+        controller1.title = "Suggested Friends"
         controller1.parentNavigationController = self.navigationController
-        controller1.title = "Friends"
         controllerArray.append(controller1)
         
-        let controller2 = storyboardManager.getViewController("GoalBuddiesTableViewController", storyboard: "Friend") as! GoalBuddiesTableViewController
-        controller2.title = "Goal Buddies"
+        let controller2 = storyboardManager.getViewController("FriendsTableViewController", storyboard: "Friend") as! FriendsTableViewController
         controller2.parentNavigationController = self.navigationController
+        controller2.title = "Friends"
         controllerArray.append(controller2)
+        
+        let controller3 = storyboardManager.getViewController("GoalBuddiesTableViewController", storyboard: "Friend") as! GoalBuddiesTableViewController
+        controller3.title = "Goal Buddies"
+        controller3.parentNavigationController = self.navigationController
+        controllerArray.append(controller3)
         
         let parameters: [CAPSPageMenuOption] = [
             .ScrollMenuBackgroundColor(UIColor.whiteColor()),
@@ -54,18 +59,6 @@ class FriendViewController: UIViewController, CAPSPageMenuDelegate {
         
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
         self.view.addSubview(pageMenu!.view)
-        
-
-        // Do any additional setup after loading the view.
-//        friendTableView.delegate = self
-//        friendTableView.dataSource = self
-//        
-//        friendTableView.rowHeight = UITableViewAutomaticDimension
-//        friendTableView.estimatedRowHeight = 120
-//        
-//        friendTableView.registerNib(UINib(nibName: "FriendTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "FriendTableViewCell")
-//        
-//        loadFriend()
     }
 
 //    func loadFriend() {

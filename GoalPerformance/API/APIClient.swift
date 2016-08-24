@@ -19,7 +19,7 @@ struct API_URLS {
     
     //FRIENDS
     static let friends = "\(APIBaseURL)/api/friends.json"
-    static let suggestFriends = "\(APIBaseURL)/api/goal_sessions/%d/suggest_buddies.json"
+    static let suggestBuddies = "\(APIBaseURL)/api/goal_sessions/%d/suggest_buddies.json"
     static let buddiesFriends = "\(APIBaseURL)/api/friends/buddies.json"
     
     //FRIENDSHIPS
@@ -51,6 +51,9 @@ struct API_URLS {
     
     //GOAL START-END
     static let goalStartEnd = "\(APIBaseURL)/api/goal_sessions/handle_start_end.json"
+    //SUGGESTED FRIENDS
+    static let suggestedFriends = "\(APIBaseURL)/api/friends/suggested.json"
+    
 }
 
 typealias CompletedBlock = ((result: AnyObject?) -> Void)?

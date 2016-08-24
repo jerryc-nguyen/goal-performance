@@ -30,6 +30,7 @@ class Goal: NSObject {
     var endAtHour: Int = 0
     var endAtMinute: Int = 0
     var endAtSecond: Int = 0
+    var buddiesCount: Int = 1
     
     let localNotificationManager = LocalNotificationsManager.sharedInstance
     
@@ -139,6 +140,10 @@ class Goal: NSObject {
         
         if let endAtSecond = dictionary["end_at_second"] as? Int {
             self.endAtSecond = endAtSecond
+        }
+        
+        if let buddiesCount = dictionary["buddies_count"] as? Int {
+            self.buddiesCount = buddiesCount
         }
         
         if let sessionsHistoryData = dictionary["sessions_history"] as? NSDictionary {
