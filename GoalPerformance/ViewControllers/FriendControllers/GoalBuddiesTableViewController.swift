@@ -149,11 +149,12 @@ class GoalBuddiesTableViewController: UITableViewController {
             self.tableView.reloadData()
             
             
-            self.apiClient.getAllFriends { (friends) in
+            self.apiClient.getBuddiesFriend { (friends) in
                 self.friends = friends
                 self.tableView.reloadData()
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
             }
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        
         }
     }
     

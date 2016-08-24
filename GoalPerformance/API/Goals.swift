@@ -24,6 +24,61 @@ extension APIClient {
                 }
         }
     }
+    
+    func createGoal(params: Dictionary<String, AnyObject>, completed: CompletedBlock) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        Alamofire.request(.POST, API_URLS.goalSetup, parameters: params, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if JSON["status"] as! Int == 200 {
+                        if let completed = completed {
+                            if let goalSessionData = JSON["data"] as? NSDictionary {
+                                let goalSession = GoalSession(dictionary: goalSessionData)
+                                completed(result: goalSession)
+                            }
+                        }
+                    } else {
+                        if let completed = completed {
+                            completed(result: nil)
+                            print(response.result.error?.localizedDescription)
+                        }
+                        
+                    }
+                }
+        }
+    }
+    
+    func updateGoal(goalID: Int, isChallenge: Bool,  completed: (result: Bool) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        
+        let requestUrl = String(format: API_URLS.goalDetail, goalID)
+        let params: [String: AnyObject] = ["goal[is_challenge]" : isChallenge]
+        
+        Alamofire.request(.PUT, requestUrl, parameters: params, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if JSON["status"] as! Int == 200 {
+                        
+                        completed(result: true)
+                        
+                    } else {
+                        completed(result: false)
+                    }
+                } else {
+                    completed(result: false)
+                    print(response.result.error?.localizedDescription)
+                    
+                }
+                
+        }
+        
+    }
 
     
     func inviteGoal(goalID: Int, friendID: Int, completed: (status: Int, title: String, message: String) -> ()) {
@@ -91,62 +146,68 @@ extension APIClient {
         }
         
     }
+    
+    
+    func acceptGoal(goalID: Int, completed: (title: String, message: String) -> ()) {
+        let header = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        let requestUrl = String(format: API_URLS.acceptGoal, goalID)
 
-    
-    func createGoal(params: Dictionary<String, AnyObject>, completed: CompletedBlock) {
-        let headers = [
-            "X-Api-Token": APIClient.currentUserToken
-        ]
-        
-        Alamofire.request(.POST, API_URLS.goalSetup, parameters: params, headers: headers)
+        Alamofire.request(.POST, requestUrl, headers: header)
             .responseJSON { response in
                 if let JSON = response.result.value {
-                    if JSON["status"] as! Int == 200 {
-                        if let completed = completed {
-                            if let goalSessionData = JSON["data"] as? NSDictionary {
-                                let goalSession = GoalSession(dictionary: goalSessionData)
-                                completed(result: goalSession)
-                            }
-                        }
-                    } else {
-                        if let completed = completed {
-                            completed(result: nil)
-                            print(response.result.error?.localizedDescription)
-                        }
-                        
-                    }
-                }
-        }
-    }
-    
-    func updateGoal(goalID: Int, isChallenge: Bool,  completed: (result: Bool) -> ()) {
-        let headers = [
-            "X-Api-Token": APIClient.currentUserToken
-        ]
-        
-        
-        let requestUrl = String(format: API_URLS.goalDetail, goalID)
-        let params: [String: AnyObject] = ["goal[is_challenge]" : isChallenge]
-        
-        Alamofire.request(.PUT, requestUrl, parameters: params, headers: headers)
-            .responseJSON { response in
-                if let JSON = response.result.value {
-                    if JSON["status"] as! Int == 200 {
-                        
-                        completed(result: true)
-                        
-                    } else {
-                        completed(result: false)
-                    }
-                } else {
-                    completed(result: false)
-                    print(response.result.error?.localizedDescription)
                     
+                    var title = ""
+                    var message = ""
+                    let status = JSON["status"] as! Int
+                    
+                    if status == 200 {
+                        let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
+                        title = "Success!"
+                        message = dictionary["message"] as! String
+                    } else {
+                        title = "Fail"
+                        message = JSON["error_message"] as! String
+                    }
+                    
+                    completed(title: title, message: message)
                 }
-                
         }
         
     }
+    
+    func rejectGoal(friendID: Int, completed: (title: String, message: String) -> ()) {
+        let header = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        let parameters = ["friend_id" : friendID]
+        
+        Alamofire.request(.POST, API_URLS.rejectFriend, headers: header, parameters: parameters)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    
+                    var title = ""
+                    var message = ""
+                    let status = JSON["status"] as! Int
+                    
+                    if status == 200 {
+                        let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
+                        title = "Success!"
+                        message = dictionary["message"] as! String
+                    } else {
+                        title = "Fail"
+                        message = JSON["error_message"] as! String
+                    }
+                    
+                    completed(title: title, message: message)
+                }
+        }
+        
+    }
+    
 }
 
 
