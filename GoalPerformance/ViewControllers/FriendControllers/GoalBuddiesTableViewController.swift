@@ -9,11 +9,10 @@
 import UIKit
 import MBProgressHUD
 
-class GoalBuddiesTableViewController: UITableViewController {
+class GoalBuddiesTableViewController: UITableViewController, FriendTableViewCellDelegate {
     var apiClient = APIClient.sharedInstance
-    var pendingFriends = [User]()
-    var friends = [User]()
-    var pendingBuddies = [User]()
+    var buddies = [User]()
+    var pendingBuddies = [GoalSession]()
     var parentNavigationController : UINavigationController?
     
     override func viewDidLoad() {
@@ -45,7 +44,7 @@ class GoalBuddiesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            if pendingFriends.count > 0 {
+            if pendingBuddies.count > 0 {
                 return "Pending request"
             } else {
                 return ""
@@ -58,10 +57,10 @@ class GoalBuddiesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return pendingFriends.count
+            return pendingBuddies.count
             
         case 1:
-            return friends.count
+            return buddies.count
             
         default:
             return 0
@@ -78,20 +77,25 @@ class GoalBuddiesTableViewController: UITableViewController {
         
         cell.apiClient = apiClient
         cell.currentView = self.view
+        cell.delegate = self
         var friend: User?
+        var goal: GoalSession?
         
         switch indexPath.section {
         case 0:
-            friend = pendingFriends[indexPath.row]
+            goal = pendingBuddies[indexPath.row]
             cell.challengeImage.hidden = true
+            cell.goalsSession = goal
             
         default:
-            friend = friends[indexPath.row]
+            friend = buddies[indexPath.row]
             cell.acceptButton.hidden = true
             cell.rejectButton.hidden = true
+            cell.challengeImage.hidden = false
+            cell.friend = friend
         }
         
-        cell.friend = friend
+        
         
         return cell
     }
@@ -144,13 +148,13 @@ class GoalBuddiesTableViewController: UITableViewController {
     
     func loadFriend() {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        self.apiClient.getPendingFriend { (friends) in
-            self.pendingFriends = friends
+        self.apiClient.getPendingGoal { (goals) in
+            self.pendingBuddies = goals
             self.tableView.reloadData()
             
             
             self.apiClient.getBuddiesFriend { (friends) in
-                self.friends = friends
+                self.buddies = friends
                 self.tableView.reloadData()
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
             }
@@ -158,4 +162,7 @@ class GoalBuddiesTableViewController: UITableViewController {
         }
     }
     
+    func reloadData(viewCell: FriendTableViewCell) {
+        loadFriend()
+    }
 }

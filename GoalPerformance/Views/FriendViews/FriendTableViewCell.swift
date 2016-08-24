@@ -24,11 +24,18 @@ class FriendTableViewCell: UITableViewCell {
     var currentView: UIView!
     weak var delegate : FriendTableViewCellDelegate!
     
-    var friend:User! {
+    var friend:User? {
         didSet {
             friendImage.makeCircle()
-            friendImage.sd_setImageWithURL(friend.avatarUrl)
-            friendName.text = friend.displayName
+            friendImage.sd_setImageWithURL(friend!.avatarUrl)
+            friendName.text = friend!.displayName
+        }
+    }
+    
+    var goalsSession: GoalSession? {
+        didSet {
+            friend = goalsSession?.inviter
+            currentGoalsLabel.text = goalsSession?.statement
         }
     }
     
@@ -47,21 +54,41 @@ class FriendTableViewCell: UITableViewCell {
     
     @IBAction func onAccept(sender: UIButton) {
         MBProgressHUD.showHUDAddedTo(self.currentView, animated: true)
-        apiClient.acceptFriend(friend.id!) { (title, message) in
-            print("\(title): \(message)")
-        self.delegate.reloadData(self)
-        MBProgressHUD.hideHUDForView(self.currentView, animated: true)
+        if (goalsSession != nil) {
+            apiClient.acceptGoal((goalsSession?.id)!, completed: { (title, message) in
+                print("\(title): \(message)")
+                self.delegate.reloadData(self)
+                MBProgressHUD.hideHUDForView(self.currentView, animated: true)
+            })
+        } else {
+            apiClient.acceptFriend((friend!.id!), completed: { (title, message) in
+                print("\(title): \(message)")
+                self.delegate.reloadData(self)
+                MBProgressHUD.hideHUDForView(self.currentView, animated: true)
+            })
         }
+        
+       
+       
     }
 
     @IBAction func onReject(sender: UIButton) {
         MBProgressHUD.showHUDAddedTo(self.currentView, animated: true)
-        apiClient.rejectFriend(friend.id!) { (title, message) in
-            print("\(title): \(message)")
-        self.delegate.reloadData(self)
-        self.hidden = true
-        MBProgressHUD.hideHUDForView(self.currentView, animated: true)
+        
+        if (goalsSession != nil) {
+            apiClient.rejectGoal((goalsSession?.id)!, completed: { (title, message) in
+                print("\(title): \(message)")
+                self.delegate.reloadData(self)
+                MBProgressHUD.hideHUDForView(self.currentView, animated: true)
+            })
+        } else {
+            apiClient.rejectFriend((friend!.id!), completed: { (title, message) in
+                print("\(title): \(message)")
+                self.delegate.reloadData(self)
+                MBProgressHUD.hideHUDForView(self.currentView, animated: true)
+            })
         }
+        
     }
     
 }

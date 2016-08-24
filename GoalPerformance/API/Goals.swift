@@ -178,14 +178,14 @@ extension APIClient {
         
     }
     
-    func rejectGoal(friendID: Int, completed: (title: String, message: String) -> ()) {
+    func rejectGoal(goalID: Int, completed: (title: String, message: String) -> ()) {
         let header = [
             "X-Api-Token": APIClient.currentUserToken
         ]
         
-        let parameters = ["friend_id" : friendID]
-        
-        Alamofire.request(.POST, API_URLS.rejectFriend, headers: header, parameters: parameters)
+        let requestUrl = String(format: API_URLS.deleteGoal, goalID)
+
+        Alamofire.request(.DELETE, requestUrl, headers: header)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     
@@ -206,6 +206,24 @@ extension APIClient {
                 }
         }
         
+    }
+    
+    func getPendingGoal(completed: (goals: [GoalSession]) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        Alamofire.request(.GET, API_URLS.pendingBuddies, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    var goals = [GoalSession]()
+                    for goalDictionary in JSON["data"] as! [Dictionary<String, AnyObject>] {
+                        let goal = GoalSession(dictionary: goalDictionary)
+                        goals.append(goal)
+                    }
+                    completed(goals: goals)
+                }
+        }
     }
     
 }
