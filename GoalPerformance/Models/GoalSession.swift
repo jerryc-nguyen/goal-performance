@@ -21,8 +21,9 @@ class GoalSession: NSObject {
     let feelingSentence: String?
     var createdAt: NSDate?
     let status: String?
-    
+    var inviter: User?
     var participant: User?
+    var statement: String?
     
     var goal: Goal!
     
@@ -58,6 +59,14 @@ class GoalSession: NSObject {
         
         if let participantData = dictionary["participant"] as? NSDictionary {
             participant = User(dictionary: participantData)
+        }
+        
+        if let inviterData = dictionary["inviter"] as? NSDictionary {
+            inviter = User(dictionary: inviterData)
+        }
+        
+        if let statementData = dictionary["statement"] as? String {
+            statement = statementData
         }
         
         if let createdAtStr = dictionary["created_at"] as? String {
