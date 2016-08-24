@@ -58,19 +58,10 @@ class SuggestedFriendsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func onChallengeAction(sender: UIButton) {
-        MBProgressHUD.showHUDAddedTo(currentView, animated: true)
-        apiClient.connectFriend(friend.id!) { (title, message) in
-            self.delegate.displayAlert(self, button: "ChallengeButton", status: 0, title: title, message: message)
-            MBProgressHUD.hideHUDForView(self.currentView, animated: true)
-        }
-
-    }
-    
     @IBAction func onAddFriendAction(sender: UIButton) {
         MBProgressHUD.showHUDAddedTo(currentView, animated: true)
-        apiClient.inviteGoal(goalSessionId, friendID: friend.id!) { (status, title, message) in
-            self.delegate.displayAlert(self, button: "ConnectButton", status: status, title: title, message: message)
+        apiClient.connectFriend(friend.id!) { (title, message) in
+            self.delegate.displayAlert(self, button: "ConnectButton", status: 0, title: title, message: message)
             MBProgressHUD.hideHUDForView(self.currentView, animated: true)
         }
 

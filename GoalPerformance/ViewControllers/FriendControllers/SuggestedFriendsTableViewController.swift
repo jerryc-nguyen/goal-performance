@@ -68,8 +68,6 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
         loadSuggestFriend()
         print("Challenge or Connect is press")
     }
-
-
   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SuggestedFriendsTableViewCell") as! SuggestedFriendsTableViewCell
