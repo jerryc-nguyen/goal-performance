@@ -19,8 +19,8 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 120
         loadSuggestFriend()
     }
 
@@ -29,6 +29,14 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
         // Dispose of any resources that can be recreated.
     }
 
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Suggested Friends"
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
