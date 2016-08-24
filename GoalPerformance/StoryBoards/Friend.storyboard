@@ -200,11 +200,11 @@
                                             </constraints>
                                             <connections>
                                                 <action selector="onAddFriendAction:" destination="0kH-H2-fZy" eventType="touchUpInside" id="CIU-2f-FR1"/>
-                                            </connections>
+                                        <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="vGE-En-pou" secondAttribute="bottom" constant="27.5" id="J8M-YV-C1P"/>
                                         </button>
-                                    </subviews>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="vGE-En-pou" secondAttribute="bottom" constant="10" id="ODE-fR-LRZ"/>
                                     <constraints>
-                                        <constraint firstItem="bZy-zV-Abk" firstAttribute="centerY" secondItem="j6N-9g-Kqv" secondAttribute="centerY" id="2eT-sB-BN7"/>
+                                        <constraint firstItem="bZy-zV-Abk" firstAttribute="centerY" secondItem="vGE-En-pou" secondAttribute="centerY" id="YQi-zq-RA7"/>
                                         <constraint firstItem="HUW-ZL-adv" firstAttribute="top" secondItem="vGE-En-pou" secondAttribute="top" id="7G8-5b-fc4"/>
                                         <constraint firstItem="vGE-En-pou" firstAttribute="leading" secondItem="j6N-9g-Kqv" secondAttribute="leading" constant="20" id="7Xq-dL-NuY"/>
                                         <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="vGE-En-pou" secondAttribute="bottom" constant="27.5" id="J8M-YV-C1P"/>
