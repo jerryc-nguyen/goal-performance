@@ -31,6 +31,7 @@ class Goal: NSObject {
     var endAtMinute: Int = 0
     var endAtSecond: Int = 0
     var buddiesCount: Int = 1
+    var linesChartData: LinesChartData?
     
     let localNotificationManager = LocalNotificationsManager.sharedInstance
     
@@ -149,6 +150,11 @@ class Goal: NSObject {
         if let sessionsHistoryData = dictionary["sessions_history"] as? NSDictionary {
             sessionsHistory = SessionsHistory(dictionary: sessionsHistoryData)
         }
+        
+        if let linesData = dictionary["lines_data"] as? NSDictionary {
+            linesChartData = LinesChartData(chartData: linesData)
+        }
+        
     }
     
     static func initFromArrayData(goalsData: [NSDictionary]) -> [Goal] {

@@ -116,7 +116,8 @@ extension UserViewController: UITableViewDataSource {
         let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
 
         if let defineGoalViewController = defineGoalViewController {
-            defineGoalViewController.hasGoal = true
+            let goal = userGoals[indexPath.section - 1]
+            defineGoalViewController.goalId = goal.id
             self.navigationController?.pushViewController(defineGoalViewController, animated: true)
         }
     }

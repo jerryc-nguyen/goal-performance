@@ -6,60 +6,126 @@
 //  Copyright © 2016 Group 7. All rights reserved.
 //
 
+import Charts
 import UIKit
 import MBProgressHUD
 
 class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
     
-    @IBOutlet weak var containChartView: UIView!
+    @IBOutlet weak var containChartView: LineChartView!
     @IBOutlet weak var heightContainChartViewConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var startTimePicker: UIDatePicker!
 
     @IBOutlet weak var saveButton: UIButton!
     //var hasGoal = false
-    var hasGoal: Bool?
+    
     var timeChosen: String = ""
     var weekdays:[String] = []
     var duration:Int = 0
     var categoryID:Int? = 0
     var categoryName:String = ""
     var currentGoalSession:GoalSession?
+    var goalId: Int = 0
+    var goal: Goal?
+    
+    var hasGoal: Bool {
+        return goalId > 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let view = DefineGoalViewController.instanceFromNib()
-        
-        if hasGoal == true {
-            containChartView.addSubview(view)
-            view.frame = containChartView.bounds
-        }
+    
         let navBar = self.navigationController
         
         startTimePicker.datePickerMode = UIDatePickerMode.Time
-        if let hasGoal = hasGoal {
-            if hasGoal == true {
-                heightContainChartViewConstraint.constant = 110
-                saveButton.setImage(UIImage(named: "Save Change"), forState: .Normal)
-                
-                navBar?.navigationBar.translucent = true
-                navBar?.navigationBar.backgroundColor = UIColors.ThemeOrange
-                self.title = "Goal Details"
-                navBar?.navigationBar.tintColor = UIColor.whiteColor()
-                navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-            } else {
-                heightContainChartViewConstraint.constant = 0
-                saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
-                navBar?.navigationBar.translucent = true
-                navBar?.navigationBar.backgroundColor = UIColors.ThemeOrange
-                self.title = "Setup Your Goal"
-                navBar?.navigationBar.tintColor = UIColor.whiteColor()
-                navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-                let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
-                self.navigationItem.rightBarButtonItem = nextBarItem
-            }
+      
+        if hasGoal == true {
+            heightContainChartViewConstraint.constant = 110
+            saveButton.setImage(UIImage(named: "Save Change"), forState: .Normal)
+            
+            navBar?.navigationBar.translucent = true
+            navBar?.navigationBar.backgroundColor = UIColors.ThemeOrange
+            self.title = "Goal Details"
+            navBar?.navigationBar.tintColor = UIColor.whiteColor()
+            navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+            
+            loadAndSetupChartForGoalDetail()
+            
+        } else {
+            heightContainChartViewConstraint.constant = 0
+            saveButton.setImage(UIImage(named: "Orange Arrow"), forState: .Normal)
+            navBar?.navigationBar.translucent = true
+            navBar?.navigationBar.backgroundColor = UIColors.ThemeOrange
+            self.title = "Setup Your Goal"
+            navBar?.navigationBar.tintColor = UIColor.whiteColor()
+            navBar?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+            let nextBarItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(next))
+            self.navigationItem.rightBarButtonItem = nextBarItem
         }
+        
+    }
+    
+    func loadAndSetupChartForGoalDetail() {
+        let params: [String : AnyObject] = ["goal_id": self.goalId]
+        APIClient.sharedInstance.goalDetail(params) { (goal) in
+            self.goal = goal
+            self.setUpLinesChartFor(goal)
+        }
+    }
+    
+    
+    func setUpLinesChartFor(goal: Goal) {
+        let chartData = goal.linesChartData!
+        
+        var dataSets: [LineChartDataSet] = [LineChartDataSet]()
+        
+        for i in 0..<chartData.sessionsHistories.count {
+            var values: [ChartDataEntry] = [ChartDataEntry]()
+            let userSessionHistory = chartData.sessionsHistories[i]
+            let userScores = userSessionHistory.scores
+            
+            for j in 0..<(userScores.count) {
+                let val: Double = Double(userScores[j])
+                if val >= 0 {
+                    values.append(ChartDataEntry(value: val, xIndex: j))
+                }
+            }
+            
+            let color = Utils.getRandomColor()
+            
+            let d: LineChartDataSet = LineChartDataSet(yVals: values, label: userSessionHistory.user!.displayName)
+            d.lineWidth = 1.5
+            d.circleRadius = 3.0
+            d.circleHoleRadius = 1.5
+            
+            d.setColor(color)
+            d.mode = .CubicBezier
+            d.drawCircleHoleEnabled = false
+            d.circleRadius = 3
+            d.drawValuesEnabled = true
+            d.setCircleColor(color)
+            
+            //hide value
+            d.drawValuesEnabled = !d.isDrawValuesEnabled
+            dataSets.append(d)
+        }
+        
+        let data: LineChartData = LineChartData(xVals: chartData.dateLabels, dataSets: dataSets)
+        
+        containChartView.extraTopOffset = 5
+        containChartView.extraBottomOffset = 5
+        containChartView.extraLeftOffset = 5
+        containChartView.extraRightOffset = 5
+        containChartView.pinchZoomEnabled = false
+        containChartView.userInteractionEnabled = false
+        containChartView.rightAxis.enabled = false
+        containChartView.leftAxis.drawGridLinesEnabled = false
+        containChartView.xAxis.drawGridLinesEnabled = false
+        containChartView.xAxis.setLabelsToSkip(0)
+        containChartView.descriptionText = ""
+        containChartView.data = data
+        containChartView.setNeedsLayout()
     }
     
     class func instanceFromNib() -> UIView {

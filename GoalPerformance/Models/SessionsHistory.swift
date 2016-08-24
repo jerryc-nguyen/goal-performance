@@ -11,6 +11,7 @@ import Foundation
 class SessionsHistory: NSObject {
     var scores: [Double] = []
     var dateLabels: [String]? = []
+    var user: User?
     
     init(dictionary: NSDictionary) {
         if let goalScores = dictionary["scores"] as? [NSNumber] {
@@ -22,6 +23,11 @@ class SessionsHistory: NSObject {
         if let dateLabelArr = dictionary["date_labels"] as? [String] {
             dateLabels = dateLabelArr
         }
+        
+        if let userData = dictionary["user"] as? NSDictionary {
+            user = User(dictionary: userData)
+        }
+        
     }
     
     class func initFromArrayData(arr: [NSDictionary]) -> [SessionsHistory] {

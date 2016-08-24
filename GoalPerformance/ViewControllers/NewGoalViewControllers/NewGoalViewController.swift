@@ -131,7 +131,7 @@ extension NewGoalViewController: GoaldViewDelegate {
             
             defineGoalViewController.categoryID = self.categoryId
             defineGoalViewController.categoryName = self.categoryName
-            defineGoalViewController.hasGoal = false
+            defineGoalViewController.goalId = -1
             self.navigationController?.pushViewController(defineGoalViewController, animated: true)
         }
     }

@@ -43,6 +43,9 @@
 		4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */; };
 		429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */; };
 		429CCED51D64F229000B17B8 /* RemoteNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */; };
+		429FC6D81D6DFA6E00BA0760 /* LinesChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FC6D71D6DFA6E00BA0760 /* LinesChartData.swift */; };
+		429FC6DA1D6E03C300BA0760 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429FC6D91D6E03C300BA0760 /* AirshipKit.framework */; };
+		429FC6DB1D6E03C300BA0760 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 429FC6D91D6E03C300BA0760 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE05A21D684ED6003C9B7C /* GoalSession.swift */; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
@@ -78,20 +81,18 @@
 		E4986E501D604642005A6A34 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4986E4F1D604642005A6A34 /* DoneViewController.swift */; };
 		E49AFB6E1D6CC65200BDD40C /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49AFB6D1D6CC65200BDD40C /* Map.storyboard */; };
 		E49AFB711D6CC6B200BDD40C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49AFB701D6CC6B200BDD40C /* MapViewController.swift */; };
-		E49AFB731D6CC7A300BDD40C /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */; };
-		E49AFB741D6CC7A300BDD40C /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E4A4940E1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A4940D1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift */; };
 		E4A494131D6DD86B008210AA /* SuggestedFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A494121D6DD86B008210AA /* SuggestedFriendsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E49AFB751D6CC7A400BDD40C /* Embed Frameworks */ = {
+		429FC6DC1D6E03C300BA0760 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E49AFB741D6CC7A300BDD40C /* AirshipKit.framework in Embed Frameworks */,
+				429FC6DB1D6E03C300BA0760 /* AirshipKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,7 +125,6 @@
 		424AF21A1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserGoalsChartTableViewCell.xib; sourceTree = "<group>"; };
 		424AF21D1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersGoalSectionHeaderView.swift; sourceTree = "<group>"; };
 		424AF21F1D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersGoalSectionHeaderView.xib; sourceTree = "<group>"; };
-		425E79191D69C88C00991FE9 /* AirshipKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AirshipKit.framework; path = "/Users/welcome/Library/Developer/Xcode/DerivedData/GoalPerformance-cxobyvqyctnweoffjlcvurvuvwjb/Build/Products/Debug-iphonesimulator/UrbanAirship-iOS-SDK/AirshipKit.framework"; sourceTree = "<absolute>"; };
 		4263033D1D526687007C1963 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4263DF4F1D5BC5A40050E5A0 /* CoreExtend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreExtend.swift; sourceTree = "<group>"; };
 		4263DF511D5BC6460050E5A0 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -138,6 +138,8 @@
 		4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/StartGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsManager.swift; sourceTree = "<group>"; };
+		429FC6D71D6DFA6E00BA0760 /* LinesChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesChartData.swift; sourceTree = "<group>"; };
+		429FC6D91D6E03C300BA0760 /* AirshipKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AirshipKit.framework; path = "/Users/welcome/Library/Developer/Xcode/DerivedData/GoalPerformance-cxobyvqyctnweoffjlcvurvuvwjb/Build/Products/Debug-iphonesimulator/UrbanAirship-iOS-SDK/AirshipKit.framework"; sourceTree = "<absolute>"; };
 		42BE05A21D684ED6003C9B7C /* GoalSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalSession.swift; sourceTree = "<group>"; };
 		42F0100D1D4FA473002CD514 /* StoryboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardManager.swift; sourceTree = "<group>"; };
 		42F010181D4FA856002CD514 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -175,7 +177,6 @@
 		E4986E4F1D604642005A6A34 /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		E49AFB6D1D6CC65200BDD40C /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		E49AFB701D6CC6B200BDD40C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = AirshipKit.framework; path = "/Users/sophie/Library/Developer/Xcode/DerivedData/GoalPerformance-hbonuqunhjtoqwckgmepbjynjhrl/Build/Products/Debug-iphonesimulator/UrbanAirship-iOS-SDK/AirshipKit.framework"; sourceTree = "<absolute>"; };
 		E4A4940D1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		E4A494121D6DD86B008210AA /* SuggestedFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestedFriendsTableViewController.swift; path = FriendControllers/SuggestedFriendsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E49AFB731D6CC7A300BDD40C /* AirshipKit.framework in Frameworks */,
+				429FC6DA1D6E03C300BA0760 /* AirshipKit.framework in Frameworks */,
 				874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +197,6 @@
 		2B4811E4B0ECBE716F7D2F0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				425E79191D69C88C00991FE9 /* AirshipKit.framework */,
 				BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */,
 			);
 			name = Frameworks;
@@ -214,7 +214,7 @@
 		42210C9D1D4D040F0029990F = {
 			isa = PBXGroup;
 			children = (
-				E49AFB721D6CC7A300BDD40C /* AirshipKit.framework */,
+				429FC6D91D6E03C300BA0760 /* AirshipKit.framework */,
 				42210CA81D4D040F0029990F /* GoalPerformance */,
 				42210CA71D4D040F0029990F /* Products */,
 				F12935C63977DEE64BD5514D /* Pods */,
@@ -358,6 +358,7 @@
 				420114DF1D5791D900B2F199 /* TimelineItem.swift */,
 				E471C84F1D57895D0075C5E9 /* Category.swift */,
 				42BE05A21D684ED6003C9B7C /* GoalSession.swift */,
+				429FC6D71D6DFA6E00BA0760 /* LinesChartData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,7 +502,7 @@
 				42210CA41D4D040F0029990F /* Resources */,
 				8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */,
 				F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */,
-				E49AFB751D6CC7A400BDD40C /* Embed Frameworks */,
+				429FC6DC1D6E03C300BA0760 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -676,6 +677,7 @@
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,
 				422378951D60374B00062B73 /* FriendTableViewCell.swift in Sources */,
 				42F010301D4FAF5F002CD514 /* Constants.swift in Sources */,
+				429FC6D81D6DFA6E00BA0760 /* LinesChartData.swift in Sources */,
 				4263F9121D558C9B00C119DB /* Goal.swift in Sources */,
 				420114E41D579B4800B2F199 /* Utils.swift in Sources */,
 				E44F1B031D64BF7E00437844 /* GoalsView.swift in Sources */,

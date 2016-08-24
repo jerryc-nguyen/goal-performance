@@ -41,4 +41,11 @@ class Utils {
         let hours = (ti / 3600)
         return String(format: "%0.2d:%0.2d:%0.2d", hours, minutes, seconds)
     }
+    
+    static func getRandomColor() -> UIColor{
+        let randomRed:CGFloat = CGFloat(drand48())
+        let randomGreen:CGFloat = CGFloat(drand48())
+        let randomBlue:CGFloat = CGFloat(drand48())
+        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+    }
 }
