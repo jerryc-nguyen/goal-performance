@@ -16,6 +16,10 @@ class DoneViewController: UIViewController {
     var timeChosen: String = ""
     var currentGoalSession: GoalSession?
     
+    override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.alpha = 0.0

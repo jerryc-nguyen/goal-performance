@@ -14,6 +14,7 @@ import MBProgressHUD
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var waitLabel: UILabel!
     @IBOutlet weak var bgTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var bgLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var background: UIImageView!
@@ -22,6 +23,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.loginButton.hidden == true {
+            self.waitLabel.hidden = false
+        } else {
+            self.waitLabel.hidden = true
+        }
+
         self.login()
         
         UIView.animateWithDuration(20, delay: 0, options: .AllowUserInteraction, animations: { 
@@ -72,7 +79,10 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
     func authWithAPIServer(fbAccessToken: String) {
       //  MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         self.loginButton.hidden = true
-        
+        if self.loginButton.hidden == true {
+            self.waitLabel.hidden = false
+        }
+
         UIView.animateWithDuration(25, delay: 0, options: .AllowUserInteraction, animations: {
             self.bgTopConstraint.constant = -30
             self.bgLeadingConstraint.constant = -600

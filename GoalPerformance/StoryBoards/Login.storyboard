@@ -42,10 +42,18 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jk-Yw-wp8">
+                                <rect key="frame" x="110" y="477" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="crv-Dw-nnC" firstAttribute="top" secondItem="4jk-Yw-wp8" secondAttribute="bottom" constant="70" id="7pe-9R-8g0"/>
                             <constraint firstItem="AKT-nm-WH5" firstAttribute="centerX" secondItem="fLz-SU-zSY" secondAttribute="centerX" id="9WJ-Fe-tKZ"/>
+                            <constraint firstItem="4jk-Yw-wp8" firstAttribute="centerX" secondItem="fLz-SU-zSY" secondAttribute="centerX" id="A75-i8-Xc0"/>
                             <constraint firstItem="AKT-nm-WH5" firstAttribute="top" secondItem="wvb-Cc-r5U" secondAttribute="bottom" constant="20" id="Cq0-o9-1f5"/>
                             <constraint firstItem="o5c-jW-phV" firstAttribute="top" secondItem="fLz-SU-zSY" secondAttribute="top" id="ED0-nf-pFr"/>
                             <constraint firstItem="o5c-jW-phV" firstAttribute="leading" secondItem="fLz-SU-zSY" secondAttribute="leading" id="K81-Ef-dTi"/>
@@ -62,6 +70,7 @@
                         <outlet property="bgLeadingConstraint" destination="K81-Ef-dTi" id="FJe-FM-Qbq"/>
                         <outlet property="bgTopConstraint" destination="ED0-nf-pFr" id="ZJE-nO-xkg"/>
                         <outlet property="loginButton" destination="p3T-mf-N2i" id="Oud-me-3gQ"/>
+                        <outlet property="waitLabel" destination="4jk-Yw-wp8" id="FZN-Yp-gci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8q-fd-NK1" sceneMemberID="firstResponder"/>

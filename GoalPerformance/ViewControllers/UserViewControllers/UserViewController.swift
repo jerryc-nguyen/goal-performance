@@ -30,7 +30,6 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         viewingUser = viewingUser ?? APIClient.currentUser
         self.navigationItem.title = navBarTitle
-        
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.tableView.dataSource = self
         self.tableView.delegate = self
