@@ -27,11 +27,15 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
         super.viewDidLoad()
         
         initView()
-        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         suggestFriendTableView.delegate = self
         suggestFriendTableView.dataSource = self
-        
         loadSuggestFriend()
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func initView() {
