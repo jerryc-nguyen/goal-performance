@@ -13,6 +13,7 @@ class FriendsTableViewController: UITableViewController, FriendTableViewCellDele
     var apiClient = APIClient.sharedInstance
     var pendingFriends = [User]()
     var friends = [User]()
+    var storyboardManager = StoryboardManager.sharedInstance
     var pendingBuddies = [User]()
     var parentNavigationController : UINavigationController?
     var refresh: UIRefreshControl!
@@ -54,6 +55,18 @@ class FriendsTableViewController: UITableViewController, FriendTableViewCellDele
         default:
             return "Friends"
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = friends[indexPath.row]
+        let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
+        userVC.viewingUser = user
+        userVC.navigationItem.rightBarButtonItem?.enabled = false
+        userVC.addGoalButton.setTitle("", forState: .Disabled)
+        if let userName = user.displayName {
+            userVC.navBarTitle = userName
+        }
+        parentNavigationController?.pushViewController(userVC, animated: true)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

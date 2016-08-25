@@ -9,6 +9,8 @@
 import UIKit
 
 class UserViewController: UIViewController {
+ 
+    @IBOutlet weak var addGoalButton: UIButton!
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,6 +20,7 @@ class UserViewController: UIViewController {
     var viewingUser: User!
     var dateLabels = [String]()
     var hideNavBar = true
+    var navBarTitle = "Your Goals"
     
     var apiClient = APIClient.sharedInstance
     
@@ -26,11 +29,12 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewingUser = viewingUser ?? APIClient.currentUser
-        self.navigationItem.title = "Your Goals"
+        self.navigationItem.title = navBarTitle
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         

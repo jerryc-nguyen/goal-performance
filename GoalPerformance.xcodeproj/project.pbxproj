@@ -44,8 +44,6 @@
 		429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */; };
 		429CCED51D64F229000B17B8 /* RemoteNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */; };
 		429FC6D81D6DFA6E00BA0760 /* LinesChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FC6D71D6DFA6E00BA0760 /* LinesChartData.swift */; };
-		429FC6DA1D6E03C300BA0760 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429FC6D91D6E03C300BA0760 /* AirshipKit.framework */; };
-		429FC6DB1D6E03C300BA0760 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 429FC6D91D6E03C300BA0760 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE05A21D684ED6003C9B7C /* GoalSession.swift */; };
 		42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F0100D1D4FA473002CD514 /* StoryboardManager.swift */; };
 		42F0101C1D4FA856002CD514 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F010181D4FA856002CD514 /* Login.storyboard */; };
@@ -84,20 +82,6 @@
 		E4A4940E1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A4940D1D6DC9E3008210AA /* SuggestedFriendsTableViewCell.swift */; };
 		E4A494131D6DD86B008210AA /* SuggestedFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A494121D6DD86B008210AA /* SuggestedFriendsTableViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		429FC6DC1D6E03C300BA0760 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				429FC6DB1D6E03C300BA0760 /* AirshipKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		420114DF1D5791D900B2F199 /* TimelineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineItem.swift; sourceTree = "<group>"; };
@@ -186,7 +170,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				429FC6DA1D6E03C300BA0760 /* AirshipKit.framework in Frameworks */,
 				874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,7 +485,6 @@
 				42210CA41D4D040F0029990F /* Resources */,
 				8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */,
 				F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */,
-				429FC6DC1D6E03C300BA0760 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

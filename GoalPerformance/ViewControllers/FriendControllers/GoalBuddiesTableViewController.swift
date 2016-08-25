@@ -12,6 +12,7 @@ import MBProgressHUD
 class GoalBuddiesTableViewController: UITableViewController, FriendTableViewCellDelegate {
     var apiClient = APIClient.sharedInstance
     var buddies = [User]()
+    var storyboardManager = StoryboardManager.sharedInstance
     var pendingBuddies = [GoalSession]()
     var parentNavigationController : UINavigationController?
     
@@ -56,6 +57,19 @@ class GoalBuddiesTableViewController: UITableViewController, FriendTableViewCell
             return "Goal Buddies"
         }
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = buddies[indexPath.row]
+        let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
+        userVC.viewingUser = user
+        userVC.navigationItem.rightBarButtonItem?.enabled = false
+        userVC.addGoalButton.setTitle("", forState: .Disabled)
+        if let userName = user.displayName {
+            userVC.navBarTitle = userName
+        }
+        parentNavigationController?.pushViewController(userVC, animated: true)
+    }
+
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {

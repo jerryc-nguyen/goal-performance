@@ -58,6 +58,12 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
         let user = friends[indexPath.row]
         let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
         userVC.viewingUser = user
+        userVC.navigationItem.rightBarButtonItem?.enabled = false
+        userVC.navigationItem.rightBarButtonItem?.tintColor = UIColor.clearColor()
+        userVC.addGoalButton.setTitle("", forState: .Disabled)
+        if let userName = user.displayName {
+            userVC.navBarTitle = userName
+        }
         parentNavigationController?.pushViewController(userVC, animated: true)
     }
     

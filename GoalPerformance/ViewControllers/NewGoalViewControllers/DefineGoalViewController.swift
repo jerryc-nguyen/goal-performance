@@ -76,7 +76,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     
     
     func setUpLinesChartFor(goal: Goal) {
-        let chartData = goal.linesChartData!
+        if let chartData = goal.linesChartData {
         
         var dataSets: [LineChartDataSet] = [LineChartDataSet]()
         
@@ -91,6 +91,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
                     values.append(ChartDataEntry(value: val, xIndex: j))
                 }
             }
+            
             
             let color = Utils.getRandomColor()
             
@@ -109,6 +110,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             //hide value
             d.drawValuesEnabled = !d.isDrawValuesEnabled
             dataSets.append(d)
+            
         }
         
         let data: LineChartData = LineChartData(xVals: chartData.dateLabels, dataSets: dataSets)
@@ -126,7 +128,9 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         containChartView.descriptionText = ""
         containChartView.data = data
         containChartView.setNeedsLayout()
+        }
     }
+        
     
     class func instanceFromNib() -> UIView {
         return UINib(nibName: "UserGoalTableViewCell", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
