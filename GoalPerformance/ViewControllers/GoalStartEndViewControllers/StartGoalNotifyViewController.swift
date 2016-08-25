@@ -79,7 +79,7 @@ class StartGoalNotifyViewController: UIViewController {
     
     func backToHomeTimeline() {
         let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
-        if let window = self.view.window {
+        if let window = APP_DELEGATE.window {
             window.rootViewController = loginVC
         }
     }
@@ -87,16 +87,12 @@ class StartGoalNotifyViewController: UIViewController {
     func updateGoalStatus(params : [String : AnyObject]) {
         APIClient.sharedInstance.updateGoalStatus(params, completed: { (goalSession: GoalSession?) in
             print("sent goalStartEnd status", goalSession)
-            if let window = self.view.window {
-                Utils.displayTabbarVCFor(window, selectedTabbarIndex: UserTimelineTabbarIndex)
-            }
+            Utils.displayTabbarVCFor(UserTimelineTabbarIndex)
         })
     }
     
     func showHomeTimelineView() {
-        if let window = self.view.window {
-            Utils.displayTabbarVCFor(window, selectedTabbarIndex: HomeTimelineTabbarIndex)
-        }
+        Utils.displayTabbarVCFor(HomeTimelineTabbarIndex)
     }
 
     /*

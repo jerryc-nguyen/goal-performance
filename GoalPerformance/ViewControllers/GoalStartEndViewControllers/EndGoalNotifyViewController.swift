@@ -27,9 +27,7 @@ class EndGoalNotifyViewController: UIViewController {
             ]
             updateGoalStatus(params)
         } else {
-            if let window = self.view.window {
-                Utils.displayTabbarVCFor(window, selectedTabbarIndex: HomeTimelineTabbarIndex)
-            }
+            Utils.displayTabbarVCFor(HomeTimelineTabbarIndex)
         }
     }
     
@@ -60,10 +58,7 @@ class EndGoalNotifyViewController: UIViewController {
     func updateGoalStatus(params : [String : AnyObject]) {
         APIClient.sharedInstance.updateGoalStatus(params, completed: { (goalSession: GoalSession?) in
             print("sent goalStartEnd status", goalSession)
-     
-            if let window = self.view.window {
-                Utils.displayTabbarVCFor(window, selectedTabbarIndex: UserTimelineTabbarIndex)
-            }
+            Utils.displayTabbarVCFor(UserTimelineTabbarIndex)
         })
     }
 

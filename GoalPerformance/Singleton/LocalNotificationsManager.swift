@@ -24,7 +24,7 @@ class LocalNotificationsManager {
     var window: UIWindow?
     var isViewOpenByUser: Bool = false
     
-    func setupStartGoalNotificationSettings() {
+    func setupLocalNotificationSettings() {
         
         var notificationTypes: UIUserNotificationType = UIUserNotificationType()
         notificationTypes.insert(UIUserNotificationType.Alert)
@@ -102,10 +102,10 @@ class LocalNotificationsManager {
         if let notificationName = notification.userInfo!["notificationName"] as? String {
             switch(notificationName) {
             case LocalNotificationName.StartGoal:
-                print("Start goal")
+                print("Start goal", isViewOpenByUser)
                 showStartGoalVCFor(notification)
             case LocalNotificationName.EndGoal:
-                print("End goal")
+                print("End goal", isViewOpenByUser)
                 showEndGoalVCFor(notification)
                 
             default:

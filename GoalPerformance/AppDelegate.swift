@@ -19,22 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    
+        remoteNotificationManager.setupRemoteNotificationSettings()
+        localNotificationManager.setupLocalNotificationSettings()
         
         // Handle notification:
         // http://stackoverflow.com/questions/16393673/detect-if-the-app-was-launched-opened-from-a-push-notification
         if (launchOptions != nil) {
-            
             // For local Notification
             if let localNotification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
                 localNotificationManager.isViewOpenByUser = true
                 localNotificationManager.handleLocalPushNotification(localNotification)
             }
+        } else {
+            let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
+            self.window?.rootViewController = loginVC
         }
         
-        remoteNotificationManager.setupRemoteNotificationSettings()
-        
-//        let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
-//        self.window?.rootViewController = loginVC
+        self.window?.makeKeyAndVisible()
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
