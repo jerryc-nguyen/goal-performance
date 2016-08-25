@@ -58,8 +58,7 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
         let user = friends[indexPath.row]
         let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
         userVC.viewingUser = user
-        
-        self.presentViewController(userVC, animated: true, completion: nil)
+        parentNavigationController?.pushViewController(userVC, animated: true)
     }
     
     func loadSuggestFriend(){

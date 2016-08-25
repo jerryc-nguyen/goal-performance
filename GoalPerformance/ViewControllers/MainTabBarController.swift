@@ -52,5 +52,14 @@ class MainTabBarController: UITabBarController {
         self.tabBar.translucent = false
         self.viewControllers = [timeLineVC, userVC, friendsVC, searchVC]
     }
-
+    
+    func goToUserTab(withUser: User?) {
+        self.selectedIndex = UserTimelineTabbarIndex
+        self.selectedViewController = self.viewControllers![UserTimelineTabbarIndex]
+        if let navigation = self.selectedViewController as? UINavigationController {
+            navigation.popToRootViewControllerAnimated(false)
+            let userVC = navigation.viewControllers[0] as! UserViewController
+            userVC.viewingUser = withUser
+        }
+    }
 }
