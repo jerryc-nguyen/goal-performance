@@ -112,13 +112,15 @@ extension UserViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let storyboardManager  = StoryboardManager.sharedInstance
-        let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
-
-        if let defineGoalViewController = defineGoalViewController {
-            let goal = userGoals[indexPath.section - 1]
-            defineGoalViewController.goalId = goal.id
-            self.navigationController?.pushViewController(defineGoalViewController, animated: true)
+        if indexPath.section > 0 {
+            let storyboardManager  = StoryboardManager.sharedInstance
+            let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
+            
+            if let defineGoalViewController = defineGoalViewController {
+                let goal = userGoals[indexPath.section - 1]
+                defineGoalViewController.goalId = goal.id
+                self.navigationController?.pushViewController(defineGoalViewController, animated: true)
+            }
         }
     }
 }

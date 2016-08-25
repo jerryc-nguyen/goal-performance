@@ -54,6 +54,14 @@ class SuggestedFriendsTableViewController: UITableViewController, SuggestedFrien
             }
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = friends[indexPath.row]
+        let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
+        userVC.viewingUser = user
+        
+        self.presentViewController(userVC, animated: true, completion: nil)
+    }
+    
     func loadSuggestFriend(){
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         apiClient.getSuggestedFriends(goalSessionId, completed: { (friends) in
