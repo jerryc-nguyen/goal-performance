@@ -57,6 +57,10 @@ struct API_URLS {
     //COMMENTS
     static let getComments = "\(APIBaseURL)api/goals/2/comments.json"
     
+    //CHATS
+    static let listChats = "\(APIBaseURL)/api/chats.json?page=%d"
+    static let detailChat = "\(APIBaseURL)/api/chats/%d.json"
+    
 }
 
 typealias CompletedBlock = ((result: AnyObject?) -> Void)?

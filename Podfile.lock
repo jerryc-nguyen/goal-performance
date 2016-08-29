@@ -18,6 +18,9 @@ PODS:
   - FBSDKShareKit (4.14.0):
     - FBSDKCoreKit
   - FontAwesome.swift (0.8.0)
+  - JSQMessagesViewController (7.3.4):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - MBProgressHUD (1.0.0)
   - PageMenu (1.2.9)
   - Realm (0.103.2):
@@ -38,6 +41,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - FontAwesome.swift
+  - JSQMessagesViewController
   - MBProgressHUD
   - PageMenu
   - SDWebImage (~> 3.8)
@@ -52,6 +56,8 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
   FBSDKShareKit: e8e5d4ccef69b41132fe33acda26db1e33143e33
   FontAwesome.swift: f8c6cc5c42cbe93bdc04371363bc7b371fb3d3a1
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
@@ -59,6 +65,6 @@ SPEC CHECKSUMS:
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   UrbanAirship-iOS-SDK: c55430986126be28b1735bc3efefa5b902ac8b0e
 
-PODFILE CHECKSUM: 11b5113ae21cc7dda605adef5563c7e5c996d6fc
+PODFILE CHECKSUM: c6aa2b8338ba39f2c19c32207fd2372581784650
 
 COCOAPODS: 1.0.1

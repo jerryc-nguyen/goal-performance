@@ -20,5 +20,6 @@ target 'GoalPerformance' do
   pod 'MBProgressHUD'
   pod 'UrbanAirship-iOS-SDK', '~> 7.2.2'
   pod 'PageMenu'
+  pod 'JSQMessagesViewController'
   
 end

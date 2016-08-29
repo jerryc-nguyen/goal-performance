@@ -30,6 +30,10 @@
 		424AF21C1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AF21A1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib */; };
 		424AF21E1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424AF21D1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift */; };
 		424AF2201D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424AF21F1D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib */; };
+		425EB8011D74CA79004B67EF /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425EB7FF1D74CA79004B67EF /* MyChatTableViewCell.swift */; };
+		425EB8021D74CA79004B67EF /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425EB8001D74CA79004B67EF /* MyChatTableViewCell.xib */; };
+		425EB8041D74CD62004B67EF /* Chats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425EB8031D74CD62004B67EF /* Chats.swift */; };
+		425EB8061D74CDA1004B67EF /* MyChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425EB8051D74CDA1004B67EF /* MyChatItem.swift */; };
 		4263033E1D526687007C1963 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263033D1D526687007C1963 /* User.swift */; };
 		4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263DF4F1D5BC5A40050E5A0 /* CoreExtend.swift */; };
 		4263DF571D5BC6460050E5A0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263DF511D5BC6460050E5A0 /* APIClient.swift */; };
@@ -41,6 +45,8 @@
 		4263F9121D558C9B00C119DB /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F9111D558C9B00C119DB /* Goal.swift */; };
 		4263F9161D55FD2600C119DB /* GoalStartEnd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */; };
 		4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */; };
+		42769B551D73633E004659AA /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42769B541D73633E004659AA /* Chat.storyboard */; };
+		42769B581D7364DA004659AA /* MyChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42769B571D7364DA004659AA /* MyChatsViewController.swift */; };
 		429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */; };
 		429CCED51D64F229000B17B8 /* RemoteNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */; };
 		429FC6D81D6DFA6E00BA0760 /* LinesChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FC6D71D6DFA6E00BA0760 /* LinesChartData.swift */; };
@@ -113,6 +119,10 @@
 		424AF21A1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserGoalsChartTableViewCell.xib; sourceTree = "<group>"; };
 		424AF21D1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersGoalSectionHeaderView.swift; sourceTree = "<group>"; };
 		424AF21F1D5EF67B001754B2 /* UsersGoalSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersGoalSectionHeaderView.xib; sourceTree = "<group>"; };
+		425EB7FF1D74CA79004B67EF /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		425EB8001D74CA79004B67EF /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
+		425EB8031D74CD62004B67EF /* Chats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chats.swift; sourceTree = "<group>"; };
+		425EB8051D74CDA1004B67EF /* MyChatItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChatItem.swift; sourceTree = "<group>"; };
 		4263033D1D526687007C1963 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4263DF4F1D5BC5A40050E5A0 /* CoreExtend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreExtend.swift; sourceTree = "<group>"; };
 		4263DF511D5BC6460050E5A0 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -124,6 +134,8 @@
 		4263F9111D558C9B00C119DB /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GoalStartEnd.storyboard; sourceTree = "<group>"; };
 		4263F91A1D55FF7500C119DB /* StartGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/StartGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
+		42769B541D73633E004659AA /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		42769B571D7364DA004659AA /* MyChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyChatsViewController.swift; sourceTree = "<group>"; };
 		429CCECE1D64EFA0000B17B8 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		429CCED41D64F229000B17B8 /* RemoteNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsManager.swift; sourceTree = "<group>"; };
 		429FC6D71D6DFA6E00BA0760 /* LinesChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesChartData.swift; sourceTree = "<group>"; };
@@ -277,6 +289,15 @@
 			path = NewGoalViews;
 			sourceTree = "<group>";
 		};
+		425EB7FE1D74CA24004B67EF /* ChatViews */ = {
+			isa = PBXGroup;
+			children = (
+				425EB7FF1D74CA79004B67EF /* MyChatTableViewCell.swift */,
+				425EB8001D74CA79004B67EF /* MyChatTableViewCell.xib */,
+			);
+			path = ChatViews;
+			sourceTree = "<group>";
+		};
 		4263DF4E1D5BC56A0050E5A0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,9 +318,18 @@
 			path = GoalStartEnd;
 			sourceTree = "<group>";
 		};
+		42769B561D7363AC004659AA /* ChatViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				42769B571D7364DA004659AA /* MyChatsViewController.swift */,
+			);
+			path = ChatViewControllers;
+			sourceTree = "<group>";
+		};
 		42F010061D4F9F8D002CD514 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				42769B561D7363AC004659AA /* ChatViewControllers */,
 				E49AFB6F1D6CC69800BDD40C /* MapViewController */,
 				E00701461D608CBC0090972F /* FriendControllers */,
 				4263F9191D55FF0800C119DB /* GoalStartEndViewControllers */,
@@ -316,6 +346,7 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				425EB7FE1D74CA24004B67EF /* ChatViews */,
 				E4A4940C1D6DC9BE008210AA /* SuggestedFriendViews */,
 				E44F1B011D64BF5400437844 /* GoalsView */,
 				422378921D60373A00062B73 /* FriendViews */,
@@ -339,6 +370,7 @@
 				424AF1FD1D5E8B95001754B2 /* Users.swift */,
 				E458465E1D68503500D38015 /* GoalStartEnd.swift */,
 				E427078A1D740D1E00D93CDF /* Comments.swift */,
+				425EB8031D74CD62004B67EF /* Chats.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -353,6 +385,7 @@
 				E471C84F1D57895D0075C5E9 /* Category.swift */,
 				42BE05A21D684ED6003C9B7C /* GoalSession.swift */,
 				429FC6D71D6DFA6E00BA0760 /* LinesChartData.swift */,
+				425EB8051D74CDA1004B67EF /* MyChatItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -380,6 +413,7 @@
 				42F0101B1D4FA856002CD514 /* User.storyboard */,
 				4263F9151D55FD2600C119DB /* GoalStartEnd.storyboard */,
 				E49AFB6D1D6CC65200BDD40C /* Map.storyboard */,
+				42769B541D73633E004659AA /* Chat.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -497,6 +531,7 @@
 				42210CA41D4D040F0029990F /* Resources */,
 				8B651C38814CA4D989754850 /* [CP] Embed Pods Frameworks */,
 				F28958823711820E97E2EDCA /* [CP] Copy Pods Resources */,
+				4246BB8B1D6F034300456D40 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -557,6 +592,7 @@
 				42210CB41D4D040F0029990F /* LaunchScreen.storyboard in Resources */,
 				E44F1B051D64BFA700437844 /* GoalsView.xib in Resources */,
 				424AF21C1D5EDF00001754B2 /* UserGoalsChartTableViewCell.xib in Resources */,
+				425EB8021D74CA79004B67EF /* MyChatTableViewCell.xib in Resources */,
 				42210CB11D4D040F0029990F /* Assets.xcassets in Resources */,
 				42210CAF1D4D040F0029990F /* Main.storyboard in Resources */,
 				422378961D60374B00062B73 /* FriendTableViewCell.xib in Resources */,
@@ -565,6 +601,7 @@
 				429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */,
 				42F0101F1D4FA856002CD514 /* User.storyboard in Resources */,
 				E44D01591D7497E200A27A86 /* CommentViewCell.xib in Resources */,
+				42769B551D73633E004659AA /* Chat.storyboard in Resources */,
 				42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +665,7 @@
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
 				424AF2131D5ED30F001754B2 /* UserGoalTableViewCell.swift in Sources */,
 				E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */,
+				425EB8061D74CDA1004B67EF /* MyChatItem.swift in Sources */,
 				422378911D60361500062B73 /* WeekdaysViewController.swift in Sources */,
 				420114E71D579FA100B2F199 /* TimelineItemTableViewCell.swift in Sources */,
 				424AF2171D5EDEE0001754B2 /* UserProfileTableViewCell.swift in Sources */,
@@ -653,6 +691,7 @@
 				424AF2101D5ED2DF001754B2 /* WeekdayCell.swift in Sources */,
 				420114E01D5791D900B2F199 /* TimelineItem.swift in Sources */,
 				E427078B1D740D1E00D93CDF /* Comments.swift in Sources */,
+				425EB8041D74CD62004B67EF /* Chats.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				E42ACD731D697B3B008FD15B /* FriendsTableViewController.swift in Sources */,
 				E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */,
@@ -666,10 +705,12 @@
 				E4A494131D6DD86B008210AA /* SuggestedFriendsTableViewController.swift in Sources */,
 				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,
 				4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */,
+				42769B581D7364DA004659AA /* MyChatsViewController.swift in Sources */,
 				42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */,
 				424AF1FE1D5E8B95001754B2 /* Users.swift in Sources */,
 				42F0100E1D4FA473002CD514 /* StoryboardManager.swift in Sources */,
 				424AF21E1D5EF65F001754B2 /* UsersGoalSectionHeaderView.swift in Sources */,
+				425EB8011D74CA79004B67EF /* MyChatTableViewCell.swift in Sources */,
 				E42ACD711D6974B2008FD15B /* CAPSPageMenu.swift in Sources */,
 				E00701481D608D180090972F /* FriendViewController.swift in Sources */,
 				42F010281D4FAB1F002CD514 /* TimelineViewController.swift in Sources */,

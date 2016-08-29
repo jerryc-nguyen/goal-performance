@@ -43,6 +43,13 @@ class MainTabBarController: UITabBarController {
         return vc
     }()
     
+    lazy var chatVC: UINavigationController  = {
+        let vc = StoryboardManager.sharedInstance.getInitialViewController("Chat") as! UINavigationController
+        vc.tabBarItem.image = UIImage.fontAwesomeIconWithName(.Comment, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        vc.tabBarItem.title = "Chat"
+        return vc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configTabbar()
@@ -50,7 +57,7 @@ class MainTabBarController: UITabBarController {
     
     func configTabbar() {
         self.tabBar.translucent = false
-        self.viewControllers = [timeLineVC, userVC, friendsVC, searchVC]
+        self.viewControllers = [timeLineVC, userVC, friendsVC, chatVC, searchVC]
     }
     
     func goToUserTab(withUser: User?) {
