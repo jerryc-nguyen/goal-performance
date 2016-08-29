@@ -11,6 +11,7 @@ import Foundation
 class User: NSObject {
     
     let id:Int?
+    let idStr: String?
     let displayName: String?
     let firstName: String?
     let lastName: String?
@@ -24,6 +25,7 @@ class User: NSObject {
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
+        idStr = dictionary["id_str"] as? String
         displayName = dictionary["display_name"] as? String
         firstName = dictionary["first_name"] as? String
         lastName = dictionary["last_name"] as? String

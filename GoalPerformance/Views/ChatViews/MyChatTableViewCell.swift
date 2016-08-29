@@ -18,14 +18,14 @@ class MyChatTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    var myChatItem: MyChatItem? {
+    var myChatItem: ChatItem? {
         didSet {
-            let sender = myChatItem?.sender
+            let sender = myChatItem?.actor
             
             userAvatarImgView.sd_setImageWithURL(sender!.avatarUrl)
             userNameLabel.text = sender?.displayName
             messageLabel.text = myChatItem?.message
-            dateLabel.text = myChatItem?.createdAt
+            dateLabel.text = myChatItem?.formattedCreatedAt
         }
     }
     

@@ -12,7 +12,7 @@ class MyChatsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var items = [MyChatItem]()
+    var items = [ChatItem]()
     var apiClient = APIClient.sharedInstance
     let refreshControl = UIRefreshControl()
     var isMoreDataLoading = false

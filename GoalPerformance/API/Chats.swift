@@ -11,7 +11,7 @@ import Alamofire
 
 extension APIClient {
     
-    func myChats(page: Int, completed: (items: [MyChatItem]) -> ()) {
+    func myChats(page: Int, completed: (items: [ChatItem]) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
@@ -21,9 +21,9 @@ extension APIClient {
         Alamofire.request(.GET, requestUrl, headers: headers)
             .responseJSON { response in
                 if let JSON = response.result.value {
-                    var items = [MyChatItem]()
+                    var items = [ChatItem]()
                     for itemDictionary in JSON["data"] as! [Dictionary<String, AnyObject>] {
-                        let chatItem = MyChatItem(dictionary: itemDictionary)
+                        let chatItem = ChatItem(dictionary: itemDictionary)
                         items.append(chatItem)
                     }
                     completed(items: items)
