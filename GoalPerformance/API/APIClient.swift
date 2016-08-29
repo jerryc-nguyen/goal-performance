@@ -10,7 +10,7 @@ import Foundation
 import Alamofire //https://github.com/Alamofire/Alamofire
 
 let APIBaseURL = "https://goal-api.herokuapp.com/"
-//let APIBaseURL = "http://192.168.1.93:3000"
+//let APIBaseURL = "http://10.40.13.39:3000"
 //let APIBaseURL = "http://localhost:3000"
 
 struct API_URLS {
@@ -53,6 +53,9 @@ struct API_URLS {
     static let goalStartEnd = "\(APIBaseURL)/api/goal_sessions/handle_start_end.json"
     //SUGGESTED FRIENDS
     static let suggestedFriends = "\(APIBaseURL)/api/friends/suggested.json"
+    
+    //COMMENTS
+    static let getComments = "\(APIBaseURL)api/goals/2/comments.json"
     
 }
 

@@ -40,6 +40,41 @@
             </objects>
             <point key="canvasLocation" x="779" y="238"/>
         </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="uvZ-q4-vse">
+            <objects>
+                <viewController storyboardIdentifier="CommentViewController" id="7Ek-2L-09M" customClass="CommentViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BUg-Q4-olz"/>
+                        <viewControllerLayoutGuide type="bottom" id="v5W-PV-zoF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bJg-NL-FTx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lxG-va-g0h">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lxG-va-g0h" secondAttribute="trailing" id="OrO-w1-Rmz"/>
+                            <constraint firstItem="lxG-va-g0h" firstAttribute="top" secondItem="bJg-NL-FTx" secondAttribute="top" id="Ry3-nW-jhP"/>
+                            <constraint firstItem="v5W-PV-zoF" firstAttribute="top" secondItem="lxG-va-g0h" secondAttribute="bottom" id="rfL-is-fbB"/>
+                            <constraint firstItem="lxG-va-g0h" firstAttribute="leading" secondItem="bJg-NL-FTx" secondAttribute="leading" id="wat-wk-4Rx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="IWW-f5-QnF"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="lxG-va-g0h" id="tea-he-HBO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jdj-AG-EzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1171" y="238"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="4YP-RJ-QJK">
             <objects>

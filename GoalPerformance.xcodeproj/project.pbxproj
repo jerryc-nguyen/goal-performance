@@ -65,9 +65,13 @@
 		E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */; };
 		E0E6F29F1D5773AC00EE8448 /* EndGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */; };
 		E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */; };
+		E427078B1D740D1E00D93CDF /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427078A1D740D1E00D93CDF /* Comments.swift */; };
 		E42ACD711D6974B2008FD15B /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42ACD701D6974B2008FD15B /* CAPSPageMenu.swift */; };
 		E42ACD731D697B3B008FD15B /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42ACD721D697B3B008FD15B /* FriendsTableViewController.swift */; };
 		E42ACD751D698329008FD15B /* GoalBuddiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42ACD741D698329008FD15B /* GoalBuddiesTableViewController.swift */; };
+		E44D01571D743B6900A27A86 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D01561D743B6900A27A86 /* CommentViewController.swift */; };
+		E44D01591D7497E200A27A86 /* CommentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44D01581D7497E200A27A86 /* CommentViewCell.xib */; };
+		E44D015B1D74995300A27A86 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D015A1D74995300A27A86 /* CommentTableViewCell.swift */; };
 		E44F1B001D6487D800437844 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44F1AFF1D6487D800437844 /* BaseView.swift */; };
 		E44F1B031D64BF7E00437844 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44F1B021D64BF7E00437844 /* GoalsView.swift */; };
 		E44F1B051D64BFA700437844 /* GoalsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44F1B041D64BFA700437844 /* GoalsView.xib */; };
@@ -147,9 +151,13 @@
 		E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestFriendTableViewCell.swift; path = InviteFriendViews/SuggestFriendTableViewCell.swift; sourceTree = "<group>"; };
+		E427078A1D740D1E00D93CDF /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		E42ACD701D6974B2008FD15B /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		E42ACD721D697B3B008FD15B /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsTableViewController.swift; path = FriendControllers/FriendsTableViewController.swift; sourceTree = "<group>"; };
 		E42ACD741D698329008FD15B /* GoalBuddiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalBuddiesTableViewController.swift; path = FriendControllers/GoalBuddiesTableViewController.swift; sourceTree = "<group>"; };
+		E44D01561D743B6900A27A86 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		E44D01581D7497E200A27A86 /* CommentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentViewCell.xib; path = TimelineViews/CommentViewCell.xib; sourceTree = "<group>"; };
+		E44D015A1D74995300A27A86 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommentTableViewCell.swift; path = TimelineViews/CommentTableViewCell.swift; sourceTree = "<group>"; };
 		E44F1AFF1D6487D800437844 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E44F1B021D64BF7E00437844 /* GoalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		E44F1B041D64BFA700437844 /* GoalsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoalsView.xib; sourceTree = "<group>"; };
@@ -190,6 +198,8 @@
 			children = (
 				420114E51D579FA100B2F199 /* TimelineItemTableViewCell.swift */,
 				420114E61D579FA100B2F199 /* TimelineItemTableViewCell.xib */,
+				E44D01581D7497E200A27A86 /* CommentViewCell.xib */,
+				E44D015A1D74995300A27A86 /* CommentTableViewCell.swift */,
 			);
 			name = TimelineViews;
 			sourceTree = "<group>";
@@ -328,6 +338,7 @@
 				4263DF561D5BC6460050E5A0 /* Goals.swift */,
 				424AF1FD1D5E8B95001754B2 /* Users.swift */,
 				E458465E1D68503500D38015 /* GoalStartEnd.swift */,
+				E427078A1D740D1E00D93CDF /* Comments.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -377,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				42F010271D4FAB1F002CD514 /* TimelineViewController.swift */,
+				E44D01561D743B6900A27A86 /* CommentViewController.swift */,
 			);
 			path = TimelineViewControllers;
 			sourceTree = "<group>";
@@ -552,6 +564,7 @@
 				424AF2141D5ED30F001754B2 /* UserGoalTableViewCell.xib in Resources */,
 				429CCECF1D64EFA0000B17B8 /* AirshipConfig.plist in Resources */,
 				42F0101F1D4FA856002CD514 /* User.storyboard in Resources */,
+				E44D01591D7497E200A27A86 /* CommentViewCell.xib in Resources */,
 				42F0101D1D4FA856002CD514 /* NewGoal.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44D01571D743B6900A27A86 /* CommentViewController.swift in Sources */,
 				E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */,
 				424AF2131D5ED30F001754B2 /* UserGoalTableViewCell.swift in Sources */,
 				E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */,
@@ -626,6 +640,7 @@
 				4263DF5C1D5BC6460050E5A0 /* Goals.swift in Sources */,
 				E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */,
 				4263DF571D5BC6460050E5A0 /* APIClient.swift in Sources */,
+				E44D015B1D74995300A27A86 /* CommentTableViewCell.swift in Sources */,
 				E471C8501D57895D0075C5E9 /* Category.swift in Sources */,
 				E49AFB711D6CC6B200BDD40C /* MapViewController.swift in Sources */,
 				4263DF5A1D5BC6460050E5A0 /* Categories.swift in Sources */,
@@ -637,6 +652,7 @@
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,
 				424AF2101D5ED2DF001754B2 /* WeekdayCell.swift in Sources */,
 				420114E01D5791D900B2F199 /* TimelineItem.swift in Sources */,
+				E427078B1D740D1E00D93CDF /* Comments.swift in Sources */,
 				42F0102E1D4FACC7002CD514 /* NewGoalViewController.swift in Sources */,
 				E42ACD731D697B3B008FD15B /* FriendsTableViewController.swift in Sources */,
 				E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */,

@@ -115,6 +115,14 @@ extension TimelineViewController: UITableViewDataSource {
         cell.timeLineItem = timelineItem
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboardManager = StoryboardManager.sharedInstance
+        let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
+        if let commentVC = commentVC {
+            self.navigationController?.pushViewController(commentVC, animated: true)
+        }
+    }
 }
 
 class InfiniteScrollActivityView: UIView {

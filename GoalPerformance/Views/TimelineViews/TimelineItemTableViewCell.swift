@@ -26,6 +26,10 @@ class TimelineItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var lineChartView: LineChartView!
 
+    @IBOutlet weak var commentButton: UIButton!
+    
+    @IBOutlet weak var starButton: UIButton!
+    
     
     var timeLineItem: TimelineItem! {
         didSet {
