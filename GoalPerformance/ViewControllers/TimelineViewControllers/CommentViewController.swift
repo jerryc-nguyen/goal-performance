@@ -11,8 +11,8 @@ import UIKit
 class CommentViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    
+    var items = [TimelineItem]()
+    var cellIndex: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -24,11 +24,6 @@ class CommentViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "TimelineItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineItemTableViewCell")
         tableView.registerNib(UINib(nibName: "CommentViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CommentTableViewCell")
@@ -54,6 +49,11 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
+            if let cellIndex = cellIndex {
+                let timelineItem = items[cellIndex]
+                cell.timeLineItem = timelineItem
+
+            }
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as! CommentTableViewCell

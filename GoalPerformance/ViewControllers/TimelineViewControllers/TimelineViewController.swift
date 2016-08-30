@@ -11,7 +11,7 @@ import UIKit
 class TimelineViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var cellIndex: Int?
     var items = [TimelineItem]()
     var apiClient = APIClient.sharedInstance
     let refreshControl = UIRefreshControl()
@@ -111,7 +111,7 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
         let timelineItem = items[indexPath.row]
-        
+        // self.cellIndex = indexPath.row
         cell.timeLineItem = timelineItem
         return cell
     }
@@ -119,6 +119,11 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboardManager = StoryboardManager.sharedInstance
         let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
+        
+        
+        commentVC?.items = self.items
+        commentVC?.cellIndex = indexPath.row
+        
         if let commentVC = commentVC {
             self.navigationController?.pushViewController(commentVC, animated: true)
         }
