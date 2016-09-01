@@ -19,7 +19,6 @@ class TimelineViewController: UIViewController {
     var loadingMoreView: InfiniteScrollActivityView?
     var currentPage = 1
     var hasMoreData = true
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshControl.addTarget(self, action: #selector(pullToRefresh), forControlEvents: UIControlEvents.ValueChanged)
@@ -111,16 +110,17 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
         let timelineItem = items[indexPath.row]
-        // self.cellIndex = indexPath.row
         cell.timeLineItem = timelineItem
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let currentGoalSession = items[indexPath.row].currentGoalSession
+        let goalID = currentGoalSession?.goalId
         let storyboardManager = StoryboardManager.sharedInstance
         let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
         
-        
+        commentVC?.goalID = goalID
         commentVC?.items = self.items
         commentVC?.cellIndex = indexPath.row
         

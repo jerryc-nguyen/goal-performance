@@ -30,6 +30,7 @@ class TimelineItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var starButton: UIButton!
     
+    var goalID: Int?
     
     var timeLineItem: TimelineItem! {
         didSet {
@@ -47,6 +48,7 @@ class TimelineItemTableViewCell: UITableViewCell {
             setChart(days, values: scores!)
         }
     }
+
     
     var days: [String]!
     

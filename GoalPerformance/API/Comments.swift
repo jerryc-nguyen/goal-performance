@@ -10,22 +10,22 @@ import Alamofire
 
 extension APIClient {
     
-    func getComments(goaldSessionID:Int, completed: (comment: [Comment]) -> ()) {
+    func getComments(goalID:Int, completed: (comment: [Comment]) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
         
-        let requestUrl = String(format: API_URLS.getComments, goaldSessionID)
+        let requestUrl = String(format: API_URLS.getComments, goalID)
         
         Alamofire.request(.GET, requestUrl, headers: headers)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     var comments = [Comment]()
-                    for commentDictionary in JSON["data"] as! [Dictionary<String, AnyObject>] {
+                    let data = JSON["data"]
+                    for commentDictionary in data as! [Dictionary<String, AnyObject>] {
                         let comment = Comment(dictionary: commentDictionary)
                         comments.append(comment)
                     }
-                    
                     completed(comment: comments)
                 }
         }

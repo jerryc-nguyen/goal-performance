@@ -13,15 +13,31 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var items = [TimelineItem]()
     var cellIndex: Int?
+    var goalID: Int?
+    var comments = [Comment]()
+    var apiClient = APIClient.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         tableView.delegate = self
         tableView.dataSource = self
         registerNibs()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
+        loadComments()
         tableView.reloadData()
         // Do any additional setup after loading the view.
+    }
+    
+    func loadComments() {
+        if let goalID = goalID {
+            apiClient.getComments(goalID, completed: { (comments) in
+                for comment in comments {
+                    print(comment.id)
+                    
+                }
+            })
+        }
     }
 
     func registerNibs() {
@@ -56,6 +72,7 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         default:
+            //2
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as! CommentTableViewCell
             return cell
         }
