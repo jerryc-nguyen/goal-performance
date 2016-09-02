@@ -11,9 +11,10 @@ import UIKit
 class CommentViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var items = [TimelineItem]()
+    var timeLineItem: TimelineItem?
     var cellIndex: Int?
     var goalID: Int?
+    var displayName: String?
     var comments = [Comment]()
     var apiClient = APIClient.sharedInstance
     override func viewDidLoad() {
@@ -30,12 +31,12 @@ class CommentViewController: UIViewController {
     }
     
     func loadComments() {
-        if let goalID = goalID {
+        if let goalID = self.timeLineItem?.currentGoalSession?.goalId {
+            
             apiClient.getComments(goalID, completed: { (comments) in
-                for comment in comments {
-                    print(comment.id)
-                    
-                }
+                
+                self.comments = comments
+                self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
             })
         }
     }
@@ -65,8 +66,7 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
-            if let cellIndex = cellIndex {
-                let timelineItem = items[cellIndex]
+            if let timelineItem = timeLineItem {
                 cell.timeLineItem = timelineItem
 
             }
@@ -74,11 +74,20 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             //2
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as! CommentTableViewCell
+            let commentItem = self.comments[indexPath.row]
+            cell.commentItem = commentItem
+           
             return cell
         }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        default:
+            return comments.count
+        
+        }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

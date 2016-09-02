@@ -9,16 +9,20 @@
 import UIKit
 
 class Comment: NSObject {
+
     var id: NSInteger? = 0
     var content: String? = ""
-    var displayName: String? = ""
     var likesCount: Bool? = false
+    var creator: User?
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? NSInteger
         content = dictionary["content"] as? String
-        displayName = dictionary["creator"]?["display_name"] as? String
         likesCount = dictionary["likes_count"] as? Bool
+        if let creatorData = dictionary["creator"] as? NSDictionary {
+            creator = User(dictionary: creatorData)
+        }
+
     }
 
 }

@@ -115,15 +115,10 @@ extension TimelineViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let currentGoalSession = items[indexPath.row].currentGoalSession
-        let goalID = currentGoalSession?.goalId
+        let currentTimelineItem = items[indexPath.row]
         let storyboardManager = StoryboardManager.sharedInstance
         let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
-        
-        commentVC?.goalID = goalID
-        commentVC?.items = self.items
-        commentVC?.cellIndex = indexPath.row
-        
+        commentVC?.timeLineItem = currentTimelineItem
         if let commentVC = commentVC {
             self.navigationController?.pushViewController(commentVC, animated: true)
         }
