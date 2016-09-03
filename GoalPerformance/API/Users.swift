@@ -20,6 +20,7 @@ extension APIClient {
         Alamofire.request(.GET, requestUrl, headers: headers)
             .responseJSON { response in
                 if let JSON = response.result.value {
+                    print("JSON:\(JSON)")
                     var items = [TimelineItem]()
                     for itemDictionary in JSON["data"] as! [Dictionary<String, AnyObject>] {
                         let timelineItem = TimelineItem(dictionary: itemDictionary)

@@ -24,5 +24,8 @@ class Comment: NSObject {
         }
 
     }
+    override init() {
+        
+    }
 
 }

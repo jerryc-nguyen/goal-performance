@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import NextGrowingTextView
 
 class CommentViewController: UIViewController {
 
+    @IBOutlet weak var inputContainerView: UIView!
+    @IBOutlet weak var inputContainerViewBottom: NSLayoutConstraint!
+    @IBOutlet weak var growingTextView: NextGrowingTextView!
     @IBOutlet weak var tableView: UITableView!
     var timeLineItem: TimelineItem?
     var cellIndex: Int?
@@ -19,6 +23,20 @@ class CommentViewController: UIViewController {
     var apiClient = APIClient.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
+        self.growingTextView.layer.cornerRadius = 4
+        self.growingTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        self.growingTextView.textContainerInset = UIEdgeInsets(top: 16, left: 0, bottom: 4, right: 0)
+        self.growingTextView.placeholderAttributedText = NSAttributedString(string: "Placeholder text",
+                                                                            attributes: [NSFontAttributeName: self.growingTextView.font!,
+                                                                                NSForegroundColorAttributeName: UIColor.grayColor()
+            ]
+        )
+
        
         tableView.delegate = self
         tableView.dataSource = self
@@ -40,6 +58,59 @@ class CommentViewController: UIViewController {
             })
         }
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    @IBAction func handleSendButton(sender: AnyObject) {
+        self.view.endEditing(true)
+        let message = self.growingTextView.text
+        if message.characters.count > 0{
+            if let goalId = self.timeLineItem?.currentGoalSession?.goalId
+            {
+                apiClient.postComments(goalId, comment: message, completed: { (successed, comment, message) in
+                    if successed {
+                        //update message list
+                        if let _ = comment {
+                            self.comments.insert(comment!, atIndex: 0)
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        HLKAlertView.show("Error", message: "Can't comment on this goal now. Please try again.", accessoryView: nil, cancelButtonTitle: "Try again", otherButtonTitles: nil, handler: nil)
+                    }
+                })
+            }
+        }else {
+            HLKAlertView.show("Warning", message: "Please input message", accessoryView: nil, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+        }
+        
+        self.growingTextView.text = ""
+    }
+    
+    
+    func keyboardWillHide(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let _ = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
+                //key point 0,
+                self.inputContainerViewBottom.constant =  0
+                //textViewBottomConstraint.constant = keyboardHeight
+                UIView.animateWithDuration(0.25, animations: { () -> Void in self.view.layoutIfNeeded() })
+            }
+        }
+    }
+    func keyboardWillShow(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
+                self.inputContainerViewBottom.constant = (keyboardHeight - 44)
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+
 
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "TimelineItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineItemTableViewCell")
@@ -68,11 +139,9 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
             if let timelineItem = timeLineItem {
                 cell.timeLineItem = timelineItem
-
             }
             return cell
         default:
-            //2
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as! CommentTableViewCell
             let commentItem = self.comments[indexPath.row]
             cell.commentItem = commentItem

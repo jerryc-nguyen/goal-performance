@@ -12,6 +12,10 @@ import SDWebImage
 import DateTools
 import Charts
 
+protocol TimelineItemTableViewCellDelegate: class {
+    func starButtonPressed(goalID: Int) -> Void
+}
+
 class TimelineItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userAvatarImgView: UIImageView!
@@ -30,10 +34,19 @@ class TimelineItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var starButton: UIButton!
     
-    var goalID: Int?
+    var delegate: TimelineItemTableViewCellDelegate? = nil
     
+    var goalID: Int? {
+        didSet {
+            if goalID != nil {
+                loadComments()
+            }
+        }
+    }
+    var apiClient = APIClient.sharedInstance
     var timeLineItem: TimelineItem! {
         didSet {
+            self.goalID = timeLineItem.currentGoalSession?.goalId
             let currentSession = timeLineItem.currentGoalSession!
             userNameLabel.text = currentSession.participant?.displayName
             fellingLabel.text = currentSession.feelingSentence
@@ -46,6 +59,12 @@ class TimelineItemTableViewCell: UITableViewCell {
             
             let scores = currentSession.sessionsHistory?.scores
             setChart(days, values: scores!)
+
+            if currentSession.goal.likeCount < 2 {
+                self.starButton.setTitle("\(currentSession.goal.likeCount) star", forState: .Normal)
+            } else {
+                self.starButton.setTitle("\(currentSession.goal.likeCount) stars", forState: .Normal)
+            }
         }
     }
 
@@ -92,6 +111,33 @@ class TimelineItemTableViewCell: UITableViewCell {
         
         lineChartView.data = lineChartData
         
+    }
+    
+    
+    func loadComments() {
+        if let goalID = self.timeLineItem?.currentGoalSession?.goalId {
+            
+            apiClient.getComments(goalID, completed: { (comments) in
+                
+                if comments.count < 2 {
+    //                self.commentButton.titleLabel?.text = "\(comments.count) comment"
+                    self.commentButton.setTitle("\(comments.count) comment", forState: .Normal)
+                } else {
+    //                self.commentButton.titleLabel?.text = "\(comments.count) comments"
+                    self.commentButton.setTitle("\(comments.count) comments", forState: .Normal)
+                }
+                
+            })
+        }
+    }
+    
+    @IBAction func onStarAction(sender: UIButton) {
+        if let _ = self.delegate {
+            if let goalID = self.timeLineItem?.currentGoalSession?.goalId {
+                self.delegate?.starButtonPressed(goalID)
+            }
+            
+        }
     }
     
     override func awakeFromNib() {

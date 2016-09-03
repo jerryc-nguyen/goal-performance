@@ -62,16 +62,27 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCU-uq-MpG">
-                        <rect key="frame" x="10" y="225" width="176.5" height="30"/>
-                        <state key="normal" title="3 comments">
+                        <rect key="frame" x="10" y="225" width="177" height="30"/>
+                        <state key="normal">
                             <color key="titleColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-Rt-N6g">
-                        <rect key="frame" x="252.5" y="221" width="176.5" height="37.5"/>
-                        <state key="normal" title="3 stars">
+                        <rect key="frame" x="253" y="221" width="177" height="38"/>
+                        <state key="normal">
                             <color key="titleColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9J-dv-jZM">
+                        <rect key="frame" x="379" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="lI2-qa-piI"/>
+                            <constraint firstAttribute="height" constant="50" id="wFW-mP-dse"/>
+                        </constraints>
+                        <state key="normal" title="Star"/>
+                        <connections>
+                            <action selector="onStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YQj-vR-q6d"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -89,6 +100,8 @@
                     <constraint firstAttribute="bottom" secondItem="1DH-hj-uHM" secondAttribute="bottom" constant="500" id="VjP-kb-39O"/>
                     <constraint firstItem="1DH-hj-uHM" firstAttribute="leading" secondItem="B2K-Le-W3e" secondAttribute="leading" id="Vku-cU-qoe"/>
                     <constraint firstItem="CQr-jr-pP2" firstAttribute="top" secondItem="1DH-hj-uHM" secondAttribute="bottom" constant="5" id="YZR-zc-cFK"/>
+                    <constraint firstItem="uCU-uq-MpG" firstAttribute="centerY" secondItem="YDT-Rt-N6g" secondAttribute="centerY" id="bA7-bH-Xz4"/>
+                    <constraint firstAttribute="trailing" secondItem="j9J-dv-jZM" secondAttribute="trailing" constant="10" id="bne-TR-cV0"/>
                     <constraint firstItem="0qa-fY-nxL" firstAttribute="leading" secondItem="syC-Is-jVI" secondAttribute="trailing" constant="5" id="d8o-VV-zbd"/>
                     <constraint firstItem="uCU-uq-MpG" firstAttribute="baseline" secondItem="YDT-Rt-N6g" secondAttribute="baseline" id="f8P-FQ-zK6"/>
                     <constraint firstItem="YDT-Rt-N6g" firstAttribute="top" secondItem="CQr-jr-pP2" secondAttribute="bottom" constant="10" id="fTr-oy-B4N"/>
@@ -99,6 +112,7 @@
                     <constraint firstItem="GLe-hv-DTk" firstAttribute="leading" secondItem="0qa-fY-nxL" secondAttribute="trailing" constant="5" id="nhP-s6-tdB"/>
                     <constraint firstItem="14p-s7-1o5" firstAttribute="top" secondItem="syC-Is-jVI" secondAttribute="bottom" constant="5" id="oFt-rt-isP"/>
                     <constraint firstItem="0qa-fY-nxL" firstAttribute="baseline" secondItem="syC-Is-jVI" secondAttribute="baseline" id="qvj-Pl-wlt"/>
+                    <constraint firstItem="j9J-dv-jZM" firstAttribute="top" secondItem="B2K-Le-W3e" secondAttribute="top" id="rf2-TN-LK4"/>
                     <constraint firstItem="syC-Is-jVI" firstAttribute="leading" secondItem="B2K-Le-W3e" secondAttribute="trailing" constant="5" id="yFO-u2-wwl"/>
                 </constraints>
                 <variation key="default">
