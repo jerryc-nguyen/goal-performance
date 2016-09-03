@@ -16,10 +16,12 @@ class ChatListViewController: JSQMessagesViewController {
     var apiClient = APIClient.sharedInstance
     var currentPage = 1
     var sender = APIClient.currentUser
-    
+    var outgoingBubbleImageView: JSQMessagesBubbleImage!
+    var incomingBubbleImageView: JSQMessagesBubbleImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBubbles()
         loadChatItems()
     }
     
@@ -51,7 +53,12 @@ class ChatListViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
-        return nil
+        let message = messages[indexPath.item]
+        if message.senderId() == senderId {
+            return outgoingBubbleImageView
+        } else {
+            return incomingBubbleImageView
+        }
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -72,7 +79,17 @@ class ChatListViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        let message = messages[indexPath.item]
+        
+        return message.actor
+    }
+    
+    private func setupBubbles() {
+        let factory = JSQMessagesBubbleImageFactory()
+        outgoingBubbleImageView = factory.outgoingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleBlueColor())
+        incomingBubbleImageView = factory.incomingMessagesBubbleImageWithColor(
+            UIColor.jsq_messageBubbleLightGrayColor())
     }
 
 }

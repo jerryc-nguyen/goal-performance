@@ -8,6 +8,7 @@
 
 import UIKit
 import JSQMessagesViewController
+import SDWebImage
 
 class ChatUser: NSObject, JSQMessageAvatarImageDataSource {
     
@@ -29,8 +30,14 @@ class ChatUser: NSObject, JSQMessageAvatarImageDataSource {
     }
     
     func avatarImage() -> UIImage! {
-        let image_data = NSData(contentsOfURL: self.avatarUrl!)
-        return UIImage(data: image_data!)
+        var image = UIImage()
+        let manager = SDWebImageManager.sharedManager()
+        manager.downloadImageWithURL(self.avatarUrl, options: SDWebImageOptions.CacheMemoryOnly, progress: { (i: Int, j: Int) in
+            
+        }) { (downloadedImage: UIImage!, error: NSError!, cache: SDImageCacheType, bool: Bool, url: NSURL!) in
+            image = downloadedImage
+        }
+        return image
     }
     
     /**
@@ -55,6 +62,6 @@ class ChatUser: NSObject, JSQMessageAvatarImageDataSource {
      */
 
     func avatarPlaceholderImage() -> UIImage! {
-        return avatarImage()
+        return UIImage(named: "goal buddy")
     }
 }
