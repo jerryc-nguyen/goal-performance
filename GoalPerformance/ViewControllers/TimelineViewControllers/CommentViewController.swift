@@ -15,6 +15,7 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var inputContainerViewBottom: NSLayoutConstraint!
     @IBOutlet weak var growingTextView: NextGrowingTextView!
     @IBOutlet weak var tableView: UITableView!
+    var items = [TimelineItem]()
     var timeLineItem: TimelineItem?
     var cellIndex: Int?
     var goalID: Int?
@@ -139,7 +140,9 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
             if let timelineItem = timeLineItem {
                 cell.timeLineItem = timelineItem
+                cell.delegate = self
             }
+            
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as! CommentTableViewCell
@@ -164,5 +167,24 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return nil
+    }
+}
+
+
+extension CommentViewController: TimelineItemTableViewCellDelegate {
+    func starButtonPressed(goalID: Int) -> Void {
+        print("starButtonPressed")
+        apiClient.star(goalID) { (successed, likeCount, message) in
+            if successed {
+                self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
+                    self.timeLineItem?.currentGoalSession?.goal.likeCount = goal.likeCount
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                })
+            } else {
+                HLKAlertView.show("", message: message, accessoryView: nil, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+            }
+        }
+        
     }
 }

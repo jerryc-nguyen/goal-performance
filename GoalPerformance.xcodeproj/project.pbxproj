@@ -74,6 +74,7 @@
 		E0E6F29D1D5772B000EE8448 /* LocalNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */; };
 		E0E6F29F1D5773AC00EE8448 /* EndGoalNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */; };
 		E0E6F2A11D57761900EE8448 /* SuggestFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */; };
+		E405E2371D7C2EBE00EC12E5 /* HLKAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405E2361D7C2EBE00EC12E5 /* HLKAlertView.swift */; };
 		E427078B1D740D1E00D93CDF /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427078A1D740D1E00D93CDF /* Comments.swift */; };
 		E42ACD711D6974B2008FD15B /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42ACD701D6974B2008FD15B /* CAPSPageMenu.swift */; };
 		E42ACD731D697B3B008FD15B /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42ACD721D697B3B008FD15B /* FriendsTableViewController.swift */; };
@@ -170,6 +171,7 @@
 		E0E6F29C1D5772B000EE8448 /* LocalNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationsManager.swift; sourceTree = "<group>"; };
 		E0E6F29E1D5773AC00EE8448 /* EndGoalNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndGoalNotifyViewController.swift; path = GoalPerformance/ViewControllers/GoalStartEndViewControllers/EndGoalNotifyViewController.swift; sourceTree = SOURCE_ROOT; };
 		E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestFriendTableViewCell.swift; path = InviteFriendViews/SuggestFriendTableViewCell.swift; sourceTree = "<group>"; };
+		E405E2361D7C2EBE00EC12E5 /* HLKAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLKAlertView.swift; sourceTree = "<group>"; };
 		E427078A1D740D1E00D93CDF /* Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		E42ACD701D6974B2008FD15B /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		E42ACD721D697B3B008FD15B /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsTableViewController.swift; path = FriendControllers/FriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		42F010071D4F9F9E002CD514 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E405E2351D7C2EBE00EC12E5 /* HLKAlertView */,
 				425EB7FE1D74CA24004B67EF /* ChatViews */,
 				E4A4940C1D6DC9BE008210AA /* SuggestedFriendViews */,
 				E44F1B011D64BF5400437844 /* GoalsView */,
@@ -486,6 +489,14 @@
 				E0E6F2A01D57761900EE8448 /* SuggestFriendTableViewCell.swift */,
 			);
 			name = InviteFriendViews;
+			sourceTree = "<group>";
+		};
+		E405E2351D7C2EBE00EC12E5 /* HLKAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				E405E2361D7C2EBE00EC12E5 /* HLKAlertView.swift */,
+			);
+			path = HLKAlertView;
 			sourceTree = "<group>";
 		};
 		E44F1AFE1D6487BD00437844 /* Base */ = {
@@ -717,6 +728,7 @@
 				42210CAA1D4D040F0029990F /* AppDelegate.swift in Sources */,
 				E4A494131D6DD86B008210AA /* SuggestedFriendsTableViewController.swift in Sources */,
 				42F010251D4FA925002CD514 /* MainTabBarController.swift in Sources */,
+				E405E2371D7C2EBE00EC12E5 /* HLKAlertView.swift in Sources */,
 				4263DF501D5BC5A40050E5A0 /* CoreExtend.swift in Sources */,
 				42769B581D7364DA004659AA /* MyChatsViewController.swift in Sources */,
 				42BE05A31D684ED6003C9B7C /* GoalSession.swift in Sources */,
