@@ -98,7 +98,7 @@ extension NSDictionary {
     func stringFromHttpParameters() -> String {
         let parameterArray = self.map { (key, value) -> String in
             let percentEscapedKey = (key as! String).stringByAddingPercentEncodingForURLQueryValue()!
-            let percentEscapedValue = (value as! String).stringByAddingPercentEncodingForURLQueryValue()!
+            let percentEscapedValue = String(value).stringByAddingPercentEncodingForURLQueryValue()!
             return "\(percentEscapedKey)=\(percentEscapedValue)"
         }
         
