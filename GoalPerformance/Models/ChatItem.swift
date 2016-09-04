@@ -20,6 +20,7 @@ class ChatItem: NSObject, JSQMessageData {
     var receiver: User?
     var formattedCreatedAt: String?
     var createdAt: NSDate?
+    var goal: Goal?
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
@@ -45,6 +46,10 @@ class ChatItem: NSObject, JSQMessageData {
             if let createdAtDate = Utils.dateFromRailsString(createdAtStr) {
                 createdAt = createdAtDate
             }
+        }
+        
+        if let goalData = dictionary["goal"] as? NSDictionary {
+            goal = Goal(dictionary: goalData)
         }
     }
     

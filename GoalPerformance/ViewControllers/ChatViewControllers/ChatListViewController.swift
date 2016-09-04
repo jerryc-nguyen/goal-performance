@@ -27,7 +27,8 @@ class ChatListViewController: JSQMessagesViewController {
         loadChatItems()
         
         //fake data
-        self.receiver = ChatUser.fakeData()
+        //self.receiver = ChatUser.fakeData()
+        self.goal = Goal.fakeData()
     }
     
     override func viewWillAppear(animated: Bool) {

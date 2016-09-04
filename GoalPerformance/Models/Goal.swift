@@ -237,4 +237,35 @@ class Goal: NSObject {
         print("startAtMSecond", startAtSecond)
     }
     
+    static func fakeData() -> Goal {
+        let params: [String: AnyObject] = [
+            "id": 2,
+            "name": "Meditate",
+            "detail_name": "Meditate at 18:40",
+            "start_at": "2000-01-01T18:40:00.000+07:00",
+            "repeat_every": [
+                "tuesday",
+                "thursday"
+            ],
+            "duration": 1,
+            "sound_name": "clock_alarm",
+            "is_challenge": true,
+            "is_default": true,
+            "category_selected_color": "#3BB351",
+            "start_at_interval": 67200,
+            "end_at_interval": 67260,
+            "start_at_hour": 18,
+            "start_at_minute": 40,
+            "start_at_second": 0,
+            "end_at_hour": 18,
+            "end_at_minute": 41,
+            "end_at_second": 0,
+            "likes_count": 1,
+            "comments_count": 6
+        ]
+        
+        return Goal(dictionary: params)
+        
+    }
+    
 }

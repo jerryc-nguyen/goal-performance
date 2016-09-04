@@ -45,6 +45,7 @@ class MyChatsViewController: UIViewController {
     
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "MyChatTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MyChatTableViewCell")
+        tableView.registerNib(UINib(nibName: "ChatBuddiesTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "ChatBuddiesTableViewCell")
     }
     
     func pullToRefresh() {
@@ -108,11 +109,20 @@ extension MyChatsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MyChatTableViewCell") as! MyChatTableViewCell
+        
         let chatItem = items[indexPath.row]
         
-        cell.myChatItem = chatItem
-        return cell
+        if let _ = chatItem.goalId {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ChatBuddiesTableViewCell") as! ChatBuddiesTableViewCell
+            cell.myChatItem = chatItem
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("MyChatTableViewCell") as! MyChatTableViewCell
+            
+            
+            cell.myChatItem = chatItem
+            return cell
+        }
     }
     
 //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
