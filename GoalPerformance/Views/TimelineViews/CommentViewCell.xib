@@ -45,6 +45,11 @@
                     <constraint firstItem="PK2-NU-fAl" firstAttribute="top" secondItem="GwN-w5-5ye" secondAttribute="bottom" constant="8" id="uud-EV-mRq"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="commentLabel" destination="PK2-NU-fAl" id="vK3-6a-lHS"/>
+                <outlet property="displayNameLabel" destination="GwN-w5-5ye" id="ojx-9c-xs4"/>
+                <outlet property="profileImgView" destination="MaA-mS-ghn" id="QXB-4j-Cxi"/>
+            </connections>
             <point key="canvasLocation" x="257.5" y="156"/>
         </tableViewCell>
     </objects>

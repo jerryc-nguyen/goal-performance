@@ -11,6 +11,7 @@ import Foundation
 class TimelineItem: NSObject {
 
     var currentGoalSession: GoalSession?
+    var likeCount: Int!
     
     init(dictionary: NSDictionary) {
         if let goalSessionData = dictionary["goal_session"] as? NSDictionary {

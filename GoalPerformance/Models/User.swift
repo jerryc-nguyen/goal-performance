@@ -12,7 +12,7 @@ class User: NSObject {
     
     let id:Int?
     let idStr: String?
-    let displayName: String?
+    var displayName: String?
     let firstName: String?
     let lastName: String?
     let email: String?

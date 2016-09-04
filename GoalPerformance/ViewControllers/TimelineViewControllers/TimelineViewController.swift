@@ -11,7 +11,7 @@ import UIKit
 class TimelineViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    var cellIndex: Int?
     var items = [TimelineItem]()
     var apiClient = APIClient.sharedInstance
     let refreshControl = UIRefreshControl()
@@ -47,7 +47,7 @@ class TimelineViewController: UIViewController {
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "TimelineItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineItemTableViewCell")
     }
-    
+        
     func pullToRefresh() {
         currentPage = 1
         hasMoreData = true
@@ -111,14 +111,17 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
         let timelineItem = items[indexPath.row]
-        
         cell.timeLineItem = timelineItem
+        cell.delegate = self
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        let currentTimelineItem = items[indexPath.row]
         let storyboardManager = StoryboardManager.sharedInstance
         let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
+        commentVC?.timeLineItem = currentTimelineItem
         if let commentVC = commentVC {
             self.navigationController?.pushViewController(commentVC, animated: true)
         }
@@ -158,5 +161,25 @@ class InfiniteScrollActivityView: UIView {
     func startAnimating() {
         self.hidden = false
         self.activityIndicatorView.startAnimating()
+    }
+}
+
+extension TimelineViewController: TimelineItemTableViewCellDelegate {
+    func starButtonPressed(goalID: Int) -> Void {
+        apiClient.star(goalID) { (successed, likeCount, message) in
+            if successed {
+                self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
+                    for item in self.items {
+                        if item.currentGoalSession?.goalId == goalID {
+                            item.currentGoalSession?.goal.likeCount = goal.likeCount
+                            self.tableView.reloadData()
+                        }
+                    }
+                })
+            } else {
+                HLKAlertView.show("", message: message, accessoryView: nil, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+            }
+        }
+
     }
 }

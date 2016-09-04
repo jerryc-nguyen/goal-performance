@@ -56,7 +56,9 @@ struct API_URLS {
     static let suggestedFriends = "\(APIBaseURL)/api/friends/suggested.json"
     
     //COMMENTS
-    static let getComments = "\(APIBaseURL)api/goals/2/comments.json"
+    static let getComments = "\(APIBaseURL)api/goals/%d/comments.json"
+    static let postStar = "\(APIBaseURL)api/goals/%d/like_toggle.json"
+    static let postComments = "\(APIBaseURL)api/goals/%d/comment.json"
     
     //CHATS
     static let myChats = "\(APIBaseURL)/api/chats.json?page=%d"

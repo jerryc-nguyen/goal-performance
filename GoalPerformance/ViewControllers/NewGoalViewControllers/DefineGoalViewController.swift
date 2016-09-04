@@ -10,7 +10,7 @@ import Charts
 import UIKit
 import MBProgressHUD
 
-class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate {
+class DefineGoalViewController: UIViewController, GoalIntervalTableViewControllerDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var containChartView: LineChartView!
     @IBOutlet weak var heightContainChartViewConstraint: NSLayoutConstraint!
@@ -35,7 +35,11 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DefineGoalViewController.handleTap(_:)))
+        tap.delegate = self
+        self.containChartView.userInteractionEnabled = true
+        self.containChartView.addGestureRecognizer(tap)
+        
         let navBar = self.navigationController
         
         startTimePicker.datePickerMode = UIDatePickerMode.Time
@@ -64,6 +68,10 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
             self.navigationItem.rightBarButtonItem = nextBarItem
         }
         
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        // handling code
     }
     
     func loadAndSetupChartForGoalDetail() {

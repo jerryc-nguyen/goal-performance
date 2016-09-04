@@ -77,6 +77,8 @@ class Goal: NSObject {
         }
     }
     
+    var likeCount: Int!
+    
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
         name = dictionary["name"] as? String
@@ -149,6 +151,12 @@ class Goal: NSObject {
         
         if let linesData = dictionary["lines_data"] as? NSDictionary {
             linesChartData = LinesChartData(chartData: linesData)
+        }
+        
+        if let count = dictionary["likes_count"] as? Int {
+            likeCount = count;
+        }else {
+            likeCount = 0;
         }
         
     }

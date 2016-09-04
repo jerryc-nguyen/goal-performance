@@ -10,6 +10,19 @@ import UIKit
 
 class CommentTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var profileImgView: UIImageView!
+    @IBOutlet weak var displayNameLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
+    
+    var commentItem: Comment! {
+        didSet {
+            commentLabel.text = commentItem.content
+            profileImgView.sd_setImageWithURL(commentItem.creator?.avatarUrl)
+            displayNameLabel.text = commentItem.creator?.displayName
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

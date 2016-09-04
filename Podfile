@@ -21,5 +21,6 @@ target 'GoalPerformance' do
   pod 'UrbanAirship-iOS-SDK', '~> 7.2.2'
   pod 'PageMenu'
   pod 'JSQMessagesViewController'
+  pod 'NextGrowingTextView'
   
 end
