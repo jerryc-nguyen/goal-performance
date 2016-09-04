@@ -51,6 +51,7 @@ struct API_URLS {
     
     //GOAL START-END
     static let goalStartEnd = "\(APIBaseURL)/api/goal_sessions/handle_start_end.json"
+    
     //SUGGESTED FRIENDS
     static let suggestedFriends = "\(APIBaseURL)/api/friends/suggested.json"
     
@@ -58,8 +59,10 @@ struct API_URLS {
     static let getComments = "\(APIBaseURL)api/goals/2/comments.json"
     
     //CHATS
-    static let listChats = "\(APIBaseURL)/api/chats.json?page=%d"
+    static let myChats = "\(APIBaseURL)/api/chats.json?page=%d"
+    static let chatting = "\(APIBaseURL)/api/chats.json"
     static let detailChat = "\(APIBaseURL)/api/chats/%d.json"
+    static let chatList = "\(APIBaseURL)/api/chats/list.json?%s"
     
 }
 

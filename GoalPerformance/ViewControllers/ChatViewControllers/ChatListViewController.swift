@@ -16,6 +16,8 @@ class ChatListViewController: JSQMessagesViewController {
     var apiClient = APIClient.sharedInstance
     var currentPage = 1
     var sender = APIClient.currentUser
+    var receiver: ChatUser?
+    var goal: Goal?
     var outgoingBubbleImageView: JSQMessagesBubbleImage!
     var incomingBubbleImageView: JSQMessagesBubbleImage!
     
@@ -23,6 +25,9 @@ class ChatListViewController: JSQMessagesViewController {
         super.viewDidLoad()
         setupBubbles()
         loadChatItems()
+        
+        //fake data
+        self.receiver = ChatUser.fakeData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,6 +47,29 @@ class ChatListViewController: JSQMessagesViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        var params: [String: AnyObject] = [
+            "chat[message]": text
+        ]
+        
+        if let receiverObj = receiver {
+            params["chat[receiver_id]"] = receiverObj.id
+        } else if let goalObject = goal {
+            params["chat[goal_id]"] = goalObject.id
+        }
+        
+        apiClient.createChat(params) { (chat: ChatItem?) in
+            if let newChat = chat {
+                self.messages.append(newChat)
+                self.collectionView.reloadData()
+            }
+           self.finishSendingMessage()
+        }
+        
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
