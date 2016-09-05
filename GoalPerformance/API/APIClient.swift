@@ -64,7 +64,7 @@ struct API_URLS {
     static let myChats = "\(APIBaseURL)/api/chats.json?page=%d"
     static let chatting = "\(APIBaseURL)/api/chats.json"
     static let detailChat = "\(APIBaseURL)/api/chats/%d.json"
-    static let chatList = "\(APIBaseURL)/api/chats/list.json?%s"
+    static let chatList = "\(APIBaseURL)/api/chats/chatting.json"
     
 }
 

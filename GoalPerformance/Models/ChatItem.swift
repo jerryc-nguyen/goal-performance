@@ -17,7 +17,7 @@ class ChatItem: NSObject, JSQMessageData {
     let goalId: Int?
     var isRead: Bool = false
     var actor: ChatUser?
-    var receiver: User?
+    var receiver: ChatUser?
     var formattedCreatedAt: String?
     var createdAt: NSDate?
     var goal: Goal?
@@ -39,7 +39,7 @@ class ChatItem: NSObject, JSQMessageData {
         }
         
         if let receiverData = dictionary["receiver"] as? NSDictionary {
-            receiver = User(dictionary: receiverData)
+            receiver = ChatUser(dictionary: receiverData)
         }
         
         if let createdAtStr = dictionary["created_at"] as? String {
