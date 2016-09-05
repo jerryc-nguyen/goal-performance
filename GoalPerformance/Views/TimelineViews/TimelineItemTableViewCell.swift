@@ -19,23 +19,14 @@ protocol TimelineItemTableViewCellDelegate: class {
 class TimelineItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userAvatarImgView: UIImageView!
-    
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var fellingLabel: UILabel!
-    
     @IBOutlet weak var finishLabel: UILabel!
-    
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var lineChartView: LineChartView!
-
     @IBOutlet weak var commentButton: UIButton!
-    
     @IBOutlet weak var starButton: UIButton!
-    
     var delegate: TimelineItemTableViewCellDelegate? = nil
-    
     var goalID: Int? {
         didSet {
             if goalID != nil {
@@ -67,8 +58,6 @@ class TimelineItemTableViewCell: UITableViewCell {
             }
         }
     }
-
-    
     var days: [String]!
     
     func setChart(dataPoints: [String], values: [Double]) {

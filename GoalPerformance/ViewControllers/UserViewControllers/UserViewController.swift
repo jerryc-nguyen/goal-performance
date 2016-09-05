@@ -21,9 +21,7 @@ class UserViewController: UIViewController {
     var dateLabels = [String]()
     var hideNavBar = true
     var navBarTitle = "Your Goals"
-    
     var apiClient = APIClient.sharedInstance
-    
     let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -100,14 +98,12 @@ extension UserViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserProfileTableViewCell") as! UserProfileTableViewCell
-            
             cell.viewingUser = self.viewingUser
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalTableViewCell") as! UserGoalTableViewCell
             if userGoals.count > 0 {
                 let goal = userGoals[indexPath.section - 1]
-            
                 cell.goal = goal
             }
             return cell
@@ -117,12 +113,19 @@ extension UserViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section > 0 {
             let storyboardManager  = StoryboardManager.sharedInstance
-            let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
-            
-            if let defineGoalViewController = defineGoalViewController {
+//            let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
+//            
+//            if let defineGoalViewController = defineGoalViewController {
+//                let goal = userGoals[indexPath.section - 1]
+//                defineGoalViewController.goalId = goal.id
+//                self.navigationController?.pushViewController(defineGoalViewController, animated: true)
+//            }
+            let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
+            if let commentVC = commentVC {
+                commentVC.showFullChart = true
                 let goal = userGoals[indexPath.section - 1]
-                defineGoalViewController.goalId = goal.id
-                self.navigationController?.pushViewController(defineGoalViewController, animated: true)
+                commentVC.goal = goal
+                self.navigationController?.pushViewController(commentVC, animated: true)
             }
         }
     }

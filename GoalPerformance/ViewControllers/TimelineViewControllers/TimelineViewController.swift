@@ -121,7 +121,9 @@ extension TimelineViewController: UITableViewDataSource {
         let currentTimelineItem = items[indexPath.row]
         let storyboardManager = StoryboardManager.sharedInstance
         let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
+        commentVC?.showFullChart = false
         commentVC?.timeLineItem = currentTimelineItem
+        
         if let commentVC = commentVC {
             self.navigationController?.pushViewController(commentVC, animated: true)
         }

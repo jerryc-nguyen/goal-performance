@@ -39,9 +39,7 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
         tap.delegate = self
         self.containChartView.userInteractionEnabled = true
         self.containChartView.addGestureRecognizer(tap)
-        
         let navBar = self.navigationController
-        
         startTimePicker.datePickerMode = UIDatePickerMode.Time
       
         if hasGoal == true {

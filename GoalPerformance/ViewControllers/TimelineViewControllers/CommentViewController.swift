@@ -17,11 +17,14 @@ class CommentViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var items = [TimelineItem]()
     var timeLineItem: TimelineItem?
+    var goal: Goal?
     var cellIndex: Int?
     var goalID: Int?
     var displayName: String?
     var comments = [Comment]()
     var apiClient = APIClient.sharedInstance
+    var showFullChart: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,8 +40,6 @@ class CommentViewController: UIViewController {
                                                                                 NSForegroundColorAttributeName: UIColor.grayColor()
             ]
         )
-
-       
         tableView.delegate = self
         tableView.dataSource = self
         registerNibs()
@@ -46,14 +47,10 @@ class CommentViewController: UIViewController {
         self.tableView.estimatedRowHeight = 100
         loadComments()
         tableView.reloadData()
-        // Do any additional setup after loading the view.
     }
-    
     func loadComments() {
         if let goalID = self.timeLineItem?.currentGoalSession?.goalId {
-            
-            apiClient.getComments(goalID, completed: { (comments) in
-                
+                apiClient.getComments(goalID, completed: { (comments) in
                 self.comments = comments
                 self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
             })
@@ -68,7 +65,7 @@ class CommentViewController: UIViewController {
     @IBAction func handleSendButton(sender: AnyObject) {
         self.view.endEditing(true)
         let message = self.growingTextView.text
-        if message.characters.count > 0{
+        if message.characters.count > 0 {
             if let goalId = self.timeLineItem?.currentGoalSession?.goalId
             {
                 apiClient.postComments(goalId, comment: message, completed: { (successed, comment, message) in
@@ -116,6 +113,7 @@ class CommentViewController: UIViewController {
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "TimelineItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "TimelineItemTableViewCell")
         tableView.registerNib(UINib(nibName: "CommentViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "CommentTableViewCell")
+        tableView.registerNib(UINib(nibName: "UserGoalTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserGoalTableViewCell")
     }
 
     /*
@@ -137,13 +135,20 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
-            if let timelineItem = timeLineItem {
-                cell.timeLineItem = timelineItem
-                cell.delegate = self
-            }
-            
-            return cell
+                if (showFullChart != nil && showFullChart! == true) {
+                    let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalTableViewCell") as! UserGoalTableViewCell
+                    if let goal = goal {
+                        cell.goal = goal
+                    }
+                    return cell
+                } else {
+                   let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
+                    if let timelineItem = timeLineItem {
+                        cell.timeLineItem = timelineItem
+                        cell.delegate = self
+                    }
+                    return cell
+                }
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as! CommentTableViewCell
             let commentItem = self.comments[indexPath.row]
@@ -163,17 +168,36 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        switch section {
+        case 0:
+            if showFullChart != nil && showFullChart == true {
+                return 50
+            } else {
+                return 0
+            }
+        default:
+            return 0
+        }
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
+        switch section {
+        case 0:
+            if showFullChart != nil && showFullChart == true {
+                let view = UsersGoalSectionHeaderView.initFromNib()
+                view.goal = goal
+                return view
+            } else {
+                return nil
+            }
+        default:
+            return nil
+        }
     }
 }
 
 
 extension CommentViewController: TimelineItemTableViewCellDelegate {
     func starButtonPressed(goalID: Int) -> Void {
-        print("starButtonPressed")
         apiClient.star(goalID) { (successed, likeCount, message) in
             if successed {
                 self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
