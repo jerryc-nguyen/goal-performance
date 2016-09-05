@@ -70,6 +70,7 @@
 		874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */; };
 		E00701481D608D180090972F /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00701471D608D180090972F /* FriendViewController.swift */; };
 		E03119801D678A9700ACDBD5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031197F1D678A9700ACDBD5 /* UIColorExtension.swift */; };
+		E056B2051D7DD659006A7C67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E056B2041D7DD659006A7C67 /* MapKit.framework */; };
 		E07B39831D5481A70000FA93 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B39821D5481A70000FA93 /* InviteFriend.storyboard */; };
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
@@ -169,6 +170,7 @@
 		D507D87978FC701EDF431D34 /* Pods-GoalPerformance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoalPerformance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoalPerformance/Pods-GoalPerformance.debug.xcconfig"; sourceTree = "<group>"; };
 		E00701471D608D180090972F /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendViewController.swift; path = FriendControllers/FriendViewController.swift; sourceTree = "<group>"; };
 		E031197F1D678A9700ACDBD5 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E056B2041D7DD659006A7C67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E07B39821D5481A70000FA93 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
@@ -204,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4246BB891D6F034200456D40 /* AirshipKit.framework in Frameworks */,
+				E056B2051D7DD659006A7C67 /* MapKit.framework in Frameworks */,
 				874CEBCB2A9421E1CC3AB38A /* Pods_GoalPerformance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +217,7 @@
 		2B4811E4B0ECBE716F7D2F0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E056B2041D7DD659006A7C67 /* MapKit.framework */,
 				BA64F14D1A1E3CD111C2F96F /* Pods_GoalPerformance.framework */,
 			);
 			name = Frameworks;
