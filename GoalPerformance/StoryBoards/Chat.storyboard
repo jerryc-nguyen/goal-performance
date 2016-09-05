@@ -43,7 +43,7 @@
         <!--Chat View Controller-->
         <scene sceneID="TsR-Pk-BP6">
             <objects>
-                <viewController id="nCE-VD-4Gi" customClass="ChatViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="nCE-VD-4Gi" customClass="ChatViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="foW-y9-WoO"/>
                         <viewControllerLayoutGuide type="bottom" id="um9-aG-1oh"/>

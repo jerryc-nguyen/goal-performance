@@ -112,7 +112,7 @@ extension MyChatsViewController: UITableViewDataSource {
         
         let chatItem = items[indexPath.row]
         
-        if let _ = chatItem.goalId {
+        if let _ = chatItem.goal {
             let cell = tableView.dequeueReusableCellWithIdentifier("ChatBuddiesTableViewCell") as! ChatBuddiesTableViewCell
             cell.myChatItem = chatItem
             return cell
@@ -125,11 +125,18 @@ extension MyChatsViewController: UITableViewDataSource {
         }
     }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let storyboardManager = StoryboardManager.sharedInstance
-//        let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
-//        if let commentVC = commentVC {
-//            self.navigationController?.pushViewController(commentVC, animated: true)
-//        }
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboardManager = StoryboardManager.sharedInstance
+        let chatVC = storyboardManager.getViewController("ChatViewController", storyboard: "Chat") as! ChatViewController
+        let chatItem = items[indexPath.row]
+        
+        if let goal = chatItem.goal {
+            chatVC.goal = goal
+        } else {
+            chatVC.receiver = chatItem.receiver
+        }
+        
+        self.navigationController?.pushViewController(chatVC, animated: true)
+        
+    }
 }

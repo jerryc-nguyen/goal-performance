@@ -31,14 +31,12 @@ extension APIClient {
         }
     }
     
-    func chatList(params: NSDictionary, completed: (items: [ChatItem]) -> ()) {
+    func chatList(params: [String : AnyObject], completed: (items: [ChatItem]) -> ()) {
         let headers = [
             "X-Api-Token": APIClient.currentUserToken
         ]
-        let paramQueryStr = params.stringFromHttpParameters()
-        let requestUrl = String(format: API_URLS.chatList, paramQueryStr)
         
-        Alamofire.request(.GET, requestUrl, headers: headers)
+        Alamofire.request(.GET, API_URLS.chatList, parameters: params, headers: headers)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     var items = [ChatItem]()

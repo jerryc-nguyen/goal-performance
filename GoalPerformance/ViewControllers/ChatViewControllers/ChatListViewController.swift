@@ -25,10 +25,6 @@ class ChatListViewController: JSQMessagesViewController {
         super.viewDidLoad()
         setupBubbles()
         loadChatItems()
-        
-        //fake data
-        //self.receiver = ChatUser.fakeData()
-        self.goal = Goal.fakeData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -39,7 +35,17 @@ class ChatListViewController: JSQMessagesViewController {
     }
     
     func loadChatItems() {
-        apiClient.myChats(currentPage) { (items) in
+        var params: [String: AnyObject] = [
+            "page": currentPage
+        ]
+        
+        if let receiverObj = receiver {
+            params["receiver_id"] = receiverObj.id
+        } else if let goalObject = goal {
+            params["goal_id"] = goalObject.id
+        }
+
+        apiClient.chatList(params) { (items) in
             self.messages = items
             self.collectionView.reloadData()
         }

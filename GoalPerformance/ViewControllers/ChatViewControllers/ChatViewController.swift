@@ -11,6 +11,8 @@ import JSQMessagesViewController
 
 class ChatViewController: UIViewController {
     
+    var receiver: ChatUser?
+    var goal: Goal?
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,8 @@ class ChatViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "chatListSegue" {
             let chatListVC = segue.destinationViewController as! ChatListViewController
-            chatListVC.senderId = "test"
+            chatListVC.goal = self.goal
+            chatListVC.receiver = self.receiver
         }
         
     }

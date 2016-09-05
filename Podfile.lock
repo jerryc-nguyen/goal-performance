@@ -22,7 +22,7 @@ PODS:
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
   - MBProgressHUD (1.0.0)
-  - NextGrowingTextView (0.7.3)
+  - NextGrowingTextView (0.7.1)
   - PageMenu (1.2.9)
   - Realm (0.103.2):
     - Realm/Headers (= 0.103.2)
@@ -61,7 +61,7 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  NextGrowingTextView: 8092e8723a52a739b8002df1492083451092551d
+  NextGrowingTextView: 6c3a6e07e9f74683c43f03010fd1b897d8edfb94
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
   RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
