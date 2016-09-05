@@ -157,3 +157,23 @@ extension UserViewController: UITableViewDelegate {
         }
     }
 }
+extension UserViewController: UserGoalTableViewCellDelegate {
+    func starButtonPressed(goalID: Int) -> Void {
+        apiClient.star(goalID) { (successed, likeCount, message) in
+            if successed {
+                self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
+                    for userGoal in self.userGoals {
+                        if userGoal.id == goalID {
+                            userGoal.likeCount = goal.likeCount
+                            self.tableView.reloadData()
+                        }
+                    }
+                })
+            } else {
+                HLKAlertView.show("", message: message, accessoryView: nil, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
+            }
+        }
+        
+    }
+
+}

@@ -10,6 +10,10 @@ import UIKit
 import Charts
 import FontAwesome_swift
 
+protocol UserGoalTableViewCellDelegate: class {
+    func starButtonPressed(goalID: Int) -> Void
+}
+
 class UserGoalTableViewCell: UITableViewCell {
     
     @IBOutlet weak var commentButton: UIButton!
@@ -17,6 +21,8 @@ class UserGoalTableViewCell: UITableViewCell {
     @IBOutlet weak var starButton: UIButton!
     
     @IBOutlet weak var lineChartView: LineChartView!
+    
+    var delegate: UserGoalTableViewCellDelegate?
     
     var goal: Goal? {
         didSet {
@@ -86,6 +92,16 @@ class UserGoalTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    @IBAction func onStarAction(sender: UIButton) {
+        if let _ = self.delegate {
+            if let goalID = self.goal?.id {
+                self.delegate?.starButtonPressed(goalID)
+            }
+        }
+
     }
     
     func loadComments() {
