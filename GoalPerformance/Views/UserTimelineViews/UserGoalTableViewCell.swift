@@ -12,11 +12,21 @@ import FontAwesome_swift
 
 class UserGoalTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var commentButton: UIButton!
+    
+    @IBOutlet weak var starButton: UIButton!
+    
     @IBOutlet weak var lineChartView: LineChartView!
     
     var goal: Goal? {
         didSet {
             setChart()
+            loadComments()
+            if goal!.likeCount < 2 {
+                self.starButton.setTitle("\(goal!.likeCount) star", forState: .Normal)
+            } else {
+                self.starButton.setTitle("\(goal!.likeCount) stars", forState: .Normal)
+            }
         }
     }
    
@@ -76,6 +86,21 @@ class UserGoalTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func loadComments() {
+        if let goalID = goal?.id {
+            
+            APIClient.sharedInstance.getComments(goalID, completed: { (comments) in
+                
+                if comments.count < 2 {
+                    self.commentButton.setTitle("\(comments.count) comment", forState: .Normal)
+                } else {
+                    self.commentButton.setTitle("\(comments.count) comments", forState: .Normal)
+                }
+                
+            })
+        }
     }
     
 }

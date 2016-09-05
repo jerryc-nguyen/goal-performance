@@ -123,7 +123,7 @@ extension TimelineViewController: UITableViewDataSource {
         let commentVC = storyboardManager.getViewController("CommentViewController", storyboard: "Timeline") as? CommentViewController
         commentVC?.showFullChart = false
         commentVC?.timeLineItem = currentTimelineItem
-        
+        commentVC?.from = .Timeline
         if let commentVC = commentVC {
             self.navigationController?.pushViewController(commentVC, animated: true)
         }

@@ -24,6 +24,11 @@ class CommentViewController: UIViewController {
     var comments = [Comment]()
     var apiClient = APIClient.sharedInstance
     var showFullChart: Bool?
+    enum pushFrom {
+        case Timeline
+        case User
+    }
+    var from: pushFrom?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +50,31 @@ class CommentViewController: UIViewController {
         registerNibs()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
-        loadComments()
+        if self.from == .Timeline {
+            loadCommentsHomeTimeline()
+        } else {
+            loadCommentUser()
+        }
+        
+        
+        
         tableView.reloadData()
     }
-    func loadComments() {
+    func loadCommentsHomeTimeline() {
         if let goalID = self.timeLineItem?.currentGoalSession?.goalId {
                 apiClient.getComments(goalID, completed: { (comments) in
                 self.comments = comments
                 self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
+            })
+        }
+    }
+    
+    func loadCommentUser() {
+        if let goalID = self.goalID {
+            apiClient.getComments(goalID, completed: { (comment) in
+                self.comments = comment
+                //self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
+                self.tableView.reloadData()
             })
         }
     }
@@ -79,8 +101,22 @@ class CommentViewController: UIViewController {
                         HLKAlertView.show("Error", message: "Can't comment on this goal now. Please try again.", accessoryView: nil, cancelButtonTitle: "Try again", otherButtonTitles: nil, handler: nil)
                     }
                 })
+            } 
+            
+            if let _ = goal?.id {
+                apiClient.postComments(goal!.id, comment: message, completed: { (successed, comment, message) in
+                    if successed {
+                        //update message list
+                        if let _ = comment {
+                            self.comments.insert(comment!, atIndex: 0)
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        HLKAlertView.show("Error", message: "Can't comment on this goal now. Please try again.", accessoryView: nil, cancelButtonTitle: "Try again", otherButtonTitles: nil, handler: nil)
+                    }
+                })
             }
-        }else {
+        } else {
             HLKAlertView.show("Warning", message: "Please input message", accessoryView: nil, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
         }
         

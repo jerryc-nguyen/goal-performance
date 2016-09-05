@@ -27,13 +27,13 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Jlx-2A-Mhi"/>
                         </constraints>
-                        <state key="normal" title="comments">
+                        <state key="normal">
                             <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2u-7R-Bi2">
                         <rect key="frame" x="160" y="141" width="160" height="30"/>
-                        <state key="normal" title="stars">
+                        <state key="normal">
                             <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
@@ -66,7 +66,9 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="commentButton" destination="Bbg-oR-Sw5" id="dGC-Kv-UxK"/>
                 <outlet property="lineChartView" destination="068-3M-OO8" id="CHY-Ip-ADV"/>
+                <outlet property="starButton" destination="t2u-7R-Bi2" id="V0m-Hf-9WQ"/>
             </connections>
             <point key="canvasLocation" x="140" y="258"/>
         </tableViewCell>

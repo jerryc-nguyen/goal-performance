@@ -112,6 +112,7 @@ extension UserViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section > 0 {
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
             let storyboardManager  = StoryboardManager.sharedInstance
 //            let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
 //            
@@ -125,6 +126,8 @@ extension UserViewController: UITableViewDataSource {
                 commentVC.showFullChart = true
                 let goal = userGoals[indexPath.section - 1]
                 commentVC.goal = goal
+                commentVC.goalID = goal.id
+                commentVC.from = .User
                 self.navigationController?.pushViewController(commentVC, animated: true)
             }
         }
