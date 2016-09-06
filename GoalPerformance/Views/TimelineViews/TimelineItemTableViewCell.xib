@@ -62,26 +62,28 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCU-uq-MpG">
-                        <rect key="frame" x="76" y="225" width="176.5" height="30"/>
+                        <rect key="frame" x="76" y="224" width="176.5" height="30"/>
                         <state key="normal">
                             <color key="titleColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-Rt-N6g">
-                        <rect key="frame" x="252.5" y="221" width="176.5" height="38"/>
+                        <rect key="frame" x="252.5" y="221" width="176.5" height="35.5"/>
                         <state key="normal">
                             <color key="titleColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9J-dv-jZM">
-                        <rect key="frame" x="13" y="205" width="50" height="50"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9J-dv-jZM" customClass="DOFavoriteButton" customModule="GoalPerformance" customModuleProvider="target">
+                        <rect key="frame" x="6" y="211" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="lI2-qa-piI"/>
                             <constraint firstAttribute="height" constant="50" id="wFW-mP-dse"/>
                         </constraints>
-                        <state key="normal" title="Star"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="star"/>
+                        </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="onStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YQj-vR-q6d"/>
+                            <action selector="onStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8qU-5M-wxn"/>
                         </connections>
                     </button>
                 </subviews>
@@ -104,11 +106,11 @@
                     <constraint firstItem="0qa-fY-nxL" firstAttribute="leading" secondItem="syC-Is-jVI" secondAttribute="trailing" constant="5" id="d8o-VV-zbd"/>
                     <constraint firstItem="uCU-uq-MpG" firstAttribute="baseline" secondItem="YDT-Rt-N6g" secondAttribute="baseline" id="f8P-FQ-zK6"/>
                     <constraint firstItem="YDT-Rt-N6g" firstAttribute="top" secondItem="CQr-jr-pP2" secondAttribute="bottom" constant="10" id="fTr-oy-B4N"/>
-                    <constraint firstAttribute="bottom" secondItem="YDT-Rt-N6g" secondAttribute="bottom" constant="3" id="igp-QV-2tZ"/>
+                    <constraint firstAttribute="bottom" secondItem="YDT-Rt-N6g" secondAttribute="bottom" constant="5" id="igp-QV-2tZ"/>
                     <constraint firstItem="syC-Is-jVI" firstAttribute="top" secondItem="B2K-Le-W3e" secondAttribute="top" id="j8L-cz-oZs"/>
                     <constraint firstAttribute="trailing" secondItem="CQr-jr-pP2" secondAttribute="trailing" constant="10" id="kXT-Ju-t2V"/>
-                    <constraint firstItem="j9J-dv-jZM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="l0t-6d-HaJ"/>
-                    <constraint firstItem="j9J-dv-jZM" firstAttribute="bottom" secondItem="uCU-uq-MpG" secondAttribute="bottom" id="l98-q4-uWh"/>
+                    <constraint firstItem="j9J-dv-jZM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="l0t-6d-HaJ"/>
+                    <constraint firstItem="j9J-dv-jZM" firstAttribute="bottom" secondItem="uCU-uq-MpG" secondAttribute="bottom" constant="7" id="l98-q4-uWh"/>
                     <constraint firstItem="YDT-Rt-N6g" firstAttribute="leading" secondItem="uCU-uq-MpG" secondAttribute="trailing" id="nLJ-RN-l22"/>
                     <constraint firstItem="GLe-hv-DTk" firstAttribute="leading" secondItem="0qa-fY-nxL" secondAttribute="trailing" constant="5" id="nhP-s6-tdB"/>
                     <constraint firstItem="14p-s7-1o5" firstAttribute="top" secondItem="syC-Is-jVI" secondAttribute="bottom" constant="5" id="oFt-rt-isP"/>
@@ -128,6 +130,7 @@
                 <outlet property="fellingLabel" destination="GLe-hv-DTk" id="cz1-YB-Yrr"/>
                 <outlet property="finishLabel" destination="1DH-hj-uHM" id="6Fl-7N-01k"/>
                 <outlet property="lineChartView" destination="CQr-jr-pP2" id="hKU-jd-VUj"/>
+                <outlet property="realStarButton" destination="j9J-dv-jZM" id="KaT-ww-NBK"/>
                 <outlet property="starButton" destination="uCU-uq-MpG" id="93i-eM-oeB"/>
                 <outlet property="userAvatarImgView" destination="B2K-Le-W3e" id="8dn-FT-kHy"/>
                 <outlet property="userNameLabel" destination="syC-Is-jVI" id="uvY-Zp-eBz"/>
@@ -135,4 +138,7 @@
             <point key="canvasLocation" x="369.5" y="441"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star" width="64" height="64"/>
+    </resources>
 </document>

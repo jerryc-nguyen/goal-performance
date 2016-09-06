@@ -144,10 +144,12 @@ extension UserViewController: UITableViewDelegate {
             let view = UsersGoalSectionHeaderView.initFromNib()
             if userGoals.count > 0 {
                 view.goal = userGoals[section - 1]
+                view.delegate = self
             }
             return view
         }
     }
+    
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
@@ -177,4 +179,16 @@ extension UserViewController: UserGoalTableViewCellDelegate {
         
     }
 
+}
+extension UserViewController: UsersGoalSectionHeaderViewDelegate {
+    func showSettingsView(view: UsersGoalSectionHeaderView) {
+        let storyboardManager  = StoryboardManager.sharedInstance
+        let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
+
+        if let defineGoalViewController = defineGoalViewController {
+//            let goal = userGoals[indexPath.section - 1]
+//            defineGoalViewController.goalId = goal.id
+            self.navigationController?.pushViewController(defineGoalViewController, animated: true)
+        }
+    }
 }

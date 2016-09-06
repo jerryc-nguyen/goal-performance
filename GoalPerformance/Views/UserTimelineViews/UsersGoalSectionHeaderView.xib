@@ -38,7 +38,7 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goal buddy" translatesAutoresizingMaskIntoConstraints="NO" id="Oo4-r8-izO" userLabel="Goal Buddies Image">
-                    <rect key="frame" x="318" y="20" width="20" height="20"/>
+                    <rect key="frame" x="278" y="20" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="3IT-qF-Jhm"/>
                         <constraint firstAttribute="height" constant="20" id="t1b-kI-VYH"/>
@@ -51,38 +51,56 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="challenge-gray" translatesAutoresizingMaskIntoConstraints="NO" id="Riy-21-9hS">
-                    <rect key="frame" x="288" y="20" width="20" height="20"/>
+                    <rect key="frame" x="248" y="20" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="6cz-FP-1iM"/>
                         <constraint firstAttribute="width" constant="20" id="WiJ-6r-SpF"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZ9-lt-Kvi" userLabel="setting">
+                    <rect key="frame" x="308" y="15" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="W1v-7E-5V2"/>
+                        <constraint firstAttribute="height" constant="30" id="g9W-lN-lDy"/>
+                    </constraints>
+                    <state key="normal" image="gear"/>
+                    <connections>
+                        <action selector="showSettingsView:" destination="iN0-l3-epB" eventType="touchUpInside" id="hDk-OH-FOI"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="leading" secondItem="Riy-21-9hS" secondAttribute="trailing" constant="40" id="0TW-Pz-I6c"/>
                 <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="Oo4-r8-izO" secondAttribute="baseline" id="7kJ-Wx-Zj4"/>
                 <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="BTI-iU-nAu"/>
                 <constraint firstItem="zhx-IK-uZ2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BgQ-gM-Lo1"/>
+                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="height" secondItem="Oo4-r8-izO" secondAttribute="height" id="H6p-j3-f32"/>
                 <constraint firstItem="sOF-YG-jeL" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="L9b-Tj-iJC"/>
                 <constraint firstItem="jx7-Xb-X4N" firstAttribute="centerY" secondItem="sOF-YG-jeL" secondAttribute="centerY" id="Lsd-zr-5Pw"/>
                 <constraint firstItem="jx7-Xb-X4N" firstAttribute="leading" secondItem="sOF-YG-jeL" secondAttribute="trailing" constant="13" id="NCL-ci-SbK"/>
                 <constraint firstItem="sOF-YG-jeL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Pcz-R7-3sL"/>
-                <constraint firstAttribute="trailing" secondItem="Riy-21-9hS" secondAttribute="trailing" constant="40" id="SaE-Rl-EgC"/>
                 <constraint firstItem="zhx-IK-uZ2" firstAttribute="leading" secondItem="sOF-YG-jeL" secondAttribute="trailing" constant="5" id="bI8-xG-gme"/>
+                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="centerY" secondItem="Oo4-r8-izO" secondAttribute="centerY" id="cdD-o1-gRs"/>
+                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="width" secondItem="Oo4-r8-izO" secondAttribute="width" id="e3C-E5-abf"/>
+                <constraint firstItem="Oo4-r8-izO" firstAttribute="leading" secondItem="Riy-21-9hS" secondAttribute="trailing" constant="10" id="ez7-Ia-CyW"/>
                 <constraint firstItem="MXR-aj-Iw3" firstAttribute="baseline" secondItem="sOF-YG-jeL" secondAttribute="baseline" id="kPv-k6-AAZ"/>
                 <constraint firstItem="Oo4-r8-izO" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="kTa-Av-FVh"/>
-                <constraint firstAttribute="trailing" secondItem="Oo4-r8-izO" secondAttribute="trailing" constant="10" id="kb5-0f-6xi"/>
+                <constraint firstAttribute="trailing" secondItem="wZ9-lt-Kvi" secondAttribute="trailing" constant="10" id="kv8-KH-Pq5"/>
+                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="leading" secondItem="Oo4-r8-izO" secondAttribute="trailing" constant="10" id="o60-oS-Le9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="L9b-Tj-iJC"/>
+                    <exclude reference="H6p-j3-f32"/>
+                    <exclude reference="e3C-E5-abf"/>
                 </mask>
             </variation>
             <connections>
                 <outlet property="challengeImgView" destination="Riy-21-9hS" id="VhN-1b-TKs"/>
-                <outlet property="challengeRightSpaceToParent" destination="SaE-Rl-EgC" id="vJ9-VD-ueh"/>
+                <outlet property="challengeRightConstraintToSettings" destination="0TW-Pz-I6c" id="aXR-40-Fvb"/>
                 <outlet property="countDownTimerImgView" destination="jx7-Xb-X4N" id="ow9-rF-Ghm"/>
                 <outlet property="countDownTimerLabel" destination="MXR-aj-Iw3" id="omZ-rF-s0l"/>
                 <outlet property="countDownTimerWrapper" destination="zhx-IK-uZ2" id="L1Y-OW-fe2"/>
@@ -94,6 +112,7 @@
     </objects>
     <resources>
         <image name="challenge-gray" width="15" height="18"/>
+        <image name="gear" width="18" height="18"/>
         <image name="goal buddy" width="17" height="18"/>
         <image name="hourglass" width="56" height="64"/>
     </resources>

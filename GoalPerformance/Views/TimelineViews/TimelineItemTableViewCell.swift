@@ -18,6 +18,7 @@ protocol TimelineItemTableViewCellDelegate: class {
 
 class TimelineItemTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var realStarButton: DOFavoriteButton!
     @IBOutlet weak var userAvatarImgView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var fellingLabel: UILabel!
@@ -34,6 +35,16 @@ class TimelineItemTableViewCell: UITableViewCell {
             }
         }
     }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        realStarButton.imageColorOff = UIColor.grayColor()
+        realStarButton.imageColorOn = UIColor.orangeColor()
+        realStarButton.circleColor = UIColor.yellowColor()
+        realStarButton.lineColor = UIColor.yellowColor()
+        realStarButton.duration = 1.0
+        
+    }
+
     var apiClient = APIClient.sharedInstance
     var timeLineItem: TimelineItem! {
         didSet {
@@ -59,7 +70,7 @@ class TimelineItemTableViewCell: UITableViewCell {
         }
     }
     var days: [String]!
-    
+   
     func setChart(dataPoints: [String], values: [Double]) {
         lineChartView.noDataText = "You need to provide data for the chart."
         
@@ -100,6 +111,12 @@ class TimelineItemTableViewCell: UITableViewCell {
         
         lineChartView.data = lineChartData
         
+        if self.timeLineItem.currentGoalSession?.isLiked == false {
+            realStarButton.deselect()
+        } else {
+            realStarButton.select()
+        }
+
     }
     
     
@@ -109,10 +126,8 @@ class TimelineItemTableViewCell: UITableViewCell {
             apiClient.getComments(goalID, completed: { (comments) in
                 
                 if comments.count < 2 {
-    //                self.commentButton.titleLabel?.text = "\(comments.count) comment"
                     self.commentButton.setTitle("\(comments.count) comment", forState: .Normal)
                 } else {
-    //                self.commentButton.titleLabel?.text = "\(comments.count) comments"
                     self.commentButton.setTitle("\(comments.count) comments", forState: .Normal)
                 }
                 
@@ -120,20 +135,25 @@ class TimelineItemTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func onStarAction(sender: UIButton) {
+    @IBAction func onStarAction(sender: DOFavoriteButton) {
+        if self.timeLineItem.currentGoalSession?.isLiked == false {
+            realStarButton.deselect()
+        } else {
+            realStarButton.select()
+        }
         if let _ = self.delegate {
             if let goalID = self.timeLineItem?.currentGoalSession?.goalId {
                 self.delegate?.starButtonPressed(goalID)
             }
-            
         }
+        if sender.selected {
+            sender.deselect()
+        } else {
+            sender.select()
+        }
+
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

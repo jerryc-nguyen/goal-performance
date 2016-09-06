@@ -24,6 +24,7 @@ class GoalSession: NSObject {
     var inviter: User?
     var participant: User?
     var statement: String?
+    var isLiked: Bool?
     
     var goal: Goal!
     
@@ -36,7 +37,7 @@ class GoalSession: NSObject {
         finishSentence = dictionary["finish_sentence"] as? String
         feelingSentence = dictionary["feeling_sentence"] as? String
         status = dictionary["status"] as? String
-        
+        isLiked = dictionary["is_liked"] as? Bool
         if let goalSessionId = dictionary["id"] as? Int {
             id = goalSessionId
         }

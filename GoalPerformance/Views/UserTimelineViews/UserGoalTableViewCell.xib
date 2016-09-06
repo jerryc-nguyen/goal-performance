@@ -37,13 +37,18 @@
                             <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-AC-jJD">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-AC-jJD" customClass="DOFavoriteButton" customModule="GoalPerformance" customModuleProvider="target">
                         <rect key="frame" x="13" y="131" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="0WH-Y1-ViH"/>
                             <constraint firstAttribute="width" constant="40" id="NOA-mW-Krn"/>
                         </constraints>
-                        <state key="normal" title="Star"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="star"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="onStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QFo-zh-cde"/>
                         </connections>
@@ -79,11 +84,15 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="commentButton" destination="Bbg-oR-Sw5" id="dGC-Kv-UxK"/>
+                <outlet property="commentButton" destination="t2u-7R-Bi2" id="gEg-yq-Nc4"/>
                 <outlet property="lineChartView" destination="068-3M-OO8" id="CHY-Ip-ADV"/>
-                <outlet property="starButton" destination="t2u-7R-Bi2" id="V0m-Hf-9WQ"/>
+                <outlet property="realStarButton" destination="mvV-AC-jJD" id="Krr-Cc-72u"/>
+                <outlet property="starButton" destination="Bbg-oR-Sw5" id="59e-Hq-Li1"/>
             </connections>
-            <point key="canvasLocation" x="140" y="258"/>
+            <point key="canvasLocation" x="-131" y="218"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star" width="64" height="64"/>
+    </resources>
 </document>

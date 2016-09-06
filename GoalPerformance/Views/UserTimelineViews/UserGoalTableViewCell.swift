@@ -10,22 +10,22 @@ import UIKit
 import Charts
 import FontAwesome_swift
 
+
 protocol UserGoalTableViewCellDelegate: class {
     func starButtonPressed(goalID: Int) -> Void
 }
 
 class UserGoalTableViewCell: UITableViewCell {
     
+
+    @IBOutlet var realStarButton: DOFavoriteButton!
     @IBOutlet weak var commentButton: UIButton!
-    
     @IBOutlet weak var starButton: UIButton!
-    
     @IBOutlet weak var lineChartView: LineChartView!
-    
     var delegate: UserGoalTableViewCellDelegate?
-    
     var goal: Goal? {
         didSet {
+            
             setChart()
             loadComments()
             if goal!.likeCount < 2 {
@@ -36,6 +36,15 @@ class UserGoalTableViewCell: UITableViewCell {
         }
     }
    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        realStarButton.imageColorOff = UIColor.grayColor()
+        realStarButton.imageColorOn = UIColor.orangeColor()
+        realStarButton.circleColor = UIColor.yellowColor()
+        realStarButton.lineColor = UIColor.yellowColor()
+        realStarButton.duration = 1.0
+
+    }
     
     func setChart() {
         lineChartView.noDataText = "You need to provide data for the chart."
@@ -81,12 +90,14 @@ class UserGoalTableViewCell: UITableViewCell {
         
         lineChartView.data = lineChartData
         
+        if self.goal?.likeCount == 0 {
+            realStarButton.deselect()
+        } else {
+            realStarButton.select()
+        }
+        
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -94,15 +105,26 @@ class UserGoalTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
-    @IBAction func onStarAction(sender: UIButton) {
+    @IBAction func onStarAction(sender: DOFavoriteButton) {
+        if self.goal?.likeCount == 0 {
+           realStarButton.deselect()
+        } else {
+            realStarButton.select()
+        }
+        
         if let _ = self.delegate {
             if let goalID = self.goal?.id {
                 self.delegate?.starButtonPressed(goalID)
             }
         }
+        if sender.selected {
+            sender.deselect()
+        } else {
+            sender.select()
 
+        }
     }
+    
     
     func loadComments() {
         if let goalID = goal?.id {
@@ -118,5 +140,6 @@ class UserGoalTableViewCell: UITableViewCell {
             })
         }
     }
-    
 }
+    
+
