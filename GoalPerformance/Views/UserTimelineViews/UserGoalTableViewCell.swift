@@ -10,14 +10,16 @@ import UIKit
 import Charts
 import FontAwesome_swift
 
+
 protocol UserGoalTableViewCellDelegate: class {
     func starButtonPressed(goalID: Int) -> Void
 }
 
 class UserGoalTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var commentButton: UIButton!
     
+    @IBOutlet var realStarButton: DOFavoriteButton!
+    @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var starButton: UIButton!
     
     @IBOutlet weak var lineChartView: LineChartView!
@@ -26,6 +28,7 @@ class UserGoalTableViewCell: UITableViewCell {
     
     var goal: Goal? {
         didSet {
+            
             setChart()
             loadComments()
             if goal!.likeCount < 2 {
@@ -95,11 +98,17 @@ class UserGoalTableViewCell: UITableViewCell {
     }
     
     
-    @IBAction func onStarAction(sender: UIButton) {
-        if let _ = self.delegate {
-            if let goalID = self.goal?.id {
-                self.delegate?.starButtonPressed(goalID)
+    @IBAction func onStarAction(sender: DOFavoriteButton) {
+        if sender.selected {
+           // sender.deselect()
+            if let _ = self.delegate {
+                if let goalID = self.goal?.id {
+                    self.delegate?.starButtonPressed(goalID)
+            sender.deselect()
+                }
             }
+        } else {
+            sender.select()
         }
 
     }
