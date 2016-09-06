@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol UsersGoalSectionHeaderViewDelegate: class {
+    func showSettingsView(view: UsersGoalSectionHeaderView)
+}
+
 class UsersGoalSectionHeaderView: UIView {
 
     
@@ -25,6 +29,7 @@ class UsersGoalSectionHeaderView: UIView {
     
     @IBOutlet weak var challengeRightSpaceToParent: NSLayoutConstraint!
     
+    var delegate: UsersGoalSectionHeaderViewDelegate?
 
    // @IBOutlet weak var sectionHeaderLabel: UILabel!
     
@@ -35,6 +40,20 @@ class UsersGoalSectionHeaderView: UIView {
             showChallengeIcon()
             showBuddiesIcon()
         }
+    }
+    
+    
+    @IBAction func showSettingsView(sender: UIButton) {
+        let storyboardManager  = StoryboardManager.sharedInstance
+        let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
+        
+        if let defineGoalViewController = defineGoalViewController {
+            //            let goal = userGoals[indexPath.section - 1]
+            //            defineGoalViewController.goalId = goal.id
+            //navigationController?.pushViewController(defineGoalViewController, animated: true)
+        
+        }
+        self.delegate?.showSettingsView(self)
     }
     
     

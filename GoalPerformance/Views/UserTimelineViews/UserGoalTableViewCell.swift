@@ -97,21 +97,33 @@ class UserGoalTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
     @IBAction func onStarAction(sender: DOFavoriteButton) {
-        if sender.selected {
-           // sender.deselect()
-            if let _ = self.delegate {
-                if let goalID = self.goal?.id {
-                    self.delegate?.starButtonPressed(goalID)
-            sender.deselect()
-                }
+        realStarButton.imageColorOff = UIColor.grayColor()
+        realStarButton.imageColorOn = UIColor.orangeColor()
+        realStarButton.circleColor = UIColor.yellowColor()
+        realStarButton.lineColor = UIColor.yellowColor()
+        realStarButton.duration = 1.0
+        
+        if self.goal?.likeCount == 0 {
+           realStarButton.deselect()
+        } else {
+            realStarButton.select()
+        }
+        
+        if let _ = self.delegate {
+            if let goalID = self.goal?.id {
+                self.delegate?.starButtonPressed(goalID)
             }
+        }
+        if sender.selected {
+            self.goal!.id == 1
+            sender.deselect()
         } else {
             sender.select()
-        }
 
-    }
+            }
+        }
+    
     
     func loadComments() {
         if let goalID = goal?.id {
@@ -127,5 +139,6 @@ class UserGoalTableViewCell: UITableViewCell {
             })
         }
     }
-    
 }
+    
+
