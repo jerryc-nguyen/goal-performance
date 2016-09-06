@@ -15,6 +15,7 @@ protocol UsersGoalSectionHeaderViewDelegate: class {
 class UsersGoalSectionHeaderView: UIView {
 
     
+    @IBOutlet weak var challengeRightConstraintToSettings: NSLayoutConstraint!
     @IBOutlet weak var goalNameLabel: UILabel!
     
     @IBOutlet weak var countDownTimerWrapper: UIView!
@@ -70,7 +71,8 @@ class UsersGoalSectionHeaderView: UIView {
             goalBuddiesImgView.hidden = false
         } else {
             goalBuddiesImgView.hidden = true
-            challengeRightSpaceToParent.constant = 10
+           // challengeRightSpaceToParent.constant = 10
+            challengeRightConstraintToSettings.constant = 10
         }
     }
     

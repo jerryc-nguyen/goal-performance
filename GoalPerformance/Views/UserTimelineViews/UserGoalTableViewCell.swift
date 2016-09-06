@@ -17,15 +17,12 @@ protocol UserGoalTableViewCellDelegate: class {
 
 class UserGoalTableViewCell: UITableViewCell {
     
-    
+
     @IBOutlet var realStarButton: DOFavoriteButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var starButton: UIButton!
-    
     @IBOutlet weak var lineChartView: LineChartView!
-    
     var delegate: UserGoalTableViewCellDelegate?
-    
     var goal: Goal? {
         didSet {
             
@@ -39,6 +36,15 @@ class UserGoalTableViewCell: UITableViewCell {
         }
     }
    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        realStarButton.imageColorOff = UIColor.grayColor()
+        realStarButton.imageColorOn = UIColor.orangeColor()
+        realStarButton.circleColor = UIColor.yellowColor()
+        realStarButton.lineColor = UIColor.yellowColor()
+        realStarButton.duration = 1.0
+
+    }
     
     func setChart() {
         lineChartView.noDataText = "You need to provide data for the chart."
@@ -84,12 +90,14 @@ class UserGoalTableViewCell: UITableViewCell {
         
         lineChartView.data = lineChartData
         
+        if self.goal?.likeCount == 0 {
+            realStarButton.deselect()
+        } else {
+            realStarButton.select()
+        }
+        
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -98,12 +106,6 @@ class UserGoalTableViewCell: UITableViewCell {
     }
     
     @IBAction func onStarAction(sender: DOFavoriteButton) {
-        realStarButton.imageColorOff = UIColor.grayColor()
-        realStarButton.imageColorOn = UIColor.orangeColor()
-        realStarButton.circleColor = UIColor.yellowColor()
-        realStarButton.lineColor = UIColor.yellowColor()
-        realStarButton.duration = 1.0
-        
         if self.goal?.likeCount == 0 {
            realStarButton.deselect()
         } else {
@@ -116,13 +118,12 @@ class UserGoalTableViewCell: UITableViewCell {
             }
         }
         if sender.selected {
-            self.goal!.id == 1
             sender.deselect()
         } else {
             sender.select()
 
-            }
         }
+    }
     
     
     func loadComments() {

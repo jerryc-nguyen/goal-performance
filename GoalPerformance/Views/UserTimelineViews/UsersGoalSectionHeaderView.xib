@@ -71,6 +71,7 @@
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="leading" secondItem="Riy-21-9hS" secondAttribute="trailing" constant="40" id="0TW-Pz-I6c"/>
                 <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="Oo4-r8-izO" secondAttribute="baseline" id="7kJ-Wx-Zj4"/>
                 <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="BTI-iU-nAu"/>
                 <constraint firstItem="zhx-IK-uZ2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BgQ-gM-Lo1"/>
@@ -99,6 +100,7 @@
             </variation>
             <connections>
                 <outlet property="challengeImgView" destination="Riy-21-9hS" id="VhN-1b-TKs"/>
+                <outlet property="challengeRightConstraintToSettings" destination="0TW-Pz-I6c" id="aXR-40-Fvb"/>
                 <outlet property="countDownTimerImgView" destination="jx7-Xb-X4N" id="ow9-rF-Ghm"/>
                 <outlet property="countDownTimerLabel" destination="MXR-aj-Iw3" id="omZ-rF-s0l"/>
                 <outlet property="countDownTimerWrapper" destination="zhx-IK-uZ2" id="L1Y-OW-fe2"/>

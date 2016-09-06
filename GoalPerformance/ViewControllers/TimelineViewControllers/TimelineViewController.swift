@@ -173,6 +173,7 @@ extension TimelineViewController: TimelineItemTableViewCellDelegate {
                 self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
                     for item in self.items {
                         if item.currentGoalSession?.goalId == goalID {
+                            print(item.currentGoalSession?.isLiked)
                             item.currentGoalSession?.goal.likeCount = goal.likeCount
                             self.tableView.reloadData()
                         }
