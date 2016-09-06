@@ -39,6 +39,7 @@ class ChatListViewController: JSQMessagesViewController {
     
     func setupChatLayout() {
         self.showLoadEarlierMessagesHeader = true
+        self.inputToolbar.contentView.leftBarButtonItem = nil
     }
     
     func handleNewRealtimeChat() {
@@ -139,9 +140,9 @@ class ChatListViewController: JSQMessagesViewController {
         let message = messages[indexPath.item]
         
         if message.senderId() == sender.idStr {
-            cell.textView.textColor = UIColor.blackColor()
-        } else {
             cell.textView.textColor = UIColor.whiteColor()
+        } else {
+            cell.textView.textColor = UIColor.blackColor()
         }
         
         let attributes : [String:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor!, NSUnderlineStyleAttributeName: 1]

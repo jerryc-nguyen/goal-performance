@@ -34,6 +34,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="c71-77-hmj" id="m2Z-ls-Iwr"/>
+                        <segue destination="nCE-VD-4Gi" kind="show" id="Mvh-AD-Rhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tF-nI-a6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -43,7 +44,7 @@
         <!--Chat View Controller-->
         <scene sceneID="TsR-Pk-BP6">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" id="nCE-VD-4Gi" customClass="ChatViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="nCE-VD-4Gi" customClass="ChatViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="foW-y9-WoO"/>
                         <viewControllerLayoutGuide type="bottom" id="um9-aG-1oh"/>
@@ -52,15 +53,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bf0-32-fdP">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bf0-32-fdP" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="aPS-wR-wLd"/>
+                                    <constraint firstAttribute="height" constant="160" id="aPS-wR-wLd"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i91-fi-IFG">
-                                <rect key="frame" x="0.0" y="100" width="320" height="468"/>
+                                <rect key="frame" x="0.0" y="229" width="320" height="339"/>
                                 <connections>
                                     <segue destination="dw9-Dd-ojb" kind="embed" identifier="chatListSegue" id="mxX-lN-cdL"/>
                                 </connections>
@@ -68,18 +69,34 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bf0-32-fdP" firstAttribute="top" secondItem="hGK-j7-vEM" secondAttribute="top" id="72r-wE-Cw0"/>
+                            <constraint firstItem="bf0-32-fdP" firstAttribute="top" secondItem="hGK-j7-vEM" secondAttribute="top" constant="60" id="72r-wE-Cw0"/>
                             <constraint firstItem="i91-fi-IFG" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="bottom" id="DIA-CC-HBg"/>
                             <constraint firstItem="bf0-32-fdP" firstAttribute="leading" secondItem="hGK-j7-vEM" secondAttribute="leading" id="IBG-se-B8D"/>
                             <constraint firstAttribute="trailing" secondItem="bf0-32-fdP" secondAttribute="trailing" id="Ilg-lG-UVp"/>
                             <constraint firstItem="bf0-32-fdP" firstAttribute="width" secondItem="hGK-j7-vEM" secondAttribute="width" id="Mh8-6X-ZSh"/>
+                            <constraint firstItem="bf0-32-fdP" firstAttribute="top" secondItem="foW-y9-WoO" secondAttribute="bottom" id="Qz9-Rm-ISy"/>
+                            <constraint firstItem="i91-fi-IFG" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="bottom" constant="5" id="WeM-a0-e9z"/>
                             <constraint firstAttribute="trailing" secondItem="i91-fi-IFG" secondAttribute="trailing" id="Xcy-26-Rnq"/>
                             <constraint firstItem="um9-aG-1oh" firstAttribute="top" secondItem="i91-fi-IFG" secondAttribute="bottom" id="dFI-3m-3TY"/>
+                            <constraint firstItem="bf0-32-fdP" firstAttribute="top" secondItem="hGK-j7-vEM" secondAttribute="top" id="hEf-ha-FJo"/>
                             <constraint firstItem="i91-fi-IFG" firstAttribute="leading" secondItem="hGK-j7-vEM" secondAttribute="leading" id="j1T-gd-Dbw"/>
+                            <constraint firstItem="i91-fi-IFG" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="top" id="mIH-er-gGK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="72r-wE-Cw0"/>
+                                <exclude reference="hEf-ha-FJo"/>
+                                <exclude reference="DIA-CC-HBg"/>
+                                <exclude reference="mIH-er-gGK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="HAK-BC-w0F"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="containChartView" destination="bf0-32-fdP" id="utg-62-hR6"/>
+                        <outlet property="goalBuddiesChartHeight" destination="aPS-wR-wLd" id="wMV-jW-50c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryb-p3-nTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,7 +130,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8wF-vn-fcw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uVR-y0-L0g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="339"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
