@@ -73,6 +73,7 @@ class UsersGoalSectionHeaderView: UIView {
             goalBuddiesImgView.hidden = true
            // challengeRightSpaceToParent.constant = 10
             challengeRightConstraintToSettings.constant = 10
+            self.layoutIfNeeded()
         }
     }
     
