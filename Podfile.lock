@@ -10,6 +10,14 @@ PODS:
   - Charts/Realm (2.2.5):
     - Charts/Core
     - RealmSwift (~> 0.97)
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
   - DateTools (1.7.0)
   - FBSDKCoreKit (4.14.0):
     - Bolts (~> 1.7)
@@ -24,6 +32,11 @@ PODS:
   - MBProgressHUD (1.0.0)
   - NextGrowingTextView (0.7.1)
   - PageMenu (1.2.9)
+  - PubNub (4.4.1):
+    - CocoaLumberjack (= 2.3.0)
+    - PubNub/Core (= 4.4.1)
+  - PubNub/Core (4.4.1):
+    - CocoaLumberjack (= 2.3.0)
   - Realm (0.103.2):
     - Realm/Headers (= 0.103.2)
   - Realm/Headers (0.103.2)
@@ -46,6 +59,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - NextGrowingTextView
   - PageMenu
+  - PubNub (~> 4.1)
   - SDWebImage (~> 3.8)
   - UrbanAirship-iOS-SDK (~> 7.2.2)
 
@@ -53,6 +67,7 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
   FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
@@ -63,11 +78,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NextGrowingTextView: 6c3a6e07e9f74683c43f03010fd1b897d8edfb94
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
+  PubNub: 7c59158178877fed5004df938cd31d030856f54e
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
   RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   UrbanAirship-iOS-SDK: c55430986126be28b1735bc3efefa5b902ac8b0e
 
-PODFILE CHECKSUM: 1fe82818190cc1e62cad2d2a6b21f878c273bab0
+PODFILE CHECKSUM: d31536d68ce3491e914d09b986fc62bff725fcfa
 
 COCOAPODS: 1.0.1

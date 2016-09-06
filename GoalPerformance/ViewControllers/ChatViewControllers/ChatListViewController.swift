@@ -25,6 +25,7 @@ class ChatListViewController: JSQMessagesViewController {
         super.viewDidLoad()
         setupBubbles()
         loadChatItems()
+        handleNewRealtimeChat()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -32,6 +33,18 @@ class ChatListViewController: JSQMessagesViewController {
         self.senderDisplayName = sender.displayName
         
         super.viewWillAppear(animated)
+        
+    }
+    
+    func handleNewRealtimeChat() {
+        NSNotificationCenter.defaultCenter()
+            .addObserverForName(ChatItem.NewChatEventName, object: nil, queue: NSOperationQueue.mainQueue()) { (notification: NSNotification) in
+                
+                if let newChat = notification.object as? ChatItem {
+                    self.messages.append(newChat)
+                    self.collectionView.reloadData()
+                }
+        }
     }
     
     func loadChatItems() {
@@ -78,6 +91,8 @@ class ChatListViewController: JSQMessagesViewController {
         }
         
     }
+    
+    
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]

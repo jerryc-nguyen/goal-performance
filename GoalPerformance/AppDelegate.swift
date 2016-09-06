@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import AirshipKit
+import PubNub
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let localNotificationManager = LocalNotificationsManager.sharedInstance
     let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
+    let realtimeHandler = RealtimeHandler.sharedInstance
+
+    override init() {
+        super.init()
+        realtimeHandler.setupPubNub()
+    }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -38,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.window?.makeKeyAndVisible()
+        
+        realtimeHandler.client?.subscribeToChannels(["user-2"], withPresence: true)
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

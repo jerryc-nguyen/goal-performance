@@ -22,5 +22,6 @@ target 'GoalPerformance' do
   pod 'PageMenu'
   pod 'JSQMessagesViewController'
   pod 'NextGrowingTextView'
+  pod 'PubNub', '~> 4.1'
   
 end

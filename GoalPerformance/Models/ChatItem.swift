@@ -22,6 +22,8 @@ class ChatItem: NSObject, JSQMessageData {
     var createdAt: NSDate?
     var goal: Goal?
     
+    static let NewChatEventName: String = "hasNewChat"
+    
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
         senderIdStr = dictionary["sender_id_str"] as? String
