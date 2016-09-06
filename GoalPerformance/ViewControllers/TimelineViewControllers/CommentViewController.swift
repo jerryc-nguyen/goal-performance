@@ -175,7 +175,9 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
                     let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalTableViewCell") as! UserGoalTableViewCell
                     if let goal = goal {
                         cell.goal = goal
+                        cell.delegate = self
                     }
+                    
                     return cell
                 } else {
                    let cell = tableView.dequeueReusableCellWithIdentifier("TimelineItemTableViewCell") as! TimelineItemTableViewCell
@@ -232,19 +234,31 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-extension CommentViewController: TimelineItemTableViewCellDelegate {
+extension CommentViewController: TimelineItemTableViewCellDelegate, UserGoalTableViewCellDelegate {
     func starButtonPressed(goalID: Int) -> Void {
         apiClient.star(goalID) { (successed, likeCount, message) in
             if successed {
-                self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
-                    self.timeLineItem?.currentGoalSession?.goal.likeCount = goal.likeCount
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                    self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-                })
+                if self.from == .Timeline {
+                    self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
+                        self.timeLineItem?.currentGoalSession?.goal.likeCount = goal.likeCount
+                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                    })
+                } else {
+                    self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
+                        self.goal?.likeCount = goal.likeCount
+                        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+                    })
+
+                }
+                
             } else {
                 HLKAlertView.show("", message: message, accessoryView: nil, cancelButtonTitle: "OK", otherButtonTitles: nil, handler: nil)
             }
         }
-        
     }
+    
+    
 }
+

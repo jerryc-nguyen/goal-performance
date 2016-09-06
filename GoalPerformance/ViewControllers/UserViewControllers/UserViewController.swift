@@ -102,6 +102,7 @@ extension UserViewController: UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("UserGoalTableViewCell") as! UserGoalTableViewCell
+            cell.delegate = self
             if userGoals.count > 0 {
                 let goal = userGoals[indexPath.section - 1]
                 cell.goal = goal
