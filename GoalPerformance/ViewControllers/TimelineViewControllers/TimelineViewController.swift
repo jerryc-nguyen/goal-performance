@@ -113,6 +113,13 @@ extension TimelineViewController: UITableViewDataSource {
         let timelineItem = items[indexPath.row]
         cell.timeLineItem = timelineItem
         cell.delegate = self
+        
+        if cell.timeLineItem.currentGoalSession?.isLiked == false {
+            cell.realStarButton.deselect()
+        } else {
+            cell.realStarButton.select()
+        }
+
         return cell
     }
     
@@ -172,8 +179,9 @@ extension TimelineViewController: TimelineItemTableViewCellDelegate {
             if successed {
                 self.apiClient.goalDetail(["goal_id": goalID], completed: { (goal) in
                     for item in self.items {
-                        if item.currentGoalSession?.goalId == goalID {
-                            print(item.currentGoalSession?.isLiked)
+                            if item.currentGoalSession?.goalId == goalID {
+                                let like = item.currentGoalSession?.isLiked
+                            item.currentGoalSession?.isLiked = !like!
                             item.currentGoalSession?.goal.likeCount = goal.likeCount
                             self.tableView.reloadData()
                         }

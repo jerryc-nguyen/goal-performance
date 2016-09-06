@@ -75,15 +75,12 @@
                 <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="Oo4-r8-izO" secondAttribute="baseline" id="7kJ-Wx-Zj4"/>
                 <constraint firstItem="Riy-21-9hS" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="BTI-iU-nAu"/>
                 <constraint firstItem="zhx-IK-uZ2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BgQ-gM-Lo1"/>
-                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="height" secondItem="Oo4-r8-izO" secondAttribute="height" id="H6p-j3-f32"/>
                 <constraint firstItem="sOF-YG-jeL" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="L9b-Tj-iJC"/>
                 <constraint firstItem="jx7-Xb-X4N" firstAttribute="centerY" secondItem="sOF-YG-jeL" secondAttribute="centerY" id="Lsd-zr-5Pw"/>
                 <constraint firstItem="jx7-Xb-X4N" firstAttribute="leading" secondItem="sOF-YG-jeL" secondAttribute="trailing" constant="13" id="NCL-ci-SbK"/>
                 <constraint firstItem="sOF-YG-jeL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Pcz-R7-3sL"/>
                 <constraint firstItem="zhx-IK-uZ2" firstAttribute="leading" secondItem="sOF-YG-jeL" secondAttribute="trailing" constant="5" id="bI8-xG-gme"/>
                 <constraint firstItem="wZ9-lt-Kvi" firstAttribute="centerY" secondItem="Oo4-r8-izO" secondAttribute="centerY" id="cdD-o1-gRs"/>
-                <constraint firstItem="wZ9-lt-Kvi" firstAttribute="width" secondItem="Oo4-r8-izO" secondAttribute="width" id="e3C-E5-abf"/>
-                <constraint firstItem="Oo4-r8-izO" firstAttribute="leading" secondItem="Riy-21-9hS" secondAttribute="trailing" constant="10" id="ez7-Ia-CyW"/>
                 <constraint firstItem="MXR-aj-Iw3" firstAttribute="baseline" secondItem="sOF-YG-jeL" secondAttribute="baseline" id="kPv-k6-AAZ"/>
                 <constraint firstItem="Oo4-r8-izO" firstAttribute="baseline" secondItem="jx7-Xb-X4N" secondAttribute="baseline" id="kTa-Av-FVh"/>
                 <constraint firstAttribute="trailing" secondItem="wZ9-lt-Kvi" secondAttribute="trailing" constant="10" id="kv8-KH-Pq5"/>
@@ -94,8 +91,6 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="L9b-Tj-iJC"/>
-                    <exclude reference="H6p-j3-f32"/>
-                    <exclude reference="e3C-E5-abf"/>
                 </mask>
             </variation>
             <connections>
