@@ -12,11 +12,16 @@ import MapKit
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    var apiClient = APIClient.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         centerMapOnLocation(initialLocation)
+        
+        var currentButton: MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+        
+        self.navigationItem.rightBarButtonItem = currentButton
         
     }
 
@@ -27,15 +32,35 @@ class MapViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func displayNearbyFriend(listFriend: [User]) {
+        for friend in listFriend {
+            
+        }
     }
-    */
-
+    
 }
+
+//extension MapViewController: MKMapViewDelegate {
+//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//        if let myAnnotation = annotation as? CustomAnnotation {
+//            
+//            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier("CustomPinAnnotationView")
+//            if pinView == nil {
+//                pinView = MKAnnotationView(annotation: myAnnotation, reuseIdentifier: "CustomPinAnnotationView")
+//                pinView?.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+//                pinView?.canShowCallout = true
+//                pinView?.calloutOffset = CGPoint(x: 0.0, y: 4.0)
+//                pinView?.contentMode = .ScaleAspectFill
+//            } else {
+//                
+//                pinView?.annotation = annotation
+//            }
+//            
+//            pinView?.image = UIImage(
+//            
+//            return pinView
+//        }
+//        return nil
+//        
+//    }
+//}

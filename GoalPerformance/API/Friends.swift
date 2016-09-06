@@ -163,6 +163,25 @@ extension APIClient {
             }
 
     }
+    
+    func getNearbyFriend(completed: (friends: [User]) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        Alamofire.request(.GET, API_URLS.getUserNearby, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    var friends = [User]()
+                    for friendDictionary in JSON["data"] as! [Dictionary<String, AnyObject>] {
+                        let friend = User(dictionary: friendDictionary)
+                        friends.append(friend)
+                    }
+                    completed(friends: friends)
+                }
+        }
+    }
+
 
 
 }

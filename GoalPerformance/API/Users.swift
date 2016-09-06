@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import CoreLocation
 
 extension APIClient {
     
@@ -97,6 +98,32 @@ extension APIClient {
                     completed(title: title, message: message)
                 }
         }
-
+    }
+    
+    func updateLocation(coordinate: CLLocationCoordinate2D, completed: (result: Bool) -> ()) {
+        let headers = [
+            "X-Api-Token": APIClient.currentUserToken
+        ]
+        
+        let lat = coordinate.latitude
+        let lng = coordinate.longitude
+        let params: [String: AnyObject] = ["latitude" : lat,
+                                           "longitude" : lng]
+        
+        Alamofire.request(.POST, API_URLS.userUpadteLocation, parameters: params, headers: headers)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    if JSON["status"] as! Int == 200 {
+                        completed(result: true)
+                        
+                    } else {
+                        completed(result: false)
+                    }
+                } else {
+                    completed(result: false)
+                    print(response.result.error?.localizedDescription)
+                }
+                
+        }
     }
 }

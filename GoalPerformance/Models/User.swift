@@ -22,6 +22,9 @@ class User: NSObject {
     var isFriend: Bool?
     var isPendingFriend: Bool?
     var goalsCount: Int = 0
+    var activeGoals: [Goal]?
+    var latitude: Double?
+    var longitude: Double?
     
     init(dictionary: NSDictionary) {
         id = dictionary["id"] as? Int
@@ -42,6 +45,18 @@ class User: NSObject {
         let avatarUrl = dictionary["avatar_url"] as? String
         if let avatarUrl = avatarUrl {
             self.avatarUrl = NSURL(string: avatarUrl)
+        }
+        
+        if let activeGoals = dictionary["active_goals"] as? [Goal] {
+            self.activeGoals = activeGoals
+        }
+        
+        if let latitude = dictionary["latitude"] as? String {
+            self.latitude = Double(latitude)
+        }
+        
+        if let longitude = dictionary["longitude"] as? String {
+            self.longitude = Double(longitude)
         }
     }
     
