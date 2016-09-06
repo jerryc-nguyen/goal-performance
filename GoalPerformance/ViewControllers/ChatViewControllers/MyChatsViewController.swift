@@ -119,7 +119,6 @@ extension MyChatsViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("MyChatTableViewCell") as! MyChatTableViewCell
             
-            
             cell.myChatItem = chatItem
             return cell
         }

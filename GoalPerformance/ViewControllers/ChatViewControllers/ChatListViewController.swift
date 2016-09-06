@@ -14,7 +14,7 @@ class ChatListViewController: JSQMessagesViewController {
     var messages = [ChatItem]()
     
     var apiClient = APIClient.sharedInstance
-    var currentPage = 1
+    var lastItemId = -1
     var sender = APIClient.currentUser
     var receiver: ChatUser?
     var goal: Goal?
@@ -23,6 +23,7 @@ class ChatListViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupChatLayout()
         setupBubbles()
         loadChatItems()
         handleNewRealtimeChat()
@@ -36,20 +37,27 @@ class ChatListViewController: JSQMessagesViewController {
         
     }
     
+    func setupChatLayout() {
+        self.showLoadEarlierMessagesHeader = true
+    }
+    
     func handleNewRealtimeChat() {
         NSNotificationCenter.defaultCenter()
             .addObserverForName(ChatItem.NewChatEventName, object: nil, queue: NSOperationQueue.mainQueue()) { (notification: NSNotification) in
                 
                 if let newChat = notification.object as? ChatItem {
-                    self.messages.append(newChat)
-                    self.collectionView.reloadData()
+                    if newChat.goalId == self.goal?.id || newChat.receiverId == self.sender.id {
+                        self.messages.append(newChat)
+                        self.collectionView.reloadData()
+                        self.scrollToBottomAnimated(true)
+                    }
                 }
         }
     }
     
-    func loadChatItems() {
+    func loadChatItems(isScroll: Bool = true) {
         var params: [String: AnyObject] = [
-            "page": currentPage
+            "last_item_id": lastItemId
         ]
         
         if let receiverObj = receiver {
@@ -59,14 +67,29 @@ class ChatListViewController: JSQMessagesViewController {
         }
 
         apiClient.chatList(params) { (items) in
-            self.messages = items
+            
+            if let topMostItem = items.first {
+                self.lastItemId = topMostItem.id
+            } else {
+                self.showLoadEarlierMessagesHeader = false
+            }
+            
+            self.messages += items
             self.collectionView.reloadData()
+            
+            self.scrollToBottomAnimated(isScroll)
+            
         }
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, header headerView: JSQMessagesLoadEarlierHeaderView!, didTapLoadEarlierMessagesButton sender: UIButton!) {
+        loadChatItems(false)
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
@@ -86,14 +109,13 @@ class ChatListViewController: JSQMessagesViewController {
             if let newChat = chat {
                 self.messages.append(newChat)
                 self.collectionView.reloadData()
+                self.scrollToBottomAnimated(true)
             }
            self.finishSendingMessage()
         }
-        
     }
     
-    
-    
+
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
         return messages[indexPath.item]
     }
