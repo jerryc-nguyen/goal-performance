@@ -27,12 +27,14 @@ class UsersGoalSectionHeaderView: UIView {
     
     @IBOutlet weak var challengeImgView: UIImageView!
     
-    @IBOutlet weak var goalBuddiesImgView: UIImageView!
+    @IBOutlet weak var goalBuddiesImgView: UIButton!
     
     @IBOutlet weak var challengeRightSpaceToParent: NSLayoutConstraint!
     
     var delegate: UsersGoalSectionHeaderViewDelegate?
-
+    
+    var parentNavigationController: UINavigationController?
+    
    // @IBOutlet weak var sectionHeaderLabel: UILabel!
     
     var goal: Goal? {
@@ -55,6 +57,13 @@ class UsersGoalSectionHeaderView: UIView {
         }
     }
     
+    @IBAction func onBuddiesChatButton(sender: AnyObject) {
+        
+        let storyboardManager = StoryboardManager.sharedInstance
+        let chatVC = storyboardManager.getViewController("ChatViewController", storyboard: "Chat") as! ChatViewController
+        chatVC.goal = self.goal
+        self.parentNavigationController?.pushViewController(chatVC, animated: true)
+    }
     
     @IBAction func showSettingsView(sender: UIButton) {
         self.delegate?.showSettingsView(self)
