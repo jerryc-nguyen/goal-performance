@@ -32,15 +32,19 @@ class CommentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.translucent = true
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         self.growingTextView.layer.cornerRadius = 4
-        self.growingTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        self.growingTextView.textContainerInset = UIEdgeInsets(top: 16, left: 0, bottom: 4, right: 0)
-        self.growingTextView.placeholderAttributedText = NSAttributedString(string: "Placeholder text",
+        self.growingTextView.backgroundColor = UIColor(white: 0.9, alpha: 0.5)
+        self.growingTextView.textContainerInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+        self.growingTextView.placeholderAttributedText = NSAttributedString(string: "Your comment",
                                                                             attributes: [NSFontAttributeName: self.growingTextView.font!,
                                                                                 NSForegroundColorAttributeName: UIColor.grayColor()
             ]
@@ -59,6 +63,7 @@ class CommentViewController: UIViewController {
         
         
         tableView.reloadData()
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     func loadCommentsHomeTimeline() {
         if let goalID = self.timeLineItem?.currentGoalSession?.goalId {

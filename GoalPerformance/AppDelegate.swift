@@ -15,6 +15,12 @@ import PubNub
 class AppDelegate: UIResponder, UIApplicationDelegate {
         
     var window: UIWindow?
+    var locationManager: CLLocationManager!
+    var seenError: Bool = false
+    var locationFixAchieved: Bool = false
+    var locationStatus: String = "Not started"
+    
+    var apiClient = APIClient.sharedInstance
     
     let localNotificationManager = LocalNotificationsManager.sharedInstance
     let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
@@ -43,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginVC = StoryboardManager.sharedInstance.getInitialViewController("Login") as! LoginViewController
             self.window?.rootViewController = loginVC
         }
+        
+        initLocationManager()
         
         self.window?.makeKeyAndVisible()
         
@@ -146,7 +154,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func displayNotificationAlert(alertMessage: String) {
         // Called when an alert notification is received in the foreground. Includes a simple string to be displayed as an alert.
     }
+}
 
+extension AppDelegate: CLLocationManagerDelegate {
+    func initLocationManager() {
+        seenError = false
+        locationFixAchieved = false
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.distanceFilter = 100
+        
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        locationManager.startUpdatingLocation()
+        
+        if !seenError {
+            seenError = true
+        }
+        print(error)
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locationArray = locations as NSArray
+        var locationObj = locationArray.lastObject as! CLLocation
+        var coordinate = locationObj.coordinate
+        
+        print(coordinate.latitude)
+        print(coordinate.longitude)
+        
+        apiClient.updateLocation(coordinate) { (result) in
+            return
+        }
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        var shouldAllow = false
+        
+        switch status {
+            case CLAuthorizationStatus.Restricted:
+            locationStatus = "Restricted Access to location"
+            case CLAuthorizationStatus.Denied:
+            locationStatus = "User denied access to location"
+            case CLAuthorizationStatus.NotDetermined:
+            locationStatus = "Status not determined"
+            default:
+            locationStatus = "Allowed to location Access"
+            shouldAllow = true
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("LabelHasbeenUpdated", object: nil)
+        if (shouldAllow == true) {
+            NSLog("Location to Allowed")
+            // Start location services
+            locationManager.startUpdatingLocation()
+        } else {
+            NSLog("Denied access: \(locationStatus)")
+        }
+    }
 }
 
 

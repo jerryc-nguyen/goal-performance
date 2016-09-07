@@ -73,9 +73,7 @@ extension APIClient {
                 } else {
                     completed(result: false)
                     print(response.result.error?.localizedDescription)
-                    
                 }
-                
         }
         
     }

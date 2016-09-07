@@ -73,6 +73,7 @@
 		E03119801D678A9700ACDBD5 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E031197F1D678A9700ACDBD5 /* UIColorExtension.swift */; };
 		E056B2051D7DD659006A7C67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E056B2041D7DD659006A7C67 /* MapKit.framework */; };
 		E056B2071D7DD966006A7C67 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E056B2061D7DD966006A7C67 /* CoreLocation.framework */; };
+		E056B20B1D7F313D006A7C67 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056B20A1D7F313D006A7C67 /* CustomAnnotation.swift */; };
 		E07B39831D5481A70000FA93 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B39821D5481A70000FA93 /* InviteFriend.storyboard */; };
 		E07B39871D5481C60000FA93 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39851D5481C60000FA93 /* InviteViewController.swift */; };
 		E07B39881D5481C60000FA93 /* SelectInviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */; };
@@ -176,6 +177,7 @@
 		E031197F1D678A9700ACDBD5 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		E056B2041D7DD659006A7C67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E056B2061D7DD966006A7C67 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E056B20A1D7F313D006A7C67 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		E07B39821D5481A70000FA93 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
 		E07B39851D5481C60000FA93 /* InviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		E07B39861D5481C60000FA93 /* SelectInviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInviteFriendViewController.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 		42F010091D4F9FB4002CD514 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E056B20A1D7F313D006A7C67 /* CustomAnnotation.swift */,
 				425EB8091D74E63F004B67EF /* ChatItem.swift */,
 				424AF2011D5E94A9001754B2 /* SessionsHistory.swift */,
 				4263033D1D526687007C1963 /* User.swift */,
@@ -731,6 +734,7 @@
 				4263DF591D5BC6460050E5A0 /* Auth.swift in Sources */,
 				4263DF5B1D5BC6460050E5A0 /* Friends.swift in Sources */,
 				E03119801D678A9700ACDBD5 /* UIColorExtension.swift in Sources */,
+				E056B20B1D7F313D006A7C67 /* CustomAnnotation.swift in Sources */,
 				E44F1B001D6487D800437844 /* BaseView.swift in Sources */,
 				4263F91B1D55FF7500C119DB /* StartGoalNotifyViewController.swift in Sources */,
 				424AF2101D5ED2DF001754B2 /* WeekdayCell.swift in Sources */,

@@ -53,6 +53,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>GoalBuddy want to get your location to share with your friend</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
