@@ -34,6 +34,16 @@ class FriendTableViewCell: UITableViewCell {
             friendImage.makeCircle()
             friendImage.sd_setImageWithURL(friend!.avatarUrl)
             friendName.text = friend!.displayName
+            
+            acceptButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            acceptButton.backgroundColor = UIColors.ThemeOrange
+            acceptButton.layer.cornerRadius = 10
+            acceptButton.tintColor = UIColor.whiteColor()
+            
+            rejectButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            rejectButton.backgroundColor = UIColors.ThemeOrange
+            rejectButton.layer.cornerRadius = 10
+            rejectButton.tintColor = UIColor.whiteColor()
         }
     }
     
