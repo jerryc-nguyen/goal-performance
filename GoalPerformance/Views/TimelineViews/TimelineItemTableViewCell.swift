@@ -153,6 +153,11 @@ class TimelineItemTableViewCell: UITableViewCell {
         }
 
     }
+
+    
+    @IBAction func showCommentView(sender: UIButton) {
+    }
+    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

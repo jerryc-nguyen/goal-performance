@@ -173,11 +173,12 @@ class DefineGoalViewController: UIViewController, GoalIntervalTableViewControlle
                 goalSession.goal.registerEndGoalNotifications()
                 self.currentGoalSession = goalSession
                 print("Create goal success")
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 self.performSegueWithIdentifier("DoneSegue", sender: self)
             }
         }
         
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+      //  MBProgressHUD.hideHUDForView(self.view, animated: true)
     
        
     }

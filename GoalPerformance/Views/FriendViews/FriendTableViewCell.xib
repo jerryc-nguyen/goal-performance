@@ -64,7 +64,7 @@
                             <constraint firstAttribute="width" constant="30" id="H28-3i-TYB"/>
                             <constraint firstAttribute="height" constant="30" id="t58-WS-Vhn"/>
                         </constraints>
-                        <state key="normal" image="message"/>
+                        <state key="normal" image="goal buddy"/>
                         <connections>
                             <action selector="onChatButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="u98-TD-ixq"/>
                         </connections>
@@ -124,6 +124,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="message" width="32" height="32"/>
+        <image name="goal buddy" width="17" height="18"/>
     </resources>
 </document>

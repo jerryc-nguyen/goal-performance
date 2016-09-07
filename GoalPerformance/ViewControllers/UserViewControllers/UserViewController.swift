@@ -144,6 +144,7 @@ extension UserViewController: UITableViewDelegate {
             let view = UsersGoalSectionHeaderView.initFromNib()
             if userGoals.count > 0 {
                 view.goal = userGoals[section - 1]
+                view.parentNavigationController = self.navigationController
                 view.delegate = self
             }
             return view

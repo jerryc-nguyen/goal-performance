@@ -103,7 +103,7 @@ extension APIClient {
                         message = dictionary["message"] as! String
                     } else {
                         title = "Fail"
-                        message = JSON["error_message"] as! String
+                        message = "Invite friend jonh goal fail, try again"
                     }
                     
                     completed(status: status, title: title, message: message)
