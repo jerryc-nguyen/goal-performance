@@ -13,16 +13,22 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     var apiClient = APIClient.sharedInstance
+    var listFriend: [User]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        centerMapOnLocation(initialLocation)
+        mapView.delegate = self
         
-        var currentButton: MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+        loadData()
+//        let currentLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         
+        
+        let currentButton: MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         self.navigationItem.rightBarButtonItem = currentButton
-        
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+//        mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .Follow
     }
 
     let regionRadius: CLLocationDistance = 1000
@@ -31,36 +37,54 @@ class MapViewController: UIViewController {
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-
-    func displayNearbyFriend(listFriend: [User]) {
-        for friend in listFriend {
+    
+    func loadData() {
+        apiClient.getNearbyFriend { (friends) in
+            self.listFriend = friends
+            let annotations = self.displayNearbyFriend(self.listFriend!)
             
+            self.mapView.addAnnotations(annotations)
         }
     }
-    
+
+    func displayNearbyFriend(listFriend: [User]) -> [CustomAnnotation]{
+        var annotationArray: [CustomAnnotation] = [CustomAnnotation]()
+        
+        for friend in listFriend {
+            let annotation = CustomAnnotation(friend: friend)
+            annotationArray.append(annotation)
+        }
+        
+        return annotationArray
+    }
+   
 }
 
-//extension MapViewController: MKMapViewDelegate {
-//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//        if let myAnnotation = annotation as? CustomAnnotation {
-//            
-//            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier("CustomPinAnnotationView")
-//            if pinView == nil {
-//                pinView = MKAnnotationView(annotation: myAnnotation, reuseIdentifier: "CustomPinAnnotationView")
-//                pinView?.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
-//                pinView?.canShowCallout = true
-//                pinView?.calloutOffset = CGPoint(x: 0.0, y: 4.0)
-//                pinView?.contentMode = .ScaleAspectFill
-//            } else {
-//                
-//                pinView?.annotation = annotation
-//            }
-//            
-//            pinView?.image = UIImage(
-//            
-//            return pinView
-//        }
-//        return nil
-//        
-//    }
-//}
+extension MapViewController: MKMapViewDelegate {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if let myAnnotation = annotation as? CustomAnnotation {
+            
+            var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier("CustomPinAnnotationView")
+            if pinView == nil {
+                pinView = MKAnnotationView(annotation: myAnnotation, reuseIdentifier: "CustomPinAnnotationView")
+                pinView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+                pinView!.canShowCallout = true
+                
+            }
+        
+            if let imageView = pinView?.leftCalloutAccessoryView as? UIImageView {
+                imageView.sd_setImageWithURL(myAnnotation.avartarUrl)
+                pinView?.image = UIImage(named: "location")
+            }
+            
+            
+            return pinView
+        }
+        return nil
+        
+    }
+    
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        centerMapOnLocation(userLocation.location!)
+    }
+}
