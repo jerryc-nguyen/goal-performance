@@ -162,12 +162,12 @@ extension APIClient {
                     let status = JSON["status"] as! Int
                     
                     if status == 200 {
-                        let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
-                        title = "Success!"
-                        message = dictionary["message"] as! String
+//                        let dictionary = JSON["data"] as! Dictionary<String, AnyObject>
+                        title = "Success"
+                        message = "Accept challenge success!"
                     } else {
                         title = "Fail"
-                        message = JSON["error_message"] as! String
+                        message = "Accept challenge fail!"
                     }
                     
                     completed(title: title, message: message)
