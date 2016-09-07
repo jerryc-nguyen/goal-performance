@@ -12,6 +12,7 @@ import UIKit
 class Goal: NSObject {
     
     let id: Int!
+    var creatorId: Int?
     let name: String!
     var startAt: NSDate?
     var repeatEvery: [String]? = []
@@ -107,6 +108,10 @@ class Goal: NSObject {
         
         if let duration = dictionary["duration"] as? Int {
             self.duration = duration
+        }
+        
+        if let creatorId = dictionary["creator_id"] as? Int {
+            self.creatorId = creatorId
         }
         
         if let startAtInterval = dictionary["start_at_interval"] as? Int {
