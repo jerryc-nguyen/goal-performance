@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIK-mT-ufT">
-                        <rect key="frame" x="20" y="128" width="300" height="0.5"/>
+                        <rect key="frame" x="20" y="133" width="300" height="0.5"/>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Shk-hj-liR"/>
@@ -29,22 +29,26 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbg-oR-Sw5">
-                        <rect key="frame" x="60" y="141" width="115" height="30"/>
+                        <rect key="frame" x="42" y="141" width="54" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Jlx-2A-Mhi"/>
+                            <constraint firstAttribute="width" constant="54" id="Uax-wc-mn0"/>
                         </constraints>
-                        <state key="normal">
+                        <state key="normal" title="3 stars">
                             <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2u-7R-Bi2">
-                        <rect key="frame" x="175" y="141" width="115" height="30"/>
-                        <state key="normal">
+                        <rect key="frame" x="216" y="141" width="94" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="94" id="YwE-Oq-KP5"/>
+                        </constraints>
+                        <state key="normal" title="3 comments">
                             <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-AC-jJD" customClass="DOFavoriteButton" customModule="GoalPerformance" customModuleProvider="target">
-                        <rect key="frame" x="20" y="131" width="40" height="40"/>
+                        <rect key="frame" x="10" y="136" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="0WH-Y1-ViH"/>
                             <constraint firstAttribute="width" constant="40" id="NOA-mW-Krn"/>
@@ -59,25 +63,33 @@
                             <action selector="onStarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QFo-zh-cde"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5f-Nj-7xd">
+                        <rect key="frame" x="194" y="144" width="22" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="ABJ-L5-YDg"/>
+                            <constraint firstAttribute="height" constant="24" id="wtk-cv-p4f"/>
+                        </constraints>
+                        <state key="normal" image="message"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="mvV-AC-jJD" firstAttribute="bottom" secondItem="Bbg-oR-Sw5" secondAttribute="bottom" id="0tD-VM-ZTK"/>
                     <constraint firstItem="mvV-AC-jJD" firstAttribute="top" secondItem="pIK-mT-ufT" secondAttribute="bottom" constant="2" id="2ih-9v-9AN"/>
-                    <constraint firstAttribute="trailing" secondItem="t2u-7R-Bi2" secondAttribute="trailing" constant="30" id="6BJ-iJ-TUx"/>
-                    <constraint firstItem="mvV-AC-jJD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="8o7-3J-bdu"/>
+                    <constraint firstAttribute="trailing" secondItem="t2u-7R-Bi2" secondAttribute="trailing" constant="10" id="6BJ-iJ-TUx"/>
+                    <constraint firstItem="mvV-AC-jJD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8o7-3J-bdu"/>
+                    <constraint firstItem="t2u-7R-Bi2" firstAttribute="leading" secondItem="n5f-Nj-7xd" secondAttribute="trailing" id="AoZ-5i-WZS"/>
                     <constraint firstAttribute="bottom" secondItem="t2u-7R-Bi2" secondAttribute="bottom" id="DXc-fA-W5H"/>
                     <constraint firstAttribute="trailing" secondItem="pIK-mT-ufT" secondAttribute="trailing" id="LBm-W1-A1W"/>
                     <constraint firstItem="068-3M-OO8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LXW-kM-wxM"/>
-                    <constraint firstItem="Bbg-oR-Sw5" firstAttribute="leading" secondItem="mvV-AC-jJD" secondAttribute="trailing" id="Q6g-tN-H0E"/>
+                    <constraint firstItem="mvV-AC-jJD" firstAttribute="centerY" secondItem="Bbg-oR-Sw5" secondAttribute="centerY" id="LiE-3r-Pdk"/>
                     <constraint firstAttribute="trailing" secondItem="068-3M-OO8" secondAttribute="trailing" id="R8d-bl-IBD"/>
                     <constraint firstItem="068-3M-OO8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Rzx-xJ-HEy"/>
                     <constraint firstAttribute="bottom" secondItem="Bbg-oR-Sw5" secondAttribute="bottom" id="Y5P-dp-UYa"/>
-                    <constraint firstItem="Bbg-oR-Sw5" firstAttribute="width" secondItem="t2u-7R-Bi2" secondAttribute="width" id="bHM-h8-bNW"/>
                     <constraint firstItem="pIK-mT-ufT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="f0C-JI-aN0"/>
                     <constraint firstItem="068-3M-OO8" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="jar-C7-USx"/>
+                    <constraint firstItem="Bbg-oR-Sw5" firstAttribute="leading" secondItem="mvV-AC-jJD" secondAttribute="trailing" constant="-8" id="kBV-hW-XK8"/>
                     <constraint firstItem="t2u-7R-Bi2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="068-3M-OO8" secondAttribute="bottom" constant="16" id="lrl-Bh-3Xj"/>
                     <constraint firstItem="Bbg-oR-Sw5" firstAttribute="height" secondItem="t2u-7R-Bi2" secondAttribute="height" id="oys-g4-bmX"/>
-                    <constraint firstItem="t2u-7R-Bi2" firstAttribute="leading" secondItem="Bbg-oR-Sw5" secondAttribute="trailing" id="yFz-gp-hDd"/>
+                    <constraint firstItem="n5f-Nj-7xd" firstAttribute="centerY" secondItem="t2u-7R-Bi2" secondAttribute="centerY" id="zdm-IB-wLc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -90,6 +102,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="message" width="32" height="32"/>
         <image name="star" width="64" height="64"/>
     </resources>
 </document>

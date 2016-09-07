@@ -45,15 +45,6 @@ class UsersGoalSectionHeaderView: UIView {
     
     
     @IBAction func showSettingsView(sender: UIButton) {
-        let storyboardManager  = StoryboardManager.sharedInstance
-        let defineGoalViewController = storyboardManager.getViewController("DefineGoalViewController", storyboard: "NewGoal") as? DefineGoalViewController
-        
-        if let defineGoalViewController = defineGoalViewController {
-            //            let goal = userGoals[indexPath.section - 1]
-            //            defineGoalViewController.goalId = goal.id
-            //navigationController?.pushViewController(defineGoalViewController, animated: true)
-        
-        }
         self.delegate?.showSettingsView(self)
     }
     

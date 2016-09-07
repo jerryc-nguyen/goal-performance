@@ -263,7 +263,5 @@ extension CommentViewController: TimelineItemTableViewCellDelegate, UserGoalTabl
             }
         }
     }
-    
-    
 }
 
