@@ -75,7 +75,14 @@ class ChatListViewController: JSQMessagesViewController {
                 self.showLoadEarlierMessagesHeader = false
             }
             
-            self.messages += items
+            if isScroll {
+                self.messages += items
+            } else {
+                for message in items {
+                    self.messages.insert(message, atIndex: 0)
+                }
+            }
+            
             self.collectionView.reloadData()
             
             self.scrollToBottomAnimated(isScroll)

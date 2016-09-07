@@ -18,8 +18,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var bgTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var bgLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var background: UIImageView!
-    let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     @IBOutlet weak var loginButton: UIButton!
+    
+    let realtimeHandler = RealtimeHandler.sharedInstance
+    let remoteNotificationManager = RemoteNotificationsManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +97,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate{
             if let airshipTag = currentUser.airshipTag{
                 print("Register airship tag: ", airshipTag)
                 self.remoteNotificationManager.airshipPusher.addTag(airshipTag)
+                self.realtimeHandler.client?.subscribeToChannels([airshipTag], withPresence: true)
             }
             
             APIClient.currentUser = currentUser

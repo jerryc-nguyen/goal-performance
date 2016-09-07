@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.makeKeyAndVisible()
         
-        realtimeHandler.client?.subscribeToChannels(["user-2"], withPresence: true)
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

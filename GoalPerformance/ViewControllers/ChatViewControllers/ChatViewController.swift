@@ -12,6 +12,7 @@ import Charts
 
 class ChatViewController: UIViewController {
     
+    var fromChatItem: ChatItem?
     var receiver: ChatUser?
     var goal: Goal?
  
@@ -21,13 +22,19 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupChartView()
     }
     
     func setupChartView() {
-        if self.goal != nil {
+        if self.fromChatItem?.goal != nil {
+            self.goal = self.fromChatItem?.goal
             loadAndSetupChartForGoalDetail()
         } else {
+            if APIClient.currentUser.id == self.fromChatItem?.actor?.id {
+                self.receiver = fromChatItem?.receiver
+            } else {
+                self.receiver = fromChatItem?.actor
+            }
+        
             goalBuddiesChartHeight.constant = 0
         }
     }
@@ -101,6 +108,7 @@ class ChatViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        setupChartView()
         if segue.identifier == "chatListSegue" {
             let chatListVC = segue.destinationViewController as! ChatListViewController
             chatListVC.goal = self.goal

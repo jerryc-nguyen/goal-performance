@@ -129,11 +129,7 @@ extension MyChatsViewController: UITableViewDataSource {
         let chatVC = storyboardManager.getViewController("ChatViewController", storyboard: "Chat") as! ChatViewController
         let chatItem = items[indexPath.row]
         
-        if let goal = chatItem.goal {
-            chatVC.goal = goal
-        } else {
-            chatVC.receiver = chatItem.receiver
-        }
+        chatVC.fromChatItem = chatItem
         
         self.navigationController?.pushViewController(chatVC, animated: true)
         
