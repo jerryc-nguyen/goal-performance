@@ -14,6 +14,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var apiClient = APIClient.sharedInstance
     var listFriend: [User]?
+    var storyboardManager = StoryboardManager.sharedInstance
+    var parentNavigationController : UINavigationController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +71,9 @@ extension MapViewController: MKMapViewDelegate {
                 pinView = MKAnnotationView(annotation: myAnnotation, reuseIdentifier: "CustomPinAnnotationView")
                 pinView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
                 pinView!.canShowCallout = true
+                pinView?.enabled = true
                 
+                pinView?.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
             }
         
             if let imageView = pinView?.leftCalloutAccessoryView as? UIImageView {
@@ -78,13 +82,25 @@ extension MapViewController: MKMapViewDelegate {
             }
             
             
+            
+            
             return pinView
         }
         return nil
         
     }
     
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        centerMapOnLocation(userLocation.location!)
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? CustomAnnotation {
+            let user = annotation.friend
+            let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
+            userVC.viewingUser = user
+            userVC.navigationItem.rightBarButtonItem?.enabled = false
+            userVC.addGoalButton.setTitle("", forState: .Disabled)
+            if let userName = user.displayName {
+                userVC.navBarTitle = userName
+            }
+            navigationController?.pushViewController(userVC, animated: true)
+        }
     }
 }
