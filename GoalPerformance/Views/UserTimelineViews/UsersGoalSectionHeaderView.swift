@@ -15,6 +15,7 @@ protocol UsersGoalSectionHeaderViewDelegate: class {
 class UsersGoalSectionHeaderView: UIView {
 
     
+    @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var challengeRightConstraintToSettings: NSLayoutConstraint!
     @IBOutlet weak var goalNameLabel: UILabel!
     
@@ -40,6 +41,17 @@ class UsersGoalSectionHeaderView: UIView {
             showCountdownLabel()
             showChallengeIcon()
             showBuddiesIcon()
+            showSettingButton()
+        }
+    }
+    
+    func showSettingButton() {
+        if goal?.creatorId == APIClient.currentUser.id {
+            print("yay")
+        } else {
+            settingButton.hidden = true
+            goalBuddiesImgView.hidden = true
+            challengeRightConstraintToSettings.constant = 1
         }
     }
     

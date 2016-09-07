@@ -101,6 +101,7 @@
                 <outlet property="countDownTimerWrapper" destination="zhx-IK-uZ2" id="L1Y-OW-fe2"/>
                 <outlet property="goalBuddiesImgView" destination="Oo4-r8-izO" id="Oun-tR-JHR"/>
                 <outlet property="goalNameLabel" destination="sOF-YG-jeL" id="urK-um-2xf"/>
+                <outlet property="settingButton" destination="wZ9-lt-Kvi" id="ZRa-ya-0YF"/>
             </connections>
             <point key="canvasLocation" x="310" y="-21"/>
         </view>
