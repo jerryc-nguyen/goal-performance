@@ -98,7 +98,7 @@ class FriendsTableViewController: UITableViewController, FriendTableViewCellDele
         case 0:
             friend = pendingFriends[indexPath.row]
             cell.challengeImage.hidden = true
-            
+            cell.chatFriendButton.hidden = true
         default:
             friend = friends[indexPath.row]
             cell.acceptButton.hidden = true
@@ -106,7 +106,7 @@ class FriendsTableViewController: UITableViewController, FriendTableViewCellDele
         }
         
         cell.friend = friend
-
+        cell.parentNavigationController = self.parentNavigationController
         return cell
     }
 

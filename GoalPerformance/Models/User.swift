@@ -25,8 +25,10 @@ class User: NSObject {
     var activeGoals: [Goal]?
     var latitude: Double?
     var longitude: Double?
+    var userData: NSDictionary
     
     init(dictionary: NSDictionary) {
+        userData = dictionary
         id = dictionary["id"] as? Int
         idStr = dictionary["id_str"] as? String
         displayName = dictionary["display_name"] as? String

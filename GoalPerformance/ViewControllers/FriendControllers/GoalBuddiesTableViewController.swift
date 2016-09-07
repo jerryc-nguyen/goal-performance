@@ -103,13 +103,15 @@ class GoalBuddiesTableViewController: UITableViewController, FriendTableViewCell
             goal = pendingBuddies[indexPath.row]
             cell.challengeImage.hidden = true
             cell.goalsSession = goal
-            
+            cell.chatFriendButton.hidden = true
         default:
             friend = buddies[indexPath.row]
             cell.acceptButton.hidden = true
             cell.rejectButton.hidden = true
             cell.challengeImage.hidden = false
+            
             cell.friend = friend
+            cell.parentNavigationController = self.parentNavigationController
         }
         
         

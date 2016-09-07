@@ -21,10 +21,15 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var currentGoalsLabel: UILabel!
+    @IBOutlet weak var chatFriendButton: UIButton!
+    
     var currentView: UIView!
+    
+    var parentNavigationController: UINavigationController?
+    
     weak var delegate : FriendTableViewCellDelegate!
     
-    var friend:User? {
+    var friend: User? {
         didSet {
             friendImage.makeCircle()
             friendImage.sd_setImageWithURL(friend!.avatarUrl)
@@ -40,6 +45,14 @@ class FriendTableViewCell: UITableViewCell {
     }
     
     var apiClient:APIClient!
+    
+    @IBAction func onChatButton(sender: AnyObject) {
+        let storyboardManager = StoryboardManager.sharedInstance
+        let chatVC = storyboardManager.getViewController("ChatViewController", storyboard: "Chat") as! ChatViewController
+        chatVC.receiver = ChatUser(dictionary: self.friend!.userData)
+        self.parentNavigationController?.pushViewController(chatVC, animated: true)
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
