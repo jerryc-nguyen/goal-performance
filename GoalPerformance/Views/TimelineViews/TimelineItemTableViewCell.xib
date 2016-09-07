@@ -62,19 +62,19 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCU-uq-MpG">
-                        <rect key="frame" x="80" y="224" width="164.5" height="30"/>
+                        <rect key="frame" x="60" y="224" width="174.5" height="30"/>
                         <state key="normal">
                             <color key="titleColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-Rt-N6g">
-                        <rect key="frame" x="244.5" y="221" width="164.5" height="35.5"/>
+                        <rect key="frame" x="234.5" y="221" width="174.5" height="35.5"/>
                         <state key="normal">
                             <color key="titleColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9J-dv-jZM" customClass="DOFavoriteButton" customModule="GoalPerformance" customModuleProvider="target">
-                        <rect key="frame" x="30" y="211" width="50" height="50"/>
+                        <rect key="frame" x="10" y="211" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="lI2-qa-piI"/>
                             <constraint firstAttribute="height" constant="50" id="wFW-mP-dse"/>
@@ -117,7 +117,7 @@
                     <constraint firstItem="syC-Is-jVI" firstAttribute="top" secondItem="B2K-Le-W3e" secondAttribute="top" id="j8L-cz-oZs"/>
                     <constraint firstItem="jV9-QK-OaW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="jih-DH-Shs"/>
                     <constraint firstAttribute="trailing" secondItem="CQr-jr-pP2" secondAttribute="trailing" constant="10" id="kXT-Ju-t2V"/>
-                    <constraint firstItem="j9J-dv-jZM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="l0t-6d-HaJ"/>
+                    <constraint firstItem="j9J-dv-jZM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="l0t-6d-HaJ"/>
                     <constraint firstItem="j9J-dv-jZM" firstAttribute="bottom" secondItem="uCU-uq-MpG" secondAttribute="bottom" constant="7" id="l98-q4-uWh"/>
                     <constraint firstAttribute="trailing" secondItem="YDT-Rt-N6g" secondAttribute="trailing" constant="30" id="mld-ZS-5Bw"/>
                     <constraint firstItem="YDT-Rt-N6g" firstAttribute="leading" secondItem="uCU-uq-MpG" secondAttribute="trailing" id="nLJ-RN-l22"/>
