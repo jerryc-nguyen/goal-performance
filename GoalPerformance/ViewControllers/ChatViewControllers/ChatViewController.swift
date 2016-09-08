@@ -12,6 +12,8 @@ import Charts
 
 class ChatViewController: UIViewController {
     
+    @IBOutlet weak var chartViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var showhideChartViewButton: UIButton!
     var receiver: ChatUser?
     var goal: Goal?
  
@@ -99,6 +101,11 @@ class ChatViewController: UIViewController {
             containChartView.data = data
             containChartView.setNeedsLayout()
         }
+    }
+    
+    
+    @IBAction func showHideChartView(sender: UIButton) {
+        
     }
     
     // MARK: - Navigation
