@@ -111,7 +111,7 @@ class TimelineItemTableViewCell: UITableViewCell {
         
         lineChartView.data = lineChartData
         
-        if self.timeLineItem.currentGoalSession?.isLiked == false {
+        if self.timeLineItem.currentGoalSession?.goal.likeCount == 0 {
             realStarButton.deselect()
         } else {
             realStarButton.select()
@@ -136,7 +136,7 @@ class TimelineItemTableViewCell: UITableViewCell {
     }
     
     @IBAction func onStarAction(sender: DOFavoriteButton) {
-        if self.timeLineItem.currentGoalSession?.isLiked == false {
+        if self.timeLineItem.currentGoalSession?.goal.likeCount == 0 {
             realStarButton.deselect()
         } else {
             realStarButton.select()
