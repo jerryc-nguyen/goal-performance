@@ -14,9 +14,12 @@ class ChatViewController: UIViewController {
     
     @IBOutlet weak var chartViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var showhideChartViewButton: UIButton!
+ 
     var receiver: ChatUser?
     var goal: Goal?
- 
+    let chartHeight: CGFloat = 160
+    var isChartShow: Bool = true
+    
     @IBOutlet weak var containChartView: LineChartView!
     
     @IBOutlet weak var goalBuddiesChartHeight: NSLayoutConstraint!
@@ -105,7 +108,22 @@ class ChatViewController: UIViewController {
     
     
     @IBAction func showHideChartView(sender: UIButton) {
+        isChartShow = !isChartShow
+        showHideChart(sender)
+    }
+
+    func showHideChart(button: UIButton) {
         
+        UIView.animateWithDuration(0.4) {
+            if self.isChartShow {
+                self.chartViewHeightConstraint.constant = self.chartHeight
+                button.transform = CGAffineTransformMakeRotation(CGFloat(0))
+            } else {
+                self.chartViewHeightConstraint.constant = 0
+                button.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            }
+            self.view.layoutIfNeeded()
+        }
     }
     
     // MARK: - Navigation
