@@ -22,9 +22,12 @@ extension APIClient {
             .responseJSON { response in
                 if let JSON = response.result.value {
                     var items = [ChatItem]()
-                    for itemDictionary in JSON["data"] as! [Dictionary<String, AnyObject>] {
-                        let chatItem = ChatItem(dictionary: itemDictionary)
-                        items.append(chatItem)
+                    if let data = JSON["data"] as? [Dictionary<String, AnyObject>] {
+                        for itemDictionary in data  {
+                            let chatItem = ChatItem(dictionary: itemDictionary)
+                            items.append(chatItem)
+                        }
+                        
                     }
                     completed(items: items)
                 }
