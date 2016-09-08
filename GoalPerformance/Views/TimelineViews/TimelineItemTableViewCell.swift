@@ -108,10 +108,11 @@ class TimelineItemTableViewCell: UITableViewCell {
         lineChartView.xAxis.drawGridLinesEnabled = false
         lineChartView.xAxis.setLabelsToSkip(0)
         lineChartView.descriptionText = ""
-        
+        lineChartView.leftAxis.axisMinValue = 0
+        lineChartView.leftAxis.axisMaxValue = 100
         lineChartView.data = lineChartData
         
-        if self.timeLineItem.currentGoalSession?.isLiked == false {
+        if self.timeLineItem.currentGoalSession?.goal.likeCount == 0 {
             realStarButton.deselect()
         } else {
             realStarButton.select()
@@ -136,7 +137,7 @@ class TimelineItemTableViewCell: UITableViewCell {
     }
     
     @IBAction func onStarAction(sender: DOFavoriteButton) {
-        if self.timeLineItem.currentGoalSession?.isLiked == false {
+        if self.timeLineItem.currentGoalSession?.goal.likeCount == 0 {
             realStarButton.deselect()
         } else {
             realStarButton.select()

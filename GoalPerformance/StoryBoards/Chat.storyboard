@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Your chats-->
+        <!--Your Chats-->
         <scene sceneID="OPY-Kv-blp">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="F64-XT-bhs" customClass="MyChatsViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <constraint firstItem="c71-77-hmj" firstAttribute="leading" secondItem="P3b-hy-bkD" secondAttribute="leading" id="zfi-0k-hed"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Your chats" id="JZv-Dx-V9N"/>
+                    <navigationItem key="navigationItem" title="Your Chats" id="JZv-Dx-V9N"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="c71-77-hmj" id="m2Z-ls-Iwr"/>
@@ -41,7 +41,7 @@
             </objects>
             <point key="canvasLocation" x="989" y="209"/>
         </scene>
-        <!--Chat View Controller-->
+        <!--Your Chats-->
         <scene sceneID="TsR-Pk-BP6">
             <objects>
                 <viewController storyboardIdentifier="ChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="nCE-VD-4Gi" customClass="ChatViewController" customModule="GoalPerformance" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,11 +61,32 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i91-fi-IFG">
-                                <rect key="frame" x="0.0" y="229" width="320" height="339"/>
+                                <rect key="frame" x="0.0" y="249" width="320" height="319"/>
                                 <connections>
                                     <segue destination="dw9-Dd-ojb" kind="embed" identifier="chatListSegue" id="mxX-lN-cdL"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgH-1m-b5d">
+                                <rect key="frame" x="135" y="224" width="50" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvq-NH-3Gm">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                        <state key="normal" image="upArrowButton"/>
+                                        <connections>
+                                            <action selector="showHideChartView:" destination="nCE-VD-4Gi" eventType="touchUpInside" id="vJo-xk-ie1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bvq-NH-3Gm" secondAttribute="trailing" id="Cuo-54-rN1"/>
+                                    <constraint firstItem="bvq-NH-3Gm" firstAttribute="leading" secondItem="mgH-1m-b5d" secondAttribute="leading" id="DsW-NA-e9R"/>
+                                    <constraint firstAttribute="height" constant="30" id="VOE-8O-hC1"/>
+                                    <constraint firstAttribute="bottom" secondItem="bvq-NH-3Gm" secondAttribute="bottom" id="XiS-zC-dld"/>
+                                    <constraint firstAttribute="width" constant="50" id="ZZU-rX-Qis"/>
+                                    <constraint firstItem="bvq-NH-3Gm" firstAttribute="top" secondItem="mgH-1m-b5d" secondAttribute="top" id="vbr-N6-YpC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -73,14 +94,16 @@
                             <constraint firstItem="i91-fi-IFG" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="bottom" id="DIA-CC-HBg"/>
                             <constraint firstItem="bf0-32-fdP" firstAttribute="leading" secondItem="hGK-j7-vEM" secondAttribute="leading" id="IBG-se-B8D"/>
                             <constraint firstAttribute="trailing" secondItem="bf0-32-fdP" secondAttribute="trailing" id="Ilg-lG-UVp"/>
+                            <constraint firstItem="mgH-1m-b5d" firstAttribute="centerX" secondItem="hGK-j7-vEM" secondAttribute="centerX" id="KMI-hK-zfz"/>
                             <constraint firstItem="bf0-32-fdP" firstAttribute="width" secondItem="hGK-j7-vEM" secondAttribute="width" id="Mh8-6X-ZSh"/>
                             <constraint firstItem="bf0-32-fdP" firstAttribute="top" secondItem="foW-y9-WoO" secondAttribute="bottom" id="Qz9-Rm-ISy"/>
-                            <constraint firstItem="i91-fi-IFG" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="bottom" constant="5" id="WeM-a0-e9z"/>
+                            <constraint firstItem="i91-fi-IFG" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="bottom" constant="25" id="WeM-a0-e9z"/>
                             <constraint firstAttribute="trailing" secondItem="i91-fi-IFG" secondAttribute="trailing" id="Xcy-26-Rnq"/>
                             <constraint firstItem="um9-aG-1oh" firstAttribute="top" secondItem="i91-fi-IFG" secondAttribute="bottom" id="dFI-3m-3TY"/>
                             <constraint firstItem="bf0-32-fdP" firstAttribute="top" secondItem="hGK-j7-vEM" secondAttribute="top" id="hEf-ha-FJo"/>
                             <constraint firstItem="i91-fi-IFG" firstAttribute="leading" secondItem="hGK-j7-vEM" secondAttribute="leading" id="j1T-gd-Dbw"/>
                             <constraint firstItem="i91-fi-IFG" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="top" id="mIH-er-gGK"/>
+                            <constraint firstItem="mgH-1m-b5d" firstAttribute="top" secondItem="bf0-32-fdP" secondAttribute="bottom" id="uk8-Mn-U6c"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -91,11 +114,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="HAK-BC-w0F"/>
+                    <navigationItem key="navigationItem" title="Your Chats" id="HAK-BC-w0F"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="chartViewHeightConstraint" destination="aPS-wR-wLd" id="L3u-og-HXr"/>
                         <outlet property="containChartView" destination="bf0-32-fdP" id="utg-62-hR6"/>
                         <outlet property="goalBuddiesChartHeight" destination="aPS-wR-wLd" id="wMV-jW-50c"/>
+                        <outlet property="showhideChartViewButton" destination="bvq-NH-3Gm" id="dW9-cX-w8v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryb-p3-nTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -111,6 +136,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BXs-vk-mGH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.3411764706" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -130,7 +159,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8wF-vn-fcw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uVR-y0-L0g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="339"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -140,4 +169,7 @@
             <point key="canvasLocation" x="1830" y="159"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="upArrowButton" width="68" height="21"/>
+    </resources>
 </document>

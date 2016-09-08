@@ -34,7 +34,10 @@ class ChatListViewController: JSQMessagesViewController {
         self.senderDisplayName = sender.displayName
         
         super.viewWillAppear(animated)
-        
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
     }
     
     func setupChatLayout() {
@@ -96,12 +99,24 @@ class ChatListViewController: JSQMessagesViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func collectionView(collectionView: JSQMessagesCollectionView!, didTapCellAtIndexPath indexPath: NSIndexPath!, touchLocation: CGPoint) {
+        view.endEditing(true)
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAtIndexPath indexPath: NSIndexPath!) {
+        view.endEditing(true)
+    }
+    
     override func collectionView(collectionView: JSQMessagesCollectionView!, header headerView: JSQMessagesLoadEarlierHeaderView!, didTapLoadEarlierMessagesButton sender: UIButton!) {
         loadChatItems(false)
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        if text.characters.count == 0 {
+            return
+        }
         
         var params: [String: AnyObject] = [
             "chat[message]": text
@@ -113,14 +128,17 @@ class ChatListViewController: JSQMessagesViewController {
             params["chat[goal_id]"] = goalObject.id
         }
         
+        button.enabled = false
+        
         apiClient.createChat(params) { (chat: ChatItem?) in
+            button.enabled = true
             if let newChat = chat {
                 self.messages.append(newChat)
                 self.collectionView.reloadData()
                 self.scrollToBottomAnimated(true)
             }
-           self.finishSendingMessage()
         }
+        self.finishSendingMessage()
     }
     
 
