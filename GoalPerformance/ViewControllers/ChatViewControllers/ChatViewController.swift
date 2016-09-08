@@ -90,6 +90,8 @@ class ChatViewController: UIViewController {
             
             let data: LineChartData = LineChartData(xVals: chartData.dateLabels, dataSets: dataSets)
             
+            containChartView.leftAxis.axisMinValue = 0
+            containChartView.leftAxis.axisMaxValue = 100
             containChartView.extraTopOffset = 5
             containChartView.extraBottomOffset = 5
             containChartView.extraLeftOffset = 5
