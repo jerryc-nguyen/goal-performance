@@ -33,6 +33,10 @@ class ChatViewController: UIViewController {
         setupChartView()
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     func setupChartView() {
         if self.goal != nil {
             loadAndSetupChartForGoalDetail()
