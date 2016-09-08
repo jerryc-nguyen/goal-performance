@@ -22,15 +22,16 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         
         loadData()
-//        let currentLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        
-        
+
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .Follow
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         let currentButton: MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         self.navigationItem.rightBarButtonItem = currentButton
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
-//        mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .Follow
     }
 
     let regionRadius: CLLocationDistance = 1000
@@ -81,9 +82,6 @@ extension MapViewController: MKMapViewDelegate {
                 pinView?.image = UIImage(named: "location")
             }
             
-            
-            
-            
             return pinView
         }
         return nil
@@ -95,8 +93,9 @@ extension MapViewController: MKMapViewDelegate {
             let user = annotation.friend
             let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
             userVC.viewingUser = user
-            userVC.navigationItem.rightBarButtonItem?.enabled = false
-            userVC.addGoalButton.setTitle("", forState: .Disabled)
+            userVC.addGoalButton.setImage(UIImage(named: "goal buddy"), forState: .Normal)
+            userVC.addGoalButton.setTitle("", forState: .Normal)
+            userVC.addGoalButton.frame.size.width = 30
             if let userName = user.displayName {
                 userVC.navBarTitle = userName
             }

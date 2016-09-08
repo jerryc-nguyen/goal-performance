@@ -11,7 +11,6 @@ import UIKit
 class UserViewController: UIViewController {
  
     @IBOutlet weak var addGoalButton: UIButton!
-
     @IBOutlet weak var tableView: UITableView!
     
     var numberOfSections = 2
@@ -42,12 +41,19 @@ class UserViewController: UIViewController {
         loadUserTimeline()
     }
     
-    @IBAction func onAddGoalButton(sender: AnyObject) {
-        let newGoalVC = StoryboardManager.sharedInstance.getViewController(
-            "NewGoalViewController", storyboard: "NewGoal") as! NewGoalViewController
-        navigationController?.pushViewController(newGoalVC, animated: true)
+    @IBAction func onAddGoalButton(sender: UIButton) {
+        if sender.titleLabel?.text == "Add Goals" {
+            let newGoalVC = StoryboardManager.sharedInstance.getViewController(
+                "NewGoalViewController", storyboard: "NewGoal") as! NewGoalViewController
+            navigationController?.pushViewController(newGoalVC, animated: true)
+        } else {
+            let storyboardManager = StoryboardManager.sharedInstance
+            let chatVC = storyboardManager.getViewController("ChatViewController", storyboard: "Chat") as! ChatViewController
+            chatVC.receiver = ChatUser(dictionary: self.viewingUser.userData)
+            navigationController?.pushViewController(chatVC, animated: true)
+
+        }
     }
-    
     
     func registerNibs() {
         tableView.registerNib(UINib(nibName: "UserProfileTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "UserProfileTableViewCell")

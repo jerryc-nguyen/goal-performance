@@ -62,8 +62,9 @@ class GoalBuddiesTableViewController: UITableViewController, FriendTableViewCell
         let user = buddies[indexPath.row]
         let userVC = storyboardManager.getViewController("UserViewController", storyboard: "User") as! UserViewController
         userVC.viewingUser = user
-        userVC.navigationItem.rightBarButtonItem?.enabled = false
-        userVC.addGoalButton.setTitle("", forState: .Disabled)
+        userVC.addGoalButton.setImage(UIImage(named: "goal buddy"), forState: .Normal)
+        userVC.addGoalButton.setTitle("", forState: .Normal)
+        userVC.addGoalButton.frame.size.width = 30
         if let userName = user.displayName {
             userVC.navBarTitle = userName
         }
