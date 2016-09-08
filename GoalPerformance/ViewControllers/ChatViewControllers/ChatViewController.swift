@@ -22,6 +22,8 @@ class ChatViewController: UIViewController {
     
     @IBOutlet weak var containChartView: LineChartView!
     
+    @IBOutlet weak var upDownBtn: UIButton!
+    
     @IBOutlet weak var goalBuddiesChartHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -41,6 +43,7 @@ class ChatViewController: UIViewController {
         if self.goal != nil {
             loadAndSetupChartForGoalDetail()
         } else {
+            upDownBtn.hidden = true
             goalBuddiesChartHeight.constant = 0
         }
     }

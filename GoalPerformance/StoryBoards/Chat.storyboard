@@ -53,13 +53,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bf0-32-fdP" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="aPS-wR-wLd"/>
-                                </constraints>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i91-fi-IFG">
                                 <rect key="frame" x="0.0" y="249" width="320" height="319"/>
                                 <connections>
@@ -85,6 +78,13 @@
                                     <constraint firstAttribute="bottom" secondItem="bvq-NH-3Gm" secondAttribute="bottom" id="XiS-zC-dld"/>
                                     <constraint firstAttribute="width" constant="50" id="ZZU-rX-Qis"/>
                                     <constraint firstItem="bvq-NH-3Gm" firstAttribute="top" secondItem="mgH-1m-b5d" secondAttribute="top" id="vbr-N6-YpC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bf0-32-fdP" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="aPS-wR-wLd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -121,6 +121,7 @@
                         <outlet property="containChartView" destination="bf0-32-fdP" id="utg-62-hR6"/>
                         <outlet property="goalBuddiesChartHeight" destination="aPS-wR-wLd" id="wMV-jW-50c"/>
                         <outlet property="showhideChartViewButton" destination="bvq-NH-3Gm" id="dW9-cX-w8v"/>
+                        <outlet property="upDownBtn" destination="bvq-NH-3Gm" id="uDO-hI-mLu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryb-p3-nTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
