@@ -25,6 +25,7 @@ class FriendViewController: UIViewController, CAPSPageMenuDelegate {
     var controllerArray : [UITableViewController] = []
     var storyboardManager  = StoryboardManager.sharedInstance
     
+    var isTheSecondTime = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +59,15 @@ class FriendViewController: UIViewController, CAPSPageMenuDelegate {
             .SelectionIndicatorHeight(2.0),
         ]
         
-        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.size.width, self.view.frame.height), pageMenuOptions: parameters)
+        pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, self.view.bounds.origin.y, UIScreen.mainScreen().bounds.size.width, self.view.frame.height), pageMenuOptions: parameters)
         self.view.addSubview(pageMenu!.view)
     }
 
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if isTheSecondTime {
+            pageMenu?.view.frame = CGRectMake(0.0, 64, UIScreen.mainScreen().bounds.size.width, self.view.frame.height)
+        }
+        isTheSecondTime = true
+    }
 }
