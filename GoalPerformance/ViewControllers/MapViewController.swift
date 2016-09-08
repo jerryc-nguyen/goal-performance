@@ -22,15 +22,16 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         
         loadData()
-//        let currentLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        
-        
+
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .Follow
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         let currentButton: MKUserTrackingBarButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
         self.navigationItem.rightBarButtonItem = currentButton
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
-//        mapView.setCenterCoordinate(mapView.userLocation.coordinate, animated: true)
-        mapView.showsUserLocation = true
-        mapView.userTrackingMode = .Follow
     }
 
     let regionRadius: CLLocationDistance = 1000
