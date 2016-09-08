@@ -85,8 +85,8 @@ extension APIClient {
                         title = "Success!"
                         message = dictionary["message"] as! String
                     } else {
-                        title = "Fail"
-                        message = JSON["error_message"] as! String
+                        title = "Fail!"
+                        message = "Accept requeest friend fail, try again!"
                     }
                     
                     completed(title: title, message: message)

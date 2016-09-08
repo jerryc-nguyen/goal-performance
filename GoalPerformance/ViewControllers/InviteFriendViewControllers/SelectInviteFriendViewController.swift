@@ -18,6 +18,8 @@ class SelectInviteFriendViewController: UIViewController, SuggestFriendTableView
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var suggestedFriendLabel: UILabel!
+    
+    
     var storyboardManager = StoryboardManager.sharedInstance
     var apiClient = APIClient.sharedInstance
     var friends = [User]()
