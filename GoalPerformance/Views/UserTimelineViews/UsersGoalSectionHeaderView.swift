@@ -52,8 +52,8 @@ class UsersGoalSectionHeaderView: UIView {
             print("yay")
         } else {
             settingButton.hidden = true
-            goalBuddiesImgView.hidden = true
-            challengeRightConstraintToSettings.constant = 1
+            //goalBuddiesImgView.hidden = true
+            challengeRightConstraintToSettings.constant = -30
         }
     }
     
